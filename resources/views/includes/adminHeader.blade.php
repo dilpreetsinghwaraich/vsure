@@ -32,7 +32,8 @@
         </div>
       </div>
       <ul class="sidebar-menu scrollable pos-r">
-        <li class="nav-item mT-30 active"><a class="sidebar-link" href="<?php echo url('admin/dashboard'); ?>" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Dashboard</span></a></li>        
+        <li class="nav-item mT-30 active"><a class="sidebar-link" href="<?php echo url('admin/dashboard'); ?>" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Dashboard</span></a></li>
+        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/users'); ?>" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Users</span></a></li>        
       </ul>
     </div>
   </div>
@@ -59,12 +60,15 @@
         </ul>
       </div>
     </div>
-    @if (Session::has('success'))
-      <div class="alert alert-info">{{ Session::get('success') }}</div>
-    @endif
-    @if (Session::has('warning'))
-      <div class="alert alert-warning">{{ Session::get('warning') }}</div>
-    @endif
-    @if (Session::has('error'))
-      <div class="alert alert-danger">{{ Session::get('error') }}</div>
-    @endif
+    <main class="main-content bgc-grey-100">
+      <div id="mainContent">
+        <div class="container-fluid">
+          @if (Session::has('success'))
+          <div class="alert alert-info">{{ Session::get('success') }}</div>
+        @endif
+        @if (Session::has('warning'))
+          <div class="alert alert-warning">{{ Session::get('warning') }}</div>
+        @endif
+        @if (Session::has('error'))
+          <div class="alert alert-danger">{{ Session::get('error') }}</div>
+        @endif

@@ -27,4 +27,10 @@ Route::post('/admin/login', 'Admin\Auth\LoginController@loginAccess');
 Route::group(['middleware' => 'adminToken'], function () {
 	Route::get('/admin/dashboard', 'Admin\Home\AdminDashboardController@home');
 	Route::get('/admin/logout', 'Admin\Auth\LoginController@logout');
+
+	Route::get('/admin/users', 'Admin\Users\AdminUsersController@index');
+	Route::get('/admin/user/edit/{user_id?}', 'Admin\Users\AdminUsersController@editUser');
+	Route::post('/admin/user/update/{user_id?}', 'Admin\Users\AdminUsersController@updateUser');
+	Route::get('/admin/user/delete/{user_id?}', 'Admin\Users\AdminUsersController@deleteUser');
+
 });

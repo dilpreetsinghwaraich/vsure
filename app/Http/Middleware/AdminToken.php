@@ -18,20 +18,21 @@ class AdminToken
      */
     public function handle($request, Closure $next)
     {
-        if(empty(session('token')))
+
+        if(empty(Session('token')))
         {
             Session::forget('token');
             Session::flash('message', "Your Session has been expired, Please login again.");
             return redirect('/admin/login');
         }
-        $user = User::first();        
+        $user = User::first(); 
         if(empty($user))
         {
             Session::forget('token');
             Session::flash('message', "Your Session has been expired, Please login again.");
             return redirect('/admin/login');
         } 
-        if($user->roll != 'admin')
+        if($user->role != 'admin')
         {
             Session::forget('token');
             Session::flash('message', "Your Session has been expired, Please login again.");

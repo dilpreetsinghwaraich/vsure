@@ -17,7 +17,6 @@ class LoginController extends Controller
     public function loginAccess(Request $request)
     {
         $user = User::login($request);
-
         if($user['error']==true)
         {
             Session::flash('error', $user['message']);

@@ -15,13 +15,14 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $primaryKey = 'user_id';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'phone', 'company', 'county', 'state', 'city', 'role', 'password',
     ];
 
     /**
@@ -49,6 +50,15 @@ class User extends Authenticatable
         } catch (JWTException $e) {
             return ['error' => true,'message'=>'Failed to create access to login','token'=>''];
         }
+
+        $user = \App\User::first();
+        DB::table('users_last_login')->insert([
+            'user_id' => $user->user_id,
+            'token' => $token,
+            'created_at' => date('Y-m-d h:i:s'),
+            'updated_at' => date('Y-m-d h:i:s')
+        ]);
+        
         return ['error' => false,'message'=>'Login Successfully','token'=>$token];
     }
     protected function logout()
@@ -56,5 +66,13 @@ class User extends Authenticatable
         JWTAuth::invalidate(session('token'));
         Session::forget('token');
         return ['error' => false,'message'=>'Logout Successfully','token'=>''];
+    }
+    public function rules()
+    {
+        $user_id = \Route::current()->getParameter('user_id');
+        return [
+          'name' => 'required',
+          'email' => 'unique:users,email,'.$user_id.'|email|required',
+        ];
     }
 }

@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('country', 50)->nullable();
             $table->string('state', 50)->nullable();
             $table->string('city', 50)->nullable(); 
-            $table->string('roll', 50)->default('subcriber');            
+            $table->string('role', 50)->default('subcriber');            
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

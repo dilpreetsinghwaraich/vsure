@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'phone' => '9034831200',
-            'roll' => 'admin',
+            'role' => 'admin',
             'password' => bcrypt('admin'),
             'email_verified_at' => date('Y-m-d h:i:s'), 
             'created_at' => date('Y-m-d h:i:s'),
