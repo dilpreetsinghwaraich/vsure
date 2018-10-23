@@ -33,9 +33,24 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::get('/admin/dashboard', 'Admin\Home\AdminDashboardController@home');
 	Route::get('/admin/logout', 'Admin\Auth\LoginController@logout');
 
+	/******update delete edit view user******/
 	Route::get('/admin/users', 'Admin\Users\AdminUsersController@index');
 	Route::get('/admin/user/edit/{user_id?}', 'Admin\Users\AdminUsersController@editUser');
 	Route::post('/admin/user/update/{user_id?}', 'Admin\Users\AdminUsersController@updateUser');
 	Route::get('/admin/user/delete/{user_id?}', 'Admin\Users\AdminUsersController@deleteUser');
+
+	/******update delete edit view user******/
+	Route::get('/admin/questions', 'Admin\Questions\AdminQuestionsController@index');
+	Route::post('/admin/save/question', 'Admin\Questions\AdminQuestionsController@save');
+	Route::get('/admin/edit/question/{question_id?}', 'Admin\Questions\AdminQuestionsController@edit');
+	Route::post('/admin/update/question/{question_id?}', 'Admin\Questions\AdminQuestionsController@update');
+	Route::get('/admin/delete/question/{question_id?}', 'Admin\Questions\AdminQuestionsController@delete');
+
+	/******update delete edit view user******/
+	Route::get('/admin/terms', 'Admin\Terms\AdminTermsController@index');
+	Route::post('/admin/save/term', 'Admin\Terms\AdminTermsController@save');
+	Route::get('/admin/edit/term/{term_id?}', 'Admin\Terms\AdminTermsController@edit');
+	Route::post('/admin/update/term/{term_id?}', 'Admin\Terms\AdminTermsController@update');
+	Route::get('/admin/delete/term/{term_id?}', 'Admin\Terms\AdminTermsController@delete');
 
 });

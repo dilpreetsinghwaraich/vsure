@@ -22,7 +22,7 @@
                 <div class="logo"><img src="<?php echo asset('public/admin/images') ?>/logo.png" alt=""></div>
               </div>
               <div class="peer peer-greed">
-                <h5 class="lh-1 mB-0 logo-text">Adminator</h5>
+                <h5 class="lh-1 mB-0 logo-text">Vsure Consulting </h5>
               </div>
             </div>
             </a></div>
@@ -33,7 +33,16 @@
       </div>
       <ul class="sidebar-menu scrollable pos-r">
         <li class="nav-item mT-30 active"><a class="sidebar-link" href="<?php echo url('admin/dashboard'); ?>" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Dashboard</span></a></li>
-        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/users'); ?>" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Users</span></a></li>        
+        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/users'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Users</span></a></li>
+        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/terms'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Terms</span></a></li>
+        <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-orange-500 ti-layout-list-thumb"></i> </span><span class="title">Services</span> <span class="arrow"><i class="ti-angle-right"></i></span></a>
+          <ul class="dropdown-menu">
+            <li><a class="sidebar-link" href="<?php echo url('admin/services'); ?>">All Services</a></li>
+            <li><a class="sidebar-link" href="<?php echo url('admin/add/services'); ?>">Add Service</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/questions'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Questions</span></a></li>
+          
       </ul>
     </div>
   </div>
