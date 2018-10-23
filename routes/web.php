@@ -13,8 +13,13 @@
 Route::get('/cache', function() {
     $exitCode = Artisan::call('cache:clear');
     $exitCode = Artisan::call('view:clear');
-     $exitCode = Artisan::call('config:cache');
+    $exitCode = Artisan::call('config:cache');
 });
+
+Route::get('/migrate', function() {
+    \Artisan::call('migrate:refresh',['--seed' => ' ']);
+});
+
 Route::get('/', 'Home\HomeController@home');
 Route::get('/about-us', 'Home\HomeController@aboutUs');
 Route::get('/contact-us', 'Contact\ContactController@contactUs');
