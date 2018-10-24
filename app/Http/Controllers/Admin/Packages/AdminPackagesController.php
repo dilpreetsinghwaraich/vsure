@@ -63,7 +63,7 @@ class AdminPackagesController extends Controller
     	}
         $terms = Terms::where('term_type','package')->select('*')->get();
         $package->package_content = \Helper::maybe_unserialize($package->package_content);
-        $package->document_terms = \Helper::maybe_unserialize($package->document_terms);
+        $package->package_terms = \Helper::maybe_unserialize($package->package_terms);
         return view('Includes.adminCommonTemplate',compact('view','package','terms'));	
     }
     public function update(Request $request, $package_id = null)

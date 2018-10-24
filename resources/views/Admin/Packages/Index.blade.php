@@ -24,8 +24,8 @@
                     <td><?php echo $package->package_title; ?></td>
                     <td><?php echo $package->price; ?></td>
                     <td>
-                      <a href="<?php echo url('admin/edit/package/'.$package->document_id) ?>">Edit</a>
-                      | <a href="<?php echo url('admin/delete/package/'.$package->document_id) ?>">Delete</a></td>
+                      <a href="<?php echo url('admin/edit/package/'.$package->package_id) ?>">Edit</a>
+                      | <a href="<?php echo url('admin/delete/package/'.$package->package_id) ?>">Delete</a></td>
                   </tr>
                   <?php 
                   $sno++;
