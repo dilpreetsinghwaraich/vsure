@@ -16,7 +16,7 @@
                   </div>
                   <div class="form-group col-md-12">
                     <label for="question_terms">Question Terms</label>
-                    <select name="question_terms[]" id="question_terms" multiple="" class="form-control select2-multiple">
+                    <select name="question_terms[]" id="question_terms" multiple="" class="form-control select2-multiple multiSelect">
                       <option value="">Select Term</option>
                       <?php
                         foreach ($terms as $term) {

@@ -37,6 +37,10 @@ class ComposerStaticInitcbf6f469619a0da8336ec84096dbb370
             'Whoops\\' => 7,
             'Webmozart\\Assert\\' => 17,
         ),
+        'U' => 
+        array (
+            'Unisharp\\Ckeditor\\' => 18,
+        ),
         'T' => 
         array (
             'Tymon\\JWTAuth\\' => 14,
@@ -149,6 +153,10 @@ class ComposerStaticInitcbf6f469619a0da8336ec84096dbb370
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'Unisharp\\Ckeditor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/unisharp/laravel-ckeditor',
         ),
         'Tymon\\JWTAuth\\' => 
         array (
@@ -376,8 +384,10 @@ class ComposerStaticInitcbf6f469619a0da8336ec84096dbb370
         'App\\Facades\\HelperFacade' => __DIR__ . '/../..' . '/app/Facades/HelperFacade.php',
         'App\\Features' => __DIR__ . '/../..' . '/app/Features.php',
         'App\\Http\\Controllers\\Admin\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Auth/LoginController.php',
+        'App\\Http\\Controllers\\Admin\\Features\\AdminFeaturesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Features/AdminFeaturesController.php',
         'App\\Http\\Controllers\\Admin\\Home\\AdminDashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Home/AdminDashboardController.php',
         'App\\Http\\Controllers\\Admin\\Questions\\AdminQuestionsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Questions/AdminQuestionsController.php',
+        'App\\Http\\Controllers\\Admin\\Terms\\AdminTermsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Terms/AdminTermsController.php',
         'App\\Http\\Controllers\\Admin\\Users\\AdminUsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Documents/AdminUsersController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -406,6 +416,7 @@ class ComposerStaticInitcbf6f469619a0da8336ec84096dbb370
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Questions' => __DIR__ . '/../..' . '/app/Questions.php',
         'App\\Services' => __DIR__ . '/../..' . '/app/Services.php',
+        'App\\Terms' => __DIR__ . '/../..' . '/app/Terms.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
@@ -3811,6 +3822,7 @@ class ComposerStaticInitcbf6f469619a0da8336ec84096dbb370
         'Tymon\\JWTAuth\\Validators\\PayloadValidator' => __DIR__ . '/..' . '/tymon/jwt-auth/src/Validators/PayloadValidator.php',
         'Tymon\\JWTAuth\\Validators\\TokenValidator' => __DIR__ . '/..' . '/tymon/jwt-auth/src/Validators/TokenValidator.php',
         'Tymon\\JWTAuth\\Validators\\ValidatorInterface' => __DIR__ . '/..' . '/tymon/jwt-auth/src/Validators/ValidatorInterface.php',
+        'Unisharp\\Ckeditor\\ServiceProvider' => __DIR__ . '/..' . '/unisharp/laravel-ckeditor/ServiceProvider.php',
         'UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UsersTableSeeder.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Whoops\\Exception\\ErrorException' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/ErrorException.php',

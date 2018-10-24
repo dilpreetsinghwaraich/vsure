@@ -11,6 +11,6 @@ class Documents extends Model
     protected $primaryKey = 'document_id';
 
     protected $fillable = [
-        'document_title', 'document_content'
+        'document_title', 'document_promoter', 'document_company', 'document_terms'
     ];
 }

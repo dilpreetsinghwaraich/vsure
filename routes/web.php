@@ -39,18 +39,40 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::post('/admin/user/update/{user_id?}', 'Admin\Users\AdminUsersController@updateUser');
 	Route::get('/admin/user/delete/{user_id?}', 'Admin\Users\AdminUsersController@deleteUser');
 
-	/******update delete edit view user******/
+	/******update delete edit view questions******/
 	Route::get('/admin/questions', 'Admin\Questions\AdminQuestionsController@index');
 	Route::post('/admin/save/question', 'Admin\Questions\AdminQuestionsController@save');
 	Route::get('/admin/edit/question/{question_id?}', 'Admin\Questions\AdminQuestionsController@edit');
 	Route::post('/admin/update/question/{question_id?}', 'Admin\Questions\AdminQuestionsController@update');
 	Route::get('/admin/delete/question/{question_id?}', 'Admin\Questions\AdminQuestionsController@delete');
 
-	/******update delete edit view user******/
+	/******update delete edit view terms******/
 	Route::get('/admin/terms', 'Admin\Terms\AdminTermsController@index');
 	Route::post('/admin/save/term', 'Admin\Terms\AdminTermsController@save');
 	Route::get('/admin/edit/term/{term_id?}', 'Admin\Terms\AdminTermsController@edit');
 	Route::post('/admin/update/term/{term_id?}', 'Admin\Terms\AdminTermsController@update');
 	Route::get('/admin/delete/term/{term_id?}', 'Admin\Terms\AdminTermsController@delete');
+
+	/******update delete edit view Features******/
+	Route::get('/admin/features', 'Admin\Features\AdminFeaturesController@index');
+	Route::post('/admin/save/feature', 'Admin\Features\AdminFeaturesController@save');
+	Route::get('/admin/edit/feature/{feature_id?}', 'Admin\Features\AdminFeaturesController@edit');
+	Route::post('/admin/update/feature/{feature_id?}', 'Admin\Features\AdminFeaturesController@update');
+	Route::get('/admin/delete/feature/{feature_id?}', 'Admin\Features\AdminFeaturesController@delete');
+
+	/******update delete edit view documents******/
+	Route::get('/admin/documents', 'Admin\Documents\AdminDocumentsController@index');
+	Route::post('/admin/save/document', 'Admin\Documents\AdminDocumentsController@save');
+	Route::get('/admin/edit/document/{document_id?}', 'Admin\Documents\AdminDocumentsController@edit');
+	Route::post('/admin/update/document/{document_id?}', 'Admin\Documents\AdminDocumentsController@update');
+	Route::get('/admin/delete/document/{document_id?}', 'Admin\Documents\AdminDocumentsController@delete');
+
+	/******update delete edit view packages******/
+	Route::get('/admin/packages', 'Admin\Packages\AdminPackagesController@index');
+	Route::get('/admin/add/package', 'Admin\Packages\AdminPackagesController@add');
+	Route::post('/admin/save/package', 'Admin\Packages\AdminPackagesController@save');
+	Route::get('/admin/edit/package/{package_id?}', 'Admin\Packages\AdminPackagesController@edit');
+	Route::post('/admin/update/package/{package_id?}', 'Admin\Packages\AdminPackagesController@update');
+	Route::get('/admin/delete/package/{package_id?}', 'Admin\Packages\AdminPackagesController@delete');
 
 });

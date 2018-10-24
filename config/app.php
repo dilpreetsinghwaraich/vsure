@@ -162,6 +162,7 @@ return [
         App\Providers\HelperServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
 
     ],
 

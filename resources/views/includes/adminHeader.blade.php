@@ -8,6 +8,7 @@
 <base href="<?php echo url('/'); ?>">
 
 <link href="<?php echo asset('public/admin/css') ?>/style.css" rel="stylesheet">
+<link href="<?php echo asset('/public/vendor');?>/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body class="app">
   <?php $user = \Helper::getCurrentUser(); ?>
@@ -42,7 +43,9 @@
           </ul>
         </li>
         <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/questions'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Questions</span></a></li>
-          
+        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/features'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Features</span></a></li>  
+        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/documents'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Documents</span></a></li>
+        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/packages'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Packages</span></a></li>          
       </ul>
     </div>
   </div>

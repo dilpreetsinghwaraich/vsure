@@ -111,7 +111,7 @@ class Helper
 	}
 	public static function fileuploadExtra($request, $key){
 	    $file = $request->file($key);
-	    $destinationPath = 'public/images/images/uploads/'.date('Y').'/'.date('M');
+	    $destinationPath = 'public/images/uploads/'.date('Y').'/'.date('M');
 	    $filename = time().'_'.$file->getClientOriginalName();
 	    $upload_success = $file->move($destinationPath, $filename);
 	    $uploaded_file = 'public/images/uploads/'.date('Y').'/'.date('M').'/'.$filename;            

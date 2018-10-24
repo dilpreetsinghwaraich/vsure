@@ -17,7 +17,8 @@ class CreatePackagesTable extends Migration
             $table->increments('package_id');
             $table->string('package_title', 250)->nullable();
             $table->text('package_content')->nullable();
-            $table->decimal('price', 10, 2);
+            $table->text('package_terms')->nullable();
+            $table->bigInteger('price');
             $table->timestamps();
         });
     }
