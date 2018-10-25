@@ -23,9 +23,11 @@ class AdminPackagesController extends Controller
     {
         return array(
             'package_title' => 'required',
-            'price' => 'required|max:999999999|integer',
+            'regular_price' => 'required|max:999999999|integer',
+            'sale_price' => 'max:999999999|integer',
             'package_content' => 'required',
             'package_terms' => 'required',
+            'status' => 'required',
         );
     }
     public function add()
@@ -40,7 +42,11 @@ class AdminPackagesController extends Controller
         if($validator->passes()){
             $package = new Packages();       
             $package->package_title = $request->input('package_title');
-            $package->price = $request->input('price');
+            $package->regular_price = $request->input('regular_price');
+            $package->sale_price = $request->input('sale_price');
+            $package->discount_start = $request->input('discount_start');
+            $package->discount_end = $request->input('discount_end');
+            $package->status = $request->input('status');
             $package->package_content = \Helper::maybe_serialize($request->input('package_content'));
             $package->package_terms = \Helper::maybe_serialize($request->input('package_terms'));            
             $package->created_at = date('Y-m-d h:i:s');
@@ -76,7 +82,11 @@ class AdminPackagesController extends Controller
         $validator = Validator::make(Input::all(), self::rules());
         if($validator->passes()){
     	    $package->package_title = $request->input('package_title');
-            $package->price = $request->input('price');
+            $package->regular_price = $request->input('regular_price');
+            $package->sale_price = $request->input('sale_price');
+            $package->discount_start = $request->input('discount_start');
+            $package->discount_end = $request->input('discount_end');
+            $package->status = $request->input('status');
             $package->package_content = \Helper::maybe_serialize($request->input('package_content'));
             $package->package_terms = \Helper::maybe_serialize($request->input('package_terms'));
     	    $package->updated_at = date('Y-m-d h:i:s');

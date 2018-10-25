@@ -75,4 +75,12 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::post('/admin/update/package/{package_id?}', 'Admin\Packages\AdminPackagesController@update');
 	Route::get('/admin/delete/package/{package_id?}', 'Admin\Packages\AdminPackagesController@delete');
 
+	/******update delete edit view Services******/
+	Route::get('/admin/services', 'Admin\Services\AdminServicesController@index');
+	Route::get('/admin/add/service', 'Admin\Services\AdminServicesController@add');
+	Route::post('/admin/save/service', 'Admin\Services\AdminServicesController@save');
+	Route::get('/admin/edit/service/{service_id?}', 'Admin\Services\AdminServicesController@edit');
+	Route::post('/admin/update/service/{service_id?}', 'Admin\Services\AdminServicesController@update');
+	Route::get('/admin/delete/service/{service_id?}', 'Admin\Services\AdminServicesController@delete');
+
 });

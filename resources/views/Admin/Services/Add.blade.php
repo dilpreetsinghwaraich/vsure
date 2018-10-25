@@ -4,7 +4,7 @@
         <div class="masonry-item col-md-12">
           <div class="bgc-white p-20 bd">
             <div class="mT-30">
-              <?php echo Form::open(array('url' => 'admin/save/package/', 'method' => 'post')) ?>
+              <?php echo Form::open(array('url' => 'admin/save/service/', 'method' => 'post')) ?>
                 <div class="form-row">
                   <div class="form-group col-md-12">
                     <label for="package_title">Title</label>

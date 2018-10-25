@@ -11,8 +11,20 @@
                     <input type="text" class="form-control" id="package_title" name="package_title" value="<?php echo $package->package_title ?>" placeholder="Title">
                   </div>
                   <div class="form-group col-md-12">
-                    <label for="price">Price</label>
-                    <input type="number" class="form-control" id="price" name="price" value="<?php echo $package->price ?>" placeholder="Price">
+                    <label for="regular_price">Regular Price</label>
+                    <input type="text" class="form-control InputNumber" id="regular_price" name="regular_price" value="<?php echo $package->regular_price ?>" placeholder="Regular Price">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="sale_price">Sale Price</label>
+                    <input type="text" class="form-control InputNumber" id="sale_price" name="sale_price" value="<?php echo $package->sale_price ?>" placeholder="Sale Price">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="discount_start">Discount Start</label>
+                    <input type="text" class="form-control vsureDatepicker" id="discount_start" name="discount_start" value="<?php echo $package->discount_start ?>" placeholder="Discount Start">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="discount_end">Discount End</label>
+                    <input type="text" class="form-control vsureDatepicker" id="discount_end" name="discount_end" value="<?php echo $package->discount_end ?>" placeholder="Discount End">
                   </div>
                   <div class="form-group col-md-12">
                     <label for="package_content">Content</label>
@@ -27,6 +39,13 @@
                           echo "<option value='".$term->term_id."' ".(is_array($package->package_terms) && in_array($term->term_id, $package->package_terms)?"selected":"").">".$term->term_title."</option>";
                         }
                       ?>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="status">Status</label>
+                    <select name="status" id="status" class="form-control select2-multiple multiSelect">
+                      <option value="1" <?php echo ($package->status == 1?'selected':''); ?>>Publish</option>
+                      <option value="0" <?php echo ($package->status == 0?'selected':''); ?>>Draft</option>
                     </select>
                   </div>
                 </div>                                     

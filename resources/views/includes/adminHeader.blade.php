@@ -7,6 +7,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <base href="<?php echo url('/'); ?>">
 
+<link href="<?php echo asset('public/admin/css') ?>/jquery-ui.css" rel="stylesheet">
 <link href="<?php echo asset('public/admin/css') ?>/style.css" rel="stylesheet">
 <link href="<?php echo asset('/public/vendor');?>/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
 </head>
@@ -36,12 +37,7 @@
         <li class="nav-item mT-30 active"><a class="sidebar-link" href="<?php echo url('admin/dashboard'); ?>" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Dashboard</span></a></li>
         <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/users'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Users</span></a></li>
         <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/terms'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Terms</span></a></li>
-        <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-orange-500 ti-layout-list-thumb"></i> </span><span class="title">Services</span> <span class="arrow"><i class="ti-angle-right"></i></span></a>
-          <ul class="dropdown-menu">
-            <li><a class="sidebar-link" href="<?php echo url('admin/services'); ?>">All Services</a></li>
-            <li><a class="sidebar-link" href="<?php echo url('admin/add/services'); ?>">Add Service</a></li>
-          </ul>
-        </li>
+        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/services'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Services</span></a></li>
         <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/questions'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Questions</span></a></li>
         <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/features'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Features</span></a></li>  
         <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/documents'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Documents</span></a></li>

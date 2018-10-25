@@ -189,4 +189,22 @@ class Helper
 	    }
 	    return $dates;
 	}
+	public static function displayPrice($package)
+    {
+        if (!empty($package->discount_start) && !empty($package->discount_end) && date('Y-m-d') >= date('Y-m-d', strtotime($package->discount_start)) && date('Y-m-d') <= date('Y-m-d', strtotime($package->discount_end))) {
+            return '<span class="special-price">&#8377; '.$package->sale_price.'</span> <del>&#8377; '.$package->regular_price.'</del>';
+        }else
+        {
+            return '<span class="special-price">&#8377; '.$package->regular_price.' </span>';
+        }
+    }
+    public static function displayPriceOnly($package)
+    {
+        if (!empty($package->discount_start) && !empty($package->discount_end) && date('Y-m-d') >= date('Y-m-d', strtotime($package->discount_start)) && date('Y-m-d') <= date('Y-m-d', strtotime($package->discount_end))) {
+            return $package->sale_price;
+        }else
+        {
+            return $package->regular_price;
+        }
+    }
 }

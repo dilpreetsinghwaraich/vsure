@@ -23,6 +23,8 @@ class CreateServicesTable extends Migration
             $table->text('service_documents')->nullable();
             $table->text('service_process_results')->nullable();
             $table->text('service_packages')->nullable();
+            $table->integer('status');
+            $table->integer('show_nav_menu');
             $table->timestamps();
         });
     }
