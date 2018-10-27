@@ -17,15 +17,15 @@
     src: url(../fonts/roboto.light.ttf);
 }
 body {
-	line-height: 1.4;
-	font-family: 'roboto';
+    line-height: 1.4;
+    font-family: 'roboto';
     color: #67696c;
     font-size: 16px;
     letter-spacing: 0.5px;
     overflow-x: hidden;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 
 .section-padding
@@ -40,14 +40,15 @@ HEADER
 ***********************************/
 
 .header{
+    background: url('../img/home.jpg') no-repeat;
     background-size: cover;
     position: relative;
 }
 .bg-color
-{	
-	background-repeat:no-repeat;
-	background-size:cover;
-	background-position:center;
+{   background-image: url("home-back.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
     /*background: linear-gradient(left, rgba(49, 87, 196,0.7), rgba(90, 44, 158,0.7));
     background: -moz-linear-gradient(left, rgba(49, 87, 196,0.7), rgba(90, 44, 158,0.7));
     background: -ms-linear-gradient(left, rgba(49, 87, 196,0.7), rgba(90, 44, 158,0.7));
@@ -69,16 +70,16 @@ HEADER
     background: #fff;
 }
 .dropdown button{
-	/*background: transparent; */
+    /*background: transparent; */
     border: 0;
 }
 .service_box{
-	width: 620px;
+    width: 620px;
     padding: 10px;
 }
 .service_box .col-lg-6 a{
-	line-height:30px;
-	color:#333;
+    line-height:30px;
+    color:#333;
 }
 .navbar-default .navbar-nav > li > a
 {
@@ -392,7 +393,7 @@ Blog
     position: relative;
     margin-bottom: 20px;
     overflow: hidden;
-	padding: 0 5px;
+    padding: 0 5px;
 }
 
 .blog-img h2 {
@@ -516,18 +517,18 @@ contact
    background: #fff;
 }
 .botom input::placeholder { 
-	color: #333; 
+    color: #333; 
 }
 #mssg{
-	padding-left: 8px; 
+    padding-left: 8px; 
    /*  height:80px; */
     background: #fff;
     width: 100%;
     border-radius: 3px;
-	color:#333;
+    color:#333;
 }
 #mssg::placeholder { 
-	color: #333; 
+    color: #333; 
 }
 .botom .button{
     background: #3bb14b;
@@ -536,12 +537,12 @@ contact
     padding: 8px 35px;
     color: #fff;
     margin-bottom: 20px;
-	width: auto;
+    width: auto;
 }
 input.footer_button {
     background: #3bb14b;
     float: left;
-	color:#fff;
+    color:#fff;
     width: 150px;
 }
 
@@ -598,7 +599,7 @@ SERVICE-PAGE-HEADER
 .banners-service-page .left-content h2 {
     float: left;
     font-size: 18px;
-	width:100%;
+    width:100%;
 }
 .banners-service-page .left-content h2:before {
     content: url(tick.png);
@@ -612,7 +613,7 @@ SERVICE-PAGE-HEADER
     padding: 15px 40px;
     border-radius: 5px;
     box-shadow: 0 0 4px 0 #333;
-	margin:30px 0px 0 33px;
+    margin:30px 0px 0 33px;
 }
 .banners-service-page .right-service-contact-form {
     float: left;
@@ -625,16 +626,16 @@ SERVICE-PAGE-HEADER
 .banners-service-page .right-service-contact-form h2{
     float: left;
     width: 100%;
-	color:#fff;
-	font-size:20px;
-	margin-bottom:0;
+    color:#fff;
+    font-size:20px;
+    margin-bottom:0;
 }
 .banners-service-page .right-service-contact-form h3{
     float: left;
     width: 100%;
-	color:#fff;
-	font-size:22px;
-	margin:0 0 10px 0;
+    color:#fff;
+    font-size:22px;
+    margin:0 0 10px 0;
 }
 .banners-service-page .right-service-contact-form input {
     float: left;
@@ -642,7 +643,7 @@ SERVICE-PAGE-HEADER
     border: 1px solid#a291c2;
     color: #fff;
     font-size: 17px;
-	margin: 10px 0;
+    margin: 10px 0;
     padding: 5px;
     background: transparent;
     border-radius: 5px;
@@ -661,7 +662,7 @@ SERVICE-PAGE-HEADER
 section#pvt-ltd-company {
     float: left;
     width: 100%;
-	margin-top:3em;
+    margin-top:3em;
 }
 .pvt-ltd-company-main {
     float: left;
@@ -670,16 +671,16 @@ section#pvt-ltd-company {
 .pvt-ltd-company-main  h2{
     float: left;
     width: 100%;
-	font-size:30px;
-	text-transform:uppercase;
-	color:#333;
-	margin-bottom:0;
+    font-size:30px;
+    text-transform:uppercase;
+    color:#333;
+    margin-bottom:0;
 }
 .pvt-ltd-company-main  h3{
     float: left;
     width: 100%;
-	font-size:18px;
-	color:#333;
+    font-size:18px;
+    color:#333;
 }
 .pvt-ltd-company-main ul.nav.nav-tabs {
     float: left;
@@ -688,7 +689,7 @@ section#pvt-ltd-company {
 }
 .pvt-ltd-company-main ul.nav.nav-tabs li a {
     padding:10px 30px;
-	color:#3cb54c;
+    color:#3cb54c;
 }
 .pvt-ltd-company-main ul.nav.nav-tabs li.active a {
     background: #3cb54c !important;
@@ -728,27 +729,27 @@ section#choose-pvt-ltd-company {
     float: left;
     width: 100%;
     background-image: url(service-back.jpg);
-	background-repeat:none;
-	background-position:center;
-	background-size:cover;
+    background-repeat:none;
+    background-position:center;
+    background-size:cover;
     text-align: center;
     padding: 4em 0;
     margin: 4em 0;
 }
 section#choose-pvt-ltd-company h2{
-	float: left;
+    float: left;
     width: 100%;
-	font-size:35px;
-	text-transform:uppercase;
-	color:#fff;
+    font-size:35px;
+    text-transform:uppercase;
+    color:#fff;
 }
 section#choose-pvt-ltd-company p{
     float: left;
     width: 100%;
-	font-size:18px;
-	color:#fff;
-	line-height:30px;
-	margin:10px 0;
+    font-size:18px;
+    color:#fff;
+    line-height:30px;
+    margin:10px 0;
 }
 section#choose-pvt-ltd-main {
     float: left;
@@ -766,44 +767,44 @@ section#start-your-company {
     float: left;
     width: 100%;
     background-image: url(service-back.jpg);
-	background-repeat:none;
-	background-position:center;
-	background-size:cover;
+    background-repeat:none;
+    background-position:center;
+    background-size:cover;
     padding: 4em 0;
     margin: 4em 0;
 }
 section#start-your-company h2{
-	float: left;
+    float: left;
     width: 100%;
-	font-size:23px;
-	text-transform:uppercase;
-	color:#fff;
+    font-size:23px;
+    text-transform:uppercase;
+    color:#fff;
 }
 section#start-your-company h3{
-	float: left;
+    float: left;
     width: 100%;
-	font-size:20px;
-	color:#fff;
+    font-size:20px;
+    color:#fff;
 }
 section#start-your-company h4{
-	float: left;
+    float: left;
     width: 100%;
-	font-size:20px;
-	color:#3cb54c;
+    font-size:20px;
+    color:#3cb54c;
 }
 section#start-your-company p{
-	float: left;
+    float: left;
     width: 100%;
-	font-size:16px;
-	color:#fff;
-	font-weight:normal;
+    font-size:16px;
+    color:#fff;
+    font-weight:normal;
 }
 section#start-your-company span{
-	float: left;
+    float: left;
     width: 100%;
-	font-size:18px;
-	color:#fff;
-	font-style:italic;
+    font-size:18px;
+    color:#fff;
+    font-style:italic;
 }
 section#start-your-company .service-contact-form {
     float: left;
@@ -812,30 +813,30 @@ section#start-your-company .service-contact-form {
 section#start-your-company .service-contact-form h2{
     float: left;
     width: 100%;
-	color:#fff;
-	font-size:17px;
-	text-transform:capitalize;
-	margin-top:0;
+    color:#fff;
+    font-size:17px;
+    text-transform:capitalize;
+    margin-top:0;
     margin-bottom: 2em;
 }
 section#start-your-company .service-contact-form h3{
     float: left;
     width: 100%;
-	color:#fff;
-	font-size:30px;
-	margin:0 0 10px 0;
+    color:#fff;
+    font-size:30px;
+    margin:0 0 10px 0;
 }
 section#start-your-company .service-contact-form input{
     float: left;
     width: 100%;
-	border: 1px solid#a291c2;
-	color:#fff;
-	font-size:17px;
-	margin:10px 0;
-	padding:5px;
-	font-weight:100;
-	background:transparent;
-	border-radius:5px;
+    border: 1px solid#a291c2;
+    color:#fff;
+    font-size:17px;
+    margin:10px 0;
+    padding:5px;
+    font-weight:100;
+    background:transparent;
+    border-radius:5px;
 }
 section#start-your-company .service-contact-form  a {
     float: left;
@@ -844,7 +845,7 @@ section#start-your-company .service-contact-form  a {
     padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 0 4px 0 #333;
-	margin:10px 0;
+    margin:10px 0;
 }
 section#service-page-doc-table {
     float: left;
@@ -856,18 +857,18 @@ section#service-page-doc-table h2 {
     font-weight: bold;
     text-transform: uppercase;
     color: #333;
-	margin-bottom: 2em;
+    margin-bottom: 2em;
 }
 section#service-page-doc-table table.table.table-condensed {
     float: left;
     width: 100%;
-	margin-bottom:0;
+    margin-bottom:0;
 }
 section#service-page-doc-table table.table.table-condensed thead tr th {
     background: #3cb54c;
     padding: 15px !important;
-	color:#fff;
-	text-transform:uppercase;
+    color:#fff;
+    text-transform:uppercase;
     border: none;
 }
 section#service-page-doc-table table.table.table-condensed tbody tr td span {
@@ -876,14 +877,14 @@ section#service-page-doc-table table.table.table-condensed tbody tr td span {
     font-weight: bold;
 }
 section#service-page-doc-table tr:nth-child(odd) {
-	background-color: #f6f6f6;
+    background-color: #f6f6f6;
 }
 section#service-page-doc-table tr:nth-child(even) {
-	background-color: #e9e9e9;
+    background-color: #e9e9e9;
 }
 section#service-page-doc-table h3 {
     font-size: 17px;
-	float:left;
+    float:left;
     color: #333;
     font-style: italic;
     font-weight: bold;
@@ -897,7 +898,7 @@ section#service-pricing-section {
     float: left;
     width: 100%;
     background: #e9e9e9;
-	padding-bottom: 7em;
+    padding-bottom: 7em;
 }
 section#service-pricing-section h2 {
     text-align: center;
@@ -918,14 +919,14 @@ section#service-pricing-section h2 {
     box-shadow: 0 4px 2px 0 #ccc;
     text-align: center;
     margin-top: 4em;
-	padding: 1em 0;
+    padding: 1em 0;
 }
 .pricing-section-main h3 {
     float: left;
     width: 100%;
     font-weight: bold;
     color: #333;
-	font-size:30px;
+    font-size:30px;
     border-bottom: 1px solid#eee;
     padding: 10px;
     margin: 0;
@@ -938,21 +939,21 @@ section#service-pricing-section h2 {
     border-bottom: 1px solid#eee;
     padding: 10px;
     margin: 0;
-	font-size:30px;
+    font-size:30px;
 }
 .pricing-section-main p{
     float: left;
     width: 100%;
     color: #333;
-	font-size:15px;
-	font-style:italic;
-	color:#666;
+    font-size:15px;
+    font-style:italic;
+    color:#666;
     border-bottom: 1px solid#eee;
     padding: 17px 10px;
     margin: 0;
 }
 .pricing-section-main p:last-child{
-	border-bottom:none;
+    border-bottom:none;
 }
 .pricing-section-main a {
     display: inline-block;
@@ -972,10 +973,10 @@ section#service-pricing-section h2 {
 .pricing-section-main:hover{
     transform: scale(1.05);
     z-index: 9;
-	position: relative;
+    position: relative;
 }
 .pricing-section-main.featured h4{
-	color:#0688c6;
+    color:#0688c6;
 }
 .pricing-section-main.featured a {
     display: inline-block;
@@ -994,7 +995,7 @@ section#service-page-radial-progress-bar {
     text-align: center;
 }
 section#service-page-radial-progress-bar .col-md-2{
-	width:20%;
+    width:20%;
 }
 section#service-page-radial-progress-bar h2{
     text-align: center;
@@ -1002,7 +1003,7 @@ section#service-page-radial-progress-bar h2{
     font-weight: bold;
     text-transform: uppercase;
     color: #333;
-	margin-bottom: 2em;
+    margin-bottom: 2em;
 }
 section#service-page-radial-progress-bar h3 {
     float: left;
@@ -1015,8 +1016,8 @@ section#service-page-radial-progress-bar h4 {
     width: 100%;
     font-size: 16px;
     color: #333;
-	padding-bottom:1em;
-	border-bottom:1px solid #ccc;
+    padding-bottom:1em;
+    border-bottom:1px solid #ccc;
 }
 section#service-page-radial-progress-bar p {
     float: left;
@@ -1097,7 +1098,7 @@ Progress Bar
     height: 90%;
     border-radius: 50%;
     font-size: 24px;
-	background:#fff;
+    background:#fff;
     color: #fff;
     line-height: 135px;
     text-align: center;
@@ -1204,11 +1205,11 @@ Contact us
 
 .contact-page-banner h1 {
     font-size: 40px;
-	margin:0;
+    margin:0;
 }
 .contact-page-banner h2{
     font-size: 17px;
-	text-transform:uppercase;
+    text-transform:uppercase;
 }
 .contact-page-banner h2 span{
     color:#3cb54c;
@@ -1225,13 +1226,13 @@ Contact us
     text-transform: uppercase;
     color: #333;
     margin-bottom: 0;
-	font-weight:bold;
+    font-weight:bold;
 }
 .contact-page-serve-heading h2 {
     float: left;
     width: 100%;
     font-size: 17px;
-	color:#333;
+    color:#333;
 }
 .bottom-line-left {
     margin-top: 10px;
@@ -1241,7 +1242,7 @@ Contact us
     height: 3px;
     width: 40px;
     background-color: #3bb54c;
-	float:left;
+    float:left;
 }
 .contact-page-serve-data {
     float: left;
@@ -1250,15 +1251,15 @@ Contact us
 .contact-page-serve-data p{
     float: left;
     width: 100%;
-	color:#999;
-	font-size:15px;
+    color:#999;
+    font-size:15px;
 }
 .contact-page-form{
-	float:left;
-	width:100%;	
+    float:left;
+    width:100%; 
 }
 .contact-page-form .col-md-6, .contact-page-form .col-md-12{
-	padding-left:0
+    padding-left:0
 }
 .contact-page-form input, .contact-page-form textarea {
     float: left;
@@ -1267,10 +1268,10 @@ Contact us
     margin: 10px 0;
     border: 1px solid #ddd;
     border-radius: 5px;
-	color:#ccc;
+    color:#ccc;
 }
 .contact-page-form input::placeholder{
-	color:#333;
+    color:#333;
 }
 section#map {
     padding-bottom: 0;
@@ -1280,10 +1281,10 @@ section#map {
     width: 100%;
 }
 .contact-page-form button{
-	background:#45b547;
-	color:#fff;
-	border:none;
-	padding:10px 40px;
+    background:#45b547;
+    color:#fff;
+    border:none;
+    padding:10px 40px;
 }
 
 
@@ -1298,11 +1299,11 @@ section#about-page-serve-you {
 }
 .about-page-banner h1 {
     font-size: 40px;
-	margin:0;
+    margin:0;
 }
 .about-page-banner h2{
     font-size: 17px;
-	text-transform:uppercase;
+    text-transform:uppercase;
 }
 .about-page-banner h2 span{
     color:#3cb54c;
@@ -1319,13 +1320,13 @@ section#about-page-serve-you {
     text-transform: uppercase;
     color: #333;
     margin-bottom: 0;
-	font-weight:bold;
+    font-weight:bold;
 }
 .about-page-serve-heading h2 {
     float: left;
     width: 100%;
     font-size: 17px;
-	color:#333;
+    color:#333;
 }
 .bottom-line-left {
     margin-top: 10px;
@@ -1335,7 +1336,7 @@ section#about-page-serve-you {
     height: 3px;
     width: 40px;
     background-color: #3bb54c;
-	float:left;
+    float:left;
 }
 .about-page-serve-data {
     float: left;
@@ -1344,23 +1345,23 @@ section#about-page-serve-you {
 .about-page-serve-data p{
     float: left;
     width: 100%;
-	color:#999;
-	font-size:15px;
-	padding:10px;
+    color:#999;
+    font-size:15px;
+    padding:10px;
 }
 .about-page-serve-data ul{
     float: left;
     width: 100%;
-	padding:10px;
+    padding:10px;
 }
 .about-page-serve-data ul li{
     float: left;
     width: 100%;
-	line-height:30px;
+    line-height:30px;
 }
 .about-page-serve-data ul li::before {
-	content:url(list-dot.png);
-	margin:0 5px;
+    content:url(list-dot.png);
+    margin:0 5px;
 }
 .about-page-serve-data img {
     float: left;
@@ -1371,8 +1372,8 @@ section#about-page-serve-you {
 }
 .about-page-team-section .blog-img h3 {
     text-align:center;
-	color:#666;
-	font-size:15px;
+    color:#666;
+    font-size:15px;
 }
 .about-page-team-section i {
     background: #eee;
@@ -1381,7 +1382,7 @@ section#about-page-serve-you {
 }
 .about-page-team-section i:hover{
     background: #ccc;
-	transform:scale(1.08);
+    transform:scale(1.08);
 }
 
 
@@ -1399,12 +1400,12 @@ Responsive media queries
 ************************************
 ***********************************/
 @media (max-device-width : 990px)  { 
-	section#service-page-radial-progress-bar .col-md-2{
-	width:inherit;
-	}
-	.pricing-section-main.featured {
-		transform:scale(1);
-	}
+    section#service-page-radial-progress-bar .col-md-2{
+    width:inherit;
+    }
+    .pricing-section-main.featured {
+        transform:scale(1);
+    }
 }
 @media (min-device-width : 768px) and (max-device-width : 900px)  { 
    .service-item, .service1, .blog-sec, .wrap-item, .wrap-item1, .item-img, .blog-img{
@@ -1474,8 +1475,8 @@ body{
 .navbar-default .navbar-nav > li > a{
     line-height: 22px;
     text-align: left;
-	text-indent:22px;
-	padding: 10px 13px;
+    text-indent:22px;
+    padding: 10px 13px;
 }
 .navbar-default .navbar-nav > li > a:hover{
 padding: 10px 13px;

@@ -5,6 +5,7 @@ use App\Http\Requests;
 use Validator, DateTime, DB, Hash, File, Config, Helpers;
 use Session, Redirect;
 use App\User;
+use App\Services;
 class Helper
 {
 	public static function SendEmail($to='',$subject='',$htmlmessage='',$Attachment='')
@@ -22,6 +23,33 @@ class Helper
 	{
 	  return;
 	    
+	}
+	public function getServiceSubMenu()
+	{
+		$services = Services::where('status',1)->where('show_nav_menu',1)->get(); 
+		$menuHtml = '';
+		if (!empty($services)) {
+			$menuHtml .='<li>
+			  <ul class="nav navbar-nav navbar-right">
+			    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Our Services <span class="fa fa-angle-down"></span> </a>
+			      <ul class="dropdown-menu">
+			        <li>
+			          <div class="service_box">
+			            <div class="row">';
+			            foreach ($services as $service) {
+			            	$menuHtml .='<div class="col-lg-6"><a href="'. url('/service/'.$service->service_slug) .'">'.$service->service_title.'</a></div>';
+			            }
+			            $menuHtml .='</div>
+			          </div>
+			        </li>
+			      </ul>
+			    </li>
+			  </ul>
+			</li>';
+		}else{
+			$menuHtml = '<li class=""><a href="#">Our Services</a></li>';
+		}
+		return $menuHtml;
 	}
 	public static function maybe_unserialize( $original ) {
 		if ( self::is_serialized( $original ) ) 

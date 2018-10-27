@@ -10,6 +10,7 @@
                   <th scope="col">#</th>
                   <th scope="col">Title</th>
                   <th scope="col">Price</th>
+                  <th scope="col">Featured</th>
                   <th scope="col">Status</th>
                   <th scope="col">Action</th>
                 </tr>
@@ -24,6 +25,7 @@
                     <th scope="row"><?php echo $sno; ?></th>
                     <td><?php echo $package->package_title; ?></td>
                     <td><?php echo Helper::displayPrice($package); ?></td>
+                    <td><?php echo ($package->is_featured == 1?'Yes':'No'); ?></td>
                     <td><?php echo ($package->status == 1?'Publish':'Draft'); ?></td>
                     <td>
                       <a href="<?php echo url('admin/edit/package/'.$package->package_id) ?>">Edit</a>

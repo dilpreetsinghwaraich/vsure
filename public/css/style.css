@@ -21,21 +21,21 @@
     src: url(../fonts/utsaah.ttf);
 }
 body {
-	line-height: 1.4;
-	font-family: 'roboto';
+    line-height: 1.4;
+    font-family: 'roboto';
     color: #67696c;
     font-size: 16px;
     letter-spacing: 0.5px;
     overflow-x: hidden;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 
 .section-padding
 {
     padding: 60px 0px;
-	clear:both;
+    clear:both;
 }
 
 /***********************************
@@ -45,10 +45,11 @@ HEADER
 ***********************************/
 
 .header{
+    background: url('../img/home.jpg') no-repeat;
     background-size: cover;
     position: relative;
-	float:left;
-	width:100%;
+    float:left;
+    width:100%;
 }
 .bg-color
 {
@@ -93,7 +94,7 @@ h1.bnr-title
     font-family: 'roboto';
     text-transform: uppercase;
     letter-spacing: 2px;
-	margin-top:0;
+    margin-top:0;
 }
 .bnr-para
 {
@@ -457,7 +458,7 @@ blog second
     position: relative;
     margin-bottom: 20px;
     overflow: hidden;
-	float:left;
+    float:left;
 }
 #blog-second .blog-img1 {margin-bottom: 30px;}
 .blog-img1 h2 {
@@ -568,7 +569,7 @@ contact
 #contact1
 {
     background-color: #363839;
-	padding-bottom:30px;
+    padding-bottom:30px;
 }
 .botom{
 }
@@ -594,7 +595,7 @@ contact
 .botom ul li{
     padding-right: 8px;
     cursor: pointer;
-	color:#bebcbd
+    color:#bebcbd
 }
 .bottom-lines{
     margin-top: 10px;
@@ -618,7 +619,7 @@ contact
 }
 #mssg{
     padding: 10px 1px 50px 10px;
-	width: 100%;
+    width: 100%;
 }
 .botom button{
     background: #3bb14b;
@@ -640,9 +641,9 @@ blog
     margin-bottom: 20px;
     overflow: hidden;
     margin-top: 40px;
-	float:left;
-	padding-top:40px;
-	width:100%
+    float:left;
+    padding-top:40px;
+    width:100%
 }
 .about-blog .blog-img{padding-top:0;}
 .blog-img h2 {
@@ -701,7 +702,7 @@ blog
 {
     padding-top: 140px;
     color: #fff;
-	clear:both;
+    clear:both;
 }
 .padding-0{padding:0 !important}
 .navbar-default .navbar-nav > li > a:hover{
@@ -720,7 +721,7 @@ blog
     font-family: "roboto";
     font-size: 16px;
     line-height: 26px; 
-	margin-bottom:0;
+    margin-bottom:0;
 }
 .margin-btm-10{margin-bottom:10px;}
 .banner-info button{
@@ -733,7 +734,7 @@ blog
     font-size: 30px;
     font-weight: bold;
     margin-left: 15px;
-	color:#fff;
+    color:#fff;
 }
 .form-box{
     background-color: rgba(206, 200, 246, 0.3);
@@ -958,7 +959,7 @@ portfolio
     margin: 0px;    
     border-right: 1px solid #e9e9e9;
     position: relative;
-	-webkit-transition-duration: 0.6s;
+    -webkit-transition-duration: 0.6s;
     transition-duration: 0.6s;
 }
 .anti{
@@ -996,7 +997,7 @@ portfolio
     border-bottom: 1px solid #e9e9e9;
     padding-bottom: 18px;
     padding-top: 5px;
-	font-style:italic;
+    font-style:italic;
 }
 .options button{
     background-color: #6fb03c;
@@ -1018,7 +1019,7 @@ portfolio
     transform: scale(1.1);
     border: 1px solid #e9e9e9;
     border-radius: 1em ;
-	margin-top:19px;
+    margin-top:19px;
 }
 .options:hover h3{margin-top:0}
 .options:hover h4{color:#0789c5}
@@ -1034,7 +1035,7 @@ portfolio
     transform: scale(1.1);
     border: 1px solid #e9e9e9;
     border-radius: 1em ;
-	margin-top:19px;
+    margin-top:19px;
 }
 .options.feature h3{margin-top:0}
 .options.feature h4{color:#0789c5}
@@ -1046,10 +1047,10 @@ portfolio
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
-	box-shadow:none;
-	border-radius: 0em ;
-	}	
-	
+    box-shadow:none;
+    border-radius: 0em ;
+    }   
+    
 
 /***********************************
 ************************************
@@ -1072,7 +1073,7 @@ TESTIMONIAL
     color: #fff;
     font-size: 34px;
     font-family: 'utsaah';
-	margin:30px 0; line-height:normal
+    margin:30px 0; line-height:normal
 }
 .bg-testicolor1 button{
     border: 2px solid #fff;
@@ -1084,7 +1085,7 @@ TESTIMONIAL
     cursor: pointer; 
     background: transparent;
     margin-bottom: 50px;
-	padding-left:25px; padding-right:25px;
+    padding-left:25px; padding-right:25px;
 }
 /***********************************
 ************************************
@@ -1096,7 +1097,7 @@ Contact
     background-size: cover;
     background-repeat: no-repeat;
     color: #fff;
-	background: #333;
+    background: #333;
 }
 .contact-bg{
     padding: 38px 0px;
@@ -1223,9 +1224,9 @@ Contact
     margin: 0;
     padding: 15px;
     text-align: center;
-	font-weight:400;
+    font-weight:400;
     text-transform: uppercase;
-	height:65px;
+    height:65px;
 }
 .service-blogs .blog-img{padding-top:40px;}
 .blog-img p {
@@ -1359,8 +1360,55 @@ input.footer_button {
 }
 .carousel-control.right {
     background-image: none !important;
-	border:none !important;
+    border:none !important;
 }
+
+
+/***********************************
+************************************
+Thanks
+************************************
+***********************************/
+
+.thanku-page-banner h1 {
+    font-size: 40px !important;
+    margin: 0 0 50px 0;
+}
+.thanks-page-content h3 {
+    font-size: 30px;
+    color:#3bb14b;
+}
+.thanks-page-content h2 {
+    font-size: 20px;
+}
+.thanks-page-content a {
+    background: #3bb14b;
+    padding: 10px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border-radius: 50px;
+    color: #fff;
+    box-shadow: 0px 2px 7px 0 #ccc;
+}
+.thanks-page-content h3.cancel {
+    font-size: 30px;
+    color:#ff0000;
+}
+
+
+/***********************************
+************************************
+Error
+************************************
+***********************************/
+
+.thanks-page-content .error-page h2{
+    font-size: 30px;
+    color:#624c97;
+}
+
+
+
 
 /***********************************
 ************************************
@@ -1410,7 +1458,7 @@ h1.bnr-title {   font-size: 50px; }
 .copyright {
     color: #bebcbd;
     margin-top: 0px;
-	margin-bottom:0;
+    margin-bottom:0;
 }
 #carousel-reviews {
     padding: 0 50px;
@@ -1427,11 +1475,11 @@ h1.bnr-title {   font-size: 50px; }
 .banners-home{padding-top:120px; float:left; width:100%;}
 .service-blogs .blog-img {
     float: left;
-	min-height:350px;
+    min-height:350px;
 }
 .contact-bg h2{margin-top:0;}
 .contact-bg h2 br{
-	display:none;
+    display:none;
 }
 .products{margin-bottom:30px;}
 .blog-img h2{min-height:70px;}
@@ -1448,18 +1496,18 @@ h1.bnr-title {   font-size: 50px; }
 }
 }
 @media (max-width: 640px) {
-	.dropdown .dropdown-toggle{padding: 10px 13px !important;}
-	.banner-info {color: #fff; padding-top:0px;}
-	.btns{display:block;}
-	.form-icons{display:block;}
-	.form-icons{clear:both; text-align:center}
-	.form-icons a{display:inline-block; margin:0 5px 15px 0}
-	.btns{text-align:center}
-	.btns button{margin-bottom:15px;}
-	.section-padding {padding: 30px 0;}
-	.heading-section h2 {font-size: 24px; margin-top:0}
-	.heading-section p {font-size: 16px;}
-	.tab button {
+    .dropdown .dropdown-toggle{padding: 10px 13px !important;}
+    .banner-info {color: #fff; padding-top:0px;}
+    .btns{display:block;}
+    .form-icons{display:block;}
+    .form-icons{clear:both; text-align:center}
+    .form-icons a{display:inline-block; margin:0 5px 15px 0}
+    .btns{text-align:center}
+    .btns button{margin-bottom:15px;}
+    .section-padding {padding: 30px 0;}
+    .heading-section h2 {font-size: 24px; margin-top:0}
+    .heading-section p {font-size: 16px;}
+    .tab button {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     font-size: 14px;
@@ -1475,18 +1523,18 @@ h1.bnr-title {   font-size: 50px; }
 .tab-box .panel-body br{display:none}
 .bg-testicolor h2 {
     font-size: 24px;
-}	
+}   
 .bg-testicolor p {
     font-size: 22px;
-	line-height:normal;
-	margin-top:25px;
+    line-height:normal;
+    margin-top:25px;
 }
 .bg-testicolor{padding-bottom:0;}
 .container{padding-bottom:0;}
 .row{padding-bottom:0;}
 .bg-testicolor{padding-bottom:0;}
 .bg-testicolor p br{
-	display:none
+    display:none
 }
 .service-blogs .blog-img {
     min-height: 1px;
@@ -1497,17 +1545,17 @@ h1.bnr-title {   font-size: 50px; }
 .contact-bg h2 br{display:none}
 .contact-bg h3 {
     font-size: 18px;
-	padding-bottom:10px;
-}	
+    padding-bottom:10px;
+}   
 #feature h1 {
     font-size: 24px;
-	margin-bottom:25px; text-align:left
+    margin-bottom:25px; text-align:left
 }
 .bnr-title h1 {
     font-size: 24px;
-	margin-bottom:25px;
-}	
-	
+    margin-bottom:25px;
+}   
+    
 .navbar-default{border-bottom:1px solid #ddd;}
 .navbar-default .navbar-brand {
     padding-left: 16px;
@@ -1549,8 +1597,8 @@ body{
 }
 .banner-info p {
     font-size: 16px;
-	line-height:22px;
-	margin-bottom:15px;
+    line-height:22px;
+    margin-bottom:15px;
 }
 .reg-form{padding-top:40px;padding-bottom:40px;}
 .reg-form h2 {
@@ -1567,8 +1615,8 @@ body{
 .navbar-default .navbar-nav > li > a{
     line-height: 22px;
     text-align: left;
-	text-indent:22px;
-	padding: 10px 13px;
+    text-indent:22px;
+    padding: 10px 13px;
 }
 .navbar-default .navbar-nav > li > a:hover{
 padding: 10px 13px;
@@ -1601,7 +1649,7 @@ background-color: #97d14c;
 .copyright {
     color: #bebcbd;
     margin-top:0px;
-	margin-bottom:0;
+    margin-bottom:0;
 }
 .nav > li.dropdown{border:0;}
 .navbar-login{width:100%;}
@@ -1633,7 +1681,7 @@ background-color: #97d14c;
 }
 .wrapper h1 {
     margin-bottom: 5px;
-	margin-top:15px;
+    margin-top:15px;
 }
 .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
     display: inline;

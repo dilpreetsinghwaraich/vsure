@@ -47,6 +47,7 @@ class AdminPackagesController extends Controller
             $package->discount_start = $request->input('discount_start');
             $package->discount_end = $request->input('discount_end');
             $package->status = $request->input('status');
+            $package->is_featured = $request->input('is_featured');
             $package->package_content = \Helper::maybe_serialize($request->input('package_content'));
             $package->package_terms = \Helper::maybe_serialize($request->input('package_terms'));            
             $package->created_at = date('Y-m-d h:i:s');
@@ -87,6 +88,7 @@ class AdminPackagesController extends Controller
             $package->discount_start = $request->input('discount_start');
             $package->discount_end = $request->input('discount_end');
             $package->status = $request->input('status');
+            $package->is_featured = $request->input('is_featured');
             $package->package_content = \Helper::maybe_serialize($request->input('package_content'));
             $package->package_terms = \Helper::maybe_serialize($request->input('package_terms'));
     	    $package->updated_at = date('Y-m-d h:i:s');

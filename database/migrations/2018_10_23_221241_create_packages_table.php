@@ -23,6 +23,7 @@ class CreatePackagesTable extends Migration
             $table->dateTime('discount_start');
             $table->dateTime('discount_end');
             $table->integer('status');
+            $table->integer('is_featured');
             $table->timestamps();
         });
     }
@@ -34,6 +35,6 @@ class CreatePackagesTable extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('packages');
+        Schema::dropIfExists('packages');
     }
 }

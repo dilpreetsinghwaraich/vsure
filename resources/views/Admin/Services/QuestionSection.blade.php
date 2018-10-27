@@ -9,13 +9,17 @@
     <textarea class="form-control" id="question_content" name="service_questions[content]" required placeholder="Content"><?php echo (isset($service_questions['content'])?$service_questions['content']:''); ?></textarea>
   </div>
   <div class="form-group col-md-12">
-    <label for="question_terms">Terms</label>
-    <select name="service_questions[terms][]" id="question_terms" multiple="" class="form-control select2-multiple multiSelect">
-      <option value="">Select Term</option>
-      <?php
-        foreach ($questionTerms as $questionTerm) {
-          echo "<option value='".$questionTerm->term_id."' ".(isset($service_questions['terms']) && is_array($service_questions['terms']) && in_array($questionTerm->term_id, $service_questions['terms'])?"selected":"").">".$questionTerm->term_title."</option>";
+    <label for="question_ids">Questions</label>
+    <select name="service_questions[question_ids][]" id="question_ids" multiple="" class="form-control select2-multiple">
+      <option value="">Select Questions</option>
+      <?php 
+      $question_ids = (isset($service_questions['question_ids']) && !empty($service_questions['question_ids'])?$service_questions['question_ids']:[]);
+      $questions = DB::table('questions')->whereIn('question_id', $question_ids)->get()->toArray();
+      if (!empty($questions)) {
+        foreach ($questions as $question) {
+          echo '<option value="'.$question->question_id.'" selected>'.$question->question_title.'</option>';
         }
+      }
       ?>
     </select>
   </div>

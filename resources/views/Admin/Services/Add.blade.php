@@ -15,16 +15,16 @@
             </div>
 
             <?php $service_questions = (!empty(old('service_questions'))?old('service_questions'):[]); ?>
-            <?php echo view('Admin.Services.QuestionSection',compact('service_questions','questionTerms')); ?>
+            <?php echo view('Admin.Services.QuestionSection',compact('service_questions')); ?>
 
             <?php $service_features = (!empty(old('service_features'))?old('service_features'):[]); ?>
-            <?php echo view('Admin.Services.FeatureSection',compact('service_features','featureTerms')); ?>
+            <?php echo view('Admin.Services.FeatureSection',compact('service_features')); ?>
 
             <?php $service_short_info = (!empty(old('service_short_info'))?old('service_short_info'):[]); ?>
             <?php echo view('Admin.Services.ContactSection',compact('service_short_info')); ?>
             
             <?php $service_documents = (!empty(old('service_documents'))?old('service_documents'):[]); ?>
-            <?php echo view('Admin.Services.DocumentSection',compact('service_documents','documentTerms')); ?>
+            <?php echo view('Admin.Services.DocumentSection',compact('service_documents')); ?>
             
             <div class="form-group col-md-12">
               <h2>Process Results Section</h2>
@@ -47,7 +47,7 @@
             </div>
 
             <?php $service_packages = (!empty(old('service_packages'))?old('service_packages'):[]); ?>
-            <?php echo view('Admin.Services.PackageSection',compact('service_packages','packageTerms')); ?>
+            <?php echo view('Admin.Services.PackageSection',compact('service_packages')); ?>
                               
             <div class="form-group col-md-12">
               <label for="status">Status</label>

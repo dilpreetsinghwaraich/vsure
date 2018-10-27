@@ -18,20 +18,110 @@ jQuery(document).ready(function($) {
             e.preventDefault();
         }
     });
-    $(document).on('click', '.removeProcessResultItem', function(event) {
-        event.preventDefault();
-        $(this).closest('.processResultItem').remove();
+    $("#package_ids").select2({
+        placeholder: "Search Packages",
+        ajax: { 
+            url: AJAXURL('admin/get/service/remote/package'),
+            dataType: 'json',
+            quietMillis: 250,
+            data: function (term, page) {
+                return {
+                    q: term, 
+                };
+            },
+            results: function (data, page) {                              
+                return {                   
+                  results: data.items 
+                };
+            },
+            success: function( data ) {              
+            },
+            cache: true
+        },         
     });
-    $(document).on('click', '.addProcessResultItem', function(event) {
-        event.preventDefault();
-        var $index = $('.processResultItem').length;
-        $.ajax({
-            url: AJAXURL('admin/get/service/process/item/'+$index),
-            type: 'GET',
-        })
-        .done(function(data) {
-            $('.processResultSection').append(data);
-        });
+    $("#question_ids").select2({
+        placeholder: "Search Questions",
+        ajax: { 
+            url: AJAXURL('admin/get/service/remote/question'),
+            dataType: 'json',
+            quietMillis: 250,
+            data: function (term, page) {
+                return {
+                    q: term, 
+                };
+            },
+            results: function (data, page) {                              
+                return {                   
+                  results: data.items 
+                };
+            },
+            success: function( data ) {              
+            },
+            cache: true
+        },         
+    });
+    $("#feature_ids").select2({
+        placeholder: "Search Features",
+        ajax: { 
+            url: AJAXURL('admin/get/service/remote/feature'),
+            dataType: 'json',
+            quietMillis: 250,
+            data: function (term, page) {
+                return {
+                    q: term, 
+                };
+            },
+            results: function (data, page) {                              
+                return {                   
+                  results: data.items 
+                };
+            },
+            success: function( data ) {              
+            },
+            cache: true
+        },         
+    });
+    $("#document_ids").select2({
+        placeholder: "Search Documents",
+        ajax: { 
+            url: AJAXURL('admin/get/service/remote/document'),
+            dataType: 'json',
+            quietMillis: 250,
+            data: function (term, page) {
+                return {
+                    q: term, 
+                };
+            },
+            results: function (data, page) {                              
+                return {                   
+                  results: data.items 
+                };
+            },
+            success: function( data ) {              
+            },
+            cache: true
+        },         
+    });
+    $("#process_ids").select2({
+        placeholder: "Search Documents",
+        ajax: { 
+            url: AJAXURL('admin/get/service/remote/process/results'),
+            dataType: 'json',
+            quietMillis: 250,
+            data: function (term, page) {
+                return {
+                    q: term, 
+                };
+            },
+            results: function (data, page) {                              
+                return {                   
+                  results: data.items 
+                };
+            },
+            success: function( data ) {              
+            },
+            cache: true
+        },         
     });
 });
 function AJAXURL(string) {

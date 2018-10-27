@@ -11,6 +11,6 @@ class Services extends Model
     protected $primaryKey = 'service_id';
 
     protected $fillable = [
-        'service_title', 'service_content', 'service_questions','service_short_info', 'service_features', 'service_documents', 'service_process_results', 'service_packages', 'status', 'show_nav_menu'
+        'service_title', 'service_slug', 'service_content', 'service_questions','service_short_info', 'service_features', 'service_documents', 'service_process_results', 'service_packages', 'status', 'show_nav_menu'
     ];
 }

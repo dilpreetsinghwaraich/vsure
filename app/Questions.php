@@ -11,6 +11,6 @@ class Questions extends Model
     protected $primaryKey = 'question_id';
 
     protected $fillable = [
-        'question_title', 'question_content'
+        'question_title', 'question_content', 'question_terms'
     ];
 }

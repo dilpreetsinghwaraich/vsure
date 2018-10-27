@@ -48,6 +48,10 @@
                       <option value="0" <?php echo (old('status') == 0?'selected':''); ?>>Draft</option>
                     </select>
                   </div>
+                  <div class="form-group col-md-12">
+                    <label for="is_featured">Featured</label>
+                    <input type="checkbox" id="is_featured" name="is_featured" value="1" <?php echo (old('is_featured') == 1 ?'checked':'') ?>>
+                  </div>
                 </div>                                     
                 <button type="submit" class="btn btn-primary">Save</button>
               </form>

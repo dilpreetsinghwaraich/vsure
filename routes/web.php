@@ -25,7 +25,7 @@ Route::get('/about-us', 'Home\HomeController@aboutUs');
 Route::get('/contact-us', 'Contact\ContactController@contactUs');
 Route::post('/contact/us/submit', 'Contact\ContactController@contactUsSubmit');
 
-Route::get('/service/partnership-firm-registration', 'Service\ServiceController@partnershipFirmRegistration');
+Route::get('/service/{service_slug?}', 'Service\ServiceController@partnershipFirmRegistration');
 
 Route::get('/admin/login', 'Admin\Auth\LoginController@login');
 Route::post('/admin/login', 'Admin\Auth\LoginController@loginAccess');
@@ -60,6 +60,13 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::post('/admin/update/feature/{feature_id?}', 'Admin\Features\AdminFeaturesController@update');
 	Route::get('/admin/delete/feature/{feature_id?}', 'Admin\Features\AdminFeaturesController@delete');
 
+	/******update delete edit view ProccessResults******/
+	Route::get('/admin/process/results', 'Admin\ProcessResults\AdminProcessResultsController@index');
+	Route::post('/admin/save/process/result', 'Admin\ProcessResults\AdminProcessResultsController@save');
+	Route::get('/admin/edit/process/result/{process_id?}', 'Admin\ProcessResults\AdminProcessResultsController@edit');
+	Route::post('/admin/update/process/result/{process_id?}', 'Admin\ProcessResults\AdminProcessResultsController@update');
+	Route::get('/admin/delete/process/result/{process_id?}', 'Admin\ProcessResults\AdminProcessResultsController@delete');
+
 	/******update delete edit view documents******/
 	Route::get('/admin/documents', 'Admin\Documents\AdminDocumentsController@index');
 	Route::post('/admin/save/document', 'Admin\Documents\AdminDocumentsController@save');
@@ -78,7 +85,13 @@ Route::group(['middleware' => 'adminToken'], function () {
 	/******update delete edit view Services******/
 	Route::get('/admin/services', 'Admin\Services\AdminServicesController@index');
 	Route::get('/admin/add/service', 'Admin\Services\AdminServicesController@add');
-	Route::get('/admin/get/service/process/item/{index?}', 'Admin\Services\AdminServicesController@addProccessItem');
+
+	Route::get('/admin/get/service/remote/package', 'Admin\Services\AdminServicesController@getServiceRemotePackage');
+	Route::get('/admin/get/service/remote/question', 'Admin\Services\AdminServicesController@getServiceRemoteQuestion');
+	Route::get('/admin/get/service/remote/feature', 'Admin\Services\AdminServicesController@getServiceRemoteFeature');
+	Route::get('/admin/get/service/remote/document', 'Admin\Services\AdminServicesController@getServiceRemoteDocument');
+	Route::get('/admin/get/service/remote/process/results', 'Admin\Services\AdminServicesController@getServiceRemoteProcessResults');
+	
 	Route::post('/admin/save/service', 'Admin\Services\AdminServicesController@save');
 	Route::get('/admin/edit/service/{service_id?}', 'Admin\Services\AdminServicesController@edit');
 	Route::post('/admin/update/service/{service_id?}', 'Admin\Services\AdminServicesController@update');

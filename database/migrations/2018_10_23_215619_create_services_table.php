@@ -16,6 +16,7 @@ class CreateServicesTable extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->increments('service_id');
             $table->string('service_title', 250)->nullable();
+            $table->string('service_slug', 320)->nullable();
             $table->text('service_content')->nullable();
             $table->text('service_questions')->nullable();
             $table->text('service_short_info')->nullable();
@@ -36,6 +37,6 @@ class CreateServicesTable extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('services');
+        Schema::dropIfExists('services');
     }
 }

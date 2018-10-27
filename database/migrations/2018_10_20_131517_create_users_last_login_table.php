@@ -28,6 +28,6 @@ class CreateUsersLastLoginTable extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('users_last_login');
+        Schema::dropIfExists('users_last_login');
     }
 }

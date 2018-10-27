@@ -13,13 +13,17 @@
     <input type="file" class="form-control" id="feature_image" name="service_features[image]">
   </div>
   <div class="form-group col-md-12">
-    <label for="feature_terms">Terms</label>
-    <select name="service_features[terms][]" id="feature_terms" multiple="" class="form-control select2-multiple multiSelect">
-      <option value="">Select Term</option>
-      <?php
-        foreach ($featureTerms as $featureTerm) {
-          echo "<option value='".$featureTerm->term_id."' ".(isset($service_features['terms']) && is_array($service_features['terms']) && in_array($featureTerm->term_id, $service_features['terms'])?"selected":"").">".$featureTerm->term_title."</option>";
+    <label for="feature_terms">Features</label>
+    <select name="service_features[feature_ids][]" id="feature_ids" multiple="" class="form-control select2-multiple">
+      <option value="">Select Features</option>
+      <?php 
+      $feature_ids = (isset($service_features['feature_ids']) && !empty($service_features['feature_ids'])?$service_features['feature_ids']:[]);
+      $features = DB::table('features')->whereIn('feature_id', $feature_ids)->get()->toArray();
+      if (!empty($features)) {
+        foreach ($features as $feature) {
+          echo '<option value="'.$feature->feature_id.'" selected>'.$feature->feature_title.'</option>';
         }
+      }
       ?>
     </select>
   </div>

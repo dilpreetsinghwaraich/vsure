@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Admin\Services;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Services;
+use App\Documents;
+use App\Features;
+use App\Packages;
+use App\Questions;
+use App\ProcessResults;
 use App\Terms;
 use Illuminate\Http\Request;
 use Validator, DateTime, DB, Hash, File, Config, Helpers, Helper;
@@ -31,18 +36,20 @@ class AdminServicesController extends Controller
     public function add()
     {
         $view = 'Admin.Services.Add'; 
-        $packageTerms = Terms::where('term_type','package')->select('*')->get();
-        $questionTerms = Terms::where('term_type','question')->select('*')->get();
-        $featureTerms = Terms::where('term_type','feature')->select('*')->get();
-        $documentTerms = Terms::where('term_type','document')->select('*')->get();
-        return view('Includes.adminCommonTemplate',compact('view','packageTerms','questionTerms','featureTerms','documentTerms'));
+        return view('Includes.adminCommonTemplate',compact('view'));
     }
     public function save(Request $request)
     {
         $validator = Validator::make(Input::all(), self::rules());
         if($validator->passes()){
-            $service = new Services();       
+            $service = new Services();     
+            $count = Services::where('service_title', $request->input('service_title'))->get()->count();
+            if($count == 0)
+            {
+                $count = '';
+            }
             $service->service_title = $request->input('service_title');
+            $service->service_slug = str_slug($request->input('service_title').' '.$count,'-');
             $service->service_content = $request->input('service_content');
             $service->service_questions = \Helper::maybe_serialize($request->input('service_questions'));
             $service->service_features = \Helper::maybe_serialize($request->input('service_features'));
@@ -67,6 +74,86 @@ class AdminServicesController extends Controller
         $service_process_result = [];
         echo view('Admin.Services.ProcessResult',compact('service_process_result','index'));
     }
+    public function getServiceRemotePackage(Request $request)
+    {
+        $search_keyword = $request->input('q');
+        $search_keyword = (isset($search_keyword['term'])?$search_keyword['term']:'');
+        $rows = Packages::where('package_title', 'LIKE', '%'.$search_keyword.'%')->paginate(10);
+        $results = [];
+        if ($rows) {
+            $index = 0;
+            foreach ($rows as $row) {
+                $results['results'][$index]['text'] = $row->package_title;
+                $results['results'][$index]['id'] = $row->package_id;
+                $index++;
+            }
+        }
+        echo json_encode($results);
+    }
+    public function getServiceRemoteQuestion(Request $request)
+    {
+        $search_keyword = $request->input('q');
+        $search_keyword = (isset($search_keyword['term'])?$search_keyword['term']:'');
+        $rows = Questions::where('question_title', 'LIKE', '%'.$search_keyword.'%')->paginate(10);
+        $results = [];
+        if ($rows) {
+            $index = 0;
+            foreach ($rows as $row) {
+                $results['results'][$index]['text'] = $row->question_title;
+                $results['results'][$index]['id'] = $row->question_id;
+                $index++;
+            }
+        }
+        echo json_encode($results);
+    }
+    public function getServiceRemoteFeature(Request $request)
+    {
+        $search_keyword = $request->input('q');
+        $search_keyword = (isset($search_keyword['term'])?$search_keyword['term']:'');
+        $rows = Features::where('feature_title', 'LIKE', '%'.$search_keyword.'%')->paginate(10);
+        $results = [];
+        if ($rows) {
+            $index = 0;
+            foreach ($rows as $row) {
+                $results['results'][$index]['text'] = $row->feature_title;
+                $results['results'][$index]['id'] = $row->feature_id;
+                $index++;
+            }
+        }
+        echo json_encode($results);
+    }
+    public function getServiceRemoteDocument(Request $request)
+    {
+        $search_keyword = $request->input('q');
+        $search_keyword = (isset($search_keyword['term'])?$search_keyword['term']:'');
+        $rows = Documents::where('document_title', 'LIKE', '%'.$search_keyword.'%')->paginate(10);
+        $results = [];
+        if ($rows) {
+            $index = 0;
+            foreach ($rows as $row) {
+                $results['results'][$index]['text'] = $row->document_title;
+                $results['results'][$index]['id'] = $row->document_id;
+                $index++;
+            }
+        }
+        echo json_encode($results);
+    }
+    public function getServiceRemoteProcessResults(Request $request)
+    {
+        $search_keyword = $request->input('q');
+        $search_keyword = (isset($search_keyword['term'])?$search_keyword['term']:'');
+        $rows = ProcessResults::where('process_title', 'LIKE', '%'.$search_keyword.'%')->paginate(10);
+        $results = [];
+        if ($rows) {
+            $index = 0;
+            foreach ($rows as $row) {
+                $results['results'][$index]['text'] = $row->process_title;
+                $results['results'][$index]['id'] = $row->process_id;
+                $index++;
+            }
+        }
+        echo json_encode($results);
+    }
     public function edit($service_id = null)
     {
     	$view = 'Admin.Services.Edit';
@@ -75,19 +162,13 @@ class AdminServicesController extends Controller
 			Session::flash('error','Something went wrong, You are not authorized to update this Service.');
 	    	return Redirect::back()->withInput(Input::all());    		
     	}
-        
         $service->service_questions = \Helper::maybe_unserialize($service->service_questions);
         $service->service_features = \Helper::maybe_unserialize($service->service_features);
         $service->service_short_info = \Helper::maybe_unserialize($service->service_short_info);
         $service->service_documents = \Helper::maybe_unserialize($service->service_documents);
         $service->service_process_results = \Helper::maybe_unserialize($service->service_process_results);
         $service->service_packages = \Helper::maybe_unserialize($service->service_packages);
-        
-        $packageTerms = Terms::where('term_type','package')->select('*')->get();
-        $questionTerms = Terms::where('term_type','question')->select('*')->get();
-        $featureTerms = Terms::where('term_type','feature')->select('*')->get();
-        $documentTerms = Terms::where('term_type','document')->select('*')->get();
-        return view('Includes.adminCommonTemplate',compact('view','service','service_id','packageTerms','questionTerms','featureTerms','documentTerms'));	
+        return view('Includes.adminCommonTemplate',compact('view','service','service_id'));	
     }
     public function update(Request $request, $service_id = null)
     {
