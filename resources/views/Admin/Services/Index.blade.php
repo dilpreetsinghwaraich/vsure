@@ -21,7 +21,7 @@
                   ?>
                   <tr>
                     <th scope="row"><?php echo $sno; ?></th>
-                    <td><?php echo $service->package_title; ?></td>
+                    <td><?php echo $service->service_title; ?></td>
                     <td><?php echo ($service->status == 1?'Publish':'Draft'); ?></td>
                     <td>
                       <a href="<?php echo url('admin/edit/service/'.$service->service_id) ?>">Edit</a>

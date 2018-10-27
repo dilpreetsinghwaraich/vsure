@@ -16,12 +16,23 @@
                   </div>
                   <div class="form-group col-md-12">
                     <label for="feature_image">Image</label>
-                    <input type="file" name="feature_image" class="form-control" onchange="jQuery('#feature_image_hide').hide();" required="" id="feature_image">
+                    <input type="file" name="feature_image" class="form-control" onchange="jQuery('#feature_image_hide').hide();" id="feature_image">
                     <?php if (!empty($feature->feature_image)) {
                       ?>
                       <img src="<?php echo asset('/').$feature->feature_image ?>" style="width:150px;height:150px;" id="feature_image_hide" alt="<?php echo $feature->feature_title; ?>">
                       <?php
                     } ?>
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="feature_terms">Terms</label>
+                    <select name="feature_terms[]" id="feature_terms" multiple="" class="form-control select2-multiple multiSelect">
+                      <option value="">Select Term</option>
+                      <?php
+                        foreach ($terms as $term) {
+                          echo "<option value='".$term->term_id."' ".(is_array($feature->feature_terms) && in_array($term->term_id, $feature->feature_terms)?"selected":"").">".$term->term_title."</option>";
+                        }
+                      ?>
+                    </select>
                   </div>
                 </div>                                     
                 <button type="submit" class="btn btn-primary">Update</button>

@@ -85,7 +85,7 @@ class AdminTermsController extends Controller
             return Redirect::back()->withInput(Input::all());           
         }   	
     	$term->delete();
-    	Session::flash('success','Question Deleted Successfully');
+    	Session::flash('success','Term Deleted Successfully');
 	    return Redirect::back()->withInput(Input::all());
     }
 }

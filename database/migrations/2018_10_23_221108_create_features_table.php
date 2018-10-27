@@ -18,6 +18,7 @@ class CreateFeaturesTable extends Migration
             $table->string('feature_title', 250)->nullable();
             $table->text('feature_content')->nullable();
             $table->string('feature_image', 250)->nullable();
+            $table->text('feature_terms')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateFeaturesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('features');
+        //Schema::dropIfExists('features');
     }
 }

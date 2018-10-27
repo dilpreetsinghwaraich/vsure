@@ -18,6 +18,21 @@ jQuery(document).ready(function($) {
             e.preventDefault();
         }
     });
+    $(document).on('click', '.removeProcessResultItem', function(event) {
+        event.preventDefault();
+        $(this).closest('.processResultItem').remove();
+    });
+    $(document).on('click', '.addProcessResultItem', function(event) {
+        event.preventDefault();
+        var $index = $('.processResultItem').length;
+        $.ajax({
+            url: AJAXURL('admin/get/service/process/item/'+$index),
+            type: 'GET',
+        })
+        .done(function(data) {
+            $('.processResultSection').append(data);
+        });
+    });
 });
 function AJAXURL(string) {
     var url = jQuery('base').attr('href');

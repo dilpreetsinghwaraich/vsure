@@ -17,8 +17,8 @@ class AdminFeaturesController extends Controller
     {
         $view = 'Admin.Features.Index';
         $features = Features::paginate(50);    
-
-        return view('Includes.adminCommonTemplate',compact('view','features'));
+        $terms = Terms::where('term_type','feature')->select('*')->get();
+        return view('Includes.adminCommonTemplate',compact('view','features','terms'));
     }
     public function rules()
     {
@@ -26,6 +26,13 @@ class AdminFeaturesController extends Controller
             'feature_title' => 'required',
             'feature_content' => 'required',
             'feature_image' => 'required',
+        );
+    }
+    public function updateRules()
+    {
+        return array(
+            'feature_title' => 'required',
+            'feature_content' => 'required',
         );
     }
     public function save(Request $request)
@@ -38,6 +45,7 @@ class AdminFeaturesController extends Controller
             if ($request->file('feature_image') != '') {
                 $feature->feature_image = \Helper::fileuploadExtra($request, 'feature_image');
             }
+            $feature->feature_terms = \Helper::maybe_serialize($request->input('feature_terms'));
             $feature->created_at = date('Y-m-d h:i:s');
             $feature->updated_at = date('Y-m-d h:i:s');
             $feature->save();
@@ -57,6 +65,7 @@ class AdminFeaturesController extends Controller
 			Session::flash('error','Something went wrong, You are not authorized to update this Feature.');
 	    	return Redirect::back()->withInput(Input::all());    		
     	}
+        $feature->feature_terms = \Helper::maybe_unserialize($feature->feature_terms);
         $terms = Terms::where('term_type','feature')->select('*')->get();
         
         return view('Includes.adminCommonTemplate',compact('view','feature','terms'));	
@@ -68,13 +77,14 @@ class AdminFeaturesController extends Controller
 			Session::flash('error','Something went wrong, You are not authorized to update this Feature.');
 	    	return Redirect::back()->withInput(Input::all());    		
     	}
-        $validator = Validator::make(Input::all(), self::rules());
+        $validator = Validator::make(Input::all(), self::updateRules());
         if($validator->passes()){
     	    $feature->feature_title = $request->input('feature_title');
     	    $feature->feature_content = $request->input('feature_content');
             if ($request->file('feature_image') != '') {
                 $feature->feature_image = \Helper::fileuploadExtra($request, 'feature_image');
             }
+            $feature->feature_terms = \Helper::maybe_serialize($request->input('feature_terms'));
     	    $feature->updated_at = date('Y-m-d h:i:s');
     	    $feature->save();
             Session::flash('success','Feature Updated Successfully');

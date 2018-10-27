@@ -20,6 +20,17 @@
                         <label for="question_terms">Image</label>
                         <input type="file" name="feature_image" class="form-control" required="" id="feature_image">
                       </div>
+                      <div class="form-group col-md-12">
+                        <label for="feature_terms">Terms</label>
+                        <select name="feature_terms[]" id="feature_terms" multiple="" class="form-control select2-multiple multiSelect">
+                          <option value="">Select Term</option>
+                          <?php
+                            foreach ($terms as $term) {
+                              echo "<option value='".$term->term_id."' ".(!empty(old('feature_terms')) && in_array($term->term_id, old('feature_terms'))?"selected":"").">".$term->term_title."</option>";
+                            }
+                          ?>
+                        </select>
+                      </div>
                     </div>                                     
                     <button type="submit" class="btn btn-primary">Save</button>
                   </form>
