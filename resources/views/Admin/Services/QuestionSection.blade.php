@@ -25,6 +25,12 @@
   </div>
   <div class="form-group col-md-12">
     <label for="question_image">Image</label>
-    <input type="file" class="form-control" id="question_image" name="service_questions[image]">
+    <input type="file" class="form-control" id="question_image" onchange="jQuery('#question_image_hide').hide();" name="service_questions[image]">
+    <?php if (isset($service_questions['image']) && !empty($service_questions['image'])) {
+      ?>
+      <img src="<?php echo asset('/').$service_questions['image'] ?>" style="width:150px;height:150px;" id="question_image_hide">
+      <?php
+    } ?>
+    <input type="hidden" name="service_questions[old_image]" value="<?php echo (isset($service_questions['image'])?$service_questions['image']:''); ?>">
   </div>
 </div>

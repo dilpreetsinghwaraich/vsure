@@ -48,12 +48,27 @@ class AdminServicesController extends Controller
             {
                 $count = '';
             }
+            $service_questions = $request->input('service_questions');
+            if (!empty($request->file('service_questions')['image'])) {
+                $service_questions['image'] = \Helper::fileuploadArray($request->file('service_questions')['image']);
+            }
+
+            $service_features = $request->input('service_features');
+            if (!empty($request->file('service_features')['image'])) {
+                $service_features['image'] = \Helper::fileuploadArray($request->file('service_features')['image']);
+            } 
+
+            $service_short_info = $request->input('service_short_info');
+            if (!empty($request->file('service_short_info')['image'])) {
+                $service_short_info['image'] = \Helper::fileuploadArray($request->file('service_short_info')['image']);
+            }
+            
             $service->service_title = $request->input('service_title');
             $service->service_slug = str_slug($request->input('service_title').' '.$count,'-');
             $service->service_content = $request->input('service_content');
-            $service->service_questions = \Helper::maybe_serialize($request->input('service_questions'));
-            $service->service_features = \Helper::maybe_serialize($request->input('service_features'));
-            $service->service_short_info = \Helper::maybe_serialize($request->input('service_short_info'));
+            $service->service_questions = \Helper::maybe_serialize($service_questions);
+            $service->service_features = \Helper::maybe_serialize($service_features);
+            $service->service_short_info = \Helper::maybe_serialize($service_short_info);
             $service->service_documents = \Helper::maybe_serialize($request->input('service_documents'));
             $service->service_process_results = \Helper::maybe_serialize($request->input('service_process_results'));
             $service->service_packages = \Helper::maybe_serialize($request->input('service_packages')); 
@@ -179,17 +194,39 @@ class AdminServicesController extends Controller
     	}
         $validator = Validator::make(Input::all(), self::rules());
         if($validator->passes()){
+            $service_questions = $request->input('service_questions');
+            if (!empty($request->file('service_questions')['image'])) {
+                $service_questions['image'] = \Helper::fileuploadArray($request->file('service_questions')['image']);
+            } else {
+                $service_questions['image'] = $service_questions['old_image'];
+            } 
+
+            $service_features = $request->input('service_features');
+            if (!empty($request->file('service_features')['image'])) {
+                $service_features['image'] = \Helper::fileuploadArray($request->file('service_features')['image']);
+            } else {
+                $service_features['image'] = $service_features['old_image'];
+            } 
+
+            $service_short_info = $request->input('service_short_info');
+            if (!empty($request->file('service_short_info')['image'])) {
+                $service_short_info['image'] = \Helper::fileuploadArray($request->file('service_short_info')['image']);
+            } else {
+                $service_short_info['image'] = $service_short_info['old_image'];
+            }   
+
     	    $service->service_title = $request->input('service_title');
             $service->service_content = $request->input('service_content');
-            $service->service_questions = \Helper::maybe_serialize($request->input('service_questions'));
-            $service->service_features = \Helper::maybe_serialize($request->input('service_features'));
-            $service->service_short_info = \Helper::maybe_serialize($request->input('service_short_info'));
+            $service->service_questions = \Helper::maybe_serialize($service_questions);
+            $service->service_features = \Helper::maybe_serialize($service_features);
+            $service->service_short_info = \Helper::maybe_serialize($service_short_info);
             $service->service_documents = \Helper::maybe_serialize($request->input('service_documents'));
             $service->service_process_results = \Helper::maybe_serialize($request->input('service_process_results'));
             $service->service_packages = \Helper::maybe_serialize($request->input('service_packages')); 
             $service->status = $request->input('status');
             $service->show_nav_menu = $request->input('show_nav_menu');
     	    $service->updated_at = date('Y-m-d h:i:s');
+ 
     	    $service->save();
             Session::flash('success','Service Updated Successfully');
     	    return redirect('admin/services');

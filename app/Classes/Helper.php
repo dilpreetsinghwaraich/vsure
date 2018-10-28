@@ -145,6 +145,13 @@ class Helper
 	    $uploaded_file = 'public/images/uploads/'.date('Y').'/'.date('M').'/'.$filename;            
 	    return $uploaded_file;
 	}
+	public static function fileuploadArray($file){
+	    $destinationPath = 'public/images/uploads/'.date('Y').'/'.date('M');
+	    $filename = time().'_'.$file->getClientOriginalName();
+	    $upload_success = $file->move($destinationPath, $filename);
+	    $uploaded_file = 'public/images/uploads/'.date('Y').'/'.date('M').'/'.$filename;            
+	    return $uploaded_file;
+	}
 	public static function randomPassword() {
 	    return mt_rand(100000, 999999);
 	    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
