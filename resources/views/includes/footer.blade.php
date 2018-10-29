@@ -58,6 +58,15 @@
     </div>
   </section>
 </div>
+
+<?php 
+if (empty(session('token'))) {
+  ?>
+  @include('Auth.LoginModal')
+  <?php
+} 
+?>
+
 <script src="<?php echo asset('/public'); ?>/js/jquery.min.js"></script>
 <script src="<?php echo asset('/public'); ?>/js/jquery.easing.min.js"></script> 
 <script src="<?php echo asset('/public'); ?>/js/bootstrap.min.js"></script> 

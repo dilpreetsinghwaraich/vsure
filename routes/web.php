@@ -27,8 +27,18 @@ Route::post('/contact/us/submit', 'Contact\ContactController@contactUsSubmit');
 
 Route::get('/service/{service_slug?}', 'Service\ServiceController@partnershipFirmRegistration');
 
+Route::get('auth/register','Auth\RegisterController@registerForm');
+Route::post('auth/register','Auth\RegisterController@create');
+Route::post('/auth/login', 'Auth\LoginController@loginAccess');
+Route::get('/auth/logout', 'Auth\LoginController@logout');
+Route::get('/my-account', function (){
+	$view = 'Pages.Success';
+        return view('Includes.commonTemplate',compact('view'));
+});;
+
 Route::get('/admin/login', 'Admin\Auth\LoginController@login');
 Route::post('/admin/login', 'Admin\Auth\LoginController@loginAccess');
+
 Route::group(['middleware' => 'adminToken'], function () {
 	Route::get('/admin/dashboard', 'Admin\Home\AdminDashboardController@home');
 	Route::get('/admin/logout', 'Admin\Auth\LoginController@logout');

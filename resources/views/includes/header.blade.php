@@ -13,6 +13,7 @@
 <base href="<?php echo url('/'); ?>">
 </head>
 <body>
+  
 <div id="myDiv"> 
   <!--HEADER-->
   <div class="header">
@@ -30,13 +31,25 @@
                 <?php echo Helper::getServiceSubMenu(); ?>
                 <li class=""><a href="<?php echo url('/learning-center'); ?>">Learning Center</a></li>
                 <li class=""><a href="<?php echo url('/contact-us'); ?>">Contact Us</a></li>
-                <li>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown"> <a href="<?php echo url('/login'); ?>" class="dropdown-toggle">
-                      <button> <span class="fa fa-user-o"></span> Sign In </button>
-                      </a> </li>
-                  </ul>
-                </li>
+                <?php
+                  if (empty(session('token'))) {
+                    ?>
+                      <li>
+                        <ul class="nav navbar-nav navbar-right">
+                          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#loginModal">
+                            <button type="button" class="btn btn-info btn-lg" ><span class="fa fa-user-o"></span> Sign In </button>
+                            </a> </li>
+                        </ul>
+                      </li>
+                    <?php
+                  }else{
+                    ?>
+                    <li class=""><a href="<?php echo url('/auth/logout'); ?>">Logout</a></li>
+                    <li><a href="<?php echo url('/my-account'); ?>"><button type="button" class="btn btn-info btn-lg" >My Account</button></a></li>
+                    <?php
+                  }
+                ?>
+                
               </ul>
             </div>
           </div>

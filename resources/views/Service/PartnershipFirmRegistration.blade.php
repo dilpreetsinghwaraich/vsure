@@ -111,9 +111,15 @@
     </div>
   </section>
   <!--feature end--> 
-  
+  <?php 
+  if (isset($service_feature['image']) && !empty($service_feature['image'])) {
+    $service_feature_bc = $service_feature['image'];
+  }else{
+    $service_feature_bc = 'public/images/service-back.jpg';
+  }
+  ?>
   <!--why-choose-pvt-ltd-start-->
-  <section id="choose-pvt-ltd-company" class="fadeIn delay-05s animated" style="visibility: visible; animation-name: fadeIn;background-image: url('<?php echo url('/public') ?>/images/service-back.jpg');">
+  <section id="choose-pvt-ltd-company" class="fadeIn delay-05s animated" style="visibility: visible; animation-name: fadeIn;background-image: url('<?php echo url('/'.$service_feature_bc) ?>');">
     <div class="container">
       <h2><?php echo (isset($service_feature['title'])?$service_feature['title']:'') ?></h2>
       <p><?php echo (isset($service_feature['content'])?$service_feature['content']:'') ?></p>

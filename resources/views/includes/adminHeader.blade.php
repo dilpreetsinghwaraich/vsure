@@ -72,7 +72,7 @@
     <main class="main-content bgc-grey-100">
       <div id="mainContent">
         <div class="container-fluid">
-          @if (Session::has('success'))
+        @if (Session::has('success'))
           <div class="alert alert-info">{{ Session::get('success') }}</div>
         @endif
         @if (Session::has('warning'))

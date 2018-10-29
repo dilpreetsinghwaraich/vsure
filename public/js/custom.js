@@ -1,5 +1,4 @@
-(function ($) {
-    
+(function ($) {    
     // Init Wow
     wow = new WOW( {
         animateClass: 'animated',

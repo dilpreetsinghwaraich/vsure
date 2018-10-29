@@ -3,37 +3,36 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\User;
+use Illuminate\Http\Request;
+use Session, Redirect, DB, Helper;
+use Illuminate\Support\Facades\Input;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
-    use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
+   public function loginAccess(Request $request)
+   {
+       $user = User::login($request);
+       if($user['error']==true)
+       {
+            $message = '<div class="alert alert-warning">'.$user['message'].'</div>';
+            echo json_encode(['status'=>'false','message'=>$message]);
+            die;
+           
+       }else
+       {
+            Session::put('token', $user['token']);
+            Session::save();
+            Session::flash('success', $user['message']);
+            $message = '<div class="alert alert-success">'.$user['message'].'</div>';
+            echo json_encode(['status'=>'true','message'=>$message]);
+            die;
+       }
+   }
+   public function logout()
+   {
+       $user = User::logout();
+       Session::flash('error', $user['message']);
+       return redirect('auth/register');
+   }
 }

@@ -1,5 +1,5 @@
 <div class="header">
-    <div class="bg-color">
+    <div class="bg-color" style="background: url('<?php echo asset('/public'); ?>/images/home-back.jpg')">
       <div class="wrapper">
         <div class="banner-info about-page-banner wow fadeIn delay-05s animated" style="visibility: visible; animation-name: fadeIn;">
           <h1 class="bnr-title  text-center gallery">About Us</h1>

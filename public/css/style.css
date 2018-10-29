@@ -113,6 +113,127 @@ ul .icons{
     text-decoration: underline;
     padding-bottom: 1px;
 }
+.modal-backdrop.in {
+    z-index: 0 !important;
+}
+.header .modal-header {
+    padding: 15px;
+    border-bottom: none;
+    background: #fff;
+    color: #fff;
+}
+.header .modal-dialog {
+    max-width: 400px;
+}
+.header form label {
+    width: 100%;
+    color: #333;
+    font-size: 16px;
+    font-weight: 100;
+}
+.modal-body form .image {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    margin: -2em 0 10px 0;
+}
+.modal-body form img {
+    max-width: 80px;
+}
+.forgot-btn {
+    background: none !important;
+    border: none !important;
+    color: #333 !important;
+    font-weight: 100 !important;
+    width: 100%;
+}
+.header form input {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid#ccc;
+    margin: 10px 0;
+    padding: 10px 10px;
+}
+.header form input::-webkit-input-placeholder{
+    color: #333;
+}
+.header form button{
+    width:100%;
+    background: #3bb14b;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 10px;
+}
+.modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+    background: #eee;
+}
+.header .modal-dialog .modal-footer p {
+    float: left;
+}
+.sign-in-login-with {
+    width: 100%;
+    text-align: center;
+    padding: 1em 0;
+    border-top: 1px solid#eee;
+    border-bottom: 1px solid#eee;
+    margin: 10px 0 0 0;
+}
+.sign-in-login-with a {
+    font-size: 40px;
+    margin: 0 5px;
+    opacity: 0.8;
+}
+i.fa.fa-facebook-official {
+    color: #3B5998;
+}
+i.fa.fa-linkedin-square{
+    color: #0077B5;
+}
+i.fa.fa-google-plus-square{
+    color:#d62d20;
+}
+.sign-in-login-with a:hover{
+    opacity: 1;
+}
+
+
+/***********************************
+************************************
+Register
+************************************
+***********************************/
+
+.register-page-content{
+    padding: 0 !important;
+}
+.register-page{
+    background: #eee;
+}
+.register-page form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 0;
+    background: #fff;
+    padding: 40px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 7px 0 #ccc;
+}
+.register-page form button {
+    background: #3bb14b;
+    border: 1px solid #3bb14b;
+    border-radius: 3px;
+    padding: 8px 35px;
+    color: #fff;
+    margin-bottom: 20px;
+    width: 100%;
+    margin: 10px 0;
+}
+
+
+
 /***********************************
 ************************************
 features

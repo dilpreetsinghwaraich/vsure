@@ -1,6 +1,6 @@
 <!--HEADER-->
   <div class="header">
-    <div class="bg-color">
+    <div class="bg-color" style="background: url('<?php echo asset('/public'); ?>/images/home-back.jpg')">
       <div class="wrapper">
         <div class="banner-info contact-page-banner banners-home wow fadeIn delay-05s animated" style="visibility: visible; animation-name: fadeIn;">
           <h1 class="bnr-title  text-center gallery">Contact Us</h1>
