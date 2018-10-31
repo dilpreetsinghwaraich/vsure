@@ -18,6 +18,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         Paginator::defaultView('pagination::bootstrap');
+        //\Illuminate\Support\Facades\URL::forceScheme('https');
  
         Validator::extend('phone_number', function($attribute, $value, $parameters, $validator) {
             if (strlen($value) != 10) {
