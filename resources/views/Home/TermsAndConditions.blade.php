@@ -2,7 +2,7 @@
   <div class="bg-color" style="background: url('<?php echo asset('/public'); ?>/images/home-back.jpg')">
     <div class="wrapper">
       <div class="banner-info about-page-banner wow fadeIn delay-05s animated" style="visibility: visible; animation-name: fadeIn;">
-        <h1 class="bnr-title  text-center gallery">About Us</h1>
+        <h1 class="bnr-title  text-center gallery">Terms And Conditions</h1>
         <h2 class="text-center gallery"><a href="<?php echo url('/'); ?>"><span>Home</span></a> - <span>Terms And Conditions</span></h2>
       </div>
     </div>
