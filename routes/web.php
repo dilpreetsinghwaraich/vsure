@@ -22,9 +22,9 @@ Route::get('/migrate', function() {
 
 Route::get('/', 'Home\HomeController@home');
 Route::get('/about-us', 'Home\HomeController@aboutUs');
-Route::get('/privacy-policy', 'Home\HomeController@aboutUs');
-Route::get('/terms-and-conditions', 'Home\HomeController@aboutUs');
-Route::get('/refund-and-cancellation', 'Home\HomeController@aboutUs');
+Route::get('/privacy-policy', 'Home\HomeController@privacyPolicy');
+Route::get('/terms-and-conditions', 'Home\HomeController@termsAndConditions');
+Route::get('/refund-and-cancellation', 'Home\HomeController@refundAndCancellation');
 Route::get('/contact-us', 'Contact\ContactController@contactUs');
 Route::post('/contact/us/submit', 'Contact\ContactController@contactUsSubmit');
 

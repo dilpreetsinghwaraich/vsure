@@ -16,4 +16,19 @@ class HomeController extends Controller
         $view = 'Home.AboutUs';
         return view('Includes.commonTemplate',compact('view'));
     }
+    public function privacyPolicy()
+    {
+        $view = 'Home.PrivacyPolicy';
+        return view('Includes.commonTemplate',compact('view'));
+    }
+    public function termsAndConditions()
+    {
+        $view = 'Home.TermsAndConditions';
+        return view('Includes.commonTemplate',compact('view'));
+    }
+    public function refundAndCancellation()
+    {
+        $view = 'Home.RefundAndCancellation';
+        return view('Includes.commonTemplate',compact('view'));
+    }
 }
