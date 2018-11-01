@@ -4,7 +4,18 @@
       <div class="row">
         <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
           <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 botom">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 botom">
+              <h2>Our Services</h2>
+              <hr class="bottom-lines">
+              <ul>
+                <li><a href="<?php echo url('about-us') ?>">About Us</a></li>
+                <li><a href="<?php echo url('privacy-policy') ?>">Privacy Policy</a></li>
+                <li><a href="<?php echo url('terms-and-conditions') ?>">Terms And Conditions</a></li>
+                <li><a href="<?php echo url('refund-and-cancellation') ?>">Refund And Cancellation</a></li>
+                <li><a href="<?php echo url('contact-us') ?>">Contact Us</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 botom">
               <h2>Contact info</h2>
               <hr class="bottom-lines">
               <p>VSure Consulting India, 4/27,<br>
@@ -14,7 +25,7 @@
               <p><span>Email</span> : Mail Us</p>
               <!--  <p><span>Web</span> : Visit Our Website</p> --> 
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 botom">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 botom">
               <h2>About Vsure consulting</h2>
               <hr class="bottom-lines">
               <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. i architecto beatae vitae dicta sunt explicabo.</p>
