@@ -18,15 +18,13 @@ class UserToken
      */
     public function handle($request, Closure $next)
     {
-
         if(empty(Session('token')))
         {
             Session::forget('token');
             Session::flash('message', "Your Session has been expired, Please login again.");
             return redirect('/');
         }
-        $user = User::first(); 
-        if(empty($user))
+        if(empty(JWTAuth::toUser(session('token'))))
         {
             Session::forget('token');
             Session::flash('message', "Your Session has been expired, Please login again.");

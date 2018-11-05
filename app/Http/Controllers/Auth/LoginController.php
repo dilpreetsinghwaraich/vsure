@@ -33,6 +33,6 @@ class LoginController extends Controller
    {
        $user = User::logout();
        Session::flash('error', $user['message']);
-       return redirect('auth/register');
+       return redirect('/');
    }
 }

@@ -58,7 +58,7 @@ class User extends Authenticatable
             'created_at' => date('Y-m-d h:i:s'),
             'updated_at' => date('Y-m-d h:i:s')
         ]);
-        
+        JWTAuth::setToken($token);
         return ['error' => false,'message'=>'Login Successfully','token'=>$token];
     }
     protected function logout()

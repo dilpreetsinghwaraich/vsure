@@ -2,8 +2,10 @@
 namespace App\Classes;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use Validator, DateTime, DB, Hash, File, Config, Helpers;
+use Validator, DateTime, DB, Hash, File, Config, Helpers, Auth;
 use Session, Redirect;
+use JWTFactory;
+use JWTAuth;
 use App\User;
 use App\Services;
 class Helper
@@ -166,7 +168,7 @@ class Helper
 	
 	public static function getCurrentUser()
 	{
-	    return User::first();
+		return JWTAuth::toUser(session('token'));
 	}
 	public static function getUser($user_id)
 	{
