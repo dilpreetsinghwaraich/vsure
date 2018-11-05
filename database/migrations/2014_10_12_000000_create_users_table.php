@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('city', 50)->nullable(); 
             $table->string('role', 50)->default('subcriber');            
             $table->string('password');
+            $table->string('image', 500)->nullable(); 
             $table->rememberToken();
             $table->timestamps();
         });

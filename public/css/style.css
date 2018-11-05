@@ -1528,6 +1528,323 @@ Error
     color:#624c97;
 }
 
+/***********************************
+************************************
+Profile-Page
+************************************
+***********************************/
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    background-color: #fff;
+    height: 100%;
+    overflow: auto;
+    float: left;
+    box-shadow: 2px 1px 5px 0 #ccc;
+    height: 500px;
+}
+.logedin-profile-page .sidebar h2, .logedin-profile-page .content h2 {
+    float: left;
+    width: 100%;
+    background: #efefef;
+    padding: 10px 0;
+    color: #333;
+    font-size: 18px;
+    margin: 0;
+    text-align: left;
+    padding-left: 2em;
+}
+.logedin-profile-page .sidebar a {
+    display: inline-block;
+    width: 100%;
+    background: none;
+    box-shadow: none;
+    color: #333;
+    padding: 10px 0 10px 3em;
+    text-align: left;
+    margin: 0;
+    border-radius: 0;
+}
+.logedin-profile-page .sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 0 10px 3em;
+}
+.logedin-profile-page .sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+.logedin-profile-page div.content {
+    margin: 0 20px;
+    padding: 1px 16px;
+    border: 1px solid#eee;
+    padding: 0;
+}
+.logedin-profile-page div.content img {
+    border: 4px solid#405199;
+    border-radius: 50%;
+    max-width: 160px;
+    max-height: 160px;
+}
+.logedin-profile-page .content .content-main {
+    margin: 0 auto;
+    width: 90%;
+    text-align: left;
+    display: inline-block;
+    padding: 10px 0;
+}
+.logedin-profile-page .content .content-main h3.profile-title{
+    color: #574590;
+    float: left;
+    width: 100%;
+}
+.logedin-profile-page .content .content-main p.profile-email, .content .content-main p.profile-phone{
+    color: #999 !important;
+    float: left;
+    width: 100%;
+    margin: 0;
+    font-size: 17px !important;
+    padding: 7px 0;
+}
+
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+/***********************************
+************************************
+documents-Page
+************************************
+***********************************/
+
+.logedin-documents-page .sidebar h2, .logedin-documents-page .content h2 {
+    float: left;
+    width: 100%;
+    background: #efefef;
+    padding: 10px 0;
+    color: #333;
+    font-size: 18px;
+    margin: 0;
+    text-align: left;
+    padding-left: 2em;
+}
+.logedin-documents-page .sidebar a {
+    display: inline-block;
+    width: 100%;
+    background: none;
+    box-shadow: none;
+    color: #333;
+    padding: 10px 0 10px 3em;
+    text-align: left;
+    margin: 0;
+    border-radius: 0;
+}
+.logedin-documents-page .sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 0 10px 3em;
+}
+.logedin-documents-page .sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+.logedin-documents-page div.content {
+    margin: 0 20px;
+    padding: 1px 16px;
+    border: 1px solid#eee;
+    padding: 0;
+}
+.logedin-documents-page .content .content-main {
+    margin: 0 auto;
+    width: 90%;
+    text-align: left;
+    display: inline-block;
+    padding: 10px 0;
+}
+.logedin-documents-page div.content .content-main img {
+    box-shadow: 0 0 10px 0 #ccc;
+}
+.logedin-documents-page .content-main p.document-name{
+    color: #333 !important;
+    font-size: 14px !important;
+    margin: 10px 0 0 0;
+    text-align: center;
+}
+.logedin-documents-page div.content .content-main a.document-date{
+    color: #999 !important;
+    font-size: 14px !important;
+    background: none;
+    box-shadow: none;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+
+}
+.documents-page-document-main {
+    text-align: center;
+}
+.upload-btn {
+    float: right;
+    margin: -2.4em 0 20px 0;
+    text-align: center;
+}
+.upload-btn a {
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+.upload-btn p {
+    text-align: center;
+    color:#999 !important;
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    font-size: 14px !important;
+}
+
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+
+/***********************************
+************************************
+Order-Page
+************************************
+***********************************/
+
+.logedin-order-page .sidebar h2, .logedin-order-page .content h2 {
+    float: left;
+    width: 100%;
+    background: #efefef;
+    padding: 10px 0;
+    color: #333;
+    font-size: 18px;
+    margin: 0;
+    text-align: left;
+    padding-left: 2em;
+}
+.logedin-order-page .sidebar a {
+    display: inline-block;
+    width: 100%;
+    background: none;
+    box-shadow: none;
+    color: #333;
+    padding: 10px 0 10px 3em;
+    text-align: left;
+    margin: 0;
+    border-radius: 0;
+}
+.logedin-order-page .sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 0 10px 3em;
+}
+.logedin-order-page .sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+.logedin-order-page div.content {
+    margin: 0 20px;
+    padding: 1px 16px;
+    border: 1px solid#eee;
+    padding: 0;
+}
+.logedin-order-page .content .content-main {
+    margin: 0 auto;
+    width: 100%;
+    text-align: left;
+    display: inline-block;
+    padding: 10px 0;
+}
+.logedin-order-page .content-main .order-basic{
+    color: #2b69b2;
+}
+.logedin-order-page .content-main .order-premium{
+    color: #dc5841;
+}
+.logedin-order-page .content-main table .order-basic span{
+    color: #999 !important;
+    width: 100%;
+    display: inline-block;
+}
+.logedin-order-page .content-main table .order-premium span{
+    color: #999 !important;
+    width: 100%;
+    display: inline-block;
+}
+.logedin-order-page .content-main table th {
+    background: #54b54e;
+    color: #fff;
+    padding: 12px 10px !important;
+}
+.logedin-order-page .content-main table tr td{
+    color: #999;
+}
+.logedin-order-page .content-main table tr td button{
+    background: #54b54e;
+    color: #fff;
+    border:none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.logedin-order-page .content-main table td.status-processed{
+    color: #9d722d;
+}
+.logedin-order-page .content-main table td.status-completed{
+    color: #54b54e;
+}
+
+
+@media screen and (max-width: 550px) {
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
 
 
 

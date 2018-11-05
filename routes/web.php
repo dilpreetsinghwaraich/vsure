@@ -16,10 +16,6 @@ Route::get('/cache', function() {
     $exitCode = Artisan::call('config:cache');
 });
 
-Route::get('/migrate', function() {
-    \Artisan::call('migrate:refresh',['--seed' => ' ']);
-});
-
 Route::get('/', 'Home\HomeController@home');
 Route::get('/about-us', 'Home\HomeController@aboutUs');
 Route::get('/privacy-policy', 'Home\HomeController@privacyPolicy');
@@ -34,10 +30,19 @@ Route::get('auth/register','Auth\RegisterController@registerForm');
 Route::post('auth/register','Auth\RegisterController@create');
 Route::post('/auth/login', 'Auth\LoginController@loginAccess');
 Route::get('/auth/logout', 'Auth\LoginController@logout');
-Route::get('/my-account', function (){
-	$view = 'Pages.Success';
-        return view('Includes.commonTemplate',compact('view'));
-});;
+Route::group(['middleware' => 'userToken'], function () {
+	Route::get('/my-account', 'Dashboard\DashboardController@dashboard');
+
+	Route::get('/my-profile', 'Profile\ProfileController@profile');
+
+	Route::get('/edit-profile', 'Profile\ProfileController@editProfile');
+
+	Route::get('/my-order', 'Order\OrderController@order');
+
+	Route::get('/my-documents', 'Document\DocumentController@document');
+
+	Route::get('/my-deliverable', 'Deliverable\DeliverableController@deliverable');
+});
 
 Route::get('/admin/login', 'Admin\Auth\LoginController@login');
 Route::post('/admin/login', 'Admin\Auth\LoginController@loginAccess');
