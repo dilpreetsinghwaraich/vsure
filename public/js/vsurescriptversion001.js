@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-    $(".InputNumber").keydown(function (e) {
+    $(document).on('keydown', ".InputNumber", function(e) {
         if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
             (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) || 
             (e.keyCode >= 35 && e.keyCode <= 40)) {
@@ -130,6 +130,66 @@ jQuery(document).ready(function($) {
         .fail(function() {
             window.alert('Something Went Wrong, Please try after sometime');
         });        
+    });
+    $(document).on('change', '#state', function(event) {
+        if ($(this).val() == '') {
+            return false;
+        }
+      var state = $(this).val();
+      $.ajax({
+        url: AJAXURL('getStateCity/')+state,
+        type: 'GET',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+      })
+      .done(function(data) {
+        $('#city').html(data);
+      })
+      .fail(function() {
+        window.alert('Something Went wrong, Please try After Sometime');
+      });      
+    });
+    $(document).on('submit', '.editProfileForm', function(event) {
+        event.preventDefault();
+        var current = $(this);
+        var dataString = current.serialize();
+        current.find('.messageResponsed').html('');
+        if (current.find('.name').val() == '') {
+            current.find('.messageResponsed').html('<div class="alert alert-warning">Name is required</div>');
+            return false;
+        }
+        if (current.find('.phone').val() == '') {
+            current.find('.messageResponsed').html('<div class="alert alert-warning">Phone Number is required</div>');
+            return false;
+        }
+        if (current.find('.email').val() == '') {
+            current.find('.messageResponsed').html('<div class="alert alert-warning">Email is required</div>');
+            return false;
+        }
+        else if(!isValidEmailAddress(current.find('.email').val()))
+        {
+            current.find('.messageResponsed').html('<div class="alert alert-warning">The email must be a valid email address</div>');
+            return false;
+        }       
+        $.ajax({
+            url: AJAXURL('update/profile'),
+            type: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: dataString,
+        })
+        .done(function(result) {
+            var data = jQuery.parseJSON(result);            
+            current.find('.messageResponsed').html(data.message);
+            
+            return false;
+        })
+        .fail(function() {
+            current.find('.messageResponsed').html('<div class="alert alert-warning">Something Went Wrong, Please try after sometime.</div>');
+            return false;
+        });
     });
 });
 function isValidEmailAddress(emailAddress) {

@@ -36,6 +36,8 @@ Route::group(['middleware' => 'userToken'], function () {
 	Route::get('/my-profile', 'Profile\ProfileController@profile');
 	Route::post('update/profile/image','Profile\ProfileController@updateProfileImage');
 	Route::get('/edit/profile', 'Profile\ProfileController@editProfile');
+	Route::post('/update/profile', 'Profile\ProfileController@updateProfile');
+	Route::get('getStateCity/{state?}', 'Profile\ProfileController@getStateCity'); 
 
 	Route::get('/my-order', 'Orders\OrdersController@orders');
 	Route::get('/order/view/{order_id?}', 'Orders\OrdersController@orderView');

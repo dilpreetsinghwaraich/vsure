@@ -25,9 +25,11 @@ class CreateUsersTable extends Migration
             $table->string('country', 50)->nullable();
             $table->string('state', 50)->nullable();
             $table->string('city', 50)->nullable(); 
-            $table->string('role', 50)->default('subcriber');            
+            $table->string('role', 50)->default('subcriber');       
             $table->string('password');
             $table->string('image', 500)->nullable(); 
+            $table->string('address', 500)->nullable(); 
+            $table->string('postal_code', 10)->nullable(); 
             $table->rememberToken();
             $table->timestamps();
         });
