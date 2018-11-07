@@ -246,4 +246,35 @@ class AdminServicesController extends Controller
     	Session::flash('success','Service Deleted Successfully');
 	    return Redirect::back()->withInput(Input::all());
     }
+    public function clone($service_id = null)
+    {
+        $service_old = Services::find($service_id);
+        if (empty($service_old->service_id)) {
+            Session::flash('error','Something went wrong, You are not authorized to clone this Service.');
+            return Redirect::back()->withInput(Input::all());           
+        }
+        $service = new Services();     
+        $count = Services::where('service_title', $service_old->service_title)->get()->count();
+        if($count == 0)
+        {
+            $count = '';
+        }        
+        $service->service_title = $service_old->service_title.' copy';
+        $service->service_slug = str_slug($service_old->service_title.' copy','-');
+        $service->service_content = $service_old->service_content;
+        $service->service_questions = $service_old->service_questions;
+        $service->service_features = $service_old->service_features;
+        $service->service_short_info = $service_old->service_short_info;
+        $service->service_documents = $service_old->service_documents;
+        $service->service_process_results = $service_old->service_process_results;
+        $service->service_packages = $service_old->service_packages; 
+        $service->status = $service_old->status;
+        $service->show_nav_menu = $service_old->show_nav_menu;           
+        $service->created_at = date('Y-m-d h:i:s');
+        $service->updated_at = date('Y-m-d h:i:s');
+        $service->save();
+
+        Session::flash('success','Service Cloned Successfully');
+        return redirect('admin/services');
+    }
 }

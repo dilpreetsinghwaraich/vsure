@@ -38,6 +38,8 @@ Route::group(['middleware' => 'userToken'], function () {
 	Route::get('/edit/profile', 'Profile\ProfileController@editProfile');
 	Route::post('/update/profile', 'Profile\ProfileController@updateProfile');
 	Route::get('getStateCity/{state?}', 'Profile\ProfileController@getStateCity'); 
+	Route::post('varify/email', 'Profile\ProfileController@varifyEmail');
+	Route::get('varify/email/link/{key?}', 'Profile\ProfileController@varifyEmailLinkWithKey'); 
 
 	Route::get('/my-order', 'Orders\OrdersController@orders');
 	Route::get('/order/view/{order_id?}', 'Orders\OrdersController@orderView');
@@ -118,6 +120,7 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::post('/admin/save/service', 'Admin\Services\AdminServicesController@save');
 	Route::get('/admin/edit/service/{service_id?}', 'Admin\Services\AdminServicesController@edit');
 	Route::post('/admin/update/service/{service_id?}', 'Admin\Services\AdminServicesController@update');
+	Route::get('/admin/clone/service/{service_id?}', 'Admin\Services\AdminServicesController@clone');
 	Route::get('/admin/delete/service/{service_id?}', 'Admin\Services\AdminServicesController@delete');
 
 });

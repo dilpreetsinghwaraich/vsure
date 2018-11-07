@@ -131,6 +131,7 @@ class ComposerStaticInitcbf6f469619a0da8336ec84096dbb370
         ),
         'A' => 
         array (
+            'Artesaos\\SEOTools\\' => 18,
             'App\\' => 4,
         ),
     );
@@ -330,6 +331,10 @@ class ComposerStaticInitcbf6f469619a0da8336ec84096dbb370
         array (
             0 => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src',
         ),
+        'Artesaos\\SEOTools\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/artesaos/seotools/src/SEOTools',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -388,6 +393,7 @@ class ComposerStaticInitcbf6f469619a0da8336ec84096dbb370
         'App\\Http\\Controllers\\Admin\\Features\\AdminFeaturesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Features/AdminFeaturesController.php',
         'App\\Http\\Controllers\\Admin\\Home\\AdminDashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Home/AdminDashboardController.php',
         'App\\Http\\Controllers\\Admin\\Packages\\AdminPackagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Packages/AdminPackagesController.php',
+        'App\\Http\\Controllers\\Admin\\ProcessResults\\AdminProcessResultsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ProcessResults/AdminProcessResultsController.php',
         'App\\Http\\Controllers\\Admin\\Questions\\AdminQuestionsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Questions/AdminQuestionsController.php',
         'App\\Http\\Controllers\\Admin\\Services\\AdminServicesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Services/AdminServicesController.php',
         'App\\Http\\Controllers\\Admin\\Terms\\AdminTermsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Terms/AdminTermsController.php',
@@ -399,7 +405,12 @@ class ComposerStaticInitcbf6f469619a0da8336ec84096dbb370
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Contact\\ContactController' => __DIR__ . '/../..' . '/app/Http/Controllers/Contact/ContactController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\Dashboard\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Dashboard/DashboardController.php',
+        'App\\Http\\Controllers\\Document\\DocumentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Document/DocumentController.php',
         'App\\Http\\Controllers\\Home\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/HomeController.php',
+        'App\\Http\\Controllers\\Notifications\\NotificationsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Notifications/NotificationsController.php',
+        'App\\Http\\Controllers\\Orders\\OrdersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Orders/OrdersController.php',
+        'App\\Http\\Controllers\\Profile\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/Profile/ProfileController.php',
         'App\\Http\\Controllers\\Service\\ServiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/Service/ServiceController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\AdminToken' => __DIR__ . '/../..' . '/app/Http/Middleware/AdminToken.php',
@@ -409,6 +420,7 @@ class ComposerStaticInitcbf6f469619a0da8336ec84096dbb370
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
+        'App\\Http\\Middleware\\UserToken' => __DIR__ . '/../..' . '/app/Http/Middleware/UserToken.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Packages' => __DIR__ . '/../..' . '/app/Packages.php',
         'App\\ProcessResults' => __DIR__ . '/../..' . '/app/ProcessResults.php',
@@ -422,6 +434,21 @@ class ComposerStaticInitcbf6f469619a0da8336ec84096dbb370
         'App\\Services' => __DIR__ . '/../..' . '/app/Services.php',
         'App\\Terms' => __DIR__ . '/../..' . '/app/Terms.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'Artesaos\\SEOTools\\Contracts\\MetaTags' => __DIR__ . '/..' . '/artesaos/seotools/src/SEOTools/Contracts/MetaTags.php',
+        'Artesaos\\SEOTools\\Contracts\\OpenGraph' => __DIR__ . '/..' . '/artesaos/seotools/src/SEOTools/Contracts/OpenGraph.php',
+        'Artesaos\\SEOTools\\Contracts\\SEOFriendly' => __DIR__ . '/..' . '/artesaos/seotools/src/SEOTools/Contracts/SEOFriendly.php',
+        'Artesaos\\SEOTools\\Contracts\\SEOTools' => __DIR__ . '/..' . '/artesaos/seotools/src/SEOTools/Contracts/SEOTools.php',
+        'Artesaos\\SEOTools\\Contracts\\TwitterCards' => __DIR__ . '/..' . '/artesaos/seotools/src/SEOTools/Contracts/TwitterCards.php',
+        'Artesaos\\SEOTools\\Facades\\OpenGraph' => __DIR__ . '/..' . '/artesaos/seotools/src/SEOTools/Facades/OpenGraph.php',
+        'Artesaos\\SEOTools\\Facades\\SEOMeta' => __DIR__ . '/..' . '/artesaos/seotools/src/SEOTools/Facades/SEOMeta.php',
+        'Artesaos\\SEOTools\\Facades\\SEOTools' => __DIR__ . '/..' . '/artesaos/seotools/src/SEOTools/Facades/SEOTools.php',
+        'Artesaos\\SEOTools\\Facades\\TwitterCard' => __DIR__ . '/..' . '/artesaos/seotools/src/SEOTools/Facades/TwitterCard.php',
+        'Artesaos\\SEOTools\\OpenGraph' => __DIR__ . '/..' . '/artesaos/seotools/src/SEOTools/OpenGraph.php',
+        'Artesaos\\SEOTools\\Providers\\SEOToolsServiceProvider' => __DIR__ . '/..' . '/artesaos/seotools/src/SEOTools/Providers/SEOToolsServiceProvider.php',
+        'Artesaos\\SEOTools\\SEOMeta' => __DIR__ . '/..' . '/artesaos/seotools/src/SEOTools/SEOMeta.php',
+        'Artesaos\\SEOTools\\SEOTools' => __DIR__ . '/..' . '/artesaos/seotools/src/SEOTools/SEOTools.php',
+        'Artesaos\\SEOTools\\Traits\\SEOTools' => __DIR__ . '/..' . '/artesaos/seotools/src/SEOTools/Traits/SEOTools.php',
+        'Artesaos\\SEOTools\\TwitterCards' => __DIR__ . '/..' . '/artesaos/seotools/src/SEOTools/TwitterCards.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',

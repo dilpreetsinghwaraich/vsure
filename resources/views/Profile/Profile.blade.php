@@ -18,10 +18,28 @@
 			<input type="file" name="profile_image" id="profile_image" accept="image/*" style="display: none;" />
 		</a>
 	</div>
-	<div class="col-lg-9 col-xs-12">
+	<div class="col-lg-9 col-xs-12 showProfile">
+		<div class="messageResponsed"></div>
+		@if (Session::has('success'))
+		  <div class="alert alert-info">{{ Session::get('success') }}</div>
+		@endif
+		@if (Session::has('warning'))
+		  <div class="alert alert-warning">{{ Session::get('warning') }}</div>
+		@endif
+		@if (Session::has('error'))
+		  <div class="alert alert-danger">{{ Session::get('error') }}</div>
+		@endif
 		<h3 class="profile-title"><?php echo $profile->name; ?></h3>
 		<p class="profile-phone"><?php echo $profile->phone; ?></p>
-		<p class="profile-email"><?php echo $profile->email; ?></p>
+		<p class="profile-email"><?php echo $profile->email; ?>
+			<?php 
+				if ($profile->email_verified_at == '0') {
+					echo '<span style="background:red; padding:5px; color:white;"><span style="color:white;" class="glyphicon glyphicon-envelope"></span>Email Not Varified</span><span class="varifyEmail" style="cursor:pointer;">Varify</span>';
+				}else{
+					echo '<span style="background:green; padding:5px; color:white;"><span style="color:white;" class="glyphicon glyphicon-envelope"></span>Email Varified</span>';
+				}
+			?>
+		</p>
 		<p class="profile-address-line-one"><span>Address</span><?php echo $profile->address; ?></p>
 		<p class="profile-city"><span>City</span><?php echo $profile->city; ?></p>
 		<p class="profile-state"><span>State</span><?php echo $profile->state; ?></p>

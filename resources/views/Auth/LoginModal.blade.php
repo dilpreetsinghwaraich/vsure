@@ -13,7 +13,7 @@
             <img src="<?php echo asset('/public/images') ?>/login_image.png">
             </div>
             <div class="messageResponsed"></div>
-            <input class="email" type="email" placeholder="Email" name="email" required>
+            <input class="email" type="email" placeholder="Email" name="user_login" required>
             <input class="password" type="password" placeholder="Password" name="password" required>            
             <button type="submit">Sign In</button>
             <!-- <div class="sign-in-login-with">

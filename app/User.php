@@ -22,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'phone', 'company', 'county', 'state', 'city', 'role', 'password','image','address','postal_code'
+        'name', 'email', 'user_login', 'phone', 'company', 'county', 'state', 'city', 'role', 'password','image','address','postal_code','activation_key'
     ];
 
     /**
@@ -36,13 +36,13 @@ class User extends Authenticatable
     protected function login($request)
     {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|string|email|max:255',
+            'user_login' => 'required|string|email|max:255',
             'password'=> 'required'
         ]);
         if ($validator->fails()) {
             return ['error' => true,'message'=>$validator->errors(),'token'=>''];
         }
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('user_login', 'password');
         try {
             if (! $token = JWTAuth::attempt($credentials)) {
                 return ['error' => true,'message'=>'Inavlid Credentials, Incorrect email and password','token'=>''];

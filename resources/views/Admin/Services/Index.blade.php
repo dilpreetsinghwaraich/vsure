@@ -25,7 +25,8 @@
                     <td><?php echo ($service->status == 1?'Publish':'Draft'); ?></td>
                     <td>
                       <a href="<?php echo url('admin/edit/service/'.$service->service_id) ?>">Edit</a>
-                      | <a href="<?php echo url('admin/delete/service/'.$service->service_id) ?>">Delete</a></td>
+                      | <a href="<?php echo url('admin/delete/service/'.$service->service_id) ?>">Delete</a>
+                      | <a href="<?php echo url('admin/clone/service/'.$service->service_id) ?>">Clone</a></td>
                   </tr>
                   <?php 
                   $sno++;

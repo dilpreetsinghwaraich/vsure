@@ -40,6 +40,12 @@ $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
 );
+
+// file START ommited
+	$app->register(Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class);
+// file END ommited
+
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application

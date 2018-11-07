@@ -9,6 +9,7 @@
                   <th scope="col">#</th>
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
+                  <th scope="col">User Login</th>
                   <th scope="col">Phone</th>
                   <th scope="col">City</th>
                   <th scope="col">Role</th>
@@ -25,6 +26,7 @@
                     <th scope="row"><?php echo $sno; ?></th>
                     <td><?php echo $user->name; ?></td>
                     <td><?php echo $user->email; ?></td>
+                    <td><?php echo $user->user_login; ?></td>
                     <td><?php echo $user->phone ?></td>
                     <td><?php echo $user->city ?></td>
                     <td><?php echo $user->role ?></td>

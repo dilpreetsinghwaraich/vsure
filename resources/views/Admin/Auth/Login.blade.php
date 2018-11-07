@@ -76,7 +76,7 @@ opacity:0
     <?php echo Form::open(array('url' => 'admin/login', 'method' => 'post')) ?>
       <div class="form-group">
         <label class="text-normal text-dark">Username</label>
-        <input type="email" name="email" class="form-control" value="<?php echo old('email'); ?>" autocomplete="of" placeholder="example@gmail.com">
+        <input type="email" name="user_login" class="form-control" value="<?php echo old('user_login'); ?>" autocomplete="of" placeholder="example@gmail.com">
       </div>
       <div class="form-group">
         <label class="text-normal text-dark">Password</label>

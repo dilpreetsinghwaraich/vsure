@@ -41,7 +41,7 @@
 			<div class="form-group">
 				<label for="country">Country</label>
 				<select class="form-control" name="country" id="country">
-					<option value="in" selected="">India</option>
+					<option value="India" selected="">India</option>
 				</select>
 			</div>
 			<div class="form-group">
