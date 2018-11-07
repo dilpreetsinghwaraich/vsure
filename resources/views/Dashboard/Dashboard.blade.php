@@ -15,16 +15,17 @@
         <div class="logedin-profile-page">
             <div class="row">               
                	<div class="col-lg-3 col-xs-12 sidebar">
-					<h2>Menu</h2>
-					<a class="active dashboardLink" href="<?php echo url('my-account'); ?>" data-url="<?php echo url('my-profile'); ?>">My Profile</a>
-					<a class=" dashboardLink" href="<?php echo url('my-account') ?>" data-url="<?php echo url('my-order'); ?>">My Orders</a>
-					<a class=" dashboardLink" href="<?php echo url('my-account') ?>" data-url="<?php echo url('my-documents'); ?>">My Documents</a>
-					<a class=" dashboardLink" href="<?php echo url('my-account') ?>" data-url="<?php echo url('my-deliverable'); ?>">My Deliverable</a>
-					<a href="<?php echo url('auth/logout') ?>">Logout</a>
+        					<h2>Menu</h2>
+        					<a class="active dashboardLink" href="<?php echo url('my-account'); ?>" data-url="<?php echo url('my-profile'); ?>">My Profile</a>
+        					<a class=" dashboardLink" href="<?php echo url('my-account') ?>" data-url="<?php echo url('my-order'); ?>">My Orders</a>
+        					<a class=" dashboardLink" href="<?php echo url('my-account') ?>" data-url="<?php echo url('my-documents'); ?>">My Documents</a>
+        					<a class=" dashboardLink" href="<?php echo url('my-account') ?>" data-url="<?php echo url('my-deliverable'); ?>">My Deliverable</a>
+                  <a class=" dashboardLink" href="<?php echo url('my-account') ?>" data-url="<?php echo url('my-notifications'); ?>">My Notifications</a>
+					         <a href="<?php echo url('auth/logout') ?>">Logout</a>
                 </div>
 
                 <div class="col-lg-9 col-xs-12 content" id="dashboardViw">
-            		<?php echo view($sectionView,compact('profile')); ?>
+            		  <?php echo view($sectionView,compact('profile')); ?>
                 </div>
             </div>
         </div>

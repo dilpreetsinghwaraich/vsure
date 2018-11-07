@@ -1600,13 +1600,75 @@ Profile-Page
     float: left;
     width: 100%;
 }
-.logedin-profile-page .content .content-main p.profile-email, .content .content-main p.profile-phone{
+.logedin-profile-page .content .content-main p.profile-phone{
     color: #999 !important;
     float: left;
     width: 100%;
     margin: 0;
     font-size: 17px !important;
     padding: 7px 0;
+}
+.logedin-profile-page .content .content-main p.profile-email{
+    color: #999 !important;
+    float: left;
+    width: 100%;
+    margin: 0;
+    font-size: 17px !important;
+    padding: 7px 0;
+}
+.logedin-profile-page .content .content-main p.profile-address-line-one{
+    color: #999 !important;
+    float: left;
+    width: 100%;
+    margin: 0;
+    font-size: 17px !important;
+    padding: 7px 0;
+}
+.logedin-profile-page .content .content-main p.profile-city{
+    color: #999 !important;
+    float: left;
+    width: 100%;
+    margin: 0;
+    font-size: 17px !important;
+    padding: 7px 0;
+}
+.logedin-profile-page .content .content-main p.profile-state{
+    color: #999 !important;
+    float: left;
+    width: 100%;
+    margin: 0;
+    font-size: 17px !important;
+    padding: 7px 0;
+}
+.profile-city span, .profile-state span, .profile-address-line-one span {
+    color: #333 !important;
+    padding: 0 10px 0 0;
+}
+.logedin-profile-page .content .content-main p.profile-country{
+    color: #999 !important;
+    float: left;
+    width: 100%;
+    margin: 0;
+    font-size: 17px !important;
+    padding: 7px 0;
+}
+.profile-city span, .profile-country span, .profile-address-line-one span {
+    color: #333 !important;
+    padding: 0 10px 0 0;
+}
+.logedin-profile-page-image a {
+    background: none;
+    box-shadow: none;
+    text-align: left;
+}
+.logedin-profile-page-image h3 {
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px 0;
+    margin: 0px;
 }
 
 
@@ -1787,7 +1849,7 @@ Order-Page
     width: 100%;
     text-align: left;
     display: inline-block;
-    padding: 10px 0;
+    padding: 10px 10px;
 }
 .logedin-order-page .content-main .order-basic{
     color: #2b69b2;
@@ -1826,8 +1888,170 @@ Order-Page
 .logedin-order-page .content-main table td.status-completed{
     color: #54b54e;
 }
+.content-main.order-details-page-main {
+    float: left;
+    width: 100%;
+}
+.content-main.order-details-page-main > .row{
+    margin: 0;
+}
+.order-details-page-main .row {
+    border-bottom: 1px solid#eee;
+    padding: 2.5em 0;
+}
+.order-details-page-main-inner p {
+    float: left;
+    width: 100%;
+    color: #666 !important;
+    font-size: 15px !important;
+    font-weight: 100;
+    padding: 0 10px;
+    line-height: 28px;
+    margin:0;
+}
+.content-main.order-details-page-main table.table.table-condensed {
+    margin: 0;
+}
+.order-details-page-main-inner p span{
+    display:inherit;
+    width: 100%;
+    color: #333 !important;
+}
+.order-details-page-main-inner tr td b {
+    color: #333;
+}
+.order-details-page-main-inner tr td {
+    font-weight:100; 
+}
+.view-order-page-amount-due {
+    background: none !important;
+    color: #cc6666 !important;
+    font-size: 28px !important;
+    margin: 0;
+    padding: 0 !important;
+}
+.order-view-payment-section {
+    margin: 25px 0;
+    float:left;
+    width: 100%;
+}
+.order-view-payment-section p{
+    margin: ;
+    padding: 0;
+}
+.order-view-payment-section a{
+    background: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+}
+.order-details-page-main-inner-bottom-btn button {
+    background: #3bb14b;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 5px;
+    float: right;
+    font-weight: 100;
+}
+.view-order-section-heading p {
+    float: left;
+    width: 100%;
+    margin: 0;
+}
+.view-order-section-heading {
+    float: left;
+    width: 100%;
+    margin: 0;
+}
+
+@media screen and (max-width: 550px) {
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
 
 
+
+/***********************************
+************************************
+Order-Page
+************************************
+***********************************/
+
+.logedin-notifications-page .sidebar h2, .logedin-notifications-page .content h2 {
+    float: left;
+    width: 100%;
+    background: #efefef;
+    padding: 10px 0;
+    color: #333;
+    font-size: 18px;
+    margin: 0;
+    text-align: left;
+    padding-left: 2em;
+}
+.logedin-notifications-page .sidebar a {
+    display: inline-block;
+    width: 100%;
+    background: none;
+    box-shadow: none;
+    color: #333;
+    padding: 10px 0 10px 3em;
+    text-align: left;
+    margin: 0;
+    border-radius: 0;
+}
+.logedin-notifications-page .sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 0 10px 3em;
+}
+.logedin-notifications-page .sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+.logedin-notifications-page div.content {
+    margin: 0 20px;
+    padding: 1px 16px;
+    border: 1px solid#eee;
+    padding: 0;
+}
+.logedin-notifications-page .content .content-main {
+    margin: 0 auto;
+    width: 100%;
+    text-align: left;
+    display: inline-block;
+    padding: 10px 0;
+}
+.profile-page-notifications-main {
+    border: 1px solid#eee;
+    margin: 10px;
+    box-shadow: 0 0 10px 0 #eee;
+    padding: 10px;
+}
+.profile-page-notifications-main span {
+    color: #2c69b3 !important;
+    font-size: 18px;
+}
+.profile-page-notifications-main p {
+    color: #333;
+    font-size: 15px !important;
+    line-height: 20px;
+    margin: 0;
+
+}
 @media screen and (max-width: 550px) {
   
   .sidebar {

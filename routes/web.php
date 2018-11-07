@@ -34,12 +34,15 @@ Route::group(['middleware' => 'userToken'], function () {
 	Route::get('/my-account', 'Dashboard\DashboardController@dashboard');
 
 	Route::get('/my-profile', 'Profile\ProfileController@profile');
+	Route::post('update/profile/image','Profile\ProfileController@updateProfileImage');
+	Route::get('/edit/profile', 'Profile\ProfileController@editProfile');
 
-	Route::get('/edit-profile', 'Profile\ProfileController@editProfile');
-
-	Route::get('/my-order', 'Order\OrderController@order');
+	Route::get('/my-order', 'Orders\OrdersController@orders');
+	Route::get('/order/view/{order_id?}', 'Orders\OrdersController@orderView');
 
 	Route::get('/my-documents', 'Document\DocumentController@document');
+
+	Route::get('/my-notifications', 'Notifications\NotificationsController@notifications');
 
 	Route::get('/my-deliverable', 'Deliverable\DeliverableController@deliverable');
 });

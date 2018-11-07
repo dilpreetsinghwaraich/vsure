@@ -18,18 +18,27 @@ class UserToken
      */
     public function handle($request, Closure $next)
     {
-        if(empty(Session('token')))
-        {
+        if (empty(session('token'))) {
             Session::forget('token');
             Session::flash('message', "Your Session has been expired, Please login again.");
             return redirect('/');
         }
-        if(empty(JWTAuth::toUser(session('token'))))
-        {
+        $request->headers->set('Authorization','Bearer '.session('token'));
+        try {
+            if(!$user = JWTAuth::parseToken()->authenticate())
+            {
+                Session::forget('token');
+                Session::flash('message', "Your Session has been expired, Please login again.");
+                return redirect('/');
+            }else{
+                return $next($request); 
+            }
+
+        } catch(\Tymon\JWTAuth\Exceptions\JWTException $e){
             Session::forget('token');
             Session::flash('message', "Your Session has been expired, Please login again.");
             return redirect('/');
-        } 
+        }
         return $next($request); 
     }
 }

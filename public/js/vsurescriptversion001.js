@@ -87,7 +87,7 @@ jQuery(document).ready(function($) {
             return false;
         });        
     });
-    $('.dashboardLink').click(function(event) {
+    $(document).on('click', '.dashboardLink', function(event) {
         event.preventDefault();
         var $this = $(this);
         $.ajax({
@@ -100,6 +100,35 @@ jQuery(document).ready(function($) {
         })
         .fail(function() {
             console.log("error");
+        });        
+    });
+    $('#profile_image').on("click", function(e){
+       e.stopPropagation();
+    })
+    $(document).on('change', '#profile_image', function(event) {
+        event.preventDefault();
+        var formData = new FormData();
+        formData.append( 'image', $( '#profile_image' )[0].files[0] );
+        $.ajax({
+            url: AJAXURL('update/profile/image'),
+            type: 'POST',
+            data:formData,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            cache:false,
+            contentType: false,
+            processData: false,
+        })
+        .done(function(data) {
+            if (data == 'wrong') {
+                window.alert('Something wrong with your profile image, please select valid image');
+                return false;    
+            }
+            $('.profile_image_prview').attr('src', AJAXURL(data));
+        })
+        .fail(function() {
+            window.alert('Something Went Wrong, Please try after sometime');
         });        
     });
 });

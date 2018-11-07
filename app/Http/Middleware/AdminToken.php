@@ -18,26 +18,32 @@ class AdminToken
      */
     public function handle($request, Closure $next)
     {
-
-        if(empty(Session('token')))
-        {
+        if (empty(session('token'))) {
             Session::forget('token');
             Session::flash('message', "Your Session has been expired, Please login again.");
             return redirect('/admin/login');
         }
-        $user = User::first(); 
-        if(empty($user))
-        {
+        $request->headers->set('Authorization','Bearer '.session('token'));
+        try {
+            if(!$user = JWTAuth::parseToken()->authenticate())
+            {
+                Session::forget('token');
+                Session::flash('message', "Your Session has been expired, Please login again.");
+                return redirect('/admin/login');
+            }else{
+                if($user->role != 'admin')
+                {
+                    Session::forget('token');
+                    Session::flash('message', "Your Session has been expired, Please login again.");
+                    return redirect('/admin/login');
+                }  
+                return $next($request); 
+            }
+        } catch(\Tymon\JWTAuth\Exceptions\JWTException $e){
             Session::forget('token');
             Session::flash('message', "Your Session has been expired, Please login again.");
             return redirect('/admin/login');
-        } 
-        if($user->role != 'admin')
-        {
-            Session::forget('token');
-            Session::flash('message', "Your Session has been expired, Please login again.");
-            return redirect('/admin/login');
-        }        
-        return $next($request); 
+        }
+        return $next($request);
     }
 }
