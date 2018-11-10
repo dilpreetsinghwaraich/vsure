@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/animate.css">
 <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/style.css">
 <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/default-style.css">
+<link rel="icon" href="<?php echo asset('/public'); ?>/images/favicon.png" type="image/gif" sizes="64x64">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <base href="<?php echo url('/'); ?>">
 </head>
@@ -23,7 +24,7 @@
           <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-              <a href="<?php echo url('/') ?>"> <img src="<?php echo asset('/public'); ?>/images/logo.jpg"></a> </div>
+              <a href="<?php echo url('/') ?>"> <img src="<?php echo asset('/public'); ?>/images/logo.png" style="width: 240px; "></a> </div>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav navbar-right">
                 <li class=""><a href="<?php echo url('/') ?>">Home</a></li>

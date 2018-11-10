@@ -194,6 +194,11 @@ class AdminServicesController extends Controller
     	}
         $validator = Validator::make(Input::all(), self::rules());
         if($validator->passes()){
+            $count = Services::where('service_title', $request->input('service_title'))->get()->count();
+            if($count == 0)
+            {
+                $count = '';
+            }
             $service_questions = $request->input('service_questions');
             if (!empty($request->file('service_questions')['image'])) {
                 $service_questions['image'] = \Helper::fileuploadArray($request->file('service_questions')['image']);
@@ -216,6 +221,7 @@ class AdminServicesController extends Controller
             }   
 
     	    $service->service_title = $request->input('service_title');
+            $service->service_slug = (empty($request->input('service_slug'))?str_slug($request->input('service_title').' '.$count,'-'):$request->input('service_slug'));
             $service->service_content = $request->input('service_content');
             $service->service_questions = \Helper::maybe_serialize($service_questions);
             $service->service_features = \Helper::maybe_serialize($service_features);

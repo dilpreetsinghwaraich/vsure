@@ -170,6 +170,14 @@ class Helper
 	{
 		return JWTAuth::toUser(session('token'));
 	}
+	public static function getCurrentUserByKey($key)
+	{
+		$user = JWTAuth::toUser(session('token'));
+		if (!empty($key)) {
+			return isset($user->$key)?$user->$key:$user;
+		}
+		return $user;
+	}
 	public static function getUser($user_id)
 	{
 	    return DB::table('users')->where('user_id', $user_id)->select('*')->get()->first();

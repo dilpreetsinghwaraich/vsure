@@ -7,6 +7,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <base href="<?php echo url('/'); ?>">
 
+<link rel="icon" href="<?php echo asset('/public'); ?>/images/favicon.png" type="image/gif" sizes="64x64">
 <link href="<?php echo asset('public/admin/css') ?>/jquery-ui.css" rel="stylesheet">
 <link href="<?php echo asset('public/admin/css') ?>/style.css" rel="stylesheet">
 <link href="<?php echo asset('/public/vendor');?>/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
@@ -19,12 +20,9 @@
       <div class="sidebar-logo">
         <div class="peers ai-c fxw-nw">
           <div class="peer peer-greed"><a class="sidebar-link td-n" href="<?php echo url('/') ?>" class="td-n">
-            <div class="peers ai-c fxw-nw">
+            <div class="peers ai-c fxw-nw">              
               <div class="peer">
-                <div class="logo"><img src="<?php echo asset('public/admin/images') ?>/logo.png" alt=""></div>
-              </div>
-              <div class="peer peer-greed">
-                <h5 class="lh-1 mB-0 logo-text">Vsure Consulting </h5>
+                <img src="<?php echo asset('/public'); ?>/images/logo.png" style="width: 240px; ">
               </div>
             </div>
             </a></div>
@@ -35,6 +33,8 @@
       </div>
       <ul class="sidebar-menu scrollable pos-r">
         <li class="nav-item mT-30 active"><a class="sidebar-link" href="<?php echo url('admin/dashboard'); ?>" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Dashboard</span></a></li>
+        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/posts'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Posts</span></a></li> 
+        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/menus'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Menus</span></a></li>  
         <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/users'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Users</span></a></li>
         <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/terms'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Terms</span></a></li>
         <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/services'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Services</span></a></li>
@@ -42,7 +42,8 @@
         <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/features'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Features</span></a></li>
         <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/process/results'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Process Results</span></a></li>  
         <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/documents'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Documents</span></a></li>
-        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/packages'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Packages</span></a></li>          
+        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/packages'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Packages</span></a></li>  
+
       </ul>
     </div>
   </div>

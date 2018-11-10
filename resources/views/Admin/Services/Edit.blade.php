@@ -8,6 +8,11 @@
             <div class="form-group col-md-12">
               <label for="service_title">Title</label>
               <input type="text" class="form-control" id="service_title" name="service_title" value="<?php echo $service->service_title; ?>" placeholder="Title">
+            </div>  
+            <div class="form-group col-md-12">
+              <label for="service_slug">Url</label>
+              <br>
+              service/<input type="text" style=" width: 300px; display: inline-block;" class="form-control" id="service_slug" name="service_slug" value="<?php echo $service->service_slug; ?>" placeholder="Url">
             </div>                  
             <div class="form-group col-md-12">
               <label for="service_content">Content</label>

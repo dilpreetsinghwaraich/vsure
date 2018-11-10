@@ -20,8 +20,8 @@ class CreatePackagesTable extends Migration
             $table->text('package_terms')->nullable();
             $table->bigInteger('regular_price');
             $table->bigInteger('sale_price');
-            $table->dateTime('discount_start');
-            $table->dateTime('discount_end');
+            $table->date('discount_start');
+            $table->date('discount_end');
             $table->integer('status');
             $table->integer('is_featured');
             $table->timestamps();

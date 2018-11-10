@@ -58,6 +58,21 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::get('/admin/dashboard', 'Admin\Home\AdminDashboardController@home');
 	Route::get('/admin/logout', 'Admin\Auth\LoginController@logout');
 
+	/******update delete edit view post/page******/
+	Route::get('/admin/posts', 'Admin\Post\AdminPostController@index');
+	Route::get('/admin/add/post', 'Admin\Post\AdminPostController@add');
+	Route::post('/admin/save/post', 'Admin\Post\AdminPostController@save');
+	Route::get('/admin/edit/post/{post_id?}', 'Admin\Post\AdminPostController@edit');
+	Route::post('/admin/update/post/{post_id?}', 'Admin\Post\AdminPostController@update');
+	Route::get('/admin/delete/post/{post_id?}', 'Admin\Post\AdminPostController@delete');
+
+	/******update delete edit view post/page******/
+	Route::get('/admin/menus', 'Admin\Menu\AdminMenuController@index');
+	Route::post('/admin/save/menu', 'Admin\Menu\AdminMenuController@save');
+	Route::get('/admin/edit/menu/{post_id?}', 'Admin\Menu\AdminMenuController@edit');
+	Route::post('/admin/update/menu/{post_id?}', 'Admin\Menu\AdminMenuController@update');
+	Route::get('/admin/delete/menu/{post_id?}', 'Admin\Menu\AdminMenuController@delete');
+
 	/******update delete edit view user******/
 	Route::get('/admin/users', 'Admin\Users\AdminUsersController@index');
 	Route::get('/admin/user/edit/{user_id?}', 'Admin\Users\AdminUsersController@editUser');

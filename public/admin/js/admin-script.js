@@ -123,6 +123,17 @@ jQuery(document).ready(function($) {
             cache: true
         },         
     });
+    $('.post_parent_group').prop('disabled', true);
+    $('.post_parent_type').change(function(event) {
+        $('.post_parent_group').prop('disabled', true);
+        $('.post_parent option:selected').removeAttr("selected");
+        if ($(this).is(':checked')) {
+            var targetID = $(this).val();
+            $('#'+targetID).prop('disabled', false);    
+        }        
+    });
+    var targetID = $('.post_parent_type:checked').val();
+    $('#'+targetID).prop('disabled', false);
 });
 function AJAXURL(string) {
     var url = jQuery('base').attr('href');
