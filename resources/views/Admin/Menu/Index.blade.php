@@ -43,6 +43,7 @@
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Title</th>
+                  <th scope="col">Parent Title</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -55,6 +56,7 @@
                   <tr>
                     <th scope="row"><?php echo $sno; ?></th>
                     <td><?php echo $menu->post_title; ?></td>
+                    <td><?php echo $menu->parent_title; ?></td>
                     <td>
                       <a href="<?php echo url('admin/edit/menu/'.$menu->post_id) ?>">Edit</a>
                       | <a href="<?php echo url('admin/delete/menu/'.$menu->post_id) ?>">Delete</a></td>

@@ -16,7 +16,10 @@ class AdminMenuController extends Controller
     public function index()
     {
         $view = 'Admin.Menu.Index';
-        $menus = Post::whereIn('post_type',['menu'])->paginate(50);
+        $menus = Post::whereIn('posts.post_type',['menu'])
+                        ->leftJoin('posts as pt','pt.post_id','=','posts.post_parent')
+                        ->select('posts.*','pt.post_title as parent_title')
+                        ->paginate(50);
         $parentMenus = Post::whereIn('post_type',['menu'])->get(); 
         return view('Includes.adminCommonTemplate',compact('view','parentMenus','menus'));
     }
