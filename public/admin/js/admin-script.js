@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
             e.preventDefault();
         }
     });
-    $("#package_ids").select2({
+    $("#package_terms").select2({
         placeholder: "Search Packages",
         ajax: { 
             url: AJAXURL('admin/get/service/remote/package'),
@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
             cache: true
         },         
     });
-    $("#question_ids").select2({
+    $("#question_terms").select2({
         placeholder: "Search Questions",
         ajax: { 
             url: AJAXURL('admin/get/service/remote/question'),
@@ -60,7 +60,7 @@ jQuery(document).ready(function($) {
             cache: true
         },         
     });
-    $("#feature_ids").select2({
+    $("#feature_terms").select2({
         placeholder: "Search Features",
         ajax: { 
             url: AJAXURL('admin/get/service/remote/feature'),
@@ -81,7 +81,7 @@ jQuery(document).ready(function($) {
             cache: true
         },         
     });
-    $("#document_ids").select2({
+    $("#document_terms").select2({
         placeholder: "Search Documents",
         ajax: { 
             url: AJAXURL('admin/get/service/remote/document'),
@@ -102,7 +102,7 @@ jQuery(document).ready(function($) {
             cache: true
         },         
     });
-    $("#process_ids").select2({
+    $("#process_terms").select2({
         placeholder: "Search Documents",
         ajax: { 
             url: AJAXURL('admin/get/service/remote/process/results'),

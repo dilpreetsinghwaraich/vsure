@@ -18,6 +18,7 @@ Route::get('/cache', function() {
 
 Route::get('/', 'Home\HomeController@home');
 Route::get('/about-us', 'Home\HomeController@aboutUs');
+Route::get('/blog', 'Blog\BlogController@blog');
 Route::get('/privacy-policy', 'Home\HomeController@privacyPolicy');
 Route::get('/terms-and-conditions', 'Home\HomeController@termsAndConditions');
 Route::get('/refund-and-cancellation', 'Home\HomeController@refundAndCancellation');
@@ -139,3 +140,5 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::get('/admin/delete/service/{service_id?}', 'Admin\Services\AdminServicesController@delete');
 
 });
+
+Route::get('/{slug?}', 'Home\HomeController@singlePage');

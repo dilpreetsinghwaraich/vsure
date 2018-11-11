@@ -5,15 +5,15 @@
     <input type="text" class="form-control" id="package_title" name="service_packages[title]" value="<?php echo (isset($service_packages['title'])?$service_packages['title']:''); ?>" placeholder="Title">
   </div> 
   <div class="form-group col-md-12">
-    <label for="package_ids">Packages</label>
-    <select name="service_packages[package_ids][]" id="package_ids" multiple="" class="form-control select2-multiple">
-      <option value="">Select Package</option>
+    <label for="package_terms">Package Terms</label>
+    <select name="service_packages[package_terms][]" id="package_terms" multiple="" class="form-control select2-multiple">
+      <option value="">Select Term</option>
       <?php 
-      $package_ids = (isset($service_packages['package_ids']) && !empty($service_packages['package_ids'])?$service_packages['package_ids']:[]);
-      $packages = DB::table('packages')->whereIn('package_id', $package_ids)->get()->toArray();
-      if (!empty($packages)) {
-        foreach ($packages as $package) {
-          echo '<option value="'.$package->package_id.'" selected>'.$package->package_title.'</option>';
+      $package_terms = (isset($service_packages['package_terms']) && !empty($service_packages['package_terms'])?$service_packages['package_terms']:[]);
+      $terms = DB::table('terms')->whereIn('term_id', $package_terms)->get()->toArray();
+      if (!empty($terms)) {
+        foreach ($terms as $term) {
+          echo '<option value="'.$term->term_id.'" selected>'.$term->term_title.'</option>';
         }
       }
       ?>

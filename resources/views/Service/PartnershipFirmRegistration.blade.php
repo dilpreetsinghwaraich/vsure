@@ -70,7 +70,7 @@
                       if (!empty($questions)) {
                         foreach ($questions as $question) {
                           $question_terms = \Helper::maybe_unserialize($question->question_terms);
-                          if (is_array($question_terms) && in_array($question_tab->term_id, $question_terms)) {
+                          if ($question_tab->term_id = $question_terms) {
                             ?>
                             <div class="panel-heading">
                               <h4 class="panel-title"> <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#<?php echo $question_tab->term_slug?>_<?php  echo $question->question_id; ?>"><?php  echo $question->question_title; ?> <span>+</span></a> </h4>

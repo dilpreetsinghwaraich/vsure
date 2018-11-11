@@ -18,11 +18,11 @@
                       </div>
                       <div class="form-group col-md-12">
                         <label for="question_terms">Question Terms</label>
-                        <select name="question_terms[]" id="question_terms" multiple="" class="form-control select2-multiple multiSelect">
+                        <select name="question_terms" id="question_terms" class="form-control select2-multiple multiSelect">
                           <option value="">Select Term</option>
                           <?php
                             foreach ($terms as $term) {
-                              echo "<option value='".$term->term_id."' ".(!empty(old('question_terms')) && in_array($term->term_id, old('question_terms'))?"selected":"").">".$term->term_title."</option>";
+                              echo "<option value='".$term->term_id."' ".($term->term_id = old('question_terms')?"selected":"").">".$term->term_title."</option>";
                             }
                           ?>
                         </select>

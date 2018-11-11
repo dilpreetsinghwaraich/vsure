@@ -29,11 +29,11 @@
                   </div>
                   <div class="form-group col-md-12">
                     <label for="process_terms">Terms</label>
-                    <select name="process_terms[]" id="process_terms" multiple="" class="form-control select2-multiple multiSelect">
+                    <select name="process_terms" id="process_terms" class="form-control select2-multiple multiSelect">
                       <option value="">Select Term</option>
                       <?php
                         foreach ($terms as $term) {
-                          echo "<option value='".$term->term_id."' ".(is_array($processResult->process_terms) && in_array($term->term_id, $processResult->process_terms)?"selected":"").">".$term->term_title."</option>";
+                          echo "<option value='".$term->term_id."' ".($term->term_id = $processResult->process_terms?"selected":"").">".$term->term_title."</option>";
                         }
                       ?>
                     </select>

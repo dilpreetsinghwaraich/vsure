@@ -22,11 +22,11 @@
                       </div>
                       <div class="form-group col-md-12">
                         <label for="feature_terms">Terms</label>
-                        <select name="feature_terms[]" id="feature_terms" multiple="" class="form-control select2-multiple multiSelect">
+                        <select name="feature_terms" id="feature_terms" class="form-control select2-multiple multiSelect">
                           <option value="">Select Term</option>
                           <?php
                             foreach ($terms as $term) {
-                              echo "<option value='".$term->term_id."' ".(!empty(old('feature_terms')) && in_array($term->term_id, old('feature_terms'))?"selected":"").">".$term->term_title."</option>";
+                              echo "<option value='".$term->term_id."' ".($term->term_id = old('feature_terms')?"selected":"").">".$term->term_title."</option>";
                             }
                           ?>
                         </select>

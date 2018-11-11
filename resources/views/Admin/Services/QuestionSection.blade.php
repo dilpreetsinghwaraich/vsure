@@ -9,15 +9,15 @@
     <textarea class="form-control" id="question_content" name="service_questions[content]" required placeholder="Content"><?php echo (isset($service_questions['content'])?$service_questions['content']:''); ?></textarea>
   </div>
   <div class="form-group col-md-12">
-    <label for="question_ids">Questions</label>
-    <select name="service_questions[question_ids][]" id="question_ids" multiple="" class="form-control select2-multiple">
-      <option value="">Select Questions</option>
+    <label for="question_terms">Question Terms</label>
+    <select name="service_questions[question_terms][]" id="question_terms" multiple="" class="form-control select2-multiple">
+      <option value="">Select Term</option>
       <?php 
-      $question_ids = (isset($service_questions['question_ids']) && !empty($service_questions['question_ids'])?$service_questions['question_ids']:[]);
-      $questions = DB::table('questions')->whereIn('question_id', $question_ids)->get()->toArray();
-      if (!empty($questions)) {
-        foreach ($questions as $question) {
-          echo '<option value="'.$question->question_id.'" selected>'.$question->question_title.'</option>';
+      $question_terms = (isset($service_questions['question_terms']) && !empty($service_questions['question_terms'])?$service_questions['question_terms']:[]);
+      $terms = DB::table('terms')->whereIn('term_id', $question_terms)->get()->toArray();
+      if (!empty($terms)) {
+        foreach ($terms as $term) {
+          echo '<option value="'.$term->term_id.'" selected>'.$term->term_title.'</option>';
         }
       }
       ?>

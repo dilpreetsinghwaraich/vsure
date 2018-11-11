@@ -12,7 +12,7 @@
                   </div>
                   <div class="form-group col-md-12">
                     <label for="">Url</label>
-                    <input type="text" class="form-control" id="post_slug" name="post_slug" value="<?php echo $menu->post_slug; ?>" placeholder="Title">
+                    <input type="text" class="form-control" id="post_slug" name="post_slug" value="<?php echo $menu->post_slug; ?>" placeholder="Url">
                   </div>
                   <div class="form-group col-md-12">
                     <label for="post_parent">Parent</label>

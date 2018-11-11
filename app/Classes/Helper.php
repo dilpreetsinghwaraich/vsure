@@ -7,6 +7,7 @@ use Session, Redirect;
 use JWTFactory;
 use JWTAuth;
 use App\User;
+use App\Post;
 use App\Services;
 class Helper
 {
@@ -28,28 +29,41 @@ class Helper
 	}
 	public function getServiceSubMenu()
 	{
-		$services = Services::where('status',1)->where('show_nav_menu',1)->get(); 
 		$menuHtml = '';
-		if (!empty($services)) {
-			$menuHtml .='<li>
-			  <ul class="nav navbar-nav navbar-right">
-			    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Our Services <span class="fa fa-angle-down"></span> </a>
-			      <ul class="dropdown-menu">
-			        <li>
-			          <div class="service_box">
-			            <div class="row">';
-			            foreach ($services as $service) {
-			            	$menuHtml .='<div class="col-lg-6"><a href="'. url('/service/'.$service->service_slug) .'">'.$service->service_title.'</a></div>';
-			            }
-			            $menuHtml .='</div>
-			          </div>
-			        </li>
-			      </ul>
-			    </li>
-			  </ul>
-			</li>';
-		}else{
-			$menuHtml = '<li class=""><a href="#">Our Services</a></li>';
+		$menus = Post::whereIn('post_type',['menu'])->whereNull('post_parent')->get(); 
+		if (!empty($menus)) {
+			foreach ($menus as $menu) {
+				$subMenus = Post::whereIn('post_type',['menu'])->where('post_parent', $menu->post_id)->get()->toArray(); 
+				if (!empty($subMenus)) {
+					$menuHtml .='<li>
+					  <ul class="nav navbar-nav navbar-right">
+					    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">'. $menu->post_title .' <span class="fa fa-angle-down"></span> </a>
+					      <ul class="dropdown-menu">
+					        <li>
+					          <div class="service_box">
+					            <div class="row">';
+					            foreach ($subMenus as $subMenu) {
+					            	$menuHtml .='<div class="col-lg-6"><a href="'. url('/'.$subMenu['post_slug']) .'">'. $subMenu['post_title'] .'</a></div>';
+					            }
+					            $menuHtml .='</div>
+					          </div>
+					        </li>
+					      </ul>
+					    </li>
+					  </ul>
+					</li>';
+				}else{
+					if ($menu->post_slug == '/') {
+						$menuHtml .='<li class="">
+							<a href="'. url('/') .'">'. $menu->post_title .'</a>
+						</li>';
+					}else{
+						$menuHtml .='<li class="">
+							<a href="'. url('/'.$menu->post_slug) .'">'. $menu->post_title .'</a>
+						</li>';
+					}					
+				}				
+			}
 		}
 		return $menuHtml;
 	}

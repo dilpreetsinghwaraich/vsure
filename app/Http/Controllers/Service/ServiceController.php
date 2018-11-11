@@ -34,24 +34,14 @@ class ServiceController extends Controller
         $data['service_process_results'] = \Helper::maybe_unserialize($service->service_process_results);
         $data['service_package'] = \Helper::maybe_unserialize($service->service_packages);
     	
-    	$questions = Questions::whereIn('question_id', (isset($data['service_question']['question_ids'])?$data['service_question']['question_ids']:[]))->get();
-        $question_term_ids = [];
-        if (!empty($questions)) {
-            foreach ($questions as $question) {
-                $question_terms = \Helper::maybe_unserialize($question->question_terms);
-                if (!empty($question_terms)) {
-                    foreach ($question_terms as $question_term) {
-                        $question_term_ids[] = $question_term;
-                    }
-                }
-            }
-        }
-        $data['questions'] = $questions;
+        $question_term_ids = (isset($data['service_question']['question_terms'])?$data['service_question']['question_terms']:[]);
+    	$data['questions'] = Questions::whereIn('question_terms', $question_term_ids)->get();       
+        
         $data['question_tabs'] = Terms::whereIn('term_id', $question_term_ids)->get();
-    	$data['features'] = Features::whereIn('feature_id', (isset($data['service_feature']['feature_ids'])?$data['service_feature']['feature_ids']:[]))->get();
-    	$data['packages'] = Packages::whereIn('package_id', (isset($data['service_package']['package_ids'])?$data['service_package']['package_ids']:[]))->get();
-    	$data['documents'] = Documents::whereIn('document_id', (isset($data['service_document']['document_ids'])?$data['service_document']['document_ids']:[]))->get();
-        $data['process_results'] = ProcessResults::whereIn('process_id', (isset($data['service_process_results']['process_ids'])?$data['service_process_results']['process_ids']:[]))->get();
+    	$data['features'] = Features::whereIn('feature_terms', (isset($data['service_feature']['feature_terms'])?$data['service_feature']['feature_terms']:[]))->get();
+    	$data['packages'] = Packages::whereIn('package_terms', (isset($data['service_package']['package_terms'])?$data['service_package']['package_terms']:[]))->get();
+    	$data['documents'] = Documents::whereIn('document_terms', (isset($data['service_document']['document_terms'])?$data['service_document']['document_terms']:[]))->get();
+        $data['process_results'] = ProcessResults::whereIn('process_terms', (isset($data['service_process_results']['process_terms'])?$data['service_process_results']['process_terms']:[]))->get();
 
     	$data['title'] = $service->service_title;
         $data['view'] = 'Service.PartnershipFirmRegistration';

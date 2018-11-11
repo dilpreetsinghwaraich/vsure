@@ -27,11 +27,7 @@
               <a href="<?php echo url('/') ?>"> <img src="<?php echo asset('/public'); ?>/images/logo.png" style="width: 240px; "></a> </div>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav navbar-right">
-                <li class=""><a href="<?php echo url('/') ?>">Home</a></li>
-                <li class=""><a href="<?php echo url('/about-us') ?>">About Us</a></li>
                 <?php echo Helper::getServiceSubMenu(); ?>
-                <li class=""><a href="<?php echo url('/learning-center'); ?>">Learning Center</a></li>
-                <li class=""><a href="<?php echo url('/contact-us'); ?>">Contact Us</a></li>
                 <?php
                   if (empty(session('token'))) {
                     ?>

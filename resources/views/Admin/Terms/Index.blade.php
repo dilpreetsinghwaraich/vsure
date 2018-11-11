@@ -24,6 +24,7 @@
                           <option value="feature" <?php echo (old('term_type') == 'feature'?'selected':''); ?>>Feature</option>
                           <option value="package" <?php echo (old('term_type') == 'package'?'selected':''); ?>>Package</option>
                           <option value="document" <?php echo (old('term_type') == 'document'?'selected':''); ?>>Document</option>
+                          <option value="process" <?php echo (old('term_type') == 'process'?'selected':''); ?>>Process Result</option>
                         </select>
                       </div>
                     </div>                                     

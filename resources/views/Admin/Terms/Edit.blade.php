@@ -22,6 +22,7 @@
                           <option value="feature" <?php echo ($term->term_type == 'feature'?'selected':''); ?>>Feature</option>
                           <option value="package" <?php echo ($term->term_type == 'package'?'selected':''); ?>>Package</option>
                           <option value="document" <?php echo ($term->term_type == 'document'?'selected':''); ?>>Document</option>
+                          <option value="process" <?php echo ($term->term_type == 'process'?'selected':''); ?>>Process Result</option>
                         </select>
                       </div>
                 </div>                                     

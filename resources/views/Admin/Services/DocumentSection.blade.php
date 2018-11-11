@@ -5,15 +5,15 @@
     <input type="text" class="form-control" id="document_title" name="service_documents[title]" value="<?php echo (isset($service_documents['title'])?$service_documents['title']:''); ?>" placeholder="Title">
   </div> 
   <div class="form-group col-md-12">
-    <label for="document_ids">Documents</label>
-    <select name="service_documents[document_ids][]" id="document_ids" multiple="" class="form-control select2-multiple">
-      <option value="">Select Documents</option>
+    <label for="document_terms">Document Terms</label>
+    <select name="service_documents[document_terms][]" id="document_terms" multiple="" class="form-control select2-multiple">
+      <option value="">Select Term</option>
       <?php 
-      $document_ids = (isset($service_documents['document_ids']) && !empty($service_documents['document_ids'])?$service_documents['document_ids']:[]);
-      $documents = DB::table('documents')->whereIn('document_id', $document_ids)->get()->toArray();
-      if (!empty($documents)) {
-        foreach ($documents as $document) {
-          echo '<option value="'.$document->document_id.'" selected>'.$document->document_title.'</option>';
+      $document_terms = (isset($service_documents['document_terms']) && !empty($service_documents['document_terms'])?$service_documents['document_terms']:[]);
+      $terms = DB::table('terms')->whereIn('term_id', $document_terms)->get()->toArray();
+      if (!empty($terms)) {
+        foreach ($terms as $term) {
+          echo '<option value="'.$term->term_id.'" selected>'.$term->term_title.'</option>';
         }
       }
       ?>

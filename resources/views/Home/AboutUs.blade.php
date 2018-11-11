@@ -99,50 +99,29 @@
         </div>
       </div>
       <div class="row about-blog">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <div class="blog-sec">
-            <div class="blog-img text-center"> <img class="img-responsive" src="<?php echo asset('/public'); ?>/images/img1.jpg">
-              <h2>How to Enroll for 
-                GST Registration Online ?</h2>
-              <h3>April 26th, 2017</h3>
-              <p>The GST Enrollment has started from 16/12/2016 in Haryana and Delhi. The schedule has given in my previous article </p>
-              <button>LEARN MORE</button>
+        <?php
+        if (!empty($posts)) {
+          foreach ($posts as $post) {
+            ?>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              <div class="blog-sec">
+                <div class="blog-img text-center"> 
+                  <?php 
+                  if (!empty($post->image)) {
+                    echo '<img class="img-responsive" src="'. asset('/'.$post->image) .'">';
+                  }
+                  ?>
+                  <h2><?php echo $post->post_title ?></h2>
+                  <h3><?php echo date('M, d Y',strtotime($post->created_at)); ?></h3>
+                  <p><?php echo $post->post_excerpt; ?></p>
+                  <button onclick="window.location.href='<?php echo url('/'.$post->post_slug); ?>'">LEARN MORE</button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <div class="blog-sec">
-            <div class="blog-img text-center"> <img class="img-responsive" src="<?php echo asset('/public'); ?>/images/img2.jpg">
-              <h2>How to Enroll for 
-                GST Registration Online ?</h2>
-              <h3>April 26th, 2017</h3>
-              <p>The GST Enrollment has started from 16/12/2016 in Haryana and Delhi. The schedule has given in my previous article </p>
-              <button>LEARN MORE</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <div class="blog-sec">
-            <div class="blog-img text-center"> <img class="img-responsive" src="<?php echo asset('/public'); ?>/images/img3.jpg">
-              <h2>How to Enroll for 
-                GST Registration Online ?</h2>
-              <h3>April 26th, 2017</h3>
-              <p>The GST Enrollment has started from 16/12/2016 in Haryana and Delhi. The schedule has given in my previous article </p>
-              <button>LEARN MORE</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <div class="blog-sec">
-            <div class="blog-img text-center"> <img class="img-responsive" src="<?php echo asset('/public'); ?>/images/img4.jpg">
-              <h2>How to Enroll for 
-                GST Registration Online ?</h2>
-              <h3>April 26th, 2017</h3>
-              <p>The GST Enrollment has started from 16/12/2016 in Haryana and Delhi. The schedule has given in my previous article </p>
-              <button>LEARN MORE</button>
-            </div>
-          </div>
-        </div>
+            <?php
+          }
+        }
+        ?>
       </div>
     </div>
   </section>

@@ -17,7 +17,7 @@ class AdminProcessResultsController extends Controller
     {
         $view = 'Admin.ProcessResults.Index';
         $processResults = ProcessResults::paginate(50);    
-        $terms = Terms::where('term_type','process_result')->select('*')->get();
+        $terms = Terms::where('term_type','process')->select('*')->get();
         return view('Includes.adminCommonTemplate',compact('view','processResults','terms'));
     }
     public function rules()
@@ -69,7 +69,7 @@ class AdminProcessResultsController extends Controller
 	    	return Redirect::back()->withInput(Input::all());    		
     	}
         $processResult->process_terms = \Helper::maybe_unserialize($processResult->process_terms);
-        $terms = Terms::where('term_type','process_result')->select('*')->get();
+        $terms = Terms::where('term_type','process')->select('*')->get();
         
         return view('Includes.adminCommonTemplate',compact('view','processResult','terms'));	
     }

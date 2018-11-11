@@ -93,13 +93,13 @@ class AdminServicesController extends Controller
     {
         $search_keyword = $request->input('q');
         $search_keyword = (isset($search_keyword['term'])?$search_keyword['term']:'');
-        $rows = Packages::where('package_title', 'LIKE', '%'.$search_keyword.'%')->paginate(10);
+        $rows = Terms::where('term_title', 'LIKE', '%'.$search_keyword.'%')->where('term_type','package')->paginate(10);
         $results = [];
         if ($rows) {
             $index = 0;
             foreach ($rows as $row) {
-                $results['results'][$index]['text'] = $row->package_title;
-                $results['results'][$index]['id'] = $row->package_id;
+                $results['results'][$index]['text'] = $row->term_title;
+                $results['results'][$index]['id'] = $row->term_id;
                 $index++;
             }
         }
@@ -109,13 +109,13 @@ class AdminServicesController extends Controller
     {
         $search_keyword = $request->input('q');
         $search_keyword = (isset($search_keyword['term'])?$search_keyword['term']:'');
-        $rows = Questions::where('question_title', 'LIKE', '%'.$search_keyword.'%')->paginate(10);
+        $rows = Terms::where('term_title', 'LIKE', '%'.$search_keyword.'%')->where('term_type','question')->paginate(10);
         $results = [];
         if ($rows) {
             $index = 0;
             foreach ($rows as $row) {
-                $results['results'][$index]['text'] = $row->question_title;
-                $results['results'][$index]['id'] = $row->question_id;
+                $results['results'][$index]['text'] = $row->term_title;
+                $results['results'][$index]['id'] = $row->term_id;
                 $index++;
             }
         }
@@ -125,13 +125,13 @@ class AdminServicesController extends Controller
     {
         $search_keyword = $request->input('q');
         $search_keyword = (isset($search_keyword['term'])?$search_keyword['term']:'');
-        $rows = Features::where('feature_title', 'LIKE', '%'.$search_keyword.'%')->paginate(10);
+        $rows = Terms::where('term_title', 'LIKE', '%'.$search_keyword.'%')->where('term_type','feature')->paginate(10);
         $results = [];
         if ($rows) {
             $index = 0;
             foreach ($rows as $row) {
-                $results['results'][$index]['text'] = $row->feature_title;
-                $results['results'][$index]['id'] = $row->feature_id;
+                $results['results'][$index]['text'] = $row->term_title;
+                $results['results'][$index]['id'] = $row->term_id;
                 $index++;
             }
         }
@@ -141,13 +141,13 @@ class AdminServicesController extends Controller
     {
         $search_keyword = $request->input('q');
         $search_keyword = (isset($search_keyword['term'])?$search_keyword['term']:'');
-        $rows = Documents::where('document_title', 'LIKE', '%'.$search_keyword.'%')->paginate(10);
+        $rows = Terms::where('term_title', 'LIKE', '%'.$search_keyword.'%')->where('term_type','document')->paginate(10);
         $results = [];
         if ($rows) {
             $index = 0;
             foreach ($rows as $row) {
-                $results['results'][$index]['text'] = $row->document_title;
-                $results['results'][$index]['id'] = $row->document_id;
+                $results['results'][$index]['text'] = $row->term_title;
+                $results['results'][$index]['id'] = $row->term_id;
                 $index++;
             }
         }
@@ -157,13 +157,13 @@ class AdminServicesController extends Controller
     {
         $search_keyword = $request->input('q');
         $search_keyword = (isset($search_keyword['term'])?$search_keyword['term']:'');
-        $rows = ProcessResults::where('process_title', 'LIKE', '%'.$search_keyword.'%')->paginate(10);
+        $rows = Terms::where('term_title', 'LIKE', '%'.$search_keyword.'%')->where('term_type','process')->paginate(10);
         $results = [];
         if ($rows) {
             $index = 0;
             foreach ($rows as $row) {
-                $results['results'][$index]['text'] = $row->process_title;
-                $results['results'][$index]['id'] = $row->process_id;
+                $results['results'][$index]['text'] = $row->term_title;
+                $results['results'][$index]['id'] = $row->term_id;
                 $index++;
             }
         }

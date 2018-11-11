@@ -5,15 +5,15 @@
     <input type="text" class="form-control" id="section_title" name="service_process_results[section_title]" value="<?php echo (isset($service_process_results['section_title'])?$service_process_results['section_title']:''); ?>" placeholder="Title">
   </div>  
   <div class="form-group col-md-12">
-    <label for="process_ids">Process Results</label>
-    <select name="service_process_results[process_ids][]" id="process_ids" multiple="" class="form-control select2-multiple">
-      <option value="">Select</option>
+    <label for="process_terms">Process Result Terms</label>
+    <select name="service_process_results[process_terms][]" id="process_terms" multiple="" class="form-control select2-multiple">
+      <option value="">Select Term</option>
       <?php 
-      $process_ids = (isset($service_process_results['process_ids']) && !empty($service_process_results['process_ids'])?$service_process_results['process_ids']:[]);
-      $process = DB::table('process_results')->whereIn('process_id', $process_ids)->get()->toArray();
-      if (!empty($process)) {
-        foreach ($process as $proces) {
-          echo '<option value="'.$proces->process_id.'" selected>'.$proces->process_title.'</option>';
+      $process_terms = (isset($service_process_results['process_terms']) && !empty($service_process_results['process_terms'])?$service_process_results['process_terms']:[]);
+      $terms = DB::table('terms')->whereIn('term_id', $process_terms)->get()->toArray();
+      if (!empty($terms)) {
+        foreach ($terms as $term) {
+          echo '<option value="'.$term->term_id.'" selected>'.$term->term_title.'</option>';
         }
       }
       ?>
