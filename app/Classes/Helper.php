@@ -43,7 +43,7 @@ class Helper
 					          <div class="service_box">
 					            <div class="row">';
 					            foreach ($subMenus as $subMenu) {
-					            	$menuHtml .='<div class="col-lg-6"><a href="'. url('/'.$subMenu['post_slug']) .'">'. $subMenu['post_title'] .'</a></div>';
+					            	$menuHtml .='<div class="col-lg-12"><a href="'. url('/'.$subMenu['post_slug']) .'">'. $subMenu['post_title'] .'</a></div>';
 					            }
 					            $menuHtml .='</div>
 					          </div>

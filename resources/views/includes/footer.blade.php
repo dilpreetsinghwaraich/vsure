@@ -5,9 +5,9 @@
         <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 botom">
-              <h2>Our Services</h2>
+              <h2>Usefull Links</h2>
               <hr class="bottom-lines">
-              <ul>
+              <ul class="footer-links">
                 <li><a href="<?php echo url('about-us') ?>">About Us</a></li>
                 <li><a href="<?php echo url('privacy-policy') ?>">Privacy Policy</a></li>
                 <li><a href="<?php echo url('terms-and-conditions') ?>">Terms And Conditions</a></li>
