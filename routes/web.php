@@ -17,12 +17,10 @@ Route::get('/cache', function() {
 });
 
 Route::get('/', 'Home\HomeController@home');
-Route::get('/about-us', 'Home\HomeController@aboutUs');
 Route::get('/blog', 'Blog\BlogController@blog');
 Route::get('/privacy-policy', 'Home\HomeController@privacyPolicy');
 Route::get('/terms-and-conditions', 'Home\HomeController@termsAndConditions');
 Route::get('/refund-and-cancellation', 'Home\HomeController@refundAndCancellation');
-Route::get('/contact-us', 'Contact\ContactController@contactUs');
 Route::post('/contact/us/submit', 'Contact\ContactController@contactUsSubmit');
 
 Route::get('/service/{service_slug?}', 'Service\ServiceController@partnershipFirmRegistration');
@@ -59,7 +57,15 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::get('/admin/dashboard', 'Admin\Home\AdminDashboardController@home');
 	Route::get('/admin/logout', 'Admin\Auth\LoginController@logout');
 
-	/******update delete edit view post/page******/
+	/******update delete edit view page******/
+	Route::get('/admin/pages', 'Admin\Page\AdminPageController@index');
+	Route::get('/admin/add/page', 'Admin\Page\AdminPageController@add');
+	Route::post('/admin/save/page', 'Admin\Page\AdminPageController@save');
+	Route::get('/admin/edit/page/{post_id?}', 'Admin\Page\AdminPageController@edit');
+	Route::post('/admin/update/page/{post_id?}', 'Admin\Page\AdminPageController@update');
+	Route::get('/admin/delete/page/{post_id?}', 'Admin\Page\AdminPageController@delete');
+
+	/******update delete edit view post******/
 	Route::get('/admin/posts', 'Admin\Post\AdminPostController@index');
 	Route::get('/admin/add/post', 'Admin\Post\AdminPostController@add');
 	Route::post('/admin/save/post', 'Admin\Post\AdminPostController@save');

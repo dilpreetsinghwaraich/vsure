@@ -11,7 +11,7 @@ class ContactController extends Controller
 {    
     public function contactUs()
     {
-        $view = 'Contact.ContactUs';
+        $view = 'Template.ContactUs';
         return view('Includes.commonTemplate',compact('view'));
     }
     public static $contactRules = array(

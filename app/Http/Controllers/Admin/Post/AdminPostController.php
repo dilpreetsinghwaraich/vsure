@@ -15,14 +15,13 @@ class AdminPostController extends Controller
     public function index()
     {
         $view = 'Admin.Post.Index';
-        $posts = Post::whereIn('post_type',['page','blog'])->paginate(50);    
+        $posts = Post::whereIn('post_type',['blog'])->paginate(50);    
         return view('Includes.adminCommonTemplate',compact('view','posts'));
     }
     public function rules()
     {
         return array(
             'post_title' => 'required',
-            'post_type' => 'required',
             'status' => 'required',
         );
     }
@@ -50,7 +49,7 @@ class AdminPostController extends Controller
             if ($request->file('image') != '') {
                 $post->image = \Helper::fileuploadExtra($request, 'image');
             }
-            $post->post_type = $request->input('post_type');            
+            $post->post_type = 'blog';            
             $post->status = $request->input('status');       
             $post->created_at = date('Y-m-d h:i:s');
             $post->updated_at = date('Y-m-d h:i:s');
@@ -94,7 +93,7 @@ class AdminPostController extends Controller
             if ($request->file('image') != '') {
                 $post->image = \Helper::fileuploadExtra($request, 'image');
             }
-            $post->post_type = $request->input('post_type');            
+            $post->post_type = 'blog';            
             $post->status = $request->input('status');
     	    $post->updated_at = date('Y-m-d h:i:s');
     	    $post->save();

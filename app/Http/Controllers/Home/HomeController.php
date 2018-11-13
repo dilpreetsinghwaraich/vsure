@@ -23,7 +23,7 @@ class HomeController extends Controller
             $view = 'Pages.404';
             return view('Includes.commonTemplate',compact('view'));       
         }
-        $view = 'Home.SinglePage';
+        $view = $post->template;
         return view('Includes.commonTemplate',compact('view','post'));
     }
     public function aboutUs()
