@@ -74,7 +74,7 @@ HEADER
     border: 0;
 }
 .service_box{
-    width: 620px;
+    width: 300px;
     padding: 10px;
 }
 .service_box .col-lg-6 a{
@@ -1527,4 +1527,10 @@ background-color: #97d14c;
 }
 ::-ms-input-placeholder { /* Microsoft Edge */
    color:    #fff;
+}
+.footer-links li a{
+    color: white;
+}
+.navbar-right .dropdown-menu {
+    right: auto;
 }
