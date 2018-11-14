@@ -18,9 +18,6 @@ Route::get('/cache', function() {
 
 Route::get('/', 'Home\HomeController@home');
 Route::get('/blog', 'Blog\BlogController@blog');
-Route::get('/privacy-policy', 'Home\HomeController@privacyPolicy');
-Route::get('/terms-and-conditions', 'Home\HomeController@termsAndConditions');
-Route::get('/refund-and-cancellation', 'Home\HomeController@refundAndCancellation');
 Route::post('/contact/us/submit', 'Contact\ContactController@contactUsSubmit');
 
 Route::get('/service/{service_slug?}', 'Service\ServiceController@partnershipFirmRegistration');
@@ -48,6 +45,9 @@ Route::group(['middleware' => 'userToken'], function () {
 	Route::get('/my-notifications', 'Notifications\NotificationsController@notifications');
 
 	Route::get('/my-deliverable', 'Deliverable\DeliverableController@deliverable');
+
+	Route::get('checkout/{package_id?}', 'Checkout\CheckoutController@checkout');
+	Route::post('complete/order/{package_id?}', 'Checkout\CheckoutController@completeOrder');
 });
 
 Route::get('/admin/login', 'Admin\Auth\LoginController@login');
@@ -145,6 +145,16 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::get('/admin/clone/service/{service_id?}', 'Admin\Services\AdminServicesController@clone');
 	Route::get('/admin/delete/service/{service_id?}', 'Admin\Services\AdminServicesController@delete');
 
-});
+	/******update delete edit view packages******/
+	Route::get('/admin/orders', 'Admin\Orders\AdminOrdersController@index');
+	Route::get('/admin/edit/order/{order_id?}', 'Admin\Orders\AdminOrdersController@edit');
+	Route::post('/admin/update/order/{order_id?}', 'Admin\Orders\AdminOrdersController@update');
 
+});
+Route::get('/thank-you', function(){
+	$data = [];
+	$data['title'] = 'THank You';
+    $data['view'] = 'Pages.Success';
+	return view('Includes.commonTemplate',$data);
+});
 Route::get('/{slug?}', 'Home\HomeController@singlePage');

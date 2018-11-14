@@ -18,13 +18,14 @@ class HomeController extends Controller
             $view = 'Pages.404';
             return view('Includes.commonTemplate',compact('view'));       
         }
-        $post = Post::where('post_slug', $slug)->get()->first();
+        $post = Post::where('post_slug', $slug)->whereIn('post_type',['page','blog'])->get()->first();
         if (empty($post)) {
             $view = 'Pages.404';
             return view('Includes.commonTemplate',compact('view'));       
         }
         $view = $post->template;
-        return view('Includes.commonTemplate',compact('view','post'));
+        $posts = Post::whereIn('post_type', ['blog'])->orderBy('created_at', 'DESC')->paginate(4);
+        return view('Includes.commonTemplate',compact('view','post','posts'));
     }
     public function aboutUs()
     {

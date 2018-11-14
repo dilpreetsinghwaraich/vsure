@@ -18,11 +18,12 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 botom">
               <h2>Contact info</h2>
               <hr class="bottom-lines">
-              <p>VSure Consulting India, 4/27,<br>
-                1st Floor, Madanpuri Road, Gurgaon</p>
+              <p>Suite No. 244A, 2nd Floor, <br>
+		Tower-B, SPAZE EDGE Tower,<br>
+		Sector-47, Gurgaon-122001</p>
               <p><span>Phone</span> : 0124-4286745</p>
               <p><span>Mobile</span> : +91-8800849054</p>
-              <p><span>Email</span> : Mail Us</p>
+              <p><span>Email</span> : <a href="mailto:sales@vsurecfo.com">sales@vsurecfo.com</a></p>
               <!--  <p><span>Web</span> : Visit Our Website</p> --> 
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 botom">

@@ -44,7 +44,7 @@
         <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/process/results'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Process Results</span></a></li>  
         <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/documents'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Documents</span></a></li>
         <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/packages'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Packages</span></a></li>  
-
+        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/orders'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Orders</span></a></li> 
       </ul>
     </div>
   </div>

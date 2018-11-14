@@ -42,10 +42,14 @@
                     </select>
                   </div>
                   <div class="form-group col-md-12">
-                    <label for="post_type">Post Type</label>
-                    <select name="post_type" id="post_type" class="form-control select2-multiple multiSelect">
-                      <option value="blog" <?php echo ($post->post_type == 'blog'?'selected':$post->post_type == ''?'selected':''); ?>>Blog</option>
-                      <option value="page" <?php echo ($post->post_type == 'page'?'selected':''); ?>>Page</option>
+                    <label for="term">Terms</label>
+                    <select name="term" id="term" class="form-control select2-multiple multiSelect">
+                      <option value="0">Select Term</option>
+                      <?php
+                        foreach ($terms as $term) {
+                          echo "<option value='".$term->term_id."' ".($term->term_id = $post->term?"selected":"").">".$term->term_title."</option>";
+                        }
+                      ?>
                     </select>
                   </div>
                 </div>                                     

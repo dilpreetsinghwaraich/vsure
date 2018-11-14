@@ -259,7 +259,17 @@ if (isset($service_short_info['image']) && !empty($service_short_info['image']))
                 <h3><?php echo $package->package_title ?></h3>
                 <h4><?php echo Helper::displayPrice($package); ?></h4>
                 <p><?php echo $package->package_content ?></p>
-                <a href="#">Order Now</a> </div>
+                <?php 
+                  if (empty(session('token'))) {
+                    ?>
+                      <a  href="#" class="dropdown-toggle" data-toggle="modal" data-target="#loginModal">Order Now</a>
+                    <?php
+                  }else
+                  {
+                  ?>
+                    <a href="<?php echo url('checkout/'.$package->package_id); ?>">Order Now</a>
+                  <?php } ?>
+              </div>
             </div>
           <?php
         }

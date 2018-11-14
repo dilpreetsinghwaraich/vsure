@@ -41,7 +41,7 @@ jQuery(document).ready(function($) {
             current.find('.messageResponsed').html(data.message);
             if (data.status == 'true') {
                 $('#authLogin')[0].reset();
-                window.location.href=AJAXURL('my-account');
+                window.location.reload();
                 return false;
             }
             return false;

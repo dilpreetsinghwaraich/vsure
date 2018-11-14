@@ -1,5 +1,5 @@
 
-      <h4 class="c-grey-900 mT-10 mB-30">Add Blog/Page</h4>
+      <h4 class="c-grey-900 mT-10 mB-30">Add Blog</h4>
       <div class="row">
         <div class="masonry-item col-md-12">
           <div class="bgc-white p-20 bd">
@@ -30,14 +30,18 @@
                       <option value="publish" <?php echo (old('status') == 'publish'?'selected':old('status') == ''?'selected':''); ?>>Publish</option>
                       <option value="draft" <?php echo (old('status') == 'draft'?'selected':''); ?>>Draft</option>
                     </select>
-                  </div>
+                  </div> 
                   <div class="form-group col-md-12">
-                    <label for="post_type">Post Type</label>
-                    <select name="post_type" id="post_type" class="form-control select2-multiple multiSelect">
-                      <option value="blog" <?php echo (old('post_type') == 'blog'?'selected':old('post_type') == ''?'selected':''); ?>>Blog</option>
-                      <option value="page" <?php echo (old('post_type') == 'page'?'selected':''); ?>>Page</option>
+                    <label for="term">Terms</label>
+                    <select name="term" id="term" class="form-control select2-multiple multiSelect">
+                      <option value="0">Select Term</option>
+                      <?php
+                        foreach ($terms as $term) {
+                          echo "<option value='".$term->term_id."' ".($term->term_id = old('term')?"selected":"").">".$term->term_title."</option>";
+                        }
+                      ?>
                     </select>
-                  </div>
+                  </div>                 
                 </div>                                     
                 <button type="submit" class="btn btn-primary">Save</button>
               </form>

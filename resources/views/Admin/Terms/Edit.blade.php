@@ -18,6 +18,7 @@
                         <label for="term_type">Term Type</label>
                         <select class="form-control" id="term_type" name="term_type" required >
                           <option value="">Select</option>
+                          <option value="blog" <?php echo ($term->term_type == 'blog'?'selected':''); ?>>Blog</option>
                           <option value="question" <?php echo ($term->term_type == 'question'?'selected':''); ?>>Question</option>
                           <option value="feature" <?php echo ($term->term_type == 'feature'?'selected':''); ?>>Feature</option>
                           <option value="package" <?php echo ($term->term_type == 'package'?'selected':''); ?>>Package</option>

@@ -42,7 +42,23 @@
                 <?php echo Form::close(); ?>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"> <img src="<?php echo asset('/public') ?>/images/contact-page-image.png"> </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"> 
+              <h3><i class="fa fa-map-marker"></i>&nbsp;Our Office Address</h3>
+                <p> <strong>Gurgaon Office :</strong><br><br>
+                  Suite No. 244A, 2nd Floor, <br>
+                  Tower-B, SPAZE EDGE Tower,<br> 
+                  Sector-47, Gurgaon-122001<br>
+                  <b>Contact No.</b> : +91-8800849054, 0124-4286745<br>
+                  <b>Customer Support Email id </b> : <a href="mailto:support@vsurecfo.com">support@vsurecfo.com</a><br>
+                  <b>Sales Inquiry </b>: <a href="mailto:sales@vsurecfo.com">sales@vsurecfo.com</a>
+                  <br><br>
+                </p>
+                <p> <strong>Karnal Office :</strong> <br><br>
+                  SCO-268, 2nd Floor,<br> 
+                  Mughal Canal Road, <br>
+                  Karnal-132001<br>
+                  <b>Contact No.</b> : +91-8800849054, +91-9896870152</p>
+            </div>
           </div>
         </div>
       </div>
@@ -50,11 +66,11 @@
   </section>
   <!--feature end-->
   
-  <section id="map" class="section-padding wow fadeIn delay-05s animated" style="visibility: visible; animation-name: fadeIn;">
+  <!-- <section id="map" class="section-padding wow fadeIn delay-05s animated" style="visibility: visible; animation-name: fadeIn;">
     <div class="contact-page-map">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224568.30237037071!2d76.84969633013718!3d28.42288586405383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19d582e38859%3A0x2cf5fe8e5c64b1e!2sGurugram%2C+Haryana!5e0!3m2!1sen!2sin!4v1537293811255" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
-  </section>
+  </section> -->
   
   <!-- Feature start-->
   <section id="feature" class="section-padding wow fadeIn delay-05s animated" style="visibility: visible; animation-name: fadeIn;">

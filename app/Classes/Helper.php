@@ -266,4 +266,8 @@ class Helper
             return $package->regular_price;
         }
     }
+    public static function ourClientsSection()
+    {
+    	return view('Template.OurClients');
+    }
 }

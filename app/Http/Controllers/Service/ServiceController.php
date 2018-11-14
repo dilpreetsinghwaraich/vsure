@@ -44,7 +44,7 @@ class ServiceController extends Controller
         $data['process_results'] = ProcessResults::whereIn('process_terms', (isset($data['service_process_results']['process_terms'])?$data['service_process_results']['process_terms']:[]))->get();
 
     	$data['title'] = $service->service_title;
-        $data['view'] = 'Service.PartnershipFirmRegistration';
+        $data['view'] = 'Service.SingleService';
         
         return view('Includes.commonTemplate',$data);
     }

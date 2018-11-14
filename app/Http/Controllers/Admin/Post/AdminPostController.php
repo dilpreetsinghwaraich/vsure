@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Post;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Terms;
 use App\Post;
 use Illuminate\Http\Request;
 use Validator, DateTime, DB, Hash, File, Config, Helpers, Helper;
@@ -28,7 +29,8 @@ class AdminPostController extends Controller
     public function add()
     {
         $view = 'Admin.Post.Add'; 
-        return view('Includes.adminCommonTemplate',compact('view'));
+        $terms = Terms::where('term_type','blog')->select('*')->get();
+        return view('Includes.adminCommonTemplate',compact('view','terms'));
     }
     public function save(Request $request)
     {
@@ -50,7 +52,8 @@ class AdminPostController extends Controller
                 $post->image = \Helper::fileuploadExtra($request, 'image');
             }
             $post->post_type = 'blog';            
-            $post->status = $request->input('status');       
+            $post->status = $request->input('status'); 
+            $post->term = $request->input('term');       
             $post->created_at = date('Y-m-d h:i:s');
             $post->updated_at = date('Y-m-d h:i:s');
             $post->save();
@@ -65,11 +68,12 @@ class AdminPostController extends Controller
     {
     	$view = 'Admin.Post.Edit';
         $post = Post::find($post_id);
+        $terms = Terms::where('term_type','blog')->select('*')->get();
     	if (empty($post->post_id)) {
 			Session::flash('error','Something went wrong, You are not authorized to update this Post.');
 	    	return Redirect::back()->withInput(Input::all());    		
     	}
-        return view('Includes.adminCommonTemplate',compact('view','post'));	
+        return view('Includes.adminCommonTemplate',compact('view','post','terms'));	
     }
     public function update(Request $request, $post_id = null)
     {
@@ -93,7 +97,8 @@ class AdminPostController extends Controller
             if ($request->file('image') != '') {
                 $post->image = \Helper::fileuploadExtra($request, 'image');
             }
-            $post->post_type = 'blog';            
+            $post->post_type = 'blog';     
+            $post->term = $request->input('term');         
             $post->status = $request->input('status');
     	    $post->updated_at = date('Y-m-d h:i:s');
     	    $post->save();
