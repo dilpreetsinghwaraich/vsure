@@ -22,42 +22,42 @@
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
               <div class="blog-sec">
                 <div class="blog-img img-responsive text-center"> 
-                  <img src="<?php echo asset('/public'); ?>/images/image-team.png">
+                  <img src="<?php echo asset('/public'); ?>/images/aims.png">
                 </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
               <div class="blog-sec">
                 <div class="blog-img img-responsive text-center"> 
-                  <img src="<?php echo asset('/public'); ?>/images/image-team.png">
+                  <img src="<?php echo asset('/public'); ?>/images/deiv.png">
                 </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
               <div class="blog-sec">
                 <div class="blog-img img-responsive text-center"> 
-                  <img src="<?php echo asset('/public'); ?>/images/image-team.png">
+                  <img src="<?php echo asset('/public'); ?>/images/human.png">
                 </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
               <div class="blog-sec">
                 <div class="blog-img img-responsive text-center"> 
-                  <img src="<?php echo asset('/public'); ?>/images/image-team.png">
+                  <img src="<?php echo asset('/public'); ?>/images/rsqr.png">
                 </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
               <div class="blog-sec">
                 <div class="blog-img img-responsive text-center"> 
-                  <img src="<?php echo asset('/public'); ?>/images/image-team.png">
+                  <img src="<?php echo asset('/public'); ?>/images/thread origin.png">
                 </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
               <div class="blog-sec">
                 <div class="blog-img img-responsive text-center"> 
-                  <img src="<?php echo asset('/public'); ?>/images/image-team.png">
+                  <img src="<?php echo asset('/public'); ?>/images/wedyut.png">
                 </div>
               </div>
             </div>
