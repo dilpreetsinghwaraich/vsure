@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Checkout;
 
 use App\Http\Controllers\Controller;
 use App\Packages;
+use App\Orders;
 use App\User;
 use Illuminate\Http\Request;
 use Validator, DateTime, DB, Hash, File, Config, Helpers, Helper;
@@ -94,9 +95,23 @@ class CheckoutController extends Controller
         $orderInsert['updated_at'] = new DateTime;
 
         $order_id = DB::table('product_order')->insertGetId($orderInsert);
-        $order_number = time().$order_id;
-        DB::table('product_order')->where('order_id', $order_id)->update(['invoice_id'=>$order_number]);
+        $invoice_id = time().$order_id;
+        DB::table('product_order')->where('order_id', $order_id)->update(['invoice_id'=>$invoice_id]);
         Session::flash('success','Order submitted successfully');
-        return redirect('thank-you');
+        return redirect('checkout/invoice/'.$invoice_id);
+    }
+    public function checkoutInvoive($invoice_id = null){
+        if (empty($invoice_id)) {
+            $view = 'Pages.404';
+            return view('Includes.commonTemplate',compact('view'));
+        }
+        $order = Orders::where('invoice_id',$invoice_id)->first();
+        if (empty($order)) {
+            $view = 'Pages.404';
+            return view('Includes.commonTemplate',compact('view'));
+        }
+        $invoiceView = Helper::createInvoice($order,'');
+        $view = 'Checkout.invoice';
+        return view('Includes.commonTemplate',compact('view','invoiceView'));
     }
 }

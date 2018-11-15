@@ -270,4 +270,8 @@ class Helper
     {
     	return view('Template.OurClients');
     }
+    public static function createInvoice($order, $type)
+    {
+    	return view('Template.createInvoice', compact('order','type'));
+    }
 }

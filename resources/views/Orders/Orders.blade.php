@@ -6,23 +6,29 @@
 	          <tr>
 	          <th>Order Item</th>
 	          <th>Firm Name</th>
-	          <th>Status</th>
+	          <th>Order Status</th>
+	          <th>Payment Status</th>
+	          <th>Date</th>
 	          <th>View</th>
 	          </tr>
 	        </thead>
-	        <tbody>          
-	          <tr>
-	            <td class="order-basic">Basic Plan<span>20/09/2018</span></td>
-	            <td>Gopesh Design Pvt Ltd.</td>
-	            <td class="status-processed">Processed</td>
-	            <td><button class="dashboardLink" data-url="<?php echo url('order/view/21'); ?>">View Order</button></td>
-	          </tr>
-	          <tr>
-	            <td class="order-premium">Premium Plan<span>20/09/2018</span></td>
-	            <td>Gopesh Design Pvt Ltd.</td>
-	            <td class="status-completed">Processed</td>
-	            <td><button class="dashboardLink" data-url="<?php echo url('order/view/21'); ?>">View Order</button></td>
-	          </tr>
+	        <tbody>  
+	        <?php
+	        if (!empty($orders)) {
+	        	foreach ($orders as $order) {
+	        		?>
+	        			<tr>
+	        			  <td class="order-<?php echo $order->package_title; ?>"><?php echo $order->package_title; ?></td>
+	        			  <td><?php echo $order->customer_name; ?></td>
+	        			  <td class="status-<?php echo $order->order_status; ?>"><?php echo $order->order_status; ?></td>
+	        			  <td class="status-<?php echo $order->amount_status; ?>"><?php echo $order->amount_status; ?></td>
+	        			  <td><?php echo $order->order_date; ?></td>
+	        			  <td><button class="dashboardLink" data-url="<?php echo url('order/view/'.$order->invoice_id); ?>">View Order</button></td>
+	        			</tr>
+	        		<?php
+	        	}
+	        }
+	        ?>
 	        </tbody>
 	    </table>          
 	</div>                
