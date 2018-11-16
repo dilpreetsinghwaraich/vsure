@@ -38,9 +38,10 @@ Route::group(['middleware' => 'userToken'], function () {
 	Route::get('varify/email/link/{key?}', 'Profile\ProfileController@varifyEmailLinkWithKey'); 
 
 	Route::get('/my-order', 'Orders\OrdersController@orders');
-	Route::get('/order/view/{order_id?}', 'Orders\OrdersController@orderView');
-	Route::get('/generate/print/{order_id?}', 'Orders\OrdersController@print');
-	Route::get('/generate/pdf/{order_id?}', 'Orders\OrdersController@pdf');
+	Route::get('/order/view/{invoice_id?}', 'Orders\OrdersController@orderView');
+	Route::get('/generate/print/{invoice_id?}', 'Orders\OrdersController@print');
+	Route::get('/generate/pdf/{invoice_id?}', 'Orders\OrdersController@pdf');
+	Route::get('/view/order/invoice/{invoice_id?}', 'Orders\OrdersController@invoice');
 
 	Route::get('/my-documents', 'Document\DocumentController@document');
 
@@ -156,11 +157,12 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::post('/admin/update/order/{order_id?}', 'Admin\Orders\AdminOrdersController@update');
 	Route::get('/admin/generate/print/{order_id?}', 'Admin\Orders\AdminOrdersController@print');
 	Route::get('/admin/generate/pdf/{order_id?}', 'Admin\Orders\AdminOrdersController@pdf');
+	Route::get('/admin/order/send/invoice/mail/{order_id?}', 'Admin\Orders\AdminOrdersController@sendOrderInvoiceMail');
 
 });
 Route::get('/thank-you', function(){
 	$data = [];
-	$data['title'] = 'THank You';
+	$data['title'] = 'Thank You';
     $data['view'] = 'Pages.Success';
 	return view('Includes.commonTemplate',$data);
 });

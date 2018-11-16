@@ -71,15 +71,13 @@
           </tr>
         </thead>
         <?php 
-
-        $package = json_decode($order->products_details);
-        
-        $term = Helper::getPostTermByID($package->package_terms);
+          $package = json_decode($order->products_details);        
+          $term = Helper::getPostTermByID($package->package_terms);
         ?>
         <tbody>
           <tr>            
             <td>1</td>
-            <td class="order-<?php echo $order->package_title; ?>"><?php echo $term->term_title.' '.$order->package_title; ?></td>
+            <td class="order-<?php echo $order->package_title; ?>"><?php echo $term->term_title.' - '.$order->package_title; ?></td>
             <td ><?php echo strip_tags($package->package_content); ?></td>
             <td ><?php echo Helper::displayPrice($package); ?></td>
             <td style="white-space: nowrap;"><?php echo $order->order_date; ?></td>
@@ -89,7 +87,7 @@
     </div>
     <div class="row">
       <div class="order-details-page-main-inner col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h2 class="view-order-page-amount-due">AMOUNT DUE : <?php echo $order->order_date; ?></h2>
+        <h2 class="view-order-page-amount-due">AMOUNT DUE DATE : <?php echo $order->order_due_date; ?></h2>
         <div class="order-view-payment-section">
           <p>Payment Method</p>
           <a href="#"><img src="<?php echo asset('public/images/razorpay.png') ?>" style="width:90px"></a> </div>

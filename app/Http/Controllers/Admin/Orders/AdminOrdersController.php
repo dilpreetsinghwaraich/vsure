@@ -91,4 +91,26 @@ class AdminOrdersController extends Controller
         echo '<script>window.print()</script>';
         die;
     }
+    public function sendOrderInvoiceMail($order_id = null)
+    {
+        $order = Orders::find($order_id);
+        if (empty($order->order_id)) {
+            Session::flash('error','Something went wrong, You are not authorized to update this Order.');
+            return Redirect::back()->withInput(Input::all());           
+        } 
+        
+        $htmlmessage = view('EmailTemplate.OrderInvoice', compact('order'));
+        echo $htmlmessage;
+        die;
+        $email = $order->email;
+        $user = Helper::getUser($order->user_id);
+        if (!empty($user)) {
+            Helper::SendEmail($user->email,'Order Invoice At Vsure CFO',$htmlmessage,'');    
+        }
+        if (empty($user) || $user->email != $email) {
+            Helper::SendEmail($email,'Order Invoice At Vsure CFO',$htmlmessage,'');        
+        }        
+        Session::flash('success','Mail Sent Successfully TO '. $order->customer_name);
+        return Redirect::back()->withInput(Input::all());
+    }
 }

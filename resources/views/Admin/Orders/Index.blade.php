@@ -33,6 +33,7 @@
                     <td>
                       <a href="<?php echo url('admin/edit/order/'.$order->order_id) ?>">Edit/View</a>
                       | <a href="<?php echo url('admin/delete/order/'.$order->order_id) ?>">Delete</a>
+                      | <a href="<?php echo url('admin/order/send/invoice/mail/'.$order->order_id) ?>">Send Mail</a>
                     </td>
                   </tr>
                   <?php 

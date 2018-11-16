@@ -18,6 +18,7 @@
           <button type="submit" class="btn btn-success">Update</button>
           <a href="<?php echo url('admin/generate/print/'.$order->order_id) ?>" target="_blank" class="btn btn-success">Print</a>
           <a href="<?php echo url('admin/generate/pdf/'.$order->order_id) ?>" target="_blank" class="btn btn-success">Generate PDF</a>
+          <a href="<?php echo url('admin/order/send/invoice/mail/'.$order->order_id) ?>" class="btn btn-success">Send Mail</a>
         </form>
       </div>
     </div>

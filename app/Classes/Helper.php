@@ -273,8 +273,13 @@ class Helper
     }
     public static function createInvoice($order, $type)
     {
-    	return view('Template.createInvoice', compact('order','type'));
+    	return view('Template.CreateInvoice', compact('order','type'));
     }
+    public static function viewInvoice($order, $type)
+    {
+    	return view('Template.ViewInvoice', compact('order','type'));
+    }
+    
     public static function getPostTermByID($term_id)
     {
     	return Terms::find($term_id);

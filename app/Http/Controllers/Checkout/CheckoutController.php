@@ -72,6 +72,7 @@ class CheckoutController extends Controller
         $orderInsert['quantity'] = 1;
         $orderInsert['order_status'] = 'pending';
         $orderInsert['order_date'] = date('Y-m-d');
+        $orderInsert['order_due_date'] = date('Y-m-d', strtotime(date('Y-m-d'). ' + 10 days'));
         $orderInsert['billing_address'] = json_encode($request->all());
         $orderInsert['shipping_address'] = json_encode($request->all());
         $orderInsert['customer_name'] = $request->input('name');

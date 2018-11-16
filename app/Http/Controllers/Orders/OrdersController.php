@@ -59,4 +59,14 @@ class OrdersController extends Controller
         echo '<script>window.print()</script>';
         die;
     }
+    public function invoice($invoice_id = null)
+    {
+        $order = Orders::where('invoice_id',$invoice_id)->first();
+       
+        if (empty($order->order_id)) {
+            Session::flash('error','Something went wrong, You are not authorized to update this Order.');
+            return Redirect::back()->withInput(Input::all());           
+        }
+        return Helper::viewInvoice($order, '');
+    }
 }
