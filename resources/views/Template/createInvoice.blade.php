@@ -1,9 +1,6 @@
-<div class="logedin-order-page">
+<div class="logedin-order-page generate-pdf-print">
   <h2>View Order Details</h2>
   <div class="content-main order-details-page-main">
-    <div class="view-order-section-heading">
-      <p>Gopesh Design Pvt Ltd</p>
-    </div>
     <div class="row">
       <table class="table table-condensed">
         <thead>
@@ -28,11 +25,11 @@
     </div>
     <div class="row">
       <div class="order-details-page-main-inner col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <p>From : <span><b>Admin INC,</b></span> 987 loreum ipsum road
-          Loreum Ipsum Colony
-          Loreum Ipsum
+        <p>From : <span><b>Vsure Consulting India,</b></span>  
+          244a, 2nd Floor, Tower, B, <br>
+          Spaze Edge tower, Gurgoan-122001<br>
           Phone : 0928312309
-          Email: loreumipsum@loreum.com</p>
+          Email: info@vsurecfo.com</p>
       </div>
       <?php 
       $billing_address = json_decode($order->billing_address); 
@@ -84,18 +81,22 @@
         </table>
       </div>
     </div>
-    <div class="row">
-      <div class="order-details-page-main-inner col-lg-6 col-md-6 col-sm-6 col-xs-12"> </div>
-      <div class="order-details-page-main-inner-bottom-btn col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <?php
-        if ($order->amount_status == 'pending' && $type != 'admin') {
-          ?>
-          <button>Pay Amount</button>
+    <?php
+      if ($type != 'admin') {
+        ?>
+        <div class="row">
+          <div class="order-details-page-main-inner col-lg-6 col-md-6 col-sm-6 col-xs-12"> </div>
+          <div class="order-details-page-main-inner-bottom-btn col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <?php
+              if ($order->amount_status == 'pending') {
+                echo '<button>Pay Amount</button>';
+              }
+              ?>                           
+              <button onclick="Javascript:window.open('<?php echo url('generate/print/'.$order->invoice_id) ?>','','')">Print</button>
+              <button onclick="Javascript:window.open('<?php echo url('generate/pdf/'.$order->invoice_id) ?>','','')">Generate PDF</button>
+          </div>
+        </div>
           <?php
-        }?>        
-        <button>Print</button>
-        <button>Generate PDF</button>
-      </div>
-    </div>
+        }?> 
   </div>
 </div>

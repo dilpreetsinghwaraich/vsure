@@ -164,6 +164,7 @@ return [
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 
@@ -219,6 +220,7 @@ return [
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
         'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

@@ -111,7 +111,7 @@ class CheckoutController extends Controller
             return view('Includes.commonTemplate',compact('view'));
         }
         $invoiceView = Helper::createInvoice($order,'');
-        $view = 'Checkout.invoice';
+        $view = 'Checkout.Invoice';
         return view('Includes.commonTemplate',compact('view','invoiceView'));
     }
 }

@@ -8,7 +8,7 @@ use App\Packages;
 use App\Orders;
 use App\Terms;
 use Illuminate\Http\Request;
-use Validator, DateTime, DB, Hash, File, Config, Helpers, Helper;
+use Validator, DateTime, DB, Hash, File, Config, Helpers, Helper, PDF;
 use Session, Redirect;
 use Illuminate\Support\Facades\Input;
 
@@ -45,5 +45,39 @@ class AdminOrdersController extends Controller
 	    $order->save();
         Session::flash('success','Order Updated Successfully');
 	    return redirect('admin/orders');
+    }
+    public function pdf($order_id = null)
+    {
+        $order = Orders::find($order_id);
+       
+        if (empty($order->order_id)) {
+            Session::flash('error','Something went wrong, You are not authorized to update this Order.');
+            return Redirect::back()->withInput(Input::all());           
+        }
+        $type = 'admin';
+        $command = 'pdf';
+        $pdf = PDF::loadView('Template.createInvoice', compact('order','type','command'));
+        return $pdf->download('invoice.pdf');
+    }
+    public function print($order_id = null)
+    {
+        $order = Orders::find($order_id);
+       
+        if (empty($order->order_id)) {
+            Session::flash('error','Something went wrong, You are not authorized to update this Order.');
+            return Redirect::back()->withInput(Input::all());           
+        }
+        ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/animate.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/style.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/default-style.css">
+        
+        <?php
+        $invoice = Helper::createInvoice($order, 'admin');
+        echo $invoice;
+        echo '<script>window.print()</script>';
+        die;
     }
 }

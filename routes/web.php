@@ -39,6 +39,8 @@ Route::group(['middleware' => 'userToken'], function () {
 
 	Route::get('/my-order', 'Orders\OrdersController@orders');
 	Route::get('/order/view/{order_id?}', 'Orders\OrdersController@orderView');
+	Route::get('/generate/print/{order_id?}', 'Orders\OrdersController@print');
+	Route::get('/generate/pdf/{order_id?}', 'Orders\OrdersController@pdf');
 
 	Route::get('/my-documents', 'Document\DocumentController@document');
 
@@ -151,6 +153,8 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::get('/admin/orders', 'Admin\Orders\AdminOrdersController@index');
 	Route::get('/admin/edit/order/{order_id?}', 'Admin\Orders\AdminOrdersController@edit');
 	Route::post('/admin/update/order/{order_id?}', 'Admin\Orders\AdminOrdersController@update');
+	Route::get('/admin/generate/print/{order_id?}', 'Admin\Orders\AdminOrdersController@print');
+	Route::get('/admin/generate/pdf/{order_id?}', 'Admin\Orders\AdminOrdersController@pdf');
 
 });
 Route::get('/thank-you', function(){
