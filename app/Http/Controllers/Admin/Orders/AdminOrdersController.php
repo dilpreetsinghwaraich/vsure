@@ -97,11 +97,8 @@ class AdminOrdersController extends Controller
         if (empty($order->order_id)) {
             Session::flash('error','Something went wrong, You are not authorized to update this Order.');
             return Redirect::back()->withInput(Input::all());           
-        } 
-        
+        }         
         $htmlmessage = view('EmailTemplate.OrderInvoice', compact('order'));
-        echo $htmlmessage;
-        die;
         $email = $order->email;
         $user = Helper::getUser($order->user_id);
         if (!empty($user)) {

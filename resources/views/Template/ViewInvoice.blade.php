@@ -1,4 +1,4 @@
-@include('Includes.Header')
+@include('Includes.header')
 <?php 
   $profile =  Helper::getCurrentUser(); 
 ?>
@@ -32,4 +32,4 @@
         </div>
     </div>
 </section>
-@include('Includes.Footer')
+@include('Includes.footer')

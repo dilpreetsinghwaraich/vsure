@@ -2,7 +2,7 @@
 namespace App\Classes;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use Validator, DateTime, DB, Hash, File, Config, Helpers, Auth;
+use Validator, DateTime, DB, Hash, File, Config, Helpers, Auth, Mail;
 use Session, Redirect;
 use JWTFactory;
 use JWTAuth;
@@ -14,6 +14,13 @@ class Helper
 {
 	public static function SendEmail($to='',$subject='',$htmlmessage='',$Attachment='')
 	{  
+		Mail::send('EmailTemplate.Index', ['html' => $htmlmessage], function ($message) use($to, $subject)
+        {
+            $message->from('answeredu@gmail.com', 'EDU Answer');
+            $message->to($to);
+            $message->subject($subject);
+        });
+        return;
 	    $hostlist = array('127.0.0.1', "localhost");
 	    if(in_array($_SERVER['SERVER_NAME'], $hostlist)){
 	        return;
