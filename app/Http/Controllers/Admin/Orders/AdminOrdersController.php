@@ -46,6 +46,17 @@ class AdminOrdersController extends Controller
         Session::flash('success','Order Updated Successfully');
 	    return redirect('admin/orders');
     }
+    public function delete($order_id = null)
+    {
+        $order = Orders::find($order_id);
+        if (empty($order->order_id)) {
+            Session::flash('error','Something went wrong, You are not authorized to update this Order.');
+            return Redirect::back()->withInput(Input::all());           
+        }      
+        $order->delete();
+        Session::flash('success','Order Deleted Successfully');
+        return redirect('admin/orders');
+    }
     public function pdf($order_id = null)
     {
         $order = Orders::find($order_id);

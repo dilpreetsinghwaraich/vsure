@@ -31,7 +31,8 @@
                     <td><?php echo $order->payment_method; ?></td>
                     <td><?php echo $order->order_status; ?></td>
                     <td>
-                      <a href="<?php echo url('admin/edit/order/'.$order->order_id) ?>">Edit</a>
+                      <a href="<?php echo url('admin/edit/order/'.$order->order_id) ?>">Edit/View</a>
+                      | <a href="<?php echo url('admin/delete/order/'.$order->order_id) ?>">Delete</a>
                     </td>
                   </tr>
                   <?php 

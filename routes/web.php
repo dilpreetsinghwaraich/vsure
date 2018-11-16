@@ -152,6 +152,7 @@ Route::group(['middleware' => 'adminToken'], function () {
 	/******update delete edit view packages******/
 	Route::get('/admin/orders', 'Admin\Orders\AdminOrdersController@index');
 	Route::get('/admin/edit/order/{order_id?}', 'Admin\Orders\AdminOrdersController@edit');
+	Route::get('/admin/delete/order/{order_id?}', 'Admin\Orders\AdminOrdersController@delete');
 	Route::post('/admin/update/order/{order_id?}', 'Admin\Orders\AdminOrdersController@update');
 	Route::get('/admin/generate/print/{order_id?}', 'Admin\Orders\AdminOrdersController@print');
 	Route::get('/admin/generate/pdf/{order_id?}', 'Admin\Orders\AdminOrdersController@pdf');

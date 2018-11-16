@@ -9,6 +9,7 @@ use JWTAuth;
 use App\User;
 use App\Post;
 use App\Services;
+use App\Terms;
 class Helper
 {
 	public static function SendEmail($to='',$subject='',$htmlmessage='',$Attachment='')
@@ -273,5 +274,9 @@ class Helper
     public static function createInvoice($order, $type)
     {
     	return view('Template.createInvoice', compact('order','type'));
+    }
+    public static function getPostTermByID($term_id)
+    {
+    	return Terms::find($term_id);
     }
 }
