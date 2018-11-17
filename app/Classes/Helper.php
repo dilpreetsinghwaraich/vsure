@@ -291,4 +291,10 @@ class Helper
     {
     	return Terms::find($term_id);
     }
+
+    public static function latestBlogSection()
+    {
+    	$posts = Post::whereIn('post_type', ['blog'])->orderBy('created_at', 'DESC')->paginate(4);
+    	return view('Template.LatestBlogs',compact('posts'));
+    }
 }

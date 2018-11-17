@@ -15,9 +15,9 @@
                 <h2>Fillup this form</h2>
                 <h3>Start your company</h3>
                 <input class="name" type="text" placeholder="Name" name="name" required>
-                <input class="email" type="text" placeholder="Name" name="name" required>
-                <input class="contact" type="text" placeholder="Name" name="name" required>
-                <input class="state" type="text" placeholder="Name" name="name" required>
+                <input class="email" type="email" placeholder="Email" name="name" required>
+                <input class="contact" type="phone" placeholder="Phone" name="name" required>
+                <input class="state" type="text" placeholder="State" name="name" required>
                 <a href="">Submit</a> </div>
             </div>
           </div>

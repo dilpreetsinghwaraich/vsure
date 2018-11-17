@@ -23,9 +23,8 @@ class HomeController extends Controller
             $view = 'Pages.404';
             return view('Includes.commonTemplate',compact('view'));       
         }
-        $view = $post->template;
-        $posts = Post::whereIn('post_type', ['blog'])->orderBy('created_at', 'DESC')->paginate(4);
-        return view('Includes.commonTemplate',compact('view','post','posts'));
+        $view = $post->template;        
+        return view('Includes.commonTemplate',compact('view','post'));
     }
     public function aboutUs()
     {
