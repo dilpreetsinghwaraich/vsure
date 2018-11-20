@@ -1,5 +1,5 @@
 <?php
 return [
-    'razor_key' => 'rzp_test_razor_key',
-    'razor_secret' => 'rzp_test_razor_secret'
+    'razor_key' => 'rzp_test_dCUQHWv2ddIb8D',
+    'razor_secret' => 'PCkbqsumrqe56EvUNdcYCLJ3'
 ];

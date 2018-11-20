@@ -31,6 +31,8 @@
                       <option value="draft" <?php echo (old('status') == 'draft'?'selected':''); ?>>Draft</option>
                     </select>
                   </div>
+                  
+
                 </div>                                     
                 <button type="submit" class="btn btn-primary">Save</button>
               </form>

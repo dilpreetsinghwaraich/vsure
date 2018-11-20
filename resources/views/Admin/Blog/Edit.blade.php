@@ -41,6 +41,7 @@
                       <option value="draft" <?php echo ($post->status == 'draft'?'selected':''); ?>>Draft</option>
                     </select>
                   </div>
+                  
                 </div>                                     
                 <button type="submit" class="btn btn-primary">Update</button>
               </form>

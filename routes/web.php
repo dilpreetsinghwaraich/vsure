@@ -38,7 +38,7 @@ Route::group(['middleware' => 'userToken'], function () {
 	Route::get('varify/email/link/{key?}', 'Profile\ProfileController@varifyEmailLinkWithKey'); 
 
 	Route::get('/my-order', 'Orders\OrdersController@orders');
-	Route::get('/order/view/{invoice_id?}', 'Orders\OrdersController@orderView');
+	Route::get('/order/view/{invoice_id?}', 'Orders\OrdersController@invoice');
 	Route::get('/generate/print/{invoice_id?}', 'Orders\OrdersController@print');
 	Route::get('/generate/pdf/{invoice_id?}', 'Orders\OrdersController@pdf');
 	Route::get('/view/order/invoice/{invoice_id?}', 'Orders\OrdersController@invoice');

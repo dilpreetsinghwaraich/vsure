@@ -23,7 +23,7 @@
 	        			  <td class="status-<?php echo $order->order_status; ?>"><?php echo $order->order_status; ?></td>
 	        			  <td class="status-<?php echo $order->amount_status; ?>"><?php echo $order->amount_status; ?></td>
 	        			  <td><?php echo $order->order_date; ?></td>
-	        			  <td><button class="dashboardLink" data-url="<?php echo url('order/view/'.$order->invoice_id); ?>">View Order</button></td>
+	        			  <td><a href="<?php echo url('order/view/'.$order->invoice_id); ?>">View Order</a></td>
 	        			</tr>
 	        		<?php
 	        	}

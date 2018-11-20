@@ -52,6 +52,18 @@
                       ?>
                     </select>
                   </div>
+                  <?php
+                  $post_meta_data = $post->post_meta_data;
+                  ?>
+                  <div class="form-group col-md-12">
+                    <label for="post_seo_meta_title">Seo Meta Title</label>
+                    <input type="text" class="form-control" id="post_seo_meta_title" name="post_meta_data[title]" value="<?php echo (isset($post_meta_data['title'])?$post_meta_data['title']:''); ?>" placeholder="Title">
+                  </div>
+                  
+                  <div class="form-group col-md-12">
+                    <label for="post_seo_meta_description">Seo Meta Desciption</label>
+                    <textarea class="form-control" id="post_seo_meta_description" name="post_meta_data[description]" required placeholder="Content"><?php echo (isset($post_meta_data['description'])?$post_meta_data['description']:''); ?></textarea>
+                  </div>
                 </div>                                     
                 <button type="submit" class="btn btn-primary">Update</button>
               </form>

@@ -48,6 +48,7 @@ class AdminPostController extends Controller
             $post->post_slug = str_slug($request->input('post_title').' '.$count,'-');
             $post->post_excerpt = $request->input('post_excerpt');
             $post->post_content = $request->input('post_content');
+            $post->post_meta_data = Helper::maybe_serialize($request->input('post_meta_data'));
             if ($request->file('image') != '') {
                 $post->image = \Helper::fileuploadExtra($request, 'image');
             }
@@ -73,6 +74,7 @@ class AdminPostController extends Controller
 			Session::flash('error','Something went wrong, You are not authorized to update this Post.');
 	    	return Redirect::back()->withInput(Input::all());    		
     	}
+        $post->post_meta_data = Helper::maybe_unserialize($post->post_meta_data);
         return view('Includes.adminCommonTemplate',compact('view','post','terms'));	
     }
     public function update(Request $request, $post_id = null)
@@ -94,6 +96,7 @@ class AdminPostController extends Controller
             $post->user_id = Helper::getCurrentUserByKey('user_id');
             $post->post_excerpt = $request->input('post_excerpt');
             $post->post_content = $request->input('post_content');
+            $post->post_meta_data = Helper::maybe_serialize($request->input('post_meta_data'));
             if ($request->file('image') != '') {
                 $post->image = \Helper::fileuploadExtra($request, 'image');
             }
