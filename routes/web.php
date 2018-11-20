@@ -53,6 +53,7 @@ Route::group(['middleware' => 'userToken'], function () {
 	Route::post('complete/order/{package_id?}', 'Checkout\CheckoutController@completeOrder');
 
 	Route::get('checkout/invoice/{invoice_id?}', 'Checkout\CheckoutController@checkoutInvoive');
+	Route::post('payment', 'Razorpay\RazorpayController@payment')->name('payment');
 });
 
 Route::get('/admin/login', 'Admin\Auth\LoginController@login');

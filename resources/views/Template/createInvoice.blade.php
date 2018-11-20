@@ -89,7 +89,27 @@
           <div class="order-details-page-main-inner-bottom-btn col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <?php
               if ($order->amount_status == 'pending') {
-                echo '<button>Pay Amount</button>';
+                ?>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Pay With Razorpay</div>
+                    <div class="panel-body text-center">
+                        <form action="{!!route('payment')!!}" method="POST" >
+                            <script src="https://checkout.razorpay.com/v1/checkout.js"
+                                    data-key="{{ Config::get('razorpay.razor_key') }}"
+                                    data-amount="1000"
+                                    data-buttontext="Pay 10 INR"
+                                    data-name="Laravelcode"
+                                    data-description="Order Value"
+                                    data-image="yout_logo_url"
+                                    data-prefill.name="name"
+                                    data-prefill.email="email"
+                                    data-theme.color="#ff7529">
+                            </script>
+                            <input type="hidden" name="_token" value="{!!csrf_token()!!}">
+                        </form>
+                    </div>
+                </div>
+                <?php
               }
               ?>                           
               <button onclick="Javascript:window.open('<?php echo url('generate/print/'.$order->invoice_id) ?>','','')">Print</button>
