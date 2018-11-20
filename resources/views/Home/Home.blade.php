@@ -300,3 +300,4 @@
   <!-- blog-second start -->
   <?php echo Helper::latestBlogSection(); ?>
   <!-- blog end-->
+  

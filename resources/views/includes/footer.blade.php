@@ -93,3 +93,15 @@ $(document).ready(function() {
   });
 });
 </script> 
+<script src="https://static.landbot.io/landbot-widget/landbot-widget-1.0.0.js"></script>
+<script>
+  var myLandbotLivechat = new LandbotLivechat({
+    index: 'https://landbot.io/u/H-103341-IGGFUCU8A93S0XO4/index.html',
+  });
+</script>
+<script>
+  // Show a proactive message on landbot load
+  myLandbotLivechat.on('landbot-load', () => {
+    myLandbotLivechat.sendProactive("Hello there!");
+  });
+</script>
