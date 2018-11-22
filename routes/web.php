@@ -53,23 +53,16 @@ Route::group(['middleware' => 'userToken'], function () {
 	Route::post('complete/order/{package_id?}', 'Checkout\CheckoutController@completeOrder');
 
 	Route::get('checkout/invoice/{invoice_id?}', 'Checkout\CheckoutController@checkoutInvoive');
-	Route::post('payment', 'Razorpay\RazorpayController@payment')->name('payment');
+	Route::post('payment/{invoice_id?}', 'Razorpay\RazorpayController@payment')->name('payment');
 });
 
 Route::get('/admin/login', 'Admin\Auth\LoginController@login');
 Route::post('/admin/login', 'Admin\Auth\LoginController@loginAccess');
 
-Route::group(['middleware' => 'adminToken'], function () {
+Route::group(['middleware' => 'editorToken'], function () {
+
 	Route::get('/admin/dashboard', 'Admin\Home\AdminDashboardController@home');
 	Route::get('/admin/logout', 'Admin\Auth\LoginController@logout');
-
-	/******update delete edit view page******/
-	Route::get('/admin/pages', 'Admin\Page\AdminPageController@index');
-	Route::get('/admin/add/page', 'Admin\Page\AdminPageController@add');
-	Route::post('/admin/save/page', 'Admin\Page\AdminPageController@save');
-	Route::get('/admin/edit/page/{post_id?}', 'Admin\Page\AdminPageController@edit');
-	Route::post('/admin/update/page/{post_id?}', 'Admin\Page\AdminPageController@update');
-	Route::get('/admin/delete/page/{post_id?}', 'Admin\Page\AdminPageController@delete');
 
 	/******update delete edit view post******/
 	Route::get('/admin/posts', 'Admin\Post\AdminPostController@index');
@@ -78,6 +71,17 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::get('/admin/edit/post/{post_id?}', 'Admin\Post\AdminPostController@edit');
 	Route::post('/admin/update/post/{post_id?}', 'Admin\Post\AdminPostController@update');
 	Route::get('/admin/delete/post/{post_id?}', 'Admin\Post\AdminPostController@delete');
+	
+});
+Route::group(['middleware' => 'adminToken'], function () {	
+
+	/******update delete edit view page******/
+	Route::get('/admin/pages', 'Admin\Page\AdminPageController@index');
+	Route::get('/admin/add/page', 'Admin\Page\AdminPageController@add');
+	Route::post('/admin/save/page', 'Admin\Page\AdminPageController@save');
+	Route::get('/admin/edit/page/{post_id?}', 'Admin\Page\AdminPageController@edit');
+	Route::post('/admin/update/page/{post_id?}', 'Admin\Page\AdminPageController@update');
+	Route::get('/admin/delete/page/{post_id?}', 'Admin\Page\AdminPageController@delete');
 
 	/******update delete edit view post/page******/
 	Route::get('/admin/menus', 'Admin\Menu\AdminMenuController@index');

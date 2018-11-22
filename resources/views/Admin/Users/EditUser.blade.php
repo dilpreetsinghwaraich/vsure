@@ -45,7 +45,8 @@
                     <select name="role" class="form-control">
                       <option value="">Select</option>
                       <option value="admin" <?php echo $user->role == 'admin' ?'selected' : ''; ?>>Admin</option>
-                      <option value="subscriber"  <?php echo $user->role == 'subscriber' ?'selected' : ''; ?>>Subscriber</option>                      
+                      <option value="subscriber"  <?php echo $user->role == 'editor' ?'selected' : ''; ?>>Editor</option>                      
+                      <option value="subscriber"  <?php echo $user->role == 'subcriber' ?'selected' : ''; ?>>Subscriber</option>                      
                     </select>
                   </div>
                 </div>                       

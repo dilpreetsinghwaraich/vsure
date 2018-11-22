@@ -32,19 +32,30 @@
         </div>
       </div>
       <ul class="sidebar-menu scrollable pos-r">
-        <li class="nav-item mT-30 active"><a class="sidebar-link" href="<?php echo url('admin/dashboard'); ?>" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Dashboard</span></a></li>
-        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/posts'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Posts</span></a></li>
-        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/pages'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Pages</span></a></li> 
-        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/menus'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Menus</span></a></li>  
-        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/users'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Users</span></a></li>
-        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/terms'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Terms</span></a></li>
-        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/services'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Services</span></a></li>
-        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/questions'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Questions</span></a></li>
-        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/features'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Features</span></a></li>
-        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/process/results'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Process Results</span></a></li>  
-        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/documents'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Documents</span></a></li>
-        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/packages'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Packages</span></a></li>  
-        <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/orders'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Orders</span></a></li> 
+        <?php 
+        if ($user->role == 'editor' || $user->role == 'admin') {
+          ?>
+          <li class="nav-item mT-30 active"><a class="sidebar-link" href="<?php echo url('admin/dashboard'); ?>" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Dashboard</span></a></li>
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/posts'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Posts</span></a></li>
+          <?php
+        } ?>
+        <?php 
+          if ($user->role == 'admin') {
+          ?>
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/pages'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Pages</span></a></li> 
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/menus'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Menus</span></a></li>  
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/users'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Users</span></a></li>
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/terms'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Terms</span></a></li>
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/services'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Services</span></a></li>
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/questions'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Questions</span></a></li>
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/features'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Features</span></a></li>
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/process/results'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Process Results</span></a></li>  
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/documents'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Documents</span></a></li>
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/packages'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Packages</span></a></li>  
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/orders'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Orders</span></a></li> 
+          <?php
+          }
+        ?>
       </ul>
     </div>
   </div>
@@ -76,10 +87,13 @@
         <div class="container-fluid">
         @if (Session::has('success'))
           <div class="alert alert-info">{{ Session::get('success') }}</div>
+          <?php Session::forget('success') ?>
         @endif
         @if (Session::has('warning'))
           <div class="alert alert-warning">{{ Session::get('warning') }}</div>
+          <?php Session::forget('warning') ?>
         @endif
         @if (Session::has('error'))
           <div class="alert alert-danger">{{ Session::get('error') }}</div>
+          <?php Session::forget('error') ?>
         @endif

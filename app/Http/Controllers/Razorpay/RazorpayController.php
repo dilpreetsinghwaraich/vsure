@@ -1,11 +1,15 @@
 <?php
 namespace App\Http\Controllers\Razorpay;
 
+use App\Http\Controllers\Controller;
+use App\User;
+use App\Packages;
+use App\Orders;
+use Validator, DateTime, DB, Hash, File, Config, Helpers, Helper;
+use Session, Redirect;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Razorpay\Api\Api;
-use Session;
-use Redirect;
 
 class RazorpayController extends Controller
 {    
@@ -14,33 +18,26 @@ class RazorpayController extends Controller
         return view('payWithRazorpay');
     }
 
-    public function payment()
+    public function payment($invoice_id = null)
     {
-        //Input items of form
         $input = Input::all();
-        echo '<pre>';
-        print_r($input);
-        echo '</pre>';
-        //get API Configuration 
         $api = new Api(config('razorpay.razor_key'), config('razorpay.razor_secret'));
-        //Fetch payment information by razorpay_payment_id
         $payment = $api->payment->fetch($input['razorpay_payment_id']);
-
         if(count($input)  && !empty($input['razorpay_payment_id'])) {
             try {
                 $response = $api->payment->fetch($input['razorpay_payment_id'])->capture(array('amount'=>$payment['amount'])); 
-
+                Orders::where('invoice_id',$invoice_id)
+                        ->update([
+                            'amount_status' => 'completed',
+                            'payment_id' => $input['razorpay_payment_id'],
+                            'payment_method' => 'razorpay',
+                            'updated_at' =>  new DateTime,
+                        ]);
             } catch (\Exception $e) {
-                return  $e->getMessage();
-                \Session::put('error',$e->getMessage());
-                //return redirect()->back();
+                \Session::put('warning',$e->getMessage());
+                return redirect()->back();
             }
-
-            // Do something here for store payment details in database...
         }
-        echo '<pre>';
-        print_r($response);
-        die;
         \Session::put('success', 'Payment successful, your order will be despatched in the next 48 hours.');
         return redirect()->back();
     }
