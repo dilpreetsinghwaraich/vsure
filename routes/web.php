@@ -65,36 +65,18 @@ Route::group(['middleware' => 'editorToken'], function () {
 	Route::get('/admin/logout', 'Admin\Auth\LoginController@logout');
 
 	/******update delete edit view post******/
+	Route::get('/admin/media', 'Admin\Media\AdminMediaController@index');
+	Route::post('/admin/save/media', 'Admin\Media\AdminMediaController@save');
+	Route::get('/admin/view/media/{post_id?}', 'Admin\Media\AdminMediaController@view');
+	Route::get('/admin/delete/media/{post_id?}', 'Admin\Media\AdminMediaController@delete');
+
+	/******update delete edit view post******/
 	Route::get('/admin/posts', 'Admin\Post\AdminPostController@index');
 	Route::get('/admin/add/post', 'Admin\Post\AdminPostController@add');
 	Route::post('/admin/save/post', 'Admin\Post\AdminPostController@save');
 	Route::get('/admin/edit/post/{post_id?}', 'Admin\Post\AdminPostController@edit');
 	Route::post('/admin/update/post/{post_id?}', 'Admin\Post\AdminPostController@update');
 	Route::get('/admin/delete/post/{post_id?}', 'Admin\Post\AdminPostController@delete');
-	
-});
-Route::group(['middleware' => 'adminToken'], function () {	
-
-	/******update delete edit view page******/
-	Route::get('/admin/pages', 'Admin\Page\AdminPageController@index');
-	Route::get('/admin/add/page', 'Admin\Page\AdminPageController@add');
-	Route::post('/admin/save/page', 'Admin\Page\AdminPageController@save');
-	Route::get('/admin/edit/page/{post_id?}', 'Admin\Page\AdminPageController@edit');
-	Route::post('/admin/update/page/{post_id?}', 'Admin\Page\AdminPageController@update');
-	Route::get('/admin/delete/page/{post_id?}', 'Admin\Page\AdminPageController@delete');
-
-	/******update delete edit view post/page******/
-	Route::get('/admin/menus', 'Admin\Menu\AdminMenuController@index');
-	Route::post('/admin/save/menu', 'Admin\Menu\AdminMenuController@save');
-	Route::get('/admin/edit/menu/{post_id?}', 'Admin\Menu\AdminMenuController@edit');
-	Route::post('/admin/update/menu/{post_id?}', 'Admin\Menu\AdminMenuController@update');
-	Route::get('/admin/delete/menu/{post_id?}', 'Admin\Menu\AdminMenuController@delete');
-
-	/******update delete edit view user******/
-	Route::get('/admin/users', 'Admin\Users\AdminUsersController@index');
-	Route::get('/admin/user/edit/{user_id?}', 'Admin\Users\AdminUsersController@editUser');
-	Route::post('/admin/user/update/{user_id?}', 'Admin\Users\AdminUsersController@updateUser');
-	Route::get('/admin/user/delete/{user_id?}', 'Admin\Users\AdminUsersController@deleteUser');
 
 	/******update delete edit view questions******/
 	Route::get('/admin/questions', 'Admin\Questions\AdminQuestionsController@index');
@@ -154,6 +136,30 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::post('/admin/update/service/{service_id?}', 'Admin\Services\AdminServicesController@update');
 	Route::get('/admin/clone/service/{service_id?}', 'Admin\Services\AdminServicesController@clone');
 	Route::get('/admin/delete/service/{service_id?}', 'Admin\Services\AdminServicesController@delete');
+	
+});
+Route::group(['middleware' => 'adminToken'], function () {	
+
+	/******update delete edit view page******/
+	Route::get('/admin/pages', 'Admin\Page\AdminPageController@index');
+	Route::get('/admin/add/page', 'Admin\Page\AdminPageController@add');
+	Route::post('/admin/save/page', 'Admin\Page\AdminPageController@save');
+	Route::get('/admin/edit/page/{post_id?}', 'Admin\Page\AdminPageController@edit');
+	Route::post('/admin/update/page/{post_id?}', 'Admin\Page\AdminPageController@update');
+	Route::get('/admin/delete/page/{post_id?}', 'Admin\Page\AdminPageController@delete');
+
+	/******update delete edit view post/page******/
+	Route::get('/admin/menus', 'Admin\Menu\AdminMenuController@index');
+	Route::post('/admin/save/menu', 'Admin\Menu\AdminMenuController@save');
+	Route::get('/admin/edit/menu/{post_id?}', 'Admin\Menu\AdminMenuController@edit');
+	Route::post('/admin/update/menu/{post_id?}', 'Admin\Menu\AdminMenuController@update');
+	Route::get('/admin/delete/menu/{post_id?}', 'Admin\Menu\AdminMenuController@delete');
+
+	/******update delete edit view user******/
+	Route::get('/admin/users', 'Admin\Users\AdminUsersController@index');
+	Route::get('/admin/user/edit/{user_id?}', 'Admin\Users\AdminUsersController@editUser');
+	Route::post('/admin/user/update/{user_id?}', 'Admin\Users\AdminUsersController@updateUser');
+	Route::get('/admin/user/delete/{user_id?}', 'Admin\Users\AdminUsersController@deleteUser');
 
 	/******update delete edit view packages******/
 	Route::get('/admin/orders', 'Admin\Orders\AdminOrdersController@index');

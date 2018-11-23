@@ -12,9 +12,16 @@
 <link rel="icon" href="<?php echo asset('/public'); ?>/images/favicon.png" type="image/gif" sizes="64x64">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <base href="<?php echo url('/'); ?>">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127207130-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-127207130-1');
+</script>
 </head>
 <body>
-  
 <div id="myDiv"> 
   <!--HEADER-->
   <div class="header">

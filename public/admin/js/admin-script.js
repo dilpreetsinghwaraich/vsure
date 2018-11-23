@@ -134,6 +134,21 @@ jQuery(document).ready(function($) {
     });
     var targetID = $('.post_parent_type:checked').val();
     $('#'+targetID).prop('disabled', false);
+    $('.view_media_image').click(function(event) {
+        $('.media_popup').show();
+        $('.media_popup_body').html('');
+        var post_id = $(this).data('post_id');
+        $.ajax({
+            url: AJAXURL('admin/view/media')+'/'+post_id,
+            type: 'GET',
+        })
+        .done(function(html) {
+            $('.media_popup_body').html(html);
+        });        
+    });
+    $('.hide_media_popup').click(function(event) {
+        $('.media_popup').hide();
+    });
 });
 function AJAXURL(string) {
     var url = jQuery('base').attr('href');

@@ -223,11 +223,19 @@ if (isset($service_short_info['image']) && !empty($service_short_info['image']))
       <h2><?php echo (isset($service_process_results['section_title'])?$service_process_results['section_title']:'') ?></h2>
       <div class="row">
         <?php 
+        $progress_bar = ['dark','green','brown','blue','black'];
+        $progress_count = 0;
         if (!empty($process_results)) {
           foreach ($process_results as $process_result) {
             ?>
             <div class="col-md-2 col-sm-6">
-              <div class="progress blue"> <span class="progress-left"> <span class="progress-bar"></span> </span> <span class="progress-right"> <span class="progress-bar"></span> </span>
+              <div class="progress <?php echo $progress_bar[$progress_count]; ?>"> 
+                <span class="progress-left"> 
+                  <span class="progress-bar"></span> 
+                </span> 
+                <span class="progress-right"> 
+                  <span class="progress-bar"></span> 
+                </span>
                 <div class="progress-value"><img src="<?php echo asset('/'.$process_result->process_image) ?>"></div>
               </div>
               <div class="progress-bar-text">
@@ -237,6 +245,7 @@ if (isset($service_short_info['image']) && !empty($service_short_info['image']))
               </div>
             </div>
             <?php
+            $progress_count++;
           }
         }
         ?>
