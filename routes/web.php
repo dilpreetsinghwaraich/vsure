@@ -178,3 +178,4 @@ Route::get('/thank-you', function(){
 	return view('Includes.commonTemplate',$data);
 });
 Route::get('/{slug?}', 'Home\HomeController@singlePage');
+Route::post('/post/save/comment', 'Comments\CommentsController@save');

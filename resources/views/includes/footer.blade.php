@@ -82,10 +82,15 @@ if (empty(session('token'))) {
 <script src="<?php echo asset('/public'); ?>/js/jquery.min.js"></script>
 <script src="<?php echo asset('/public'); ?>/js/jquery.easing.min.js"></script> 
 <script src="<?php echo asset('/public'); ?>/js/bootstrap.min.js"></script> 
+<script src="<?php echo asset('/public'); ?>/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="<?php echo asset('/public'); ?>/plugins/easing/easing.js"></script>
+<script src="<?php echo asset('/public'); ?>/plugins/masonry/masonry.js"></script>
+<script src="<?php echo asset('/public'); ?>/plugins/parallax-js-master/parallax.min.js"></script>
 <script src="<?php echo asset('/public'); ?>/js/wow.js"></script> 
 <script src="<?php echo asset('/public'); ?>/js/jquery.bxslider.min.js"></script> 
 <script src="<?php echo asset('/public'); ?>/js/custom.js"></script> 
 <script src="<?php echo asset('/public'); ?>/js/vsurescriptversion001.js"></script> 
+<script src="<?php echo asset('/public'); ?>/js/post.js"></script>
 <script>
 $(document).ready(function() {
   $('#media').carousel({

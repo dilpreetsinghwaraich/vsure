@@ -8,6 +8,7 @@ use JWTFactory;
 use JWTAuth;
 use App\User;
 use App\Post;
+use App\Comments;
 use App\Services;
 use App\Terms;
 class Helper
@@ -190,13 +191,16 @@ class Helper
 	
 	public static function getCurrentUser()
 	{
+		if (empty(session('token'))) {
+			return new User();
+		}
 		return JWTAuth::toUser(session('token'));
 	}
 	public static function getCurrentUserByKey($key)
 	{
-		$user = JWTAuth::toUser(session('token'));
+		$user = self::getCurrentUser();
 		if (!empty($key)) {
-			return isset($user->$key)?$user->$key:$user;
+			return isset($user->$key)?$user->$key:0;
 		}
 		return $user;
 	}
@@ -297,4 +301,31 @@ class Helper
     	$posts = Post::whereIn('post_type', ['blog'])->orderBy('created_at', 'DESC')->paginate(4);
     	return view('Template.LatestBlogs',compact('posts'));
     }
+    public static function similarPosts($post)
+    {
+    	$posts = Post::whereIn('post_type', ['blog'])->where('term', $post->term)->where('post_id', '!=', $post->post_id)->orderBy('created_at', 'DESC')->paginate(3);
+    	foreach ($posts as $post) {
+
+    	  ?>
+    	  <div class="card card_small_with_image grid-item"> 
+    	  	<img class="card-img-top" style="width: 100%;" src="<?php echo asset('/').'/'.$post->image; ?>" alt="<?php echo $post->post_title ?>">
+    	    <div class="card-body">
+    	      <div class="card-title card-title-small">
+    	      	<a href="post.html"><?php echo $post->post_excerpt; ?></a>
+    	      </div>
+    	      <small class="post_meta">
+    	      	<a href="<?php echo url('/'.$post->post_slug); ?>"><?php echo $post->post_title ?></a>
+    	      	<span><?php echo date('M, d Y',strtotime($post->created_at)); ?></span>
+    	      </small> 
+    	  	</div>
+    	  </div>
+    	  <?php
+    	}
+    }
+    public static function comments($post)
+    {
+    	$comments = Comments::where('post_id', '=', $post->post_id)/*->where('status','publish')*/->paginate(10);
+    	return view('Template.CommentBox',compact('comments','post'));
+    }
+
 }

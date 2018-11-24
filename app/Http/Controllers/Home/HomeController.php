@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use App\Post;
+use Illuminate\Http\Request;
+use Validator, DateTime, DB, Hash, File, Config, Helpers, Helper;
+use Session, Redirect;
+use Illuminate\Support\Facades\Input;
 
 class HomeController extends Controller
 {
@@ -23,8 +28,9 @@ class HomeController extends Controller
             $view = 'Pages.404';
             return view('Includes.commonTemplate',compact('view'));       
         }
+        $author = Helper::getUser($post->user_id);
         $view = $post->template;        
-        return view('Includes.commonTemplate',compact('view','post'));
+        return view('Includes.commonTemplate',compact('view','post','author'));
     }
     public function aboutUs()
     {
