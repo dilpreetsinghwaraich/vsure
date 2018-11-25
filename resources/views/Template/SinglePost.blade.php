@@ -31,20 +31,17 @@
     max-width: 66.666667%;
 }
 </style>
-<div class="super_container">
-  <div class="home">
-    <?php 
-      if (!empty($post->image)) {
-        $image = asset('/').'/'.$post->image;
-      }else{
-        $image = asset('/').'public/images/post.jpg';
-      } ?> 
-      <div class="home_background parallax-window" data-parallax="scroll" data-image-src="<?php echo $image; ?>" data-speed="0.8"></div>
-      <div class="home_content">
-        <!-- <div class="post_category trans_200"><a href="category.html" class="trans_200">sport</a></div> -->
-        <div class="post_title"><?php echo $post->post_title; ?></div>
+<div class="">
+  <div class="bg-color" style="background: url('<?php echo asset('/public'); ?>/images/home-back.jpg')">
+    <div class="wrapper">
+      <div class="banner-info about-page-banner wow fadeIn delay-05s animated" style="visibility: visible; animation-name: fadeIn;">
+        <h1 class="bnr-title  text-center gallery"><?php echo $post->post_title; ?></h1>
+        <h2 class="text-center gallery"><a href="<?php echo url('/'); ?>"><span>Home</span></a></h2>
       </div>
     </div>
+  </div>
+</div>
+<div class="super_container">
   <div class="page_content">
     <div class="container">
       <div class="row row-lg-eq-height"> 
@@ -71,6 +68,7 @@
               </div>
             </div>
             <div class="post_body">
+              <div><img src="<?php echo asset('/').'/'.$post->image; ?>" style="width: 100%;" alt="<?php echo $post->post_title; ?>"></div>
               <p class="post_p"><?php echo $post->post_content; ?></p>
             </div>
             

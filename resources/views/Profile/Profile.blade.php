@@ -34,9 +34,9 @@
 		<p class="profile-email"><?php echo $profile->email; ?>
 			<?php 
 				if ($profile->email_verified_at == '0') {
-					echo '<span style="background:red; padding:5px; color:white;"><span style="color:white;" class="glyphicon glyphicon-envelope"></span>Email Not Varified</span><span class="varifyEmail" style="cursor:pointer;">Varify</span>';
+					echo '<span style="background:red; padding:5px; color:white;"><span style="color:white;" class="glyphicon glyphicon-envelope"></span>Email Not Verified</span><span class="varifyEmail" style="cursor:pointer;">verify</span>';
 				}else{
-					echo '<span style="background:green; padding:5px; color:white;"><span style="color:white;" class="glyphicon glyphicon-envelope"></span>Email Varified</span>';
+					echo '<span style="background:green; padding:5px; color:white;"><span style="color:white;" class="glyphicon glyphicon-envelope"></span>Email Verified</span>';
 				}
 			?>
 		</p>

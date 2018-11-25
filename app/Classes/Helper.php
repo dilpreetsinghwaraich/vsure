@@ -311,7 +311,7 @@ class Helper
     	  	<img class="card-img-top" style="width: 100%;" src="<?php echo asset('/').'/'.$post->image; ?>" alt="<?php echo $post->post_title ?>">
     	    <div class="card-body">
     	      <div class="card-title card-title-small">
-    	      	<a href="post.html"><?php echo $post->post_excerpt; ?></a>
+    	      	<a href="<?php echo url('/'.$post->post_slug); ?>"><?php echo $post->post_excerpt; ?></a>
     	      </div>
     	      <small class="post_meta">
     	      	<a href="<?php echo url('/'.$post->post_slug); ?>"><?php echo $post->post_title ?></a>

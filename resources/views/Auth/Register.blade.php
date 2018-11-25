@@ -3,8 +3,8 @@
     <div class="bg-color" style="background: url('<?php echo asset('/public'); ?>/images/home-back.jpg')">
       <div class="wrapper">
         <div class="banner-info contact-page-banner banners-home wow fadeIn delay-05s animated" style="visibility: visible; animation-name: fadeIn;">
-          <h1 class="bnr-title  text-center gallery">Contact Us</h1>
-          <h2 class="text-center gallery"><a href="<?php echo url('/'); ?>"><span>Home</span></a> - <span>Contact us</span></h2>
+          <h1 class="bnr-title  text-center gallery">Register</h1>
+          <h2 class="text-center gallery"><a href="<?php echo url('/'); ?>"><span>Home</span></a></h2>
         </div>
       </div>
     </div>

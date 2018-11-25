@@ -114,8 +114,8 @@ class ProfileController extends Controller
 
         $htmlmessage = 'Please Click on this link to varify your email.';
         $htmlmessage .= '<br>Click <a href="'.url('varify/email/link/'.$activation_key).'">Here</a>';
-        Helper::SendEmail($user->email,'Varify Email At vsure',$htmlmessage,'');
-        $message = '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>To varify email, Email has been sent you.</div>';
+        Helper::SendEmail($user->email,'Verify Email At vsure',$htmlmessage,'');
+        $message = '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>To verify email, Email has been sent you.</div>';
         echo json_encode(['status'=>'true','message'=>$message]);
         die;
     }

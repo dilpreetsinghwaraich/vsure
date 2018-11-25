@@ -26,7 +26,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <p>Dont have a acount? </p>
+          <p>Dont have a account? </p>
           <a href="<?php echo url('auth/register') ?>" class="btn btn-default">Register</a>
         </div>
       </div>
