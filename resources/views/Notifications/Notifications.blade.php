@@ -33,8 +33,10 @@
 		</style>
 
 	  <?php 
+	  $showReplyBox = false;
 	  if (!empty($inboxs)) {
 	    foreach ($inboxs as $inboxM) {
+	    	 $showReplyBox = true;
 	      if ($inboxM->admin == 'Send') {
 	        $cls = '';
 	        $cls2 = 'time-left';
@@ -54,24 +56,28 @@
 	  ?>
 	   	     
 	</div>
-	<div class="bgc-white p-20 bd" style="text-align: left;">
-	  <h5 class="c-grey-900 mT-10 mt-30 col-md-12">Reply To Admin</h5>
-	  <div class="mT-30">
-	    <?php echo Form::open(array('url' => 'send/notification/', 'method' => 'post', 'files'=>true)) ?>
-	      <div class="form-row">
-	        <div class="form-group col-md-12">
-	          <label for="subject">Subject</label>
-	          <input type="text" class="form-control" id="subject" name="subject" required="" placeholder="Subject">
-	        </div>
-	        <div class="form-group col-md-12">
-	          <label for="message">Message</label>
-	          <textarea class="form-control" id="message" name="message" required ></textarea>
-	        </div>            
-	      </div>  
-	      <div class="form-group col-md-12">                                   
-	      	<button type="button" class="btn btn-primary" id="sendNotification">Send</button>
-	      </div>
-	    </form>
-	  </div>
-	</div>
+	<?php 
+	if ( $showReplyBox == true) {
+		?>
+		<div class="bgc-white p-20 bd" style="text-align: left;">
+		  <h5 class="c-grey-900 mT-10 mt-30 col-md-12">Reply To Admin</h5>
+		  <div class="mT-30">
+		    <?php echo Form::open(array('url' => 'send/notification/', 'method' => 'post', 'files'=>true)) ?>
+		      <div class="form-row">
+		        <div class="form-group col-md-12">
+		          <label for="subject">Subject</label>
+		          <input type="text" class="form-control" id="subject" name="subject" required="" placeholder="Subject">
+		        </div>
+		        <div class="form-group col-md-12">
+		          <label for="message">Message</label>
+		          <textarea class="form-control" id="message" name="message" required ></textarea>
+		        </div>            
+		      </div>  
+		      <div class="form-group col-md-12">                                   
+		      	<button type="button" class="btn btn-primary" id="sendNotification">Send</button>
+		      </div>
+		    </form>
+		  </div>
+		</div>
+	<?php } ?>
 </div>
