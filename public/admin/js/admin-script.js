@@ -123,6 +123,27 @@ jQuery(document).ready(function($) {
             cache: true
         },         
     });
+    $("#receiver_ids").select2({
+        placeholder: "Search User",
+        ajax: { 
+            url: AJAXURL('admin/get/inbox/remote/user'),
+            dataType: 'json',
+            quietMillis: 250,
+            data: function (term, page) {
+                return {
+                    q: term, 
+                };
+            },
+            results: function (data, page) {                              
+                return {                   
+                  results: data.items 
+                };
+            },
+            success: function( data ) {              
+            },
+            cache: true
+        },         
+    });
     $('.post_parent_group').prop('disabled', true);
     $('.post_parent_type').change(function(event) {
         $('.post_parent_group').prop('disabled', true);

@@ -212,6 +212,36 @@ jQuery(document).ready(function($) {
             return false;
         });
     });
+    $(document).on('click', '#sendNotification', function(event) {
+        event.preventDefault();
+        var dataString = $(this).closest('form').serialize();
+        $.ajax({
+            url: AJAXURL('send/notification'),
+            type: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: dataString,
+        })
+        .done(function(data) {
+            if (data == 'subject') {
+                alert('Subject is empty');
+                return false;
+            }
+            if (data == 'message') {
+                alert('Message is empty');
+                return false;
+            }
+            $('#dashboardViw').html(data);            
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+        });
+        
+    });
 });
 function isValidEmailAddress(emailAddress) {
     var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);

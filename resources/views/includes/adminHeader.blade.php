@@ -54,6 +54,7 @@
           <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/menus'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Menus</span></a></li>  
           <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/users'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Users</span></a></li>            
           <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/orders'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Orders</span></a></li> 
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/inboxs'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Notification Inbox</span></a></li> 
           <?php
           }
         ?>

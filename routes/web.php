@@ -46,6 +46,7 @@ Route::group(['middleware' => 'userToken'], function () {
 	Route::get('/my-documents', 'Document\DocumentController@document');
 
 	Route::get('/my-notifications', 'Notifications\NotificationsController@notifications');
+	Route::post('/send/notification', 'Notifications\NotificationsController@save');
 
 	Route::get('/my-deliverable', 'Deliverable\DeliverableController@deliverable');
 
@@ -147,6 +148,13 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::get('/admin/edit/page/{post_id?}', 'Admin\Page\AdminPageController@edit');
 	Route::post('/admin/update/page/{post_id?}', 'Admin\Page\AdminPageController@update');
 	Route::get('/admin/delete/page/{post_id?}', 'Admin\Page\AdminPageController@delete');
+
+	/******update delete edit view Inbox******/
+	Route::get('/admin/inboxs', 'Admin\NotificationInbox\AdminNotificationInboxController@index');
+	Route::get('/admin/get/inbox/remote/user', 'Admin\NotificationInbox\AdminNotificationInboxController@getInboxRemoteUser');
+	Route::post('/admin/send/notification', 'Admin\NotificationInbox\AdminNotificationInboxController@save');
+	Route::get('/admin/view/inbox/{uuid?}', 'Admin\NotificationInbox\AdminNotificationInboxController@view');
+	Route::get('/admin/delete/inbox/{uuid?}', 'Admin\NotificationInbox\AdminNotificationInboxController@delete');
 
 	/******update delete edit view post/page******/
 	Route::get('/admin/menus', 'Admin\Menu\AdminMenuController@index');
