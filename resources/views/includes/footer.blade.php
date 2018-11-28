@@ -70,7 +70,20 @@
     </div>
   </section>
 </div>
-
+<style type="text/css">
+a.scrollTopClick {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background: #5bc0de;
+    width: 30px;
+    height: 40px;
+    padding: 3px;
+    font-size: 22px;
+    color: #fff;
+}
+</style>
+<a href="javascript:void(0)" class="scrollTopClick"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
 <?php 
 if (empty(session('token'))) {
   ?>
@@ -93,6 +106,10 @@ if (empty(session('token'))) {
 <script src="<?php echo asset('/public'); ?>/js/post.js"></script>
 <script>
 $(document).ready(function() {
+  $(".scrollTopClick").click(function() {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
+  });
   $('#media').carousel({
     interval: 4000
   });

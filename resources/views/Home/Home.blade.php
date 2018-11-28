@@ -1,6 +1,6 @@
  
   <div class="header">
-    <div class="bg-color" style="background: url('<?php echo asset('/public'); ?>/images/home-back.jpg')">
+    <div class="bg-color" style="background-image: url('<?php echo asset('/public'); ?>/images/home-back.jpg')">
       <div class="wrapper">
         <div class="banner-info banners-home wow fadeIn delay-05s animated" style="visibility: visible; animation-name: fadeIn;">
           <h1 class="bnr-title  text-center gallery">STARTUP SOLUTION</h1>

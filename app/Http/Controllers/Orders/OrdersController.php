@@ -15,7 +15,7 @@ class OrdersController extends Controller
 {
     public function orders()
     {
-        $orders = Orders::paginate(50);
+        $orders = Orders::where('user_id',Helper::getCurrentUserByKey('user_id'))->paginate(50);
         echo view('Orders.Orders', compact('orders'));
         die;
     }

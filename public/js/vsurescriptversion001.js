@@ -239,8 +239,11 @@ jQuery(document).ready(function($) {
         })
         .always(function() {
             console.log("complete");
-        });
-        
+        });        
+    });
+    $(document).on('click', '.td-subcat-more', function(event) {
+        event.preventDefault();
+        $('.td-pulldown-filter-list').toggle();        
     });
 });
 function isValidEmailAddress(emailAddress) {
