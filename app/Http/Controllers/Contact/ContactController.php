@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Validator, DateTime, DB, Hash, File, Config, Helpers, Helper;
 use Session, Redirect;
 use App\ContactUs;
+use App\User;
+use App\Services;
+use App\ServiceRequest;
 class ContactController extends Controller
 {    
     public function contactUs()
@@ -48,5 +51,65 @@ class ContactController extends Controller
             echo '<div class="alert alert-warning">'.$validation->getMessageBag()->first().'</div>';
             die;
         }
+    }
+    public static $enqueryRules = array(
+        'name' => 'required',
+        'email' => 'required|email',
+        'phone' => 'required',
+        'service_id' => 'required',
+        'city' => 'required',
+    );
+    public function enquerySubmit(Request $request)
+    {
+        $validation = Validator::make($request->all(), self::$enqueryRules);
+        if($validation->passes()){
+            
+            $password = str_random(8);
+            $user_id = self::createUser($request, $password);
+            $ticket = self::createServiceRequest($user_id, $request);
+            $service = Services::find($request->input('service_id'));
+            $mailHtml = view('EmailTemplate.ServiceRequestMail', compact('ticket'));
+            $subject = '[#'.$ticket.'] Need Help with : '.$service->service_title;
+            Helper::SendEmail($request->input('email'), $subject, $mailHtml, '');
+            $html = 'Thank you for choosing '.url('/').'. Our team will be getting in touch with you within 24-48 hours. Please bear with us!
+            In other news, we are now the official partners of the Confederation of Indian Industry and have now helped more than 200,000 users (and counting!)
+            We really value your business.';
+            Session::flash('success',$html);
+            return Redirect('thank-you');
+        }else{
+            Session::flash('warning',$validator->getMessageBag()->first());
+            return Redirect::back()->withInput(Input::all());
+        }
+    }
+    public static function createUser($request, $password)
+    {
+        if ($user = User::where('email', $request->input('email'))->select('user_id')->get()->first()) {
+            return $user->user_id;
+        }
+        return User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'user_login' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'city' => $request->input('city'),
+            'activation_key' => '',
+            'email_verified_at' => date('Y-m-d h:i:s'),
+            'password' => Hash::make($password),
+        ]);
+    }
+    public static function createServiceRequest($user_id, $request)
+    {
+        $request_id = ServiceRequest::insertGetId([
+            'user_id' => $user_id,
+            'service_id' => $request->input('service_id'),
+            'city' => $request->input('city'),
+            'created_at' => new DateTime,
+            'updated_at' => new DateTime,
+        ]);
+        $ticket = '3510'.$request_id;
+        $request = ServiceRequest::find($request_id);
+        $request->ticket = $ticket;
+        $request->save();
+        return $ticket;
     }
 }

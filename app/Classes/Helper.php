@@ -301,6 +301,12 @@ class Helper
     	$posts = Post::whereIn('post_type', ['blog'])->orderBy('created_at', 'DESC')->paginate(4);
     	return view('Template.LatestBlogs',compact('posts'));
     }
+    public static function SidebarPost($type, $service)
+    {
+    	$states = DB::table('state_city')->select('city','city_id')->orderBy('state','asc')->get();
+    	$services = Services::get();
+    	return view('Sidebar.SidebarPost', compact('states','services','type','service'));
+    }
     public static function similarPosts($post)
     {
     	$posts = Post::whereIn('post_type', ['blog'])->where('term', $post->term)->where('post_id', '!=', $post->post_id)->orderBy('created_at', 'DESC')->paginate(3);

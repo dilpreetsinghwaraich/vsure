@@ -19,6 +19,7 @@ Route::get('/cache', function() {
 Route::get('/', 'Home\HomeController@home');
 Route::get('/blog', 'Blog\BlogController@blog');
 Route::post('/contact/us/submit', 'Contact\ContactController@contactUsSubmit');
+Route::post('/submit/service/enquery', 'Contact\ContactController@enquerySubmit');
 
 Route::get('/service/{service_slug?}', 'Service\ServiceController@partnershipFirmRegistration');
 

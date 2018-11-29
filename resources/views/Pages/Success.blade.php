@@ -12,7 +12,11 @@
     <div class="text-center">
         <p class="text-center"><img src="<?php echo asset('/public'); ?>/images/thanks.png"></p>
         <h3>Thank You</h3>
-        <h2>Your Payment has been transfered Sucessfully!!</h2>
+        <h2>@if (Session::has('success'))
+              {{ Session::get('success') }}
+            @else
+              Your Payment has been transfered Sucessfully!!
+            @endif</h2>
         <a href ="<?php echo url('/') ?>"> Back To Home</a>
       </div>
   </div>

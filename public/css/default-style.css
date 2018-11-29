@@ -1,4 +1,4 @@
-/*
+    /*
     Theme Name: Baker
     Theme URL: https://bootstrapmade.com/baker-free-onepage-bootstrap-theme/
     Author: BootstrapMade.com
@@ -1647,4 +1647,32 @@ background-color: #97d14c;
     line-height: 26px;
     padding-left: 21px;
     padding-right: 15px;
+}
+.blog-post .right-service-contact-form a, 
+.blog-post .right-service-contact-form input,
+.blog-post .right-service-contact-form select, 
+.blog-post .right-service-contact-form h3,
+.blog-post .right-service-contact-form h2{
+    color: #fff;
+    border-color: #fff;
+    background: #70ad47 !important;    
+    font-size: 17px;
+    margin: 10px 0;
+    padding: 5px;
+}
+.service .right-service-contact-form select{
+    color: #fff;
+    border-color: #a291c2;
+    background: transparent !important;    
+    font-size: 17px;
+    margin: 10px 0;
+    padding: 5px;
+}
+.service .right-service-contact-form select option {
+    color: #000;
+}
+.blog-post .right-service-contact-form {
+    padding: 20px !important;
+    box-shadow: 0px 0px 7px 0px #70ad47 !important;
+    background: #70ad47 !important;
 }

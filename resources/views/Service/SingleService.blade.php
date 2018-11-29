@@ -10,16 +10,7 @@
                   <?php echo $service->service_content; ?> </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 margin-btm-10">
-              <div class="right-service-contact-form">
-                <h2>Fillup this form</h2>
-                <h3>Start your company</h3>
-                <input class="name" type="text" placeholder="Name" name="name" required>
-                <input class="email" type="email" placeholder="Email" name="name" required>
-                <input class="contact" type="phone" placeholder="Phone" name="name" required>
-                <input class="state" type="text" placeholder="State" name="name" required>
-                <a href="">Submit</a> </div>
-            </div>
+            <?php echo Helper::SidebarPost('service', $service); ?>
           </div>
         </div>
       </div>

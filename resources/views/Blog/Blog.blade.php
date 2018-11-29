@@ -12,7 +12,7 @@
   <section id="blog-second" class="section-padding wow fadeInUp delay-05s" style="visibility: hidden; animation-name: none;">
     <div class="container">
       <div class="about-blog">
-        <div class="col-md-9">
+        <div class="col-md-8">
           <h4 class="block-title"><span style="margin-right: 0px;">Latest Posts</span></h4>
           <div class="td-subcat-filter">
             <ul class="td-subcat-list">
@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="row about-blog">
-        <div class="col-md-9">
+        <div class="col-md-8">
           <?php
           if (!empty($posts)) {
             foreach ($posts as $post) {
@@ -88,9 +88,7 @@
             {{ $posts->links() }}
           </div>
         </div>
-        <div class="col-md-3">
-
-        </div>      
+        <?php echo Helper::SidebarPost('blog', []); ?>
       </div>      
     </div>
   </section>
