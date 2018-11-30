@@ -71,6 +71,8 @@ class ContactController extends Controller
             $mailHtml = view('EmailTemplate.ServiceRequestMail', compact('ticket'));
             $subject = '[#'.$ticket.'] Need Help with : '.$service->service_title;
             Helper::SendEmail($request->input('email'), $subject, $mailHtml, '');
+
+            Helper::SendEmail('vsurecfo@gmail.com', $subject, $mailHtml, '');
             $html = 'Thank you for choosing '.url('/').'. Our team will be getting in touch with you within 24-48 hours. Please bear with us!
             In other news, we are now the official partners of the Confederation of Indian Industry and have now helped more than 200,000 users (and counting!)
             We really value your business.';
