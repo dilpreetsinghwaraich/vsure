@@ -32,32 +32,43 @@
         </div>
       </div>
       <ul class="sidebar-menu scrollable pos-r">
-        <?php 
-        if ($user->role == 'editor' || $user->role == 'admin') {
-          ?>
-          <li class="nav-item mT-30 active"><a class="sidebar-link" href="<?php echo url('admin/dashboard'); ?>" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Dashboard</span></a></li>
-          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/media'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Media</span></a></li>
-          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/posts'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Posts</span></a></li>
-          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/terms'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Terms</span></a></li>
-          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/services'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Services</span></a></li>
-          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/questions'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Questions</span></a></li>
-          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/features'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Features</span></a></li>
-          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/process/results'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Process Results</span></a></li>  
-          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/documents'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Documents</span></a></li>
-          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/packages'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Packages</span></a></li>
-          <?php
-        } ?>
+        <li class="nav-item mT-30 active"><a class="sidebar-link" href="<?php echo url('admin/dashboard'); ?>" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Dashboard</span></a></li>
         <?php 
           if ($user->role == 'admin') {
           ?>
-          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/pages'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Pages</span></a></li> 
-          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/menus'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Menus</span></a></li>  
-          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/users'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Users</span></a></li>            
-          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/orders'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Orders</span></a></li> 
-          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/inboxs'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Notification Inbox</span></a></li> 
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/pages'); ?>"><span class="icon-holder"><i class="c-red-500 ti-files"></i> </span><span class="title">Pages</span></a></li> 
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/menus'); ?>"><span class="icon-holder"><i class="c-teal-500 ti-view-list-alt"></i> </span><span class="title">Menus</span></a></li>  
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/users'); ?>"><span class="icon-holder"><i class="c-pink-500 ti-palette"></i> </span><span class="title">Users</span></a></li>            
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/orders'); ?>"><span class="icon-holder"><i class="c-orange-500 ti-layout-list-thumb"></i> </span><span class="title">Orders</span></a></li> 
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/inboxs'); ?>"><span class="icon-holder"><i class="c-deep-purple-500 ti-comment-alt"></i> </span><span class="title">Notification Inbox</span></a></li> 
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/contact/request'); ?>"><span class="icon-holder"><i class="c-brown-500 ti-email"></i> </span><span class="title">Contact Request</span></a></li> 
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/service/requests'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-share"></i> </span><span class="title">Service Request</span></a></li> 
           <?php
           }
         ?>
+        <?php 
+        if ($user->role == 'editor' || $user->role == 'admin') {
+          ?>          
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/media'); ?>"><span class="icon-holder"><i class="c-deep-orange-500 ti-calendar"></i> </span><span class="title">Media</span></a></li>
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/posts'); ?>"><span class="icon-holder"><i class="c-red-500 ti-files"></i> </span><span class="title">Posts</span></a></li>
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/terms'); ?>"><span class="icon-holder"><i class="c-indigo-500 ti-bar-chart"></i> </span><span class="title">Terms</span></a></li>
+          <li class="nav-item dropdown">
+            <a class="dropdown-toggle" href="javascript:void(0);">
+              <span class="icon-holder"><i class="c-purple-500 ti-map"></i> </span>
+              <span class="title">Service Templates</span> 
+              <span class="arrow"><i class="ti-angle-right"></i></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="<?php echo url('admin/services'); ?>"><span class="title">Services</span></a></li>
+              <li><a href="<?php echo url('admin/questions'); ?>"><span class="title">Questions</span></a></li>
+              <li><a href="<?php echo url('admin/features'); ?>"><span class="title">Features</span></a></li>
+              <li><a href="<?php echo url('admin/process/results'); ?>"><span class="title">Process Results</span></a></li>  
+              <li><a href="<?php echo url('admin/documents'); ?>"><span class="title">Documents</span></a></li>
+              <li><a href="<?php echo url('admin/packages'); ?>"><span class="title">Packages</span></a></li>
+            </ul>
+          </li>         
+          <?php
+        } ?>        
       </ul>
     </div>
   </div>

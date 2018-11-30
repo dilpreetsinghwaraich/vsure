@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\NotificationInbox;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Terms;
+use App\ContactUs;
 use App\NotificationInbox;
 use Illuminate\Http\Request;
 use Validator, DateTime, DB, Hash, File, Config, Helpers, Helper;
@@ -109,5 +110,12 @@ class AdminNotificationInboxController extends Controller
 
     	Session::flash('success','Notification Deleted Successfully');
 	    return Redirect::back()->withInput(Input::all());
+    }
+
+    public function contactRequest()
+    {
+        $requests = ContactUs::orderBy('created_at','DESC')->paginate(25);
+        $view = 'Admin.NotificationInbox.ContactRequest';
+        return view('Includes.adminCommonTemplate',compact('view','requests'));
     }
 }

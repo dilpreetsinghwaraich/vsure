@@ -157,6 +157,13 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::get('/admin/view/inbox/{uuid?}', 'Admin\NotificationInbox\AdminNotificationInboxController@view');
 	Route::get('/admin/delete/inbox/{uuid?}', 'Admin\NotificationInbox\AdminNotificationInboxController@delete');
 
+
+	/******Contact Form Request Menu Route******/
+	Route::get('/admin/contact/request', 'Admin\NotificationInbox\AdminNotificationInboxController@contactRequest');
+
+	/******Contact Form Request Menu Route******/
+	Route::get('/admin/service/requests', 'Admin\ServiceRequest\AdminServiceRequestController@index');
+
 	/******update delete edit view post/page******/
 	Route::get('/admin/menus', 'Admin\Menu\AdminMenuController@index');
 	Route::post('/admin/save/menu', 'Admin\Menu\AdminMenuController@save');

@@ -27,7 +27,7 @@
         <?php 
         }elseif($type == 'service'){
           ?>
-          <input type="hidden" name="service_id" id="service_id" required=""> value="<?php echo $service->service_id ?>" class="form-control">
+          <input type="hidden" name="service_id" id="service_id" required="" value="<?php echo $service->service_id ?>" class="form-control">
           <?php
         }
         ?>
