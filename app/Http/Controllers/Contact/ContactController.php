@@ -86,6 +86,9 @@ class ContactController extends Controller
         if ($user = User::where('email', $request->input('email'))->select('user_id')->get()->first()) {
             return $user->user_id;
         }
+        if ($user = User::where('phone', $request->input('phone'))->select('user_id')->get()->first()) {
+            return $user->user_id;
+        }
         return User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -102,6 +105,9 @@ class ContactController extends Controller
         $request_id = ServiceRequest::insertGetId([
             'user_id' => $user_id,
             'service_id' => $request->input('service_id'),
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
             'city' => $request->input('city'),
             'created_at' => new DateTime,
             'updated_at' => new DateTime,
