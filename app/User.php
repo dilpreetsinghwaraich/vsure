@@ -51,13 +51,30 @@ class User extends Authenticatable
             return ['error' => true,'message'=>'Failed to create access to login','token'=>''];
         }
 
-        $user = \App\User::first();
+        $user = JWTAuth::toUser($token);;
         DB::table('users_last_login')->insert([
             'user_id' => $user->user_id,
             'token' => $token,
             'created_at' => date('Y-m-d h:i:s'),
             'updated_at' => date('Y-m-d h:i:s')
         ]);
+        JWTAuth::setToken($token);
+        return ['error' => false,'message'=>'Login Successfully','token'=>$token];
+    }
+    protected function authenticateWithEmail($request) { 
+        $email = $request->input('email');
+        $user = User::where('email', '=', $email)->first();
+        
+        $token = JWTAuth::fromUser($user);
+
+        DB::table('users_last_login')->insert([
+            'user_id' => $user->user_id,
+            'token' => $token,
+            'created_at' => date('Y-m-d h:i:s'),
+            'updated_at' => date('Y-m-d h:i:s')
+        ]);
+        Session::put('token', $token);
+        Session::save();
         JWTAuth::setToken($token);
         return ['error' => false,'message'=>'Login Successfully','token'=>$token];
     }

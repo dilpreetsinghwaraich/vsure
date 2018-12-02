@@ -247,6 +247,10 @@ jQuery(document).ready(function($) {
     });
     $('#phone_otp_send').change(function(event) {
         var phone = $(this).val();
+        if (phone == '') {
+            return false;
+        }
+        $('.serviceRequestResponse').html('');
         $.ajax({
             url: AJAXURL('phone/otp/send/varification'),
             type: 'POST',
@@ -256,11 +260,27 @@ jQuery(document).ready(function($) {
             data: {phone: phone},
         })
         .done(function(data) {
+            if (data == 'empty') {
+                $('.serviceRequestResponse').html('<div class="alert alert-warning">Please enter phone.</div>');
+            }
+            if (data == 'sent') {
+                $('.serviceRequestResponse').html('<div class="alert alert-success">Otp code has been sent you.</div>');
+                $('#otp_code').show().prop('required', true);
+                $('.otp_code_label, .resend_code').show();
+            }
             console.log(data);            
         })
         .fail(function() {
             window.alert('Something Went Wrong, Please Try After Sometime.');
         }); 
+    });
+    $('.serviceRequestLeftSidebarNavTab').click(function(event) {
+        event.preventDefault();
+        $('.serviceRequestLeftSidebarNavTab').removeClass('active');
+        $(this).addClass('active');
+        var href = $(this).attr('href');
+        $('.company_profile').removeClass('in');
+        $(href).addClass('in');
     });
 });
 function isValidEmailAddress(emailAddress) {

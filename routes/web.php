@@ -45,6 +45,8 @@ Route::group(['middleware' => 'userToken'], function () {
 	Route::get('/generate/pdf/{invoice_id?}', 'Orders\OrdersController@pdf');
 	Route::get('/view/order/invoice/{invoice_id?}', 'Orders\OrdersController@invoice');
 
+	Route::get('/help/desk/ticket/{ticket?}', 'ServiceRequest\ServiceRequestController@index');
+
 	Route::get('/my-documents', 'Document\DocumentController@document');
 
 	Route::get('/my-notifications', 'Notifications\NotificationsController@notifications');

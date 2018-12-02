@@ -1691,3 +1691,10 @@ background-color: #97d14c;
 .service button {
     font-size: 14px !important;
 	padding: 6px 12px !important;
+}
+.company_profile{
+    display: none !important;
+}
+.company_profile.in{
+    display: block !important;
+}
