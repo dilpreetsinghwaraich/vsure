@@ -61,10 +61,7 @@ class User extends Authenticatable
         JWTAuth::setToken($token);
         return ['error' => false,'message'=>'Login Successfully','token'=>$token];
     }
-    protected function authenticateWithEmail($request) { 
-        $email = $request->input('email');
-        $user = User::where('email', '=', $email)->first();
-        
+    protected function authenticateWithEmail($user) {         
         $token = JWTAuth::fromUser($user);
 
         DB::table('users_last_login')->insert([

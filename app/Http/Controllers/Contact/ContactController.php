@@ -109,19 +109,20 @@ class ContactController extends Controller
 
             $password = str_random(8);
             $userType = '';
-            if ($user = User::where('email', $request->input('email'))->select('user_id')->get()->first()) {
+            if ($user = User::where('email', $request->input('email'))->get()->first()) {
                 $user_id = $user->user_id;
-                User::authenticateWithEmail($request);
+                User::authenticateWithEmail($user);
                 $userType = 'already';
             }
-            elseif ($user = User::where('phone', $request->input('phone'))->select('user_id')->get()->first()) {
+            elseif ($user = User::where('phone', $request->input('phone'))->get()->first()) {
                 $user_id = $user->user_id;
-                User::authenticateWithEmail($request);
+                User::authenticateWithEmail($user);
                 $userType = 'already';
             }else{
                 $user_id = self::createUser($request, $password);
                 $userType = 'new';
-                User::authenticateWithEmail($request);
+                $user = User::where('user_id', $user_id)->get()->first();
+                User::authenticateWithEmail($user);
             }
             $email = $request->input('email');
             $ticket = self::createServiceRequest($user_id, $request);
