@@ -245,6 +245,23 @@ jQuery(document).ready(function($) {
         event.preventDefault();
         $('.td-pulldown-filter-list').toggle();        
     });
+    $('#phone_otp_send').change(function(event) {
+        var phone = $(this).val();
+        $.ajax({
+            url: AJAXURL('phone/otp/send/varification'),
+            type: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {phone: phone},
+        })
+        .done(function(data) {
+            console.log(data);            
+        })
+        .fail(function() {
+            window.alert('Something Went Wrong, Please Try After Sometime.');
+        }); 
+    });
 });
 function isValidEmailAddress(emailAddress) {
     var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);

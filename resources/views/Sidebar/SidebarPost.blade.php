@@ -10,7 +10,7 @@
       <?php echo Form::open(array('url' => 'submit/service/enquery', 'method' => 'post')) ?>
         <input class="name" type="text" class="form-control" placeholder="Name" value="<?php echo old('name') ?>" name="name" required="">
         <input class="email" type="email" class="form-control" placeholder="Email" value="<?php echo old('email') ?>" name="email" required="">
-        <input class="contact" type="text" class="form-controlc InputNumber" placeholder="Phone" value="<?php echo old('phone') ?>" name="phone" required="">
+        <input class="contact" type="text" class="form-controlc InputNumber" placeholder="Phone" value="<?php echo old('phone') ?>" name="phone" id="phone_otp_send" required="">
         <?php
         if ($type == 'blog') { 
           ?>

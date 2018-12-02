@@ -10,6 +10,7 @@ use App\ContactUs;
 use App\User;
 use App\Services;
 use App\ServiceRequest;
+use App\PhoneOtpVerification;
 class ContactController extends Controller
 {    
     public function contactUs()
@@ -51,6 +52,29 @@ class ContactController extends Controller
             echo '<div class="alert alert-warning">'.$validation->getMessageBag()->first().'</div>';
             die;
         }
+    }
+    public function phoneOtpSendVarification(Request $request)
+    {
+        $phone = $request->input('phone');
+        if (empty($phone)) {
+            echo 'empty';
+            die;
+        }
+        PhoneOtpVerification::where('phone', $phone)->where('otp_for', 'ServiceRequest')->delete();
+        $otp_code = str_random(6);
+        PhoneOtpVerification::insertGetId(
+            'phone' => $phone,
+            'otp_code' => $otp_code,
+            'time' => date('H:i:s'),
+            'otp_for' => 'ServiceRequest',
+            'otp_status' => 'sent',
+            'created_at' => new DateTime,
+            'updated_at' => new DateTime
+        );
+        $message = 'Your Otp for phone verification code is '.$otp_code;
+        Helper::SendSMS($phone, $message);
+        echo 'sent';
+        die;
     }
     public static $enqueryRules = array(
         'name' => 'required',
