@@ -31,7 +31,7 @@ class EditorToken
                 Session::flash('message', "Your Session has been expired, Please login again.");
                 return redirect('/admin/login');
             }else{
-                if($user->role = 'admin' || $user->role = 'editor')
+                if($user->role == 'admin' || $user->role == 'editor')
                 {
                     return $next($request);                     
                 }  

@@ -74,7 +74,7 @@ class ContactController extends Controller
         ]);
         $message = 'Your Otp for phone verification code is '.$otp_code;
         Helper::SendSMS($phone, $message);
-        echo 'sent';
+        echo 'Otp code has been sent you. '.$otp_code;
         die;
     }
     public static $enqueryRules = array(
@@ -103,18 +103,13 @@ class ContactController extends Controller
 
             if ($otpTime < date('H:i:s')) {
                 Session::flash('warning', 'Your OTP is expired. Time is more then 3 minut .');
-                 PhoneOtpVerification::where('otp_id', $otpCode->otp_id)->update(['otp_status'=>'expired']);
+                PhoneOtpVerification::where('otp_id', $otpCode->otp_id)->update(['otp_status'=>'expired']);
                 return Redirect::back()->withInput(Input::all());  
             }
 
             $password = str_random(8);
             $userType = '';
-            if ($user = User::where('email', $request->input('email'))->get()->first()) {
-                $user_id = $user->user_id;
-                User::authenticateWithEmail($user);
-                $userType = 'already';
-            }
-            elseif ($user = User::where('phone', $request->input('phone'))->get()->first()) {
+            if ($user = User::where('phone', $request->input('phone'))->get()->first()) {
                 $user_id = $user->user_id;
                 User::authenticateWithEmail($user);
                 $userType = 'already';
@@ -124,7 +119,7 @@ class ContactController extends Controller
                 $user = User::where('user_id', $user_id)->get()->first();
                 User::authenticateWithEmail($user);
             }
-            $email = $request->input('email');
+            $email = $request->input('phone');
             $ticket = self::createServiceRequest($user_id, $request);
             $service = Services::find($request->input('service_id'));
             $mailHtml = view('EmailTemplate.ServiceRequestMail', compact('ticket','userType','email','password'));
@@ -143,8 +138,8 @@ class ContactController extends Controller
     {        
         return User::insertGetId([
             'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'user_login' => $request->input('email'),
+            'email' => $request->input('phone').'@gmail.com',
+            'user_login' => $request->input('phone'),
             'phone' => $request->input('phone'),
             'city' => $request->input('city'),
             'activation_key' => '',

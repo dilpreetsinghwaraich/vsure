@@ -43,6 +43,7 @@
           <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/inboxs'); ?>"><span class="icon-holder"><i class="c-deep-purple-500 ti-comment-alt"></i> </span><span class="title">Notification Inbox</span></a></li> 
           <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/contact/request'); ?>"><span class="icon-holder"><i class="c-brown-500 ti-email"></i> </span><span class="title">Contact Request</span></a></li> 
           <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/service/requests'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-share"></i> </span><span class="title">Service Request</span></a></li> 
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/service/forms'); ?>"><span class="icon-holder"><i class="c-blue-500 ti-share"></i> </span><span class="title">Service Forms</span></a></li> 
           <?php
           }
         ?>

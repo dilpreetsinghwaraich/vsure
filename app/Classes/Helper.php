@@ -9,7 +9,9 @@ use JWTAuth;
 use App\User;
 use App\Post;
 use App\Comments;
+use App\ServiceRequest;
 use App\Services;
+use App\ServiceForm;
 use App\Terms;
 class Helper
 {
@@ -331,6 +333,98 @@ class Helper
     {
     	$comments = Comments::where('post_id', '=', $post->post_id)/*->where('status','publish')*/->paginate(10);
     	return view('Template.CommentBox',compact('comments','post'));
+    }
+    public static function serviceFormMenu()
+    {
+    	$serviceForms = ServiceForm::get();
+    	$serviceIds = [];
+    	foreach ($serviceForms as $serviceForm) {
+    		$serviceIds[] = $serviceForm->service_id;
+    	}
+
+    	return Services::whereNotIn('service_id', $serviceIds)->select('service_id','service_title')->get()->toArray();
+    }
+    public static function getTabField($tabCount = 0, $title = '')
+    {    	
+    	return '
+    			<div class="append_tab_content open" id="tab_content_'.$tabCount.'" data-tabCount="'.$tabCount.'">
+    				<div class="form-group col-md-12">
+    					<label>Please enter your Tab Title</label>
+    					<a href="javascript:void(0)" class="removeTab btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Remove</a>
+    					<a href="javascript:void(0)" class="OPenCloseTab btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Open/Close</a>
+                    	<input type="text" class="form-control tab_title" required id="tab_title" name="form_fields['.$tabCount.'][tab_title]" value="'.$title.'" placeholder="Tab Title">
+                  	</div>
+                 </div>';
+    }
+    public static function getTextField($tabCount = 0, $fieldCount = 0, $title = '')
+    {
+    	return '
+				<div class="form-group col-md-12 textField commonGroup">
+					<label>Text field Area</label>
+					<a href="javascript:void(0)" class="removeField btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Remove</a>
+                	<input type="text" class="form-control textFieldTitle" required id="text_title_'.$fieldCount.'" name="form_fields['.$tabCount.']['.$fieldCount.'][field][text][title]" value="'.$title.'" placeholder="Text Title">
+              	</div>';
+    }
+    public static function getEmailField($tabCount = 0, $fieldCount = 0, $title = '')
+    {
+    	return '
+				<div class="form-group col-md-12 emailField commonGroup v">
+					<label>Email field Area</label>
+					<a href="javascript:void(0)" class="removeField btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Remove</a>
+                	<input type="text" class="form-control emailFieldTitle" required id="email_title_'.$fieldCount.'" name="form_fields['.$tabCount.']['.$fieldCount.'][field][email][title]" value="'.$title.'" placeholder="Email Title">
+              	</div>';
+    }
+
+    public static function getNumberField($tabCount = 0, $fieldCount = 0, $title = '')
+    {
+    	return '
+				<div class="form-group col-md-12 numberField commonGroup">
+					<label>Number field Area</label>
+					<a href="javascript:void(0)" class="removeField btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Remove</a>
+                	<input type="text" class="form-control numberFieldTitle" required id="number_title_'.$fieldCount.'" name="form_fields['.$tabCount.']['.$fieldCount.'][field][number][title]" value="'.$title.'" placeholder="Number Title">
+              	</div>';
+    }
+    public static function getTextareaField($tabCount = 0, $fieldCount = 0, $title = '')
+    {
+    	return '
+				<div class="form-group col-md-12 textareaField commonGroup">
+					<label>Textarea Field Area</label>
+					<a href="javascript:void(0)" class="removeField btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Remove</a>
+                	<input type="text" class="form-control textareaFielditle" required id="textarea_title_'.$fieldCount.'" name="form_fields['.$tabCount.']['.$fieldCount.'][field][textarea][title]" value="'.$title.'" placeholder="Textarea Title">
+              	</div>';
+    }
+    public static function getCheckboxField($tabCount = 0, $fieldCount = 0, $title = '', $value = '')
+    {
+    	return '
+				<div class="form-group col-md-12 checkboxField commonGroup">
+					<label>Checkbox field Area</label>
+					<a href="javascript:void(0)" class="removeField btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Remove</a>
+					<input type="text" class="form-control checkboxFielditle" required id="textarea_title_'.$fieldCount.'" name="form_fields['.$tabCount.']['.$fieldCount.'][field][checkbox][title]" value="'.$title.'" placeholder="Checkbox Label">
+					<h4>Please enter value ^ saprated EXPAMPLE (text1^text2^text3)</h4>
+                	<textarea class="form-control checkboxFieldValue" required id="checkbox_value_'.$fieldCount.'" name="form_fields['.$tabCount.']['.$fieldCount.'][field][checkbox][value]" placeholder="Checkbox Value">'.$value.'</textarea>
+              	</div>';
+    }
+    public static function getRadioField($tabCount = 0, $fieldCount = 0, $title = '', $value = '')
+    {
+    	return '
+				<div class="form-group col-md-12 radioField commonGroup">
+					<label>Radio field Area</label>
+					<a href="javascript:void(0)" class="removeField btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Remove</a>
+					<input type="text" class="form-control radioFielditle" required id="radio_title_'.$fieldCount.'" name="form_fields['.$tabCount.']['.$fieldCount.'][field][radio][title]" value="'.$title.'" placeholder="Radio Label">
+					<h4>Please enter value ^ saprated EXPAMPLE (text1^text2^text3)</h4>
+                	<textarea class="form-control radioFieldTitle" required id="radio_value_'.$fieldCount.'" name="form_fields['.$tabCount.']['.$fieldCount.'][field][radio][value]" placeholder="Radio Value">'.$value.'</textarea>
+              	</div>';
+    }
+    public static function getSelectField($tabCount = 0, $fieldCount = 0, $title = '', $value = '')
+    {
+    	return '
+				<div class="form-group col-md-12 selectField commonGroup">
+					<label>Select Option field Area</label>
+					<a href="javascript:void(0)" class="removeField btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Remove</a>
+					<input type="text" class="form-control selectFielditle" required id="select_title_'.$fieldCount.'" name="form_fields['.$tabCount.']['.$fieldCount.'][field][select][title]" value="'.$title.'" placeholder="Select Label">
+					<h4>Please enter value ^ saprated EXPAMPLE (text1^text2^text3)</h4>
+                	<textarea class="form-control selectFieldTitle" required id="select_title_'.$fieldCount.'" name="form_fields['.$tabCount.']['.$fieldCount.'][field][select][value]" placeholder="Select Value">'.$value.'</textarea>
+              	</div>';
     }
 
 }

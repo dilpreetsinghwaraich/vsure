@@ -262,13 +262,13 @@ jQuery(document).ready(function($) {
         .done(function(data) {
             if (data == 'empty') {
                 $('.serviceRequestResponse').html('<div class="alert alert-warning">Please enter phone.</div>');
+                return false;
             }
-            if (data == 'sent') {
-                $('.serviceRequestResponse').html('<div class="alert alert-success">Otp code has been sent you.</div>');
-                $('#otp_code').show().prop('required', true);
-                $('.otp_code_label, .resend_code').show();
-            }
-            console.log(data);            
+
+            $('.serviceRequestResponse').html('<div class="alert alert-success">'+data+'</div>');
+            $('#otp_code').show().prop('required', true);
+            $('.otp_code_label, .resend_code').show();
+            return false;          
         })
         .fail(function() {
             window.alert('Something Went Wrong, Please Try After Sometime.');

@@ -167,6 +167,14 @@ Route::group(['middleware' => 'adminToken'], function () {
 	/******Contact Form Request Menu Route******/
 	Route::get('/admin/service/requests', 'Admin\ServiceRequest\AdminServiceRequestController@index');
 
+	/******Contact Form Request Menu Route******/
+	Route::get('/admin/service/forms', 'Admin\ServiceForm\AdminServiceFormController@index');
+	Route::get('/admin/edit/form/service/{service_id?}', 'Admin\ServiceForm\AdminServiceFormController@editView');
+	Route::post('/admin/update/form/service/{service_id?}', 'Admin\ServiceForm\AdminServiceFormController@updateForm');
+	Route::get('/admin/get/form/field/{fieldKey?}', 'Admin\ServiceForm\AdminServiceFormController@getFormField');
+	Route::get('/admin/clone/form/service/{service_id?}', 'Admin\ServiceForm\AdminServiceFormController@clone');
+	Route::get('/admin/delete/form/service/{service_id?}', 'Admin\ServiceForm\AdminServiceFormController@delete');
+
 	/******update delete edit view post/page******/
 	Route::get('/admin/menus', 'Admin\Menu\AdminMenuController@index');
 	Route::post('/admin/save/menu', 'Admin\Menu\AdminMenuController@save');
