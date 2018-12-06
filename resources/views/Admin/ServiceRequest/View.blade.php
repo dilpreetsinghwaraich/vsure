@@ -21,7 +21,7 @@
               </div>
               <div class="col-lg-8 col-xs-12 content office-details-content">          
                 <?php echo Form::open(array('url' => 'submit/help/desk/ticket/'.$serviceRequest->ticket, 'class'=>'serviceRequestFormSubmit','method' => 'post')) ?>
-                  <?php echo view('Admin.ServiceRequest.companyCommonFormTemplate', compact('serviceForm','serviceRequest')); ?>
+                  <?php echo view('Admin.ServiceRequest.CompanyCommonFormTemplate', compact('serviceForm','serviceRequest')); ?>
                 </form>
               </div>
             </div>

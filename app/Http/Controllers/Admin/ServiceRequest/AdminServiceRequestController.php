@@ -44,7 +44,7 @@ class AdminServiceRequestController extends Controller
 
         $serviceRequest->company_details = Helper::maybe_unserialize($serviceRequest->company_details);
 
-        $view = 'Admin.ServiceRequest.view';        
+        $view = 'Admin.ServiceRequest.View';        
         return view('Includes.adminCommonTemplate', compact('view','serviceRequest','serviceForm'));
     }
     public function delete($ticket = null)
