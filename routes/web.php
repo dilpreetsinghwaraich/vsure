@@ -45,7 +45,9 @@ Route::group(['middleware' => 'userToken'], function () {
 	Route::get('/generate/pdf/{invoice_id?}', 'Orders\OrdersController@pdf');
 	Route::get('/view/order/invoice/{invoice_id?}', 'Orders\OrdersController@invoice');
 
+	Route::get('/my-service-request', 'ServiceRequest\ServiceRequestController@serviceRequest');
 	Route::get('/help/desk/ticket/{ticket?}', 'ServiceRequest\ServiceRequestController@index');
+	Route::post('/submit/help/desk/ticket/{ticket?}', 'ServiceRequest\ServiceRequestController@update');
 
 	Route::get('/my-documents', 'Document\DocumentController@document');
 
@@ -166,6 +168,8 @@ Route::group(['middleware' => 'adminToken'], function () {
 
 	/******Contact Form Request Menu Route******/
 	Route::get('/admin/service/requests', 'Admin\ServiceRequest\AdminServiceRequestController@index');
+	Route::get('/admin/view/service/request/{ticket?}', 'Admin\ServiceRequest\AdminServiceRequestController@view');
+	Route::get('/admin/delete/service/request/{ticket?}', 'Admin\ServiceRequest\AdminServiceRequestController@delete');
 
 	/******Contact Form Request Menu Route******/
 	Route::get('/admin/service/forms', 'Admin\ServiceForm\AdminServiceFormController@index');

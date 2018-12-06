@@ -36,7 +36,7 @@ class User extends Authenticatable
     protected function login($request)
     {
         $validator = Validator::make($request->all(), [
-            'user_login' => 'required|string|email|max:255',
+            'user_login' => 'required|string|max:255',
             'password'=> 'required'
         ]);
         if ($validator->fails()) {

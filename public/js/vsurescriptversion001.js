@@ -16,14 +16,9 @@ jQuery(document).ready(function($) {
         var dataString = current.serialize();
         current.find('.messageResponsed').html('');
         if (current.find('.email').val() == '') {
-            current.find('.messageResponsed').html('<div class="alert alert-warning">Email is required</div>');
+            current.find('.messageResponsed').html('<div class="alert alert-warning">Login ID is required</div>');
             return false;
-        }
-        else if(!isValidEmailAddress(current.find('.email').val()))
-        {
-            current.find('.messageResponsed').html('<div class="alert alert-warning">The email must be a valid email address</div>');
-            return false;
-        }
+        }        
         else if (current.find('.password').val() == '') {
             current.find('.messageResponsed').html('<div class="alert alert-warning">Password is required</div>');
             return false;
@@ -276,12 +271,39 @@ jQuery(document).ready(function($) {
     });
     $('.serviceRequestLeftSidebarNavTab').click(function(event) {
         event.preventDefault();
+        var $next = true;
+        $.each($('.company_profile.in .emptyFieldCheck'), function(index, val) {
+            if ($(this).val() == '') {
+                $next = false;
+                window.alert($(this).attr('data-placeholder')+' Is Required');
+                return false;
+            }
+        });
+        if ($next == false) {
+            return false;
+        }
         $('.serviceRequestLeftSidebarNavTab').removeClass('active');
         $(this).addClass('active');
         var href = $(this).attr('href');
         $('.company_profile').removeClass('in');
         $(href).addClass('in');
     });
+    $('.submit_form_button').click(function(event) {
+        var tabID = $(this).attr('data-tabKey');
+        var $next = true;
+        $.each($('.company_profile.in .emptyFieldCheck'), function(index, val) {
+            if ($(this).val() == '') {
+                $next = false;
+                window.alert($(this).attr('data-placeholder')+' Is Required');
+                return false;
+            }
+        });
+        if ($next == false) {
+            return false;
+        }
+        $('.'+tabID).click();
+    });
+    
 });
 function isValidEmailAddress(emailAddress) {
     var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);

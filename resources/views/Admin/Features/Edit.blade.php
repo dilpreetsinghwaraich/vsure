@@ -12,7 +12,7 @@
                   </div>
                   <div class="form-group col-md-12">
                     <label for="feature_content">Content</label>
-                    <textarea class="form-control" id="feature_content" name="feature_content" required placeholder="Content"><?php echo $feature->feature_content ?></textarea>
+                    <textarea class="form-control textarea" id="feature_content" name="feature_content" required placeholder="Content"><?php echo $feature->feature_content ?></textarea>
                   </div>
                   <div class="form-group col-md-12">
                     <label for="feature_image">Image</label>

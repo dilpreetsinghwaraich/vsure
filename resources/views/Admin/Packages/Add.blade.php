@@ -28,7 +28,7 @@
                   </div>
                   <div class="form-group col-md-12">
                     <label for="package_content">Content</label>
-                    <textarea class="form-control" id="package_content" name="package_content" required placeholder="Content"><?php echo old('package_content'); ?></textarea>
+                    <textarea class="form-control textarea" id="package_content" name="package_content" required placeholder="Content"><?php echo old('package_content'); ?></textarea>
                   </div>
                   <div class="form-group col-md-12">
                     <label for="package_terms">Terms</label>

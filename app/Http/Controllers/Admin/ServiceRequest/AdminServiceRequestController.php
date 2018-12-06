@@ -8,6 +8,8 @@ use App\Terms;
 use App\ContactUs;
 use App\NotificationInbox;
 use App\ServiceRequest;
+use App\Services;
+use App\ServiceForm;
 use Illuminate\Http\Request;
 use Validator, DateTime, DB, Hash, File, Config, Helpers, Helper;
 use Session, Redirect;
@@ -24,5 +26,40 @@ class AdminServiceRequestController extends Controller
                                     ->orderBy('service_request.created_at','DESC')
                                     ->paginate(50);    
         return view('Includes.adminCommonTemplate',compact('view','serviceRequests'));
+    }
+    public function view($ticket = null)
+    {
+    	if(empty($ticket))
+        {
+           Session::flash('error','Something went wrong, You are not authorized to View this request.');
+   	    	return Redirect::back()->withInput(Input::all());
+        }
+        if (!$serviceRequest = ServiceRequest::where('ticket', $ticket)->get()->first()) {
+            Session::flash('error','Something went wrong, You are not authorized to View this request.');
+   	    	return Redirect::back()->withInput(Input::all());
+        }
+        
+        $serviceForm = ServiceForm::where('service_id', $serviceRequest->service_id)->get()->first();
+        $serviceForm->form_fields = Helper::maybe_unserialize($serviceForm->form_fields);
+
+        $serviceRequest->company_details = Helper::maybe_unserialize($serviceRequest->company_details);
+
+        $view = 'Admin.ServiceRequest.view';        
+        return view('Includes.adminCommonTemplate', compact('view','serviceRequest','serviceForm'));
+    }
+    public function delete($ticket = null)
+    {
+    	if(empty($ticket))
+        {
+            Session::flash('error','Something went wrong, You are not authorized to Delete this request.');
+   	    	return Redirect::back()->withInput(Input::all());
+        }
+        if (!$serviceRequest = ServiceRequest::where('ticket', $ticket)->get()->first()) {
+            Session::flash('error','Something went wrong, You are not authorized to Delete this request.');
+   	    	return Redirect::back()->withInput(Input::all());
+        }
+        ServiceRequest::where('ticket', $ticket)->delete();
+        Session::flash('Success','Request deleted successfully.');
+   	    return Redirect::back();
     }
 }

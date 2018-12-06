@@ -16,7 +16,7 @@
             </div>                  
             <div class="form-group col-md-12">
               <label for="service_content">Content</label>
-              <textarea class="form-control" id="service_content" name="service_content" required placeholder="Content"><?php echo $service->service_content; ?></textarea>
+              <textarea class="form-control textarea" id="service_content" name="service_content" required placeholder="Content"><?php echo $service->service_content; ?></textarea>
             </div>
 
             <?php $service_questions = (!empty($service->service_questions)?$service->service_questions:[]); ?>

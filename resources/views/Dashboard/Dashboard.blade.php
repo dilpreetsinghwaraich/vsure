@@ -20,6 +20,7 @@
         					<a class=" dashboardLink" href="<?php echo url('my-account') ?>" data-url="<?php echo url('my-order'); ?>">My Orders</a>
         					<a class=" dashboardLink" href="<?php echo url('my-account') ?>" data-url="<?php echo url('my-documents'); ?>">My Documents</a>
         					<a class=" dashboardLink" href="<?php echo url('my-account') ?>" data-url="<?php echo url('my-deliverable'); ?>">My Deliverable</a>
+                  <a class=" dashboardLink" href="<?php echo url('my-account') ?>" data-url="<?php echo url('my-service-request'); ?>">My Service Request</a>
                   <a class=" dashboardLink" href="<?php echo url('my-account') ?>" data-url="<?php echo url('my-notifications'); ?>">My Notifications</a>
 					         <a href="<?php echo url('auth/logout') ?>">Logout</a>
                 </div>

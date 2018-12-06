@@ -18,7 +18,7 @@
 <script type="text/javascript" src="<?php echo asset('public/admin/js') ?>/admin-script.js"></script>
 <script type="text/javascript" src="<?php echo asset('public/admin/js') ?>/admin-script-form.js"></script>
 <script>
-    $('textarea').ckeditor();
+    $('.textarea').ckeditor();
     // $('.textarea').ckeditor(); // if class is prefered.
 </script>
 <script type="text/javascript">

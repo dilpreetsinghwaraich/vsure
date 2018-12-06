@@ -9,6 +9,14 @@ jQuery(document).ready(function($) {
         window.location.href = url;
         return false;
     });
+    $('.serviceRequestLeftSidebarNavTab').click(function(event) {
+        event.preventDefault();
+        $('.serviceRequestLeftSidebarNavTab').removeClass('active');
+        $(this).addClass('active');
+        var href = $(this).attr('href');
+        $('.company_profile').removeClass('in');
+        $(href).addClass('in');
+    });
     $('.add_field').click(function(event) {
         var fieldKey = $(this).data('key');
         var tab_count = $('.append_tab_content').length;

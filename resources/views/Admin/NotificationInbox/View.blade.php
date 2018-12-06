@@ -65,7 +65,7 @@
             </div>
             <div class="form-group col-md-12">
               <label for="message">Message</label>
-              <textarea class="form-control" id="message" name="message" required ></textarea>
+              <textarea class="form-control textarea" id="message" name="message" required ></textarea>
             </div>            
           </div>                                     
           <button type="submit" class="btn btn-primary">Send</button>

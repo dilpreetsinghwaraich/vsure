@@ -6,7 +6,7 @@ if (!empty($serviceForm->form_fields) && is_array($serviceForm->form_fields)) {
   foreach ($serviceForm->form_fields as $form_key => $form_value) {
     ?>
     <div class="content-main company_profile <?php echo $activeContent; ?> " id="companyCommonFormTemplate_<?php echo $form_key ?>">
-      <h2>Home-<?php echo $serviceForm->service_title; ?>- #<?php echo $serviceRequest->ticket; ?></h2>
+      
       <div class="vsure-company-page-content"> <span><?php echo isset($form_value['tab_title'])?$form_value['tab_title'] :'' ?></span>
         <p>Enter your company name. Feel free to give us multiple options if you want us to search for the availability.</p>
       </div>
@@ -121,24 +121,6 @@ if (!empty($serviceForm->form_fields) && is_array($serviceForm->form_fields)) {
           }
         }
       $loopIndex++;
-      if ($tab_count == $loopIndex) {
-        ?>
-        <div class="company-page-form-btn">
-          <div class="col-sm-12">
-            <button type="submit" class="btn btn-default">Submit</button>
-          </div>
-        </div>
-        <?php
-      }else
-      {
-        ?>
-        <div class="company-page-form-btn">
-          <div class="col-sm-12">
-            <button type="button" class="btn btn-default submit_form_button" data-tabKey="tab_<?php echo $form_key+1 ?>">Save & Continue</button>
-          </div>
-        </div>
-        <?php
-      }
       ?>      
     </div>
     <?php

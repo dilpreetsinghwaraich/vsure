@@ -6,7 +6,7 @@
   </div> 
   <div class="form-group col-md-12">
     <label for="contact_content">Content</label>
-    <textarea class="form-control" id="contact_content" name="service_short_info[content]" required placeholder="Content"><?php echo (isset($service_short_info['content'])?$service_short_info['content']:''); ?></textarea>
+    <textarea class="form-control textarea" id="contact_content" name="service_short_info[content]" required placeholder="Content"><?php echo (isset($service_short_info['content'])?$service_short_info['content']:''); ?></textarea>
   </div>
   <div class="form-group col-md-12">
     <label for="contact_image">Background Image</label>

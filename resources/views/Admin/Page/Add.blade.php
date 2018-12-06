@@ -13,12 +13,12 @@
                  
                   <div class="form-group col-md-12">
                     <label for="post_excerpt">Excerpt</label>
-                    <textarea class="form-control" id="post_excerpt" name="post_excerpt" required placeholder="Content"><?php echo old('post_excerpt'); ?></textarea>
+                    <textarea class="form-control textarea" id="post_excerpt" name="post_excerpt" required placeholder="Content"><?php echo old('post_excerpt'); ?></textarea>
                   </div>
 
                   <div class="form-group col-md-12">
                     <label for="post_content">Content</label>
-                    <textarea class="form-control" id="post_content" name="post_content" required placeholder="Content"><?php echo old('post_content'); ?></textarea>
+                    <textarea class="form-control textarea" id="post_content" name="post_content" required placeholder="Content"><?php echo old('post_content'); ?></textarea>
                   </div>
                   <div class="form-group col-md-12">
                     <label for="image">Image</label>

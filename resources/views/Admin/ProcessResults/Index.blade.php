@@ -18,7 +18,7 @@
                       </div>
                       <div class="form-group col-md-12">
                         <label for="process_content">Content</label>
-                        <textarea class="form-control" id="process_content" name="process_content" required placeholder="Content"><?php echo old('process_content'); ?></textarea>
+                        <textarea class="form-control textarea" id="process_content" name="process_content" required placeholder="Content"><?php echo old('process_content'); ?></textarea>
                       </div>
                       <div class="form-group col-md-12">
                         <label for="process_image">Image</label>

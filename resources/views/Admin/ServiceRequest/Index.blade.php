@@ -11,6 +11,7 @@
             <th scope="col">Phone</th>
             <th scope="col">Ticket+Service</th>
             <th scope="col">Date</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -26,6 +27,8 @@
               <td><?php echo $serviceRequest->phone; ?></td>
               <td><?php echo '#'.$serviceRequest->ticket.' - '.$serviceRequest->service_title; ?></td>
               <td><?php echo date('Y-m-d h:i A', strtotime($serviceRequest->created_at)); ?></td>
+              <td><a href="<?php echo url('/admin/view/service/request/'.$serviceRequest->ticket); ?>">View</a>
+                | <a href="<?php echo url('/admin/delete/service/request/'.$serviceRequest->ticket); ?>">Delete</a></td>
             </tr>
             <?php 
             $sno++;

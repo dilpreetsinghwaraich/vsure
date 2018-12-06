@@ -8,7 +8,7 @@
           if (!empty($serviceForm->form_fields) && is_array($serviceForm->form_fields)) {
             foreach ($serviceForm->form_fields as $form_key => $form_value) {
               ?>
-              <a class="<?php echo $activeTab; ?> serviceRequestLeftSidebarNavTab" href="#companyCommonFormTemplate_<?php echo $form_key ?>"><?php echo isset($form_value['tab_title'])?$form_value['tab_title'] :'' ?></a> 
+              <a class="<?php echo $activeTab; ?> serviceRequestLeftSidebarNavTab tab_<?php echo $form_key ?>" href="#companyCommonFormTemplate_<?php echo $form_key ?>"><?php echo isset($form_value['tab_title'])?$form_value['tab_title'] :'' ?></a> 
               <?php
               $activeTab = '';
             }
@@ -16,7 +16,7 @@
           ?>
         </div>
         <div class="col-lg-9 col-xs-12 content office-details-content">          
-          <form class="vsure-company-page-forms-main form-horizontal">
+          <?php echo Form::open(array('url' => 'submit/help/desk/ticket/'.$serviceRequest->ticket, 'class'=>'serviceRequestFormSubmit','method' => 'post')) ?>
             <?php echo view('ServiceRequest.companyCommonFormTemplate', compact('serviceForm','serviceRequest')); ?>
           </form>
         </div>
