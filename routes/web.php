@@ -172,7 +172,7 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::get('/admin/edit/form/service/{service_id?}', 'Admin\ServiceForm\AdminServiceFormController@editView');
 	Route::post('/admin/update/form/service/{service_id?}', 'Admin\ServiceForm\AdminServiceFormController@updateForm');
 	Route::get('/admin/get/form/field/{fieldKey?}', 'Admin\ServiceForm\AdminServiceFormController@getFormField');
-	Route::get('/admin/clone/form/service/{service_id?}', 'Admin\ServiceForm\AdminServiceFormController@clone');
+	Route::post('/admin/clone/form/service/{service_id?}', 'Admin\ServiceForm\AdminServiceFormController@clone');
 	Route::get('/admin/delete/form/service/{service_id?}', 'Admin\ServiceForm\AdminServiceFormController@delete');
 
 	/******update delete edit view post/page******/

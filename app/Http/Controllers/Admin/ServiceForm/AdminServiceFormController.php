@@ -43,8 +43,9 @@ class AdminServiceFormController extends Controller
     	}
 
     	$serviceForm = ServiceForm::where('service_id', $service_id)->get()->first();
-
-    	return view('Includes.adminCommonTemplate',compact('view','serviceForms','service','service_id'));
+        $serviceForm->form_fields = Helper::maybe_unserialize($serviceForm->form_fields);
+        
+    	return view('Includes.adminCommonTemplate',compact('view','serviceForm','service','service_id'));
     }
     public function updateForm(Request $request, $service_id = null)
     {
@@ -97,19 +98,29 @@ class AdminServiceFormController extends Controller
     	echo $field;
     	die;
     }
-    public function clone($service_id = null)
+    public function clone(Request $request, $clone_service_id = null)
     {
-	 	$service = Services::find($service_id); 
+	 	$service = Services::find($clone_service_id); 
 	 	if (empty($service->service_id)) {
 			Session::flash('error','Something went wrong, You are not authorized to add this Service Form.');
 	    	return Redirect::back()->withInput(Input::all());    
 	 	} 
+        $service_id = $request->input('clone_service_id');
+        $cloneService = Services::find($service_id); 
+	 	$serviceForm = ServiceForm::where('service_id', $clone_service_id)->get()->first();
 
-	 	$serviceForm = ServiceForm::where('service_id', $service_id)->get()->first();
-
-	 	$serviceFormClone = ServiceForm::find($serviceForm->form_id);
-	 	print_r($serviceFormClone);
-	 	die;
+        if(empty(ServiceForm::where('service_id', $service_id)->get()->first()))
+        {
+            ServiceForm::insert([
+                'service_id'=> $service_id,
+                'service_title'=> $cloneService->service_title,
+                'form_fields'=> $serviceForm->form_fields,
+                'created_at'=> new DateTime,
+                'updated_at' => new DateTime,
+            ]);
+        }
+        Session::flash('success','Service Form Cloned successfully.');
+        return Redirect('admin/service/forms');
     }
     public function delete($service_id = null)
     {
