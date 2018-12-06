@@ -20,11 +20,17 @@ jQuery(document).ready(function($) {
             window.alert('Please open tab to add field');
             return false;
         }
-        var field_count = 0;
+        if (fieldKey != 'tab') {
+            var tab_count = $('.append_tab_content.open').attr('data-tabCount');
+        }
+        
+        var field_count = $('.field_tab_'+tab_count).length;
+
+        /*
         switch (fieldKey) {
             case 'text':
                 var tab_count = $('.append_tab_content.open').attr('data-tabCount');
-                var field_count = $('.textField').length;
+                var field_count = $('#field_tab_'+).length;
                 break;
             case 'email':
                 var tab_count = $('.append_tab_content.open').attr('data-tabCount');
@@ -32,6 +38,10 @@ jQuery(document).ready(function($) {
                 break;
             case 'number':
                 var field_count = $('.numberField').length;
+                var tab_count = $('.append_tab_content.open').attr('data-tabCount');
+                break;
+            case 'file':
+                var field_count = $('.fileField').length;
                 var tab_count = $('.append_tab_content.open').attr('data-tabCount');
                 break;
             case 'textarea':
@@ -50,7 +60,7 @@ jQuery(document).ready(function($) {
                 var field_count = $('.selectField').length;
                 var tab_count = $('.append_tab_content.open').attr('data-tabCount');
                 break;
-        }
+        }*/
 
         $.ajax({
             url: AJAXURL('/admin/get/form/field/'+fieldKey),

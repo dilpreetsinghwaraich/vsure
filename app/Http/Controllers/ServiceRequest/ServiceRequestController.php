@@ -10,8 +10,9 @@ use Validator, DateTime, DB, Hash, File, Config, Helpers, Helper, PDF;
 use Session, Redirect;
 use Illuminate\Support\Facades\Input;
 use App\User;
-use App\Services;
 use App\ServiceRequest;
+use App\Services;
+use App\ServiceForm;
 
 class ServiceRequestController extends Controller
 {
@@ -24,9 +25,12 @@ class ServiceRequestController extends Controller
         if (!$serviceRequest = ServiceRequest::where('ticket', $ticket)->get()->first()) {
             return Redirect('/');
         }
+        
+        $serviceForm = ServiceForm::where('service_id', $serviceRequest->service_id)->get()->first();
+        $serviceForm->form_fields = Helper::maybe_unserialize($serviceForm->form_fields);
 
         $view = 'ServiceRequest.Index';        
-        return view('Includes.commonTemplate', compact('view'));
+        return view('Includes.commonTemplate', compact('view','serviceRequest','serviceForm'));
     }
     
 }

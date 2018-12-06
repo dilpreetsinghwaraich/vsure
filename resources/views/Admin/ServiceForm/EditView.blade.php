@@ -42,6 +42,8 @@
                         echo Helper::getEmailField($form_key, $field_key, $field_value['email']['title']);
                       }elseif (isset($field_value['number']) && !empty($field_value['number'])) {
                         echo Helper::getNumberField($form_key, $field_key, $field_value['number']['title']);
+                      }elseif (isset($field_value['file']) && !empty($field_value['file'])) {
+                        echo Helper::getFileField($form_key, $field_key, $field_value['file']['title']);
                       }elseif (isset($field_value['textarea']) && !empty($field_value['textarea'])) {
                         echo Helper::getTextareaField($form_key, $field_key, $field_value['textarea']['title']);
                       }elseif (isset($field_value['checkbox']) && !empty($field_value['checkbox'])) {
@@ -72,6 +74,7 @@
           'text' => 'TextField',
           'email' => 'EmailField',
           'number' => 'NumberField',
+          'file' => 'FileField',
           'textarea' => 'TextareaField',
           'checkbox' => 'CheckboxField',
           'radio' => 'RadioField',

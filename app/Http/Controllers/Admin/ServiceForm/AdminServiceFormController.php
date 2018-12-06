@@ -82,6 +82,9 @@ class AdminServiceFormController extends Controller
     		case 'number':
     			$field = Helper::getNumberField($tabCount, $fieldCount, '');
     			break;
+            case 'file':
+                $field = Helper::getFileField($tabCount, $fieldCount, '');
+                break;
     		case 'textarea':
     			$field = Helper::getTextareaField($tabCount, $fieldCount, '');
     			break;

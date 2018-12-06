@@ -359,7 +359,7 @@ class Helper
     public static function getTextField($tabCount = 0, $fieldCount = 0, $title = '')
     {
     	return '
-				<div class="form-group col-md-12 textField commonGroup">
+				<div class="form-group col-md-12 textField commonGroup field_tab_'.$tabCount.'">
 					<label>Text field Area</label>
 					<a href="javascript:void(0)" class="removeField btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Remove</a>
                 	<input type="text" class="form-control textFieldTitle" required id="text_title_'.$fieldCount.'" name="form_fields['.$tabCount.'][field]['.$fieldCount.'][text][title]" value="'.$title.'" placeholder="Text Title">
@@ -368,7 +368,7 @@ class Helper
     public static function getEmailField($tabCount = 0, $fieldCount = 0, $title = '')
     {
     	return '
-				<div class="form-group col-md-12 emailField commonGroup v">
+				<div class="form-group col-md-12 emailField commonGroup  field_tab_'.$tabCount.'">
 					<label>Email field Area</label>
 					<a href="javascript:void(0)" class="removeField btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Remove</a>
                 	<input type="text" class="form-control emailFieldTitle" required id="email_title_'.$fieldCount.'" name="form_fields['.$tabCount.'][field]['.$fieldCount.'][email][title]" value="'.$title.'" placeholder="Email Title">
@@ -378,16 +378,25 @@ class Helper
     public static function getNumberField($tabCount = 0, $fieldCount = 0, $title = '')
     {
     	return '
-				<div class="form-group col-md-12 numberField commonGroup">
+				<div class="form-group col-md-12 numberField commonGroup field_tab_'.$tabCount.'">
 					<label>Number field Area</label>
 					<a href="javascript:void(0)" class="removeField btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Remove</a>
                 	<input type="text" class="form-control numberFieldTitle" required id="number_title_'.$fieldCount.'" name="form_fields['.$tabCount.'][field]['.$fieldCount.'][number][title]" value="'.$title.'" placeholder="Number Title">
               	</div>';
     }
+    public static function getFileField($tabCount = 0, $fieldCount = 0, $title = '')
+    {
+    	return '
+				<div class="form-group col-md-12 fileField commonGroup field_tab_'.$tabCount.'">
+					<label>File field Area</label>
+					<a href="javascript:void(0)" class="removeField btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Remove</a>
+                	<input type="text" class="form-control fileFieldTitle" required id="number_title_'.$fieldCount.'" name="form_fields['.$tabCount.'][field]['.$fieldCount.'][file][title]" value="'.$title.'" placeholder="File Title">
+              	</div>';
+    }
     public static function getTextareaField($tabCount = 0, $fieldCount = 0, $title = '')
     {
     	return '
-				<div class="form-group col-md-12 textareaField commonGroup">
+				<div class="form-group col-md-12 textareaField commonGroup field_tab_'.$tabCount.'">
 					<label>Textarea Field Area</label>
 					<a href="javascript:void(0)" class="removeField btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Remove</a>
                 	<input type="text" class="form-control textareaFielditle" required id="textarea_title_'.$fieldCount.'" name="form_fields['.$tabCount.'][field]['.$fieldCount.'][textarea][title]" value="'.$title.'" placeholder="Textarea Title">
@@ -396,7 +405,7 @@ class Helper
     public static function getCheckboxField($tabCount = 0, $fieldCount = 0, $title = '', $value = '')
     {
     	return '
-				<div class="form-group col-md-12 checkboxField commonGroup">
+				<div class="form-group col-md-12 checkboxField commonGroup field_tab_'.$tabCount.'">
 					<label>Checkbox field Area</label>
 					<a href="javascript:void(0)" class="removeField btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Remove</a>
 					<input type="text" class="form-control checkboxFielditle" required id="textarea_title_'.$fieldCount.'" name="form_fields['.$tabCount.'][field]['.$fieldCount.'][checkbox][title]" value="'.$title.'" placeholder="Checkbox Label">
@@ -407,7 +416,7 @@ class Helper
     public static function getRadioField($tabCount = 0, $fieldCount = 0, $title = '', $value = '')
     {
     	return '
-				<div class="form-group col-md-12 radioField commonGroup">
+				<div class="form-group col-md-12 radioField commonGroup field_tab_'.$tabCount.'">
 					<label>Radio field Area</label>
 					<a href="javascript:void(0)" class="removeField btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Remove</a>
 					<input type="text" class="form-control radioFielditle" required id="radio_title_'.$fieldCount.'" name="form_fields['.$tabCount.'][field]['.$fieldCount.'][radio][title]" value="'.$title.'" placeholder="Radio Label">
@@ -418,7 +427,7 @@ class Helper
     public static function getSelectField($tabCount = 0, $fieldCount = 0, $title = '', $value = '')
     {
     	return '
-				<div class="form-group col-md-12 selectField commonGroup">
+				<div class="form-group col-md-12 selectField commonGroup field_tab_'.$tabCount.'">
 					<label>Select Option field Area</label>
 					<a href="javascript:void(0)" class="removeField btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Remove</a>
 					<input type="text" class="form-control selectFielditle" required id="select_title_'.$fieldCount.'" name="form_fields['.$tabCount.'][field]['.$fieldCount.'][select][title]" value="'.$title.'" placeholder="Select Label">
