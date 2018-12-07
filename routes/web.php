@@ -112,6 +112,7 @@ Route::group(['middleware' => 'editorToken'], function () {
 	Route::get('/admin/edit/process/result/{process_id?}', 'Admin\ProcessResults\AdminProcessResultsController@edit');
 	Route::post('/admin/update/process/result/{process_id?}', 'Admin\ProcessResults\AdminProcessResultsController@update');
 	Route::get('/admin/delete/process/result/{process_id?}', 'Admin\ProcessResults\AdminProcessResultsController@delete');
+	Route::get('/admin/clone/process/result/{process_id?}', 'Admin\ProcessResults\AdminProcessResultsController@clone');
 
 	/******update delete edit view documents******/
 	Route::get('/admin/documents', 'Admin\Documents\AdminDocumentsController@index');
@@ -119,6 +120,7 @@ Route::group(['middleware' => 'editorToken'], function () {
 	Route::get('/admin/edit/document/{document_id?}', 'Admin\Documents\AdminDocumentsController@edit');
 	Route::post('/admin/update/document/{document_id?}', 'Admin\Documents\AdminDocumentsController@update');
 	Route::get('/admin/delete/document/{document_id?}', 'Admin\Documents\AdminDocumentsController@delete');
+	Route::get('/admin/clone/document/{document_id?}', 'Admin\Documents\AdminDocumentsController@clone');
 
 	/******update delete edit view packages******/
 	Route::get('/admin/packages', 'Admin\Packages\AdminPackagesController@index');
@@ -127,6 +129,7 @@ Route::group(['middleware' => 'editorToken'], function () {
 	Route::get('/admin/edit/package/{package_id?}', 'Admin\Packages\AdminPackagesController@edit');
 	Route::post('/admin/update/package/{package_id?}', 'Admin\Packages\AdminPackagesController@update');
 	Route::get('/admin/delete/package/{package_id?}', 'Admin\Packages\AdminPackagesController@delete');
+	Route::get('/admin/clone/package/{package_id?}', 'Admin\Packages\AdminPackagesController@clone');
 
 	/******update delete edit view Services******/
 	Route::get('/admin/services', 'Admin\Services\AdminServicesController@index');

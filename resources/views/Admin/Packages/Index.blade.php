@@ -29,6 +29,7 @@
                     <td><?php echo ($package->status == 1?'Publish':'Draft'); ?></td>
                     <td>
                       <a href="<?php echo url('admin/edit/package/'.$package->package_id) ?>">Edit</a>
+                      | <a href="<?php echo url('admin/clone/package/'.$package->package_id) ?>">Clone</a>
                       | <a href="<?php echo url('admin/delete/package/'.$package->package_id) ?>">Delete</a></td>
                   </tr>
                   <?php 

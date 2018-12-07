@@ -109,4 +109,23 @@ class AdminProcessResultsController extends Controller
     	Session::flash('success','Process Result Deleted Successfully');
 	    return Redirect::back()->withInput(Input::all());
     }
+    public function clone($process_id = null)
+    {
+        $cloneProcessResult = ProcessResults::find($process_id);
+        if (empty($cloneProcessResult->process_id)) {
+            Session::flash('error','Something went wrong, You are not authorized to clone this Process Result.');
+            return Redirect::back()->withInput(Input::all());           
+        }  
+        $processResult = new ProcessResults();       
+        $processResult->process_title = $cloneProcessResult->process_title.' copy';
+        $processResult->process_subtitle = $cloneProcessResult->process_subtitle;
+        $processResult->process_content = $cloneProcessResult->process_content;
+        $processResult->process_image = $cloneProcessResult->process_image;
+        $processResult->process_terms = $cloneProcessResult->process_terms;
+        $processResult->created_at = date('Y-m-d h:i:s');
+        $processResult->updated_at = date('Y-m-d h:i:s');
+        $processResult->save();
+        Session::flash('success','Process Result Cloned Successfully');
+        return redirect('admin/process/results');    
+    }
 }

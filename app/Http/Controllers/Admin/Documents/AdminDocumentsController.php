@@ -93,4 +93,23 @@ class AdminDocumentsController extends Controller
     	Session::flash('success','Document Deleted Successfully');
 	    return Redirect::back()->withInput(Input::all());
     }
+    public function clone($document_id = null)
+    {
+        $cloneDocument = Documents::find($document_id);
+        if (empty($cloneDocument->document_id)) {
+            Session::flash('error','Something went wrong, You are not authorized to clone this Document.');
+            return Redirect::back()->withInput(Input::all());           
+        }
+
+        $document = new Documents();       
+        $document->document_title = $cloneDocument->document_title.' copy';
+        $document->document_promoter = $cloneDocument->document_promoter;
+        $document->document_company = $cloneDocument->document_company;
+        $document->document_terms = $cloneDocument->document_terms;            
+        $document->created_at = date('Y-m-d h:i:s');
+        $document->updated_at = date('Y-m-d h:i:s');
+        $document->save();
+        Session::flash('success','Document CLone Successfully');
+        return redirect('admin/documents');
+    }
 }

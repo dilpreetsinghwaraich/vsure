@@ -72,6 +72,7 @@
                       } ?></td>
                     <td>
                       <a href="<?php echo url('admin/edit/process/result/'.$processResult->process_id) ?>">Edit</a>
+                      | <a href="<?php echo url('admin/clone/process/result/'.$processResult->process_id) ?>">Clone</a>
                       | <a href="<?php echo url('admin/delete/process/result/'.$processResult->process_id) ?>">Delete</a></td>
                   </tr>
                   <?php 

@@ -111,4 +111,28 @@ class AdminPackagesController extends Controller
     	Session::flash('success','Package Deleted Successfully');
 	    return Redirect::back()->withInput(Input::all());
     }
+    public function clone($package_id = null)
+    {
+        $clonePackage = Packages::find($package_id);
+        if (empty($clonePackage->package_id)) {
+            Session::flash('error','Something went wrong, You are not authorized to delete this Package.');
+            return Redirect::back()->withInput(Input::all());           
+        }
+
+        $package = new Packages();       
+        $package->package_title = $clonePackage->package_title.' copy';
+        $package->regular_price = $clonePackage->regular_price;
+        $package->sale_price = $clonePackage->sale_price;
+        $package->discount_start = $clonePackage->discount_start;
+        $package->discount_end = $clonePackage->discount_end;
+        $package->status = $clonePackage->status;
+        $package->is_featured = $clonePackage->is_featured;
+        $package->package_content = $clonePackage->package_content;
+        $package->package_terms = $clonePackage->package_terms;            
+        $package->created_at = date('Y-m-d h:i:s');
+        $package->updated_at = date('Y-m-d h:i:s');
+        $package->save();
+        Session::flash('success','Package Cloned Successfully');
+        return redirect('admin/packages');               
+    }
 }

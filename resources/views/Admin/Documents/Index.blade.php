@@ -61,6 +61,7 @@
                     <td><?php echo $document->document_title; ?></td>
                     <td>
                       <a href="<?php echo url('admin/edit/document/'.$document->document_id) ?>">Edit</a>
+                      | <a href="<?php echo url('admin/clone/document/'.$document->document_id) ?>">Clone</a>
                       | <a href="<?php echo url('admin/delete/document/'.$document->document_id) ?>">Delete</a></td>
                   </tr>
                   <?php 
