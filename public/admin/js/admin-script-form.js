@@ -20,6 +20,15 @@ jQuery(document).ready(function($) {
     $('.add_field').click(function(event) {
         var fieldKey = $(this).data('key');
         var tab_count = $('.append_tab_content').length;
+        if(tab_count != 0 && fieldKey == 'tab')
+        {
+            var tabDataAttr = [];
+            $.each($('.append_tab_content'), function(index, val) {
+                 tabDataAttr.push($(this).attr('data-tabcount'));
+            });
+            tabDataMax = Math.max.apply(Math, tabDataAttr);
+            tab_count = tabDataMax+1;
+        }
         if (tab_count == 0 && fieldKey != 'tab') {
             window.alert('Please select tab to add field');
             return false;
@@ -33,43 +42,6 @@ jQuery(document).ready(function($) {
         }
         
         var field_count = $('.field_tab_'+tab_count).length;
-
-        /*
-        switch (fieldKey) {
-            case 'text':
-                var tab_count = $('.append_tab_content.open').attr('data-tabCount');
-                var field_count = $('#field_tab_'+).length;
-                break;
-            case 'email':
-                var tab_count = $('.append_tab_content.open').attr('data-tabCount');
-                var field_count = $('.emailField').length;
-                break;
-            case 'number':
-                var field_count = $('.numberField').length;
-                var tab_count = $('.append_tab_content.open').attr('data-tabCount');
-                break;
-            case 'file':
-                var field_count = $('.fileField').length;
-                var tab_count = $('.append_tab_content.open').attr('data-tabCount');
-                break;
-            case 'textarea':
-                var field_count = $('.textareaField').length;
-                var tab_count = $('.append_tab_content.open').attr('data-tabCount');
-                break;
-            case 'checkbox':
-                var field_count = $('.checkboxField').length;
-                var tab_count = $('.append_tab_content.open').attr('data-tabCount');
-                break;
-            case 'radio':
-                var field_count = $('.radioField').length;
-                var tab_count = $('.append_tab_content.open').attr('data-tabCount');
-                break;
-            case 'select':
-                var field_count = $('.selectField').length;
-                var tab_count = $('.append_tab_content.open').attr('data-tabCount');
-                break;
-        }*/
-
         $.ajax({
             url: AJAXURL('/admin/get/form/field/'+fieldKey),
             type: 'GET',
