@@ -47,6 +47,7 @@ Route::group(['middleware' => 'userToken'], function () {
 
 	Route::get('/my-service-request', 'ServiceRequest\ServiceRequestController@serviceRequest');
 	Route::get('/help/desk/ticket/{ticket?}', 'ServiceRequest\ServiceRequestController@index');
+	Route::get('/view/help/desk/ticket/{ticket?}', 'ServiceRequest\ServiceRequestController@view');
 	Route::post('/submit/help/desk/ticket/{ticket?}', 'ServiceRequest\ServiceRequestController@update');
 
 	Route::get('/my-documents', 'Document\DocumentController@document');
@@ -56,6 +57,7 @@ Route::group(['middleware' => 'userToken'], function () {
 
 	Route::get('/my-deliverable', 'Deliverable\DeliverableController@deliverable');
 
+	Route::get('select/service/packages/{ticket?}', 'Checkout\CheckoutController@servicePackages');
 	Route::get('checkout/{package_id?}', 'Checkout\CheckoutController@checkout');
 	Route::post('complete/order/{package_id?}', 'Checkout\CheckoutController@completeOrder');
 

@@ -249,12 +249,13 @@ jQuery(document).ready(function($) {
         event.preventDefault();
         $('.td-pulldown-filter-list').toggle();        
     });
-    $('#phone_otp_send').change(function(event) {
+    $('.phone_otp_send').change(function(event) {
         var phone = $(this).val();
         if (phone == '') {
             return false;
         }
-        $('.serviceRequestResponse').html('');
+        var $this = $(this);
+        $this.closest('.service_Request_from').find('.serviceRequestResponse').html('');
         $.ajax({
             url: AJAXURL('phone/otp/send/varification'),
             type: 'POST',
@@ -265,13 +266,13 @@ jQuery(document).ready(function($) {
         })
         .done(function(data) {
             if (data == 'empty') {
-                $('.serviceRequestResponse').html('<div class="alert alert-warning">Please enter phone.</div>');
+                $this.closest('.service_Request_from').find('.serviceRequestResponse').html('<div class="alert alert-warning">Please enter phone.</div>');
                 return false;
             }
 
-            $('.serviceRequestResponse').html('<div class="alert alert-success">'+data+'</div>');
-            $('#otp_code').show().prop('required', true);
-            $('.otp_code_label, .resend_code').show();
+            $this.closest('.service_Request_from').find('.serviceRequestResponse').html('<div class="alert alert-success">'+data+'</div>');
+            $this.closest('.service_Request_from').find('.otp_code').show().prop('required', true);
+            $this.closest('.service_Request_from').find('.otp_code_label, .resend_code').show();
             return false;          
         })
         .fail(function() {

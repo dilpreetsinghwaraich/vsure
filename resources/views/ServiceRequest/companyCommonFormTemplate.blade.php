@@ -46,7 +46,7 @@ if (!empty($serviceForm->form_fields) && is_array($serviceForm->form_fields)) {
                 <div class="form-group">
                   <label class="col-sm-12 control-label"><?php echo $field_value['file']['title']; ?></label>
                   <div class="col-sm-12">
-                    <input class="form-control emptyFieldCheck" id="focusedInput" name="company_details[file_<?php echo $form_key; ?>_<?php echo $field_key; ?>]" type="file"  required data-placeholder="<?php echo $field_value['file']['title'] ?>">
+                    <input class="form-control" id="focusedInput" name="company_details[file_<?php echo $form_key; ?>_<?php echo $field_key; ?>]" type="file" data-placeholder="<?php echo $field_value['file']['title'] ?>">
                   </div>
                   <div class="col-sm-12">
                     <?php 
@@ -156,23 +156,25 @@ if (!empty($serviceForm->form_fields) && is_array($serviceForm->form_fields)) {
           }
         }
       $loopIndex++;
-      if ($tab_count == $loopIndex) {
-        ?>
-        <div class="company-page-form-btn">
-          <div class="col-sm-12">
-            <button type="submit" class="btn btn-default">Submit</button>
+      if ($type == 'index') {        
+        if ($tab_count == $loopIndex) {
+          ?>
+          <div class="company-page-form-btn">
+            <div class="col-sm-12">
+              <button type="submit" class="btn btn-default">Submit</button>
+            </div>
           </div>
-        </div>
-        <?php
-      }else
-      {
-        ?>
-        <div class="company-page-form-btn">
-          <div class="col-sm-12">
-            <button type="button" class="btn btn-default submit_form_button" data-tabKey="tab_<?php echo $form_key+1 ?>">Save & Continue</button>
+          <?php
+        }else
+        {
+          ?>
+          <div class="company-page-form-btn">
+            <div class="col-sm-12">
+              <button type="button" class="btn btn-default submit_form_button" data-tabKey="tab_<?php echo $form_key+1 ?>">Save & Continue</button>
+            </div>
           </div>
-        </div>
-        <?php
+          <?php
+        }
       }
       ?>      
     </div>

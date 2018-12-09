@@ -259,16 +259,7 @@ if (isset($service_short_info['image']) && !empty($service_short_info['image']))
                 <h3><?php echo $package->package_title ?></h3>
                 <h4><?php echo Helper::displayPrice($package); ?></h4>
                 <p><?php echo $package->package_content ?></p>
-                <?php 
-                  if (empty(session('token'))) {
-                    ?>
-                      <a  href="#" class="dropdown-toggle" data-toggle="modal" data-target="#loginModal">Order Now</a>
-                    <?php
-                  }else
-                  {
-                  ?>
-                    <a href="<?php echo url('checkout/'.$package->package_id); ?>">Order Now</a>
-                  <?php } ?>
+                <a  href="#" class="dropdown-toggle" data-toggle="modal" data-target="#serviceRequestModal">Order Now</a>
               </div>
             </div>
           <?php
@@ -302,3 +293,20 @@ if (isset($service_short_info['image']) && !empty($service_short_info['image']))
     </div>
   </section>
   <!--testimonial end--> 
+  <div class="header">
+  <div class="modal fade" id="serviceRequestModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Service Request</h4>
+        </div>
+        <div class="modal-body" style="display: inline-block;">
+          <?php echo Helper::SidebarPost('modal', $service); ?>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

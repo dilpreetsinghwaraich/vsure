@@ -47,5 +47,5 @@ class ServiceController extends Controller
         $data['view'] = 'Service.SingleService';
         
         return view('Includes.commonTemplate',$data);
-    }
+    }    
 }

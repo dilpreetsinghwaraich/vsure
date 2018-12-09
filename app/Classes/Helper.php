@@ -287,9 +287,9 @@ class Helper
     {
     	return view('Template.CreateInvoice', compact('order','type'));
     }
-    public static function viewInvoice($order, $type)
+    public static function viewInvoice($order, $type, $serviceRequest, $serviceForm)
     {
-    	return view('Template.ViewInvoice', compact('order','type'));
+    	return view('Template.ViewInvoice', compact('order','type','serviceRequest','serviceForm'));
     }
     
     public static function getPostTermByID($term_id)

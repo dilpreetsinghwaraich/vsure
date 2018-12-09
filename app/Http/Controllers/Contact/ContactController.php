@@ -130,7 +130,7 @@ class ContactController extends Controller
             Helper::SendEmail('vsurecfo@gmail.com', $subject, $mailHtml, '');
             return Redirect('/help/desk/ticket/'.$ticket);
         }else{
-            Session::flash('warning',$validator->getMessageBag()->first());
+            Session::flash('warning',$validation->getMessageBag()->first());
             return Redirect::back()->withInput(Input::all());
         }
     }

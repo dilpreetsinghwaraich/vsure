@@ -23,7 +23,8 @@
 	        			  <td class="status-<?php echo $order->order_status; ?>"><?php echo $order->order_status; ?></td>
 	        			  <td class="status-<?php echo $order->amount_status; ?>"><?php echo $order->amount_status; ?></td>
 	        			  <td><?php echo $order->order_date; ?></td>
-	        			  <td><a href="<?php echo url('order/view/'.$order->invoice_id); ?>">View Order</a></td>
+	        			  <td><a target="_blank" href="<?php echo url('/view/help/desk/ticket/'.$order->ticket); ?>">View Service Request</a> 
+	        			  	| <a target="_blank" href="<?php echo url('order/view/'.$order->invoice_id); ?>">View Invoice</a></td>
 	        			</tr>
 	        		<?php
 	        	}

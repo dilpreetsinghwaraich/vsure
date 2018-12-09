@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 use Validator, DateTime, DB, Hash, File, Config, Helpers, Helper, PDF;
 use Session, Redirect;
 use Illuminate\Support\Facades\Input;
+use App\ServiceRequest;
+use App\Services;
+use App\ServiceForm;
 
 class OrdersController extends Controller
 {
@@ -22,17 +25,13 @@ class OrdersController extends Controller
     public function orderView($invoice_id = null)
     {        
         $order = Orders::where('invoice_id',$invoice_id)->first();
+
         echo Helper::createInvoice($order,'');
         die;
     }
     public function pdf($invoice_id = null)
     {
         $order = Orders::where('invoice_id',$invoice_id)->first();
-       
-        if (empty($order->order_id)) {
-            Session::flash('error','Something went wrong, You are not authorized to update this Order.');
-            return Redirect::back()->withInput(Input::all());           
-        }
         $type = 'admin';
         $command = 'pdf';
         $pdf = PDF::loadView('Template.createInvoice', compact('order','type','command'));
@@ -67,6 +66,18 @@ class OrdersController extends Controller
             Session::flash('error','Something went wrong, You are not authorized to update this Order.');
             return Redirect::back()->withInput(Input::all());           
         }
-        return Helper::viewInvoice($order, '');
+
+        $ticket = $order->ticket;
+        if (!$serviceRequest = ServiceRequest::where('ticket', $ticket)->get()->first()) {
+            $view = 'Pages.404';
+            return view('Includes.commonTemplate',compact('view'));
+        }
+        
+        $serviceForm = ServiceForm::where('service_id', $serviceRequest->service_id)->get()->first();
+        $serviceForm->form_fields = Helper::maybe_unserialize($serviceForm->form_fields);
+
+        $serviceRequest->company_details = Helper::maybe_unserialize($serviceRequest->company_details);
+
+        return Helper::viewInvoice($order, '', $serviceRequest, $serviceForm);
     }
 }

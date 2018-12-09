@@ -40,6 +40,24 @@ class ServiceRequestController extends Controller
         $view = 'ServiceRequest.Index';        
         return view('Includes.commonTemplate', compact('view','serviceRequest','serviceForm'));
     }
+    public function view($ticket = '')
+    {
+        if(empty($ticket))
+        {
+            return Redirect('/');
+        }
+        if (!$serviceRequest = ServiceRequest::where('ticket', $ticket)->get()->first()) {
+            return Redirect('/');
+        }
+        
+        $serviceForm = ServiceForm::where('service_id', $serviceRequest->service_id)->get()->first();
+        $serviceForm->form_fields = Helper::maybe_unserialize($serviceForm->form_fields);
+
+        $serviceRequest->company_details = Helper::maybe_unserialize($serviceRequest->company_details);
+
+        $view = 'ServiceRequest.View';        
+        return view('Includes.commonTemplate', compact('view','serviceRequest','serviceForm'));
+    }
     public function update(Request $request, $ticket = '')
     {
         if(empty($ticket))
@@ -66,6 +84,6 @@ class ServiceRequestController extends Controller
                             'company_details' => Helper::maybe_serialize($company_details),
                             'updated_at' => new DateTime,
                         ]);
-        return Redirect()->back();
+        return Redirect('select/service/packages/'.$ticket);
     }
 }
