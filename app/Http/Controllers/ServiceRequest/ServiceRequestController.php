@@ -49,9 +49,21 @@ class ServiceRequestController extends Controller
         if (!$serviceRequest = ServiceRequest::where('ticket', $ticket)->get()->first()) {
             return Redirect('/');
         }
+        $inputArray = $request->all();
+        $company_details = $inputArray['company_details'];
+        $arrayKeys = array_keys($inputArray['company_details']);
+        $file_keys = [];
+        if (!empty($arrayKeys)) {
+            foreach ($arrayKeys as $arrayKey) {
+                $arrayKeyChoose = explode('_',$arrayKey);
+                if (reset($arrayKeyChoose) == 'file') {
+                    $company_details[$arrayKey] = Helper::fileuploadArray($request->file('company_details')[$arrayKey]);
+                }                
+            }
+        }
         ServiceRequest::where('ticket', $ticket)
                         ->update([
-                            'company_details' => Helper::maybe_serialize($request->input('company_details')),
+                            'company_details' => Helper::maybe_serialize($company_details),
                             'updated_at' => new DateTime,
                         ]);
         return Redirect()->back();

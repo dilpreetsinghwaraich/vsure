@@ -48,6 +48,41 @@ if (!empty($serviceForm->form_fields) && is_array($serviceForm->form_fields)) {
                   <div class="col-sm-12">
                     <input class="form-control emptyFieldCheck" id="focusedInput" name="company_details[file_<?php echo $form_key; ?>_<?php echo $field_key; ?>]" type="file"  required data-placeholder="<?php echo $field_value['file']['title'] ?>">
                   </div>
+                  <div class="col-sm-12">
+                    <?php 
+                    if (isset($company_details['file_'.$form_key.'_'.$field_key])?$company_details['file_'.$form_key.'_'.$field_key]:'')
+                    {
+                      $file = $company_details['file_'.$form_key.'_'.$field_key];
+                      $ext = pathinfo($file, PATHINFO_EXTENSION);
+                      switch ($ext) {
+                        case 'jpg':
+                        case 'jpeg':
+                        case 'png':
+                          ?><a href="<?php echo asset('/').'/'.$file ?>" target="_blank"><img src="<?php echo asset('/').'/'.$file ?>" class="img-responsive" style="width: 200px; height: 200px;"></a><?php
+                          break;
+                        case 'doc':
+                          ?><a href="<?php echo asset('/').'/'.$file ?>" download="" target="_blank"><img src="<?php echo asset('/public/images/doc.png') ?>" class="img-responsive" style="width: 200px; height: 200px;"></a><?php
+                          break; 
+                        case 'pdf':
+                          ?><a href="<?php echo asset('/').'/'.$file ?>" download="" target="_blank"><img src="<?php echo asset('/public/images/pdf.png') ?>" class="img-responsive" style="width: 200px; height: 200px;"></a><?php
+                          break; 
+                        case 'xlsx':
+                        case 'csv':
+                          ?><a href="<?php echo asset('/').'/'.$file ?>" download="" target="_blank"><img src="<?php echo asset('/public/images/xlsz.png') ?>" class="img-responsive" style="width: 200px; height: 200px;"><?php
+                          break;   
+                      }                      
+                    }
+                    ?>
+                  </div>
+                </div>
+              <?php
+            }elseif (isset($field_value['date']) && !empty($field_value['date'])) {
+              ?>
+                <div class="form-group">
+                  <label class="col-sm-12 control-label"><?php echo $field_value['date']['title']; ?></label>
+                  <div class="col-sm-12">
+                    <input class="form-control emptyFieldCheck vsureDatepicker" name="company_details[date_<?php echo $form_key; ?>_<?php echo $field_key; ?>]" type="text" value="<?php echo (isset($company_details['date_'.$form_key.'_'.$field_key])?$company_details['date_'.$form_key.'_'.$field_key]:'') ?>" required data-placeholder="<?php echo $field_value['date']['title'] ?>">
+                  </div>
                 </div>
               <?php
             }elseif (isset($field_value['textarea']) && !empty($field_value['textarea'])) {

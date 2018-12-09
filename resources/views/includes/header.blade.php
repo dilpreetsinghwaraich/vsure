@@ -6,6 +6,7 @@
 <title><?php echo (isset($title) && !empty($title) ?$title:'Vsure Consulting'); ?></title>
 <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/bootstrap.min.css">
+<link rel="stylesheet" href="<?php echo asset('public/admin/css') ?>/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/animate.css">
 <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/style.css">
 <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/default-style.css">

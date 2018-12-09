@@ -45,6 +45,8 @@
                         echo Helper::getNumberField($tab_count, $field_key, $field_value['number']['title']);
                       }elseif (isset($field_value['file']) && !empty($field_value['file'])) {
                         echo Helper::getFileField($tab_count, $field_key, $field_value['file']['title']);
+                      }elseif (isset($field_value['date']) && !empty($field_value['date'])) {
+                        echo Helper::getDateField($tab_count, $field_key, $field_value['date']['title']);
                       }elseif (isset($field_value['textarea']) && !empty($field_value['textarea'])) {
                         echo Helper::getTextareaField($tab_count, $field_key, $field_value['textarea']['title']);
                       }elseif (isset($field_value['checkbox']) && !empty($field_value['checkbox'])) {
@@ -76,6 +78,7 @@
           'email' => 'EmailField',
           'number' => 'NumberField',
           'file' => 'FileField',
+          'date' => 'DateField',
           'textarea' => 'TextareaField',
           'checkbox' => 'CheckboxField',
           'radio' => 'RadioField',

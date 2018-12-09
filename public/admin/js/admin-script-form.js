@@ -42,6 +42,16 @@ jQuery(document).ready(function($) {
         }
         
         var field_count = $('.field_tab_'+tab_count).length;
+        if(field_count != 0)
+        {
+            var fieldDataAttr = [];
+            $.each($('.commonGroup'), function(index, val) {
+                 fieldDataAttr.push($(this).attr('data-fieldCount'));
+            });
+            fieldDataMax = Math.max.apply(Math, fieldDataAttr);
+            field_count = fieldDataMax+1;
+        }
+        
         $.ajax({
             url: AJAXURL('/admin/get/form/field/'+fieldKey),
             type: 'GET',

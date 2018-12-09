@@ -9,6 +9,15 @@ jQuery(document).ready(function($) {
             e.preventDefault();
         }
     });
+    $('body').on('focus',".vsureDatepicker", function(){
+        $(this).datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: 'yy-mm-dd',
+            minDate: new Date(), 
+            yearRange: "1900:+0",
+        });
+    }); 
     $(document).on('submit', '#authLogin', function(event) {
         event.preventDefault();
         var current = $(this);

@@ -16,7 +16,7 @@
           ?>
         </div>
         <div class="col-lg-9 col-xs-12 content office-details-content">          
-          <?php echo Form::open(array('url' => 'submit/help/desk/ticket/'.$serviceRequest->ticket, 'class'=>'serviceRequestFormSubmit','method' => 'post')) ?>
+          <?php echo Form::open(array('url' => 'submit/help/desk/ticket/'.$serviceRequest->ticket, 'class'=>'serviceRequestFormSubmit','method' => 'post','files'=>true)) ?>
             <?php echo view('ServiceRequest.companyCommonFormTemplate', compact('serviceForm','serviceRequest')); ?>
           </form>
         </div>
