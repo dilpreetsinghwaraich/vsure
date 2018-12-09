@@ -32,7 +32,9 @@
                     <label>Please enter your Tab Title</label>
                     <a href="javascript:void(0)" class="removeTab btn btn-info" data-tab_id="tab_content_<?php echo $tab_count ?>">Remove</a>
                     <a href="javascript:void(0)" class="OPenCloseTab btn btn-info" data-tab_id="tab_content_<?php echo $tab_count ?>">Open/Close</a>
-                    <input type="text" class="form-control tab_title" required id="tab_title" name="form_fields[<?php echo $tab_count ?>][tab_title]" value="<?php echo isset($form_value['tab_title'])?$form_value['tab_title'] :'' ?>" placeholder="Tab Title">
+                    <input type="text" class="form-control tab_title" required id="tab_title" name="form_fields[<?php echo $tab_count ?>][tab_title]" value="<?php echo isset($form_value['tab_title'])?$form_value['tab_title'] :'' ?>" placeholder="Tab Title">                    
+                      <label>Please enter your Tab Sub Title</label>
+                      <input type="text" class="form-control tab_sub_title" required id="tab_sub_title" name="form_fields[<?php echo $tab_count ?>][tab_sub_title]" value="<?php echo isset($form_value['tab_sub_title'])?$form_value['tab_sub_title'] :'' ?>" placeholder="Tab Sub Title">
                   </div>
                   <?php 
                   if (!empty($form_value['field']) && is_array($form_value['field'])) {

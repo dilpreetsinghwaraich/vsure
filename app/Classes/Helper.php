@@ -353,6 +353,8 @@ class Helper
     					<a href="javascript:void(0)" class="removeTab btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Remove</a>
     					<a href="javascript:void(0)" class="OPenCloseTab btn btn-info" data-tab_id="tab_content_'.$tabCount.'">Open/Close</a>
                     	<input type="text" class="form-control tab_title" required id="tab_title" name="form_fields['.$tabCount.'][tab_title]" value="'.$title.'" placeholder="Tab Title">
+    					<label>Please enter your Tab Sub Title</label>
+                    	<input type="text" class="form-control tab_sub_title" required id="tab_sub_title" name="form_fields['.$tabCount.'][tab_sub_title]" value="'.$title.'" placeholder="Tab Sub Title">
                   	</div>
                  </div>';
     }

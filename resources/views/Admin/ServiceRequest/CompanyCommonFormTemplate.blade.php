@@ -8,7 +8,7 @@ if (!empty($serviceForm->form_fields) && is_array($serviceForm->form_fields)) {
     <div class="content-main company_profile <?php echo $activeContent; ?> " id="companyCommonFormTemplate_<?php echo $form_key ?>">
       
       <div class="vsure-company-page-content"> <span><?php echo isset($form_value['tab_title'])?$form_value['tab_title'] :'' ?></span>
-        <p>Enter your company name. Feel free to give us multiple options if you want us to search for the availability.</p>
+        <p><?php echo isset($form_value['tab_sub_title'])?$form_value['tab_sub_title'] :'' ?></p>
       </div>
       <?php 
         if (!empty($form_value['field']) && is_array($form_value['field'])) {
