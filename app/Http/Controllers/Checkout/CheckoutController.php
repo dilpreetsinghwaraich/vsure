@@ -78,7 +78,7 @@ class CheckoutController extends Controller
         $data['service_package'] = \Helper::maybe_unserialize($service->service_packages);        
         $data['packages'] = Packages::whereIn('package_terms', (isset($data['service_package']['package_terms'])?$data['service_package']['package_terms']:[]))->get();
         $data['title'] = $service->service_title;
-        $data['view'] = 'Service.servicePackages';
+        $data['view'] = 'Service.ServicePackages';
         
         return view('Includes.commonTemplate',$data);
     }
