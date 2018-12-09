@@ -1,6 +1,38 @@
 <!-- Contact start -->
   <section id="contact" class="section-padding wow fadeInUp delay-05s" style="visibility: hidden; animation-name: none;">
     <div class="container">
+      <div class="row" style="border-bottom: 2px solid #fff; padding-bottom: 30px; margin-bottom: 30px;">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 botom">
+          <h2>Startup Solutions</h2>
+          <hr class="bottom-lines">
+          <ul class="footer-links">
+            <li><a href="<?php echo url('/service/private-limited-company-incorporation') ?>">Private Limited Company Registration</a></li>
+            <li><a href="<?php echo url('/service/proprietorship-firm') ?>">Proprietorship Firm</a></li>
+            <li><a href="<?php echo url('/service/llp-incorporation') ?>">LLP Incorporation</a></li>
+            <li><a href="<?php echo url('/service/one-person-company-registration') ?>">One Person Company</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 botom">
+          <h2>Registration Services</h2>
+          <hr class="bottom-lines">
+          <ul class="footer-links">
+            <li><a href="<?php echo url('/service/gst-registration') ?>">GST Registration</a></li>
+            <li><a href="<?php echo url('/service/trademark-registration') ?>">Trademark Application</a></li>
+            <li><a href="<?php echo url('/service/food-license-registration') ?>">Food License Registration</a></li>
+            <li><a href="<?php echo url('/service/import-export-code-registration') ?>">Impot-Export Registration</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 botom">
+          <h2>Compliance Services</h2>
+           <hr class="bottom-lines">
+           <ul class="footer-links">
+             <li><a href="<?php echo url('/service/income-tax-return-filing') ?>">Income Tax Return Filing</a></li>
+             <li><a href="<?php echo url('/service/gst-return-filing') ?>">GST Return Filing</a></li>
+             <li><a href="<?php echo url('/service/roc-return-filing') ?>">ROC Return Filing</a></li>
+             <li><a href="<?php echo url('/service/tds-return-filing') ?>">TDS Return Filing</a></li>
+           </ul>
+        </div>
+      </div>
       <div class="row">
         <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
           <div class="row">
@@ -19,17 +51,17 @@
               <h2>Contact info</h2>
               <hr class="bottom-lines">
               <p>Suite No. 244A, 2nd Floor, <br>
-		Tower-B, SPAZE EDGE Tower,<br>
-		Sector-47, Gurgaon-122001</p>
+            		Tower-B, SPAZE EDGE Tower,<br>
+            		Sector-47, Gurgaon-122001</p>
               <p><span>Phone</span> : 0124-4286745</p>
               <p><span>Mobile</span> : +91-8800849054</p>
               <p><span>Email</span> : <a href="mailto:sales@vsurecfo.com">sales@vsurecfo.com</a></p>
               <!--  <p><span>Web</span> : Visit Our Website</p> --> 
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 botom">
-              <h2>About Vsure consulting</h2>
+              <h2>About VSURE CFO</h2>
               <hr class="bottom-lines">
-              <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. i architecto beatae vitae dicta sunt explicabo.</p>
+              <p> VSURE CFO is an Indian cloud platform to support Indian startups and enterprenures for their business setup to smoothly compliances. We have established ourselves in October 2017 with a team of 2 founder. Now we have expended our services online with a team of 20+ and having 100+ startups. We are catering all startups services to compliance services. In today's era, we are going to establish ourselves as Regtech Company.</p>
               <ul>
                 <li class="fa fa-facebook fa-lg" aria-hidden="true"></li>
                 <li class="fa fa-twitter fa-lg" aria-hidden="true"></li>
