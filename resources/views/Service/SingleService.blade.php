@@ -302,7 +302,7 @@ if (isset($service_short_info['image']) && !empty($service_short_info['image']))
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Service Request</h4>
         </div>
-        <div class="modal-body" style="display: inline-block;">
+        <div class="modal-body" style="display: inline-block;width: 100%">
           <?php echo Helper::SidebarPost('modal', $service); ?>
         </div>
       </div>

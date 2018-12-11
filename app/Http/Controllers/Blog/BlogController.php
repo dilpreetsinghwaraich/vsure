@@ -21,6 +21,7 @@ class BlogController extends Controller
         						$query->where('term', $request->input('term'));
         					}
         				})
+                        ->orderBy('created_at','DESC')
         				->paginate(24);
         $terms = Terms::where('term_type', 'blog')->get();
         $view = 'Blog.Blog';

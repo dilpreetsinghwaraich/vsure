@@ -33,6 +33,9 @@ class ServiceRequestController extends Controller
         }
         
         $serviceForm = ServiceForm::where('service_id', $serviceRequest->service_id)->get()->first();
+        if (!$serviceForm) {
+            return Redirect('/');
+        }
         $serviceForm->form_fields = Helper::maybe_unserialize($serviceForm->form_fields);
 
         $serviceRequest->company_details = Helper::maybe_unserialize($serviceRequest->company_details);
@@ -51,6 +54,9 @@ class ServiceRequestController extends Controller
         }
         
         $serviceForm = ServiceForm::where('service_id', $serviceRequest->service_id)->get()->first();
+        if (!$serviceForm) {
+            return Redirect('/');
+        }
         $serviceForm->form_fields = Helper::maybe_unserialize($serviceForm->form_fields);
 
         $serviceRequest->company_details = Helper::maybe_unserialize($serviceRequest->company_details);

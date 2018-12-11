@@ -178,36 +178,36 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center">
           <div class="wrap-item1">
             <div class="item-img"> <img src="<?php echo asset('/public'); ?>/images/great.png"> </div>
-            <h3>GREAT SERVICE</h3>
+            <h3>CREATIVE SOLUTIONS</h3>
             <hr class="bottom-line2">
-            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia</p>
+            <p>VSURE CONSULTING looks forward to entailing you with the best possible solutions. Our aim is to provide you with a whole new dimension of working and to track in the most fitted accounting solutions according to your requirements. We delve in your accounting, registration or tax filling projects deeper and deeper like our own to come up with the creative ideas that suit best for your profile.</p>
             <button>LEARN MORE</button>
           </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12  text-center">
           <div class="wrap-item1">
             <div class="item-img"> <img src="<?php echo asset('/public'); ?>/images/highest.png"> </div>
-            <h3>Highest Standards</h3>
+            <h3>HIGHEST STANDARDS</h3>
             <hr class="bottom-line3">
-            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia</p>
+            <p>Whether you are a startup or an established firm, the main motto of VSURE CONSULTING is to give you the best. We never settle for the ordinary or normal, after all that is what keeps you apart from the rest in the market. Our team understands the importance of your time and money, thus we make sure to keep you updated with the project and meet all deadlines without fail. </p>
             <button>LEARN MORE</button>
           </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12  text-center">
           <div class="wrap-item1">
             <div class="item-img"> <img src="<?php echo asset('/public'); ?>/images/professional.png"> </div>
-            <h3>Professional Team</h3>
+            <h3>PROFESSIONAL TEAM</h3>
             <hr class="bottom-line4">
-            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia</p>
+            <p>At VSURE CONSULTING, we have a trained and professional team of experts with years of experience in their respective fields. We believe in working and growing together that’s why we present you with the crème de la crème services. Our association among clients is so strong which enables them to build better communication this means better results. After being savvy of the exact needs, our team members work in a professional upfront and deliver the requirements of the clients with excellence.</p>
             <button>LEARN MORE</button>
           </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12  text-center">
           <div class="wrap-item1">
             <div class="item-img"> <img src="<?php echo asset('/public'); ?>/images/creative.png"> </div>
-            <h3>Creative Solutions</h3>
+            <h3>GREAT SERVICES</h3>
             <hr class="bottom-line5">
-            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia</p>
+            <p>The connection we build with our clients is for lifetime. Our accounting, registration and tax filling services are up to date and within the parameters of clients. We make sure to let our ideas and dream formulate a living reality. This is attained by engaging with the clients and regularly updating them about the progress. Our team is well cooperative to all the changes that you like to be featured in the whole process.</p>
             <button>LEARN MORE</button>
           </div>
         </div>

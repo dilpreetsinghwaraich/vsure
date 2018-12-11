@@ -1,5 +1,5 @@
 <!-- Contact start -->
-  <section id="contact" class="section-padding wow fadeInUp delay-05s" style="visibility: hidden; animation-name: none;">
+  <section id="contact" class="section-padding" >
     <div class="container">
       <div class="row" style="border-bottom: 2px solid #fff; padding-bottom: 30px; margin-bottom: 30px;">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 botom">
@@ -148,15 +148,14 @@ $(document).ready(function() {
   });
 });
 </script> 
-<script src="https://static.landbot.io/landbot-widget/landbot-widget-1.0.0.js"></script>
+<!-- <script src="https://static.landbot.io/landbot-widget/landbot-widget-1.0.0.js"></script>
 <script>
   var myLandbotLivechat = new LandbotLivechat({
     index: 'https://landbot.io/u/H-103341-IGGFUCU8A93S0XO4/index.html',
   });
 </script>
 <script>
-  // Show a proactive message on landbot load
   myLandbotLivechat.on('landbot-load', () => {
     myLandbotLivechat.sendProactive("Hello there!");
   });
-</script>
+</script> -->

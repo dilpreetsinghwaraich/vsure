@@ -2,6 +2,11 @@
 if ($type == 'modal') {
   ?>
   <div class="col-xs-12 margin-btm-10">
+    <style type="text/css">
+      .banners-service-page{
+        padding-bottom: 20px;
+      }
+    </style>
   <?php
 }else{
   ?>
@@ -34,7 +39,14 @@ if ($type == 'blog' || $type == 'modal') {
   </style>
 
   <div class="banners-service-page <?php echo $cls; ?>">
-    <div class="right-service-contact-form service_Request_from">
+    <?php 
+      if ($type == 'modal') {
+        ?>
+      <div class="service_Request_from">
+      <?php 
+      }else{ ?>
+      <div class="right-service-contact-form service_Request_from">
+      <?php } ?>
       <div class="serviceRequestResponse">
       </div>
       <?php echo Form::open(array('url' => 'submit/service/enquery', 'method' => 'post')) ?>

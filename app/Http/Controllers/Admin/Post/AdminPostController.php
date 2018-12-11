@@ -52,7 +52,8 @@ class AdminPostController extends Controller
             if ($request->file('image') != '') {
                 $post->image = \Helper::fileuploadExtra($request, 'image');
             }
-            $post->post_type = 'blog';            
+            $post->post_type = 'blog';  
+            $post->template = 'Template.SinglePost';          
             $post->status = $request->input('status'); 
             $post->term = $request->input('term');       
             $post->created_at = date('Y-m-d h:i:s');
@@ -100,7 +101,8 @@ class AdminPostController extends Controller
             if ($request->file('image') != '') {
                 $post->image = \Helper::fileuploadExtra($request, 'image');
             }
-            $post->post_type = 'blog';     
+            $post->post_type = 'blog';   
+            $post->template = 'Template.SinglePost';
             $post->term = $request->input('term');         
             $post->status = $request->input('status');
     	    $post->updated_at = date('Y-m-d h:i:s');
