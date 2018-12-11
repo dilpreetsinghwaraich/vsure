@@ -19,10 +19,12 @@ class RegisterController extends Controller
             'phone' => 'required|numeric|phone_number|unique:users',
             'password' => 'required|string|min:8|max:14|required_with:confirmed|same:confirmed',
         );
-
     }
     public function registerForm()
     {
+        if (!empty(session('token'))) {
+            return redirect('my-account');
+        }
         $view = 'Auth.Register';
         return view('Includes.commonTemplate',compact('view'));
     }

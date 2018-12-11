@@ -17,8 +17,9 @@ class NotificationsController extends Controller
     public function notifications()
     {
     	$inboxs = NotificationInbox::where('receiver_id', Helper::getCurrentUserByKey('user_id'))->get(); 
-        echo view('Notifications.Notifications', compact('inboxs'));
-        die;
+        $html = view('Notifications.Notifications', compact('inboxs'));
+        $view = 'Dashboard.Dashboard';
+        return view('Includes.commonTemplate',compact('view','html'));
     }
     public function save(Request $request)
     {
@@ -46,9 +47,5 @@ class NotificationsController extends Controller
         $inbox->save();
         $user = Helper::getUser(1);
         Helper::SendEmail($user->email, $request->input('subject'), $request->input('message'), '');
-
-        $inboxs = NotificationInbox::where('receiver_id', Helper::getCurrentUserByKey('user_id'))->get(); 
-        echo view('Notifications.Notifications', compact('inboxs'));
-        die;
     }
 }

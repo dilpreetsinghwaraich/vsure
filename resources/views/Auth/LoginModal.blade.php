@@ -22,7 +22,7 @@
               <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
               <a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
             </div> -->
-            <button class="forgot-btn" type="button">Forgot Your Password?</button>
+            <button class="forgot-btn" id="forgotPasswordClick" type="button">Forgot Your Password?</button>
           </form>
         </div>
         <div class="modal-footer">
@@ -31,6 +31,29 @@
         </div>
       </div>
       
+    </div>
+  </div>
+</div>
+<div class="header">
+  <div class="modal fade" id="ForgotPasswordModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sign in</h4>
+        </div>
+        <div class="modal-body">
+          <?php echo Form::open(array('url' => 'auth/forgot/password','id'=>'authForgotPassword', 'method' => 'post','files'=>true)) ?>
+            <div class="image">
+            <img src="<?php echo asset('/public/images') ?>/login_image.png">
+            </div>
+            <div class="messageResponsed"></div>
+            <label>Login ID, Email ID OR Phone Number</label>
+            <input class="email" type="text" placeholder="Login ID, Email ID OR Phone Number" name="user_login" required>          
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>      
     </div>
   </div>
 </div>

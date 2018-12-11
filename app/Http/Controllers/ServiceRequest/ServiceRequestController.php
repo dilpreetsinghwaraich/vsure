@@ -19,8 +19,9 @@ class ServiceRequestController extends Controller
     public function serviceRequest()
     {
         $serviceRequests = ServiceRequest::where('user_id', Helper::getCurrentUserByKey('user_id'))->get();
-        echo view('ServiceRequest.serviceRequest',compact('serviceRequests'));
-        die;
+        $html = view('ServiceRequest.serviceRequest',compact('serviceRequests'));
+        $view = 'Dashboard.Dashboard';
+        return view('Includes.commonTemplate',compact('view','html'));
     }
     public function index($ticket = '')
     {

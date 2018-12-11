@@ -13,9 +13,10 @@ class ProfileController extends Controller
 {
     public function profile()
     {
-    	$profile =  Helper::getCurrentUser();
-        echo view('Profile.Profile',compact('profile'));
-        die;
+    	$profile =  Helper::getCurrentUser(); 
+        $html = view('Profile.Profile',compact('profile'));
+        $view = 'Dashboard.Dashboard';
+        return view('Includes.commonTemplate',compact('view','html'));
     }
     public function updateProfileImage(Request $request)
     {
@@ -36,8 +37,9 @@ class ProfileController extends Controller
     {
     	$profile =  Helper::getCurrentUser();
         $states = DB::table('state_city')->select('state')->groupBy('state')->orderBy('state','asc')->get()->toArray();
-        echo view('Profile.EditProfile',compact('profile','states'));
-        die;
+        $html = view('Profile.EditProfile',compact('profile','states'));
+        $view = 'Dashboard.Dashboard';
+        return view('Includes.commonTemplate',compact('view','html'));
     }
     public function getStateCity($state)
     {

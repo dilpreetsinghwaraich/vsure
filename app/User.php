@@ -81,12 +81,35 @@ class User extends Authenticatable
         Session::forget('token');
         return ['error' => false,'message'=>'Logout Successfully','token'=>''];
     }
-    public function rules()
+    protected function forgotPassword($request)
     {
-        $user_id = \Route::current()->getParameter('user_id');
-        return [
-          'name' => 'required',
-          'email' => 'unique:users,email,'.$user_id.'|email|required',
-        ];
+        $user = User::where(function($query) use($request){
+                    if (!empty($request->input('user_login'))) {
+                        $query->orwhere('user_login', $request->input('user_login'))
+                            ->orwhere('email', $request->input('user_login'))
+                            ->orwhere('phone', $request->input('user_login'));
+                    }
+                })
+                ->get()
+                ->first();
+        if (!empty($user)) {
+
+            $activation_key = sha1(mt_rand(10000,99999).time().$user->email);
+            $resetPasswordInsert = [];
+            $resetPasswordInsert['user_id'] = $user->user_id;
+            $resetPasswordInsert['email'] = $user->email;
+            $resetPasswordInsert['token'] = $activation_key;
+            $resetPasswordInsert['created_at'] = date('Y-m-d h:i:s');
+            $resetPasswordInsert['updated_at'] = date('Y-m-d h:i:s');
+            DB::table('users_password_reset')->insert($resetPasswordInsert);
+            $link = url('auth/reset/forgot/password/'.$activation_key);
+            $htmlmessage = 'Please click on this <a href="'.$link.'">Link</a> to reset your password';
+            Helper::SendEmail($user->email,'Reset Your password at VsureCFO',$htmlmessage, '');
+            Helper::SendSMS($user->phone,$htmlmessage);
+            return ['error' => false,'message'=>'To reset your password link send on email'];
+            
+        }else{
+            return ['error' => true,'message'=>'Inavlid Credentials, Incorrect email, user_login Or phone number'];
+        }
     }
 }

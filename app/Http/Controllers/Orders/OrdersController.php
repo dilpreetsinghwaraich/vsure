@@ -19,15 +19,17 @@ class OrdersController extends Controller
     public function orders()
     {
         $orders = Orders::where('user_id',Helper::getCurrentUserByKey('user_id'))->paginate(50);
-        echo view('Orders.Orders', compact('orders'));
-        die;
+        $profile =  Helper::getCurrentUser(); 
+        $html = view('Orders.Orders', compact('orders','profile'));
+        $view = 'Dashboard.Dashboard';
+        return view('Includes.commonTemplate',compact('view','html'));
     }
     public function orderView($invoice_id = null)
     {        
         $order = Orders::where('invoice_id',$invoice_id)->first();
-
-        echo Helper::createInvoice($order,'');
-        die;
+        $html = Helper::createInvoice($order,'');
+        $view = 'Dashboard.Dashboard';
+        return view('Includes.commonTemplate',compact('view','html'));
     }
     public function pdf($invoice_id = null)
     {
@@ -78,6 +80,8 @@ class OrdersController extends Controller
 
         $serviceRequest->company_details = Helper::maybe_unserialize($serviceRequest->company_details);
 
-        return Helper::viewInvoice($order, '', $serviceRequest, $serviceForm);
+        $html = Helper::viewInvoice($order, '', $serviceRequest, $serviceForm);
+        $view = 'Dashboard.Dashboard';
+        return view('Includes.commonTemplate',compact('view','html'));
     }
 }

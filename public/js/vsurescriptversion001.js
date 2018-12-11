@@ -236,7 +236,7 @@ jQuery(document).ready(function($) {
                 alert('Message is empty');
                 return false;
             }
-            $('#dashboardViw').html(data);            
+            window.location.reload();      
         })
         .fail(function() {
             console.log("error");
@@ -313,7 +313,46 @@ jQuery(document).ready(function($) {
         }
         $('.'+tabID).click();
     });
-    
+    $(document).on('click', '#forgotPasswordClick', function(event) {
+        event.preventDefault();
+        $('#loginModal').modal('hide');
+        $('#ForgotPasswordModal').modal('show');
+    });
+    $(document).on('submit', '#authForgotPassword', function(event) {
+        event.preventDefault();
+        var current = $(this);
+        var url = current.attr('action');
+        var dataString = current.serialize();
+        current.find('.messageResponsed').html('');
+        if (current.find('.email').val() == '') {
+            current.find('.messageResponsed').html('<div class="alert alert-warning">Login ID, Email ID OR Phone Number is required</div>');
+            return false;
+        }        
+        $.ajax({
+            url: url,
+            type: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: dataString,
+        })
+        .done(function(result) {
+            var data = jQuery.parseJSON(result);            
+            current.find('.messageResponsed').html(data.message);
+            if (data.status == 'true') {
+                $('#authForgotPassword')[0].reset();
+                return false;
+            }
+            return false;
+        })
+        .fail(function() {
+            current.find('.messageResponsed').html('<div class="alert alert-warning">Something Went Wrong, Please try after sometime.</div>');
+            return false;
+        });
+    });
+    $('#uploadDocumentButton').click(function(event) {
+        $('#uploadDocumentModal').toggle('slow');
+    });
 });
 function isValidEmailAddress(emailAddress) {
     var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);

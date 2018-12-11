@@ -1,31 +1,68 @@
 <h2>My Documents</h2>
 	<div class="content-main">
 	<div class="upload-btn">
-		<a href="">+</a>
+		<a href="javascript:void(0);" id="uploadDocumentButton">+</a>
 		<p>Add Document</p>
+	</div>
+	<div class="col-lg-12">
+		@if (Session::has('success'))
+          <div class="alert alert-info">{{ Session::get('success') }}</div>
+        @endif
+        @if (Session::has('warning'))
+          <div class="alert alert-warning">{{ Session::get('warning') }}</div>
+          <style type="text/css">
+          	#uploadDocumentModal{
+          		display: block !important;
+          	}
+          </style>
+        @endif
+        @if (Session::has('error'))
+          <div class="alert alert-danger">{{ Session::get('error') }}</div>
+          <style type="text/css">
+          	#uploadDocumentModal{
+          		display: block !important;
+          	}
+          </style>
+        @endif
+	</div>
+	<div class="col-lg-12 col-xs-12" id="uploadDocumentModal" style="display: none;">
+		<div class="row">
+			<div class="col-md-3">
+				<?php echo Form::open(array('url' => 'user/upload/document', 'method' => 'post','files'=>true)) ?>
+					<div class="form-group">
+						<label>Select Document Type</label>
+						<select name="type" id="type" class="form-control" required="">
+							<option value="">Select</option>
+							<option value="Aadhar Card">Aadhar Card</option>
+							<option value="Drivery Licence">Drivery Licence</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>File</label>
+						<input type="file" name="file" id="file" accept="image/*" required="">
+					</div>
+					<div class="form-group">
+						<input type="submit" name="submit" class="btn btn-success" value="Upload">
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 	<div class="col-lg-12 col-xs-12">
 	   	<div class="row">
-			<div class="documents-page-document-main col-lg-3 col-md-6 col-sm-6 col-xs-12">
-				<img src="<?php echo asset('/public'); ?>/images/doc-image.jpg">
-				<p class="document-name">Adhar Card</p>
-				<a class="document-date">20/09/2018</a>
-			</div>
-			<div class="documents-page-document-main col-lg-3 col-md-6 col-sm-6 col-xs-12">
-				<img src="<?php echo asset('/public'); ?>/images/doc-image.jpg">
-				<p class="document-name">Adhar Card</p>
-				<a class="document-date">20/09/2018</a>
-			</div>
-			<div class="documents-page-document-main col-lg-3 col-md-6 col-sm-6 col-xs-12">
-				<img src="<?php echo asset('/public'); ?>/images/doc-image.jpg">
-				<p class="document-name">Adhar Card</p>
-				<a class="document-date">20/09/2018</a>
-			</div>
-			<div class="documents-page-document-main col-lg-3 col-md-6 col-sm-6 col-xs-12">
-				<img src="<?php echo asset('/public'); ?>/images/doc-image.jpg">
-				<p class="document-name">Adhar Card</p>
-				<a class="document-date">20/09/2018</a>
-			</div>
+	   		<?php 
+	   		if (!empty($documents)) {
+	   			foreach ($documents as $document) {
+	   				?>
+   					<div class="documents-page-document-main col-lg-3 col-md-6 col-sm-6 col-xs-12">
+   						<img src="<?php echo asset('/'.$document->file); ?>">
+   						<p class="document-name"><?php echo $document->type ?></p>
+   						<a class="document-date"><?php echo date('M, d Y h:i A', strtotime($document->created_at)); ?></a>
+   					</div>
+	   				<?php
+	   			}
+	   		}
+	   		?>
 	   	</div>
 	</div>
 </div>

@@ -27,6 +27,9 @@ Route::get('/service/{service_slug?}', 'Service\ServiceController@partnershipFir
 Route::get('auth/register','Auth\RegisterController@registerForm');
 Route::post('auth/register','Auth\RegisterController@create');
 Route::post('/auth/login', 'Auth\LoginController@loginAccess');
+Route::post('/auth/forgot/password', 'Auth\ForgotPasswordController@forgotPassword');
+Route::get('/auth/reset/forgot/password/{activation_key?}', 'Auth\ForgotPasswordController@resetForgotPassword');
+Route::post('/auth/reset/forgot/password/{activation_key?}', 'Auth\ForgotPasswordController@updateForgotPassword');
 Route::get('/auth/logout', 'Auth\LoginController@logout');
 Route::group(['middleware' => 'userToken'], function () {
 	Route::get('/my-account', 'Dashboard\DashboardController@dashboard');
@@ -51,6 +54,7 @@ Route::group(['middleware' => 'userToken'], function () {
 	Route::post('/submit/help/desk/ticket/{ticket?}', 'ServiceRequest\ServiceRequestController@update');
 
 	Route::get('/my-documents', 'Document\DocumentController@document');
+	Route::post('/user/upload/document', 'Document\DocumentController@uploadDocument');
 
 	Route::get('/my-notifications', 'Notifications\NotificationsController@notifications');
 	Route::post('/send/notification', 'Notifications\NotificationsController@save');
