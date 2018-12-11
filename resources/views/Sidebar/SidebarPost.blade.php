@@ -39,6 +39,7 @@ if ($type == 'blog' || $type == 'modal') {
   </style>
 
   <div class="banners-service-page <?php echo $cls; ?>">
+      <h4>Please fill up this enquiry form to continue your order</h4>
     <?php 
       if ($type == 'modal') {
         ?>
