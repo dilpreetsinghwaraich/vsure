@@ -14,9 +14,9 @@
     <div class="text-center">
         <div class="logedin-profile-page">
             <div class="row">               
-               	<div class="col-lg-3 col-xs-12 sidebar">
+               	<div class="col-lg-3 col-xs-12 sidebar my-account-sidebar-menu">
         					<h2>Menu</h2>
-        					<a class="active " href="<?php echo url('my-account'); ?>" data-url="<?php echo url('my-profile'); ?>">My Profile</a>
+        					<a class=" " href="<?php echo url('my-account'); ?>" data-url="<?php echo url('my-profile'); ?>">My Profile</a>
         					<a class=" " href="<?php echo url('my-order') ?>" data-url="<?php echo url('my-order'); ?>">My Orders</a>
         					<a class=" " href="<?php echo url('my-documents') ?>" data-url="<?php echo url('my-documents'); ?>">My Documents</a>
         					<a class=" " href="<?php echo url('my-deliverable') ?>" data-url="<?php echo url('my-deliverable'); ?>">My Deliverable</a>
