@@ -44,6 +44,6 @@
 		<p class="profile-city"><span>City</span><?php echo $profile->city; ?></p>
 		<p class="profile-state"><span>State</span><?php echo $profile->state; ?></p>
 		<p class="profile-country"><span>Country</span><?php echo $profile->country. (!empty($profile->postal_code)?'('.$profile->postal_code.')':''); ?></p>
-		<a class="profile-edit-btn dashboardLink" href="<?php echo url('/my-account') ?>" data-url="<?php echo url('edit/profile') ?>">Edit Profile</a>
+		<a class="profile-edit-btn" href="<?php echo url('/edit/profile') ?>" data-url="<?php echo url('edit/profile') ?>">Edit Profile</a>
 	</div>
 </div>                  

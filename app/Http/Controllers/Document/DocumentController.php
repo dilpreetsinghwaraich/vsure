@@ -38,4 +38,15 @@ class DocumentController extends Controller
     	Session::flash('success', 'Document uploaded successfully');
         return Redirect::back();
     }
+    public function delete($u_document_id = null)
+    {
+        $document = UserDocuments::find($u_document_id);
+        if (empty($document->u_document_id)) {
+            Session::flash('error', 'Something went wrong, You are not authorized to delete this document');
+            return Redirect::back();
+        }
+        $document->delete();
+        Session::flash('success', 'Document deleted successfully');
+        return Redirect::back();
+    }
 }

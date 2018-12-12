@@ -24,7 +24,7 @@ class AdminPackagesController extends Controller
         return array(
             'package_title' => 'required',
             'regular_price' => 'required|max:999999999|integer',
-            'sale_price' => 'max:999999999|integer',
+            //'sale_price' => 'max:999999999|integer',
             'package_content' => 'required',
             'package_terms' => 'required',
             'status' => 'required',

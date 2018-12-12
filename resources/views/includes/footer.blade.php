@@ -96,7 +96,7 @@
       </div>
       <div class="row">
         <div class="col-lg-8 col-xs-12">
-          <p>Copyright 2012 - 2017 VSure Consulting  |  All Rights Reserved </p>
+          <p>Copyright 2012 - 2018 VSure Consulting  |  All Rights Reserved </p>
         </div>
       </div>
     </div>

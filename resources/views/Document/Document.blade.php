@@ -58,6 +58,7 @@
    						<img src="<?php echo asset('/'.$document->file); ?>">
    						<p class="document-name"><?php echo $document->type ?></p>
    						<a class="document-date"><?php echo date('M, d Y h:i A', strtotime($document->created_at)); ?></a>
+   						<a href="<?php echo url('user/delete/uploaded/document/'.$document->u_document_id) ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
    					</div>
 	   				<?php
 	   			}

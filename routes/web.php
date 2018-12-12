@@ -55,11 +55,12 @@ Route::group(['middleware' => 'userToken'], function () {
 
 	Route::get('/my-documents', 'Document\DocumentController@document');
 	Route::post('/user/upload/document', 'Document\DocumentController@uploadDocument');
+	Route::get('/user/delete/uploaded/document/{u_document_id?}', 'Document\DocumentController@delete');
 
 	Route::get('/my-notifications', 'Notifications\NotificationsController@notifications');
 	Route::post('/send/notification', 'Notifications\NotificationsController@save');
 
-	Route::get('/my-deliverable', 'Deliverable\DeliverableController@deliverable');
+	Route::get('/my-deliverable1', 'Deliverable\DeliverableController@deliverable');
 
 	Route::get('select/service/packages/{ticket?}', 'Checkout\CheckoutController@servicePackages');
 	Route::get('checkout/{package_id?}', 'Checkout\CheckoutController@checkout');
