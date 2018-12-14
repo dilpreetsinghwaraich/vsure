@@ -1,4 +1,33 @@
- 
+  
+<?php 
+$sliderImages = Helper::getSlider();
+if (!empty($sliderImages)) {
+  $active = 'active';
+  ?>
+    <div class="vsure-home-page-slider">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <?php
+          foreach ($sliderImages as $sliderImage) {
+            ?>
+              <div class="item active">
+                <img src="<?php echo asset('/'.$sliderImage->image); ?>" alt="<?php echo $sliderImage->post_title ?>" style="width:100%;">
+                <div class="carousel-caption">
+                  <h2><?php echo $sliderImage->post_title ?></h2>              
+                  <?php echo $sliderImage->post_content ?>
+                </div>
+              </div>
+            <?php
+          }
+          ?>          
+        </div>
+      </div>
+    </div> 
+  <?php
+}
+?>
+            
+
   <div class="header">
     <div class="bg-color" style="background-image: url('<?php echo asset('/public'); ?>/images/home-back.jpg')">
       <div class="wrapper">
@@ -301,4 +330,3 @@
   <?php echo Helper::latestBlogSection(); ?>
   <!-- blog end-->
   
-<?php echo Helper::HomeSubscribePopup(); ?>

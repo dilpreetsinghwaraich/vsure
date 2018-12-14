@@ -37,6 +37,7 @@
           if ($user->role == 'admin') {
           ?>
           <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/pages'); ?>"><span class="icon-holder"><i class="c-red-500 ti-files"></i> </span><span class="title">Pages</span></a></li> 
+          <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/sliders'); ?>"><span class="icon-holder"><i class="c-red-500 ti-files"></i> </span><span class="title">Sliders</span></a></li>
           <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/menus'); ?>"><span class="icon-holder"><i class="c-teal-500 ti-view-list-alt"></i> </span><span class="title">Menus</span></a></li>  
           <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/users'); ?>"><span class="icon-holder"><i class="c-pink-500 ti-palette"></i> </span><span class="title">Users</span></a></li>            
           <li class="nav-item"><a class="sidebar-link" href="<?php echo url('admin/orders'); ?>"><span class="icon-holder"><i class="c-orange-500 ti-layout-list-thumb"></i> </span><span class="title">Orders</span></a></li> 

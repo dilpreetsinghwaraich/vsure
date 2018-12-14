@@ -296,7 +296,10 @@ class Helper
     {
     	return Terms::find($term_id);
     }
-
+    public static function getSlider()
+    {
+    	return Post::where('post_type','slider')->get();
+    }
     public static function latestBlogSection()
     {
     	$posts = Post::whereIn('post_type', ['blog'])->orderBy('created_at', 'DESC')->paginate(4);

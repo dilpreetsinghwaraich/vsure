@@ -211,6 +211,14 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::get('/admin/generate/pdf/{order_id?}', 'Admin\Orders\AdminOrdersController@pdf');
 	Route::get('/admin/order/send/invoice/mail/{order_id?}', 'Admin\Orders\AdminOrdersController@sendOrderInvoiceMail');
 
+	/******update delete edit view post******/
+	Route::get('/admin/sliders', 'Admin\Slider\AdminSliderController@index');
+	Route::get('/admin/add/slider', 'Admin\Slider\AdminSliderController@add');
+	Route::post('/admin/save/slider', 'Admin\Slider\AdminSliderController@save');
+	Route::get('/admin/edit/slider/{post_id?}', 'Admin\Slider\AdminSliderController@edit');
+	Route::post('/admin/update/slider/{post_id?}', 'Admin\Slider\AdminSliderController@update');
+	Route::get('/admin/delete/slider/{post_id?}', 'Admin\Slider\AdminSliderController@delete');
+
 });
 Route::get('/thank-you', function(){
 	$data = [];
