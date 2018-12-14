@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/animate.css">
 <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/style.css">
 <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/default-style.css">
+<link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/res.css">
 <link rel="icon" href="<?php echo asset('/public'); ?>/images/favicon.png" type="image/gif" sizes="64x64">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <base href="<?php echo url('/'); ?>">

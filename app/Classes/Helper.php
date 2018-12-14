@@ -308,6 +308,10 @@ class Helper
     	$services = Services::get();
     	return view('Sidebar.SidebarPost', compact('states','services','type','service'));
     }
+    public static function HomeSubscribePopup()
+    {
+    	return view('Sidebar.HomeSubscribePopup');
+    }
     public static function similarPosts($post)
     {
     	$posts = Post::whereIn('post_type', ['blog'])->where('term', $post->term)->where('post_id', '!=', $post->post_id)->orderBy('created_at', 'DESC')->paginate(3);

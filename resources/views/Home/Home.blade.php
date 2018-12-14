@@ -301,3 +301,4 @@
   <?php echo Helper::latestBlogSection(); ?>
   <!-- blog end-->
   
+<?php echo Helper::HomeSubscribePopup(); ?>
