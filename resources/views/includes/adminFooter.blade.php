@@ -17,8 +17,27 @@
 <script src="<?php echo asset('/'); ?>/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
 <script type="text/javascript" src="<?php echo asset('public/admin/js') ?>/admin-script.js"></script>
 <script type="text/javascript" src="<?php echo asset('public/admin/js') ?>/admin-script-form.js"></script>
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=u5p3cf64j8j7wp09b9a0ljapn7aoinn4n3lqx10cwp9pefmn"></script>
 <script>
-    $('.textarea').ckeditor();
+tinymce.init({
+  selector: '.textarea',
+  height: 500,
+  theme: 'modern',
+  plugins: 'print preview fullpage powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount tinymcespellchecker a11ychecker imagetools mediaembed  linkchecker contextmenu colorpicker textpattern help',
+  toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+  image_advtab: true,
+  templates: [
+    { title: 'Test template 1', content: 'Test 1' },
+    { title: 'Test template 2', content: 'Test 2' }
+  ],
+  content_css: [
+    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+    '//www.tinymce.com/css/codepen.min.css'
+  ]
+ });
+</script>
+<script>
+   // $('.textarea').ckeditor();
     // $('.textarea').ckeditor(); // if class is prefered.
 </script>
 <script type="text/javascript">
