@@ -78,7 +78,7 @@
                                     null, 
                                     ['class' => 'post_share_item', 'id' => 'googlePlus_share']
                                   )->googlePlus(); 
-                    ?>
+                  ?>
                 </ul>
               </div>
             </div>
@@ -101,9 +101,24 @@
               <div class="post_meta"><a href="#"><?php echo $author->name; ?></a><span><?php echo date('M, d Y  h:i A', strtotime($post->created_at)); ?></span></div>
               <div class="post_share ml-sm-auto"> <span>share</span>
                 <ul class="post_share_list">
-                  <li class="post_share_item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                  <li class="post_share_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                  <li class="post_share_item"><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                  <?php 
+                    echo Share::page(
+                                  Request::url(), 
+                                  null, 
+                                  ['class' => 'post_share_item', 'id' => 'facebook_share']
+                                )
+                                ->facebook(); 
+                    echo Share::page(
+                                    Request::url(), 
+                                    null, 
+                                    ['class' => 'post_share_item', 'id' => 'twitter_share']
+                                  )->twitter(); 
+                    echo Share::page(
+                                    Request::url(), 
+                                    null, 
+                                    ['class' => 'post_share_item', 'id' => 'googlePlus_share']
+                                  )->googlePlus(); 
+                  ?>
                 </ul>
               </div>
             </div>

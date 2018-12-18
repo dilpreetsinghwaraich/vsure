@@ -21,6 +21,7 @@ Route::get('/blog', 'Blog\BlogController@blog');
 Route::post('/contact/us/submit', 'Contact\ContactController@contactUsSubmit');
 Route::post('/phone/otp/send/varification', 'Contact\ContactController@phoneOtpSendVarification');
 Route::post('/submit/service/enquery', 'Contact\ContactController@enquerySubmit');
+Route::post('/email/subscribe', 'Contact\ContactController@emailSubscribe');
 
 Route::get('/service/{service_slug?}', 'Service\ServiceController@partnershipFirmRegistration');
 
@@ -68,6 +69,9 @@ Route::group(['middleware' => 'userToken'], function () {
 
 	Route::get('checkout/invoice/{invoice_id?}', 'Checkout\CheckoutController@checkoutInvoive');
 	Route::post('payment/{invoice_id?}', 'Razorpay\RazorpayController@payment')->name('payment');
+
+	Route::get('paypal/{invoice_id?}', 'Paypal\PaypalController@postPaymentWithPaypal');
+	Route::post('paypal/complete', 'Paypal\PaypalController@getPaymentStatus');
 });
 
 Route::get('/admin/login', 'Admin\Auth\LoginController@login');
@@ -226,5 +230,11 @@ Route::get('/thank-you', function(){
     $data['view'] = 'Pages.Success';
 	return view('Includes.commonTemplate',$data);
 });
-Route::get('/{slug?}', 'Home\HomeController@singlePage');
+Route::get('/cancel', function(){
+	$data = [];
+	$data['title'] = 'Thank You';
+    $data['view'] = 'Pages.Error';
+	return view('Includes.commonTemplate',$data);
+});
 Route::post('/post/save/comment', 'Comments\CommentsController@save');
+Route::get('/{slug?}', 'Home\HomeController@singlePage');

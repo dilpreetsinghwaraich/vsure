@@ -16,7 +16,9 @@
         "razorpay/razorpay": "^2.3",
         "spatie/laravel-newsletter": "^4.2",
         "tymon/jwt-auth": "^0.5.12",
-        "unisharp/laravel-ckeditor": "^4.7"
+        "unisharp/laravel-ckeditor": "^4.7",
+        "guzzlehttp/guzzle": "~5.2",
+        "paypal/rest-api-sdk-php": "*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

@@ -46,7 +46,7 @@ class UrlGenerator implements UrlGeneratorContract
     protected $forcedRoot;
 
     /**
-     * The forced scheme for URLs.
+     * The forced schema for URLs.
      *
      * @var string
      */
@@ -60,9 +60,8 @@ class UrlGenerator implements UrlGeneratorContract
     protected $cachedRoot;
 
     /**
-     * A cached copy of the URL scheme for the current request.
+     * A cached copy of the URL schema for the current request.
      *
-     * @deprecated In 5.8, this will change to $cachedScheme
      * @var string|null
      */
     protected $cachedSchema;
@@ -579,14 +578,14 @@ class UrlGenerator implements UrlGeneratorContract
     /**
      * Force the scheme for URLs.
      *
-     * @param  string  $scheme
+     * @param  string  $schema
      * @return void
      */
-    public function forceScheme($scheme)
+    public function forceScheme($schema)
     {
         $this->cachedSchema = null;
 
-        $this->forceScheme = $scheme.'://';
+        $this->forceScheme = $schema.'://';
     }
 
     /**

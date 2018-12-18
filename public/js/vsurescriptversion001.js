@@ -362,6 +362,41 @@ jQuery(document).ready(function($) {
     $('#facebook_share').html('<i class="fa fa-facebook" aria-hidden="true"></i>');
     $('#twitter_share').html('<i class="fa fa-twitter" aria-hidden="true"></i>');
     $('#googlePlus_share').html('<i class="fa fa-google" aria-hidden="true"></i>');
+
+    $(document).on('submit', '#emailSubscriber', function(event) {
+        event.preventDefault();
+        var current = $(this);
+        var url = current.attr('action');
+        var dataString = current.serialize();
+        current.find('.messageResponsedSubs').html('');
+        if (current.find('#subscribeEmail').val() == '') {
+            current.find('.messageResponsedSubs').html('<div class="alert alert-warning">Email is required</div>');
+            return false;
+        }        
+        else if(!isValidEmailAddress(current.find('#subscribeEmail').val()))
+        {
+            current.find('.messageResponsedSubs').html('<div class="alert alert-warning">The email must be a valid email address</div>');
+            return false;
+        }  
+        $.ajax({
+            url: url,
+            type: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: dataString,
+        })
+        .done(function(result) { 
+            current.find('.messageResponsedSubs').html(result);
+            $('#emailSubscriber')[0].reset(); 
+            ageCheck();        
+            return false;
+        })
+        .fail(function() {
+            current.find('.messageResponsed').html('<div class="alert alert-warning">Something Went Wrong, Please try after sometime.</div>');
+            return false;
+        });
+    });
 });
 function isValidEmailAddress(emailAddress) {
     var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
@@ -371,3 +406,21 @@ function AJAXURL(string) {
     var url = jQuery('base').attr('href');
     return url+'/'+string;
 }
+function ageCheck() {
+    var min_age = 19;  // Set the minimum age. 
+    var year =   parseInt(document.getElementById('byear').value);
+    var month =  parseInt(document.getElementById('bmonth').value);
+    var day =    parseInt(document.getElementById('bday').value);
+    var theirDate = new Date((year + min_age), month, day);
+    var today = new Date;
+    if ((today.getTime() - theirDate.getTime()) < 0) {
+        window.location = 'http://google.com/'; //enter domain url where you would like the underaged visitor to be sent to.
+    } else {
+        var days = 14; //number of days until they must go through the age checker again.
+        var date = new Date();
+        date.setTime(date.getTime()+(days*24*60*60*1000));
+        var expires = "; expires="+date.toGMTString();
+        document.cookie = 'isAnAdult=true;'+expires+"; path=/";
+        location.reload();
+    };
+};

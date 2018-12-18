@@ -544,14 +544,6 @@ class Command extends SymfonyCommand
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function isHidden()
-    {
-        return $this->hidden;
-    }
-
-    /**
      * Get the console command arguments.
      *
      * @return array

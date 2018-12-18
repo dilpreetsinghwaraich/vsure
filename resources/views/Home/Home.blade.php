@@ -357,4 +357,4 @@ if (!empty($sliderImages)) {
   <!-- blog-second start -->
   <?php echo Helper::latestBlogSection(); ?>
   <!-- blog end-->
-  
+  <?php echo Helper::HomeSubscribePopup(); ?>

@@ -140,7 +140,8 @@
                   </form>
                 <?php
               }
-              ?>                           
+              ?>    
+              <button onclick="window.location.href='<?php echo url('paypal/'.$order->invoice_id) ?>'">Paypal</button>
               <button onclick="Javascript:window.open('<?php echo url('generate/print/'.$order->invoice_id) ?>','','')">Print</button>
               <button onclick="Javascript:window.open('<?php echo url('generate/pdf/'.$order->invoice_id) ?>','','')">Generate PDF</button>
           </div>

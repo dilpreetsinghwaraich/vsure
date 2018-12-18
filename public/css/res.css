@@ -90,9 +90,9 @@ header#main-header .navbar>.container {
     background: #eee;
 }
 
-#prompt-background{
+/*#prompt-background{
 	display:none;
-}
+}*/
 .carousel-caption {
     right: 0%;
     left: 10%;

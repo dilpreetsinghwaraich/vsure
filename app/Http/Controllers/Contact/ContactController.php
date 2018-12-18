@@ -12,6 +12,7 @@ use App\Services;
 use App\ServiceRequest;
 use App\PhoneOtpVerification;
 use Illuminate\Support\Facades\Input;
+use Newsletter;
 class ContactController extends Controller
 {    
     public function contactUs()
@@ -164,5 +165,26 @@ class ContactController extends Controller
         $request->ticket = $ticket;
         $request->save();
         return $ticket;
+    }
+    public static $subscribeRules = array(
+        'email' => 'required|email',
+    );
+    public function emailSubscribe(Request $request)
+    {
+        $validation = Validator::make($request->all(), self::$subscribeRules);
+        if($validation->passes()){
+            $getMember = Newsletter::getMember($request->input('email'));
+            if (isset($getMember['id'])) {
+                echo '<div class="alert alert-warning">You are already subscribed</div>';
+                die;
+            }else{
+                Newsletter::subscribe($request->input('email'));
+                echo '<div class="alert alert-success">Your subscription completed successfully</div>';
+                die;
+            }            
+        }else{
+            echo '<div class="alert alert-warning">'.$validation->getMessageBag()->first().'</div>';
+            die;
+        }
     }
 }
