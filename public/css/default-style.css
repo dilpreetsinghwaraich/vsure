@@ -13,8 +13,8 @@
     src: url(../fonts/utsaah.ttf);
 }
 @font-face{
-    font-family: 'roboto.light';
-    src: url(../fonts/roboto.light.ttf);
+    font-family: 'roboto';
+    src: url(../fonts/roboto.ttf);
 }
 body {
     line-height: 1.4;
@@ -99,7 +99,7 @@ h1.bnr-title
 {
     font-size: 68px;
     font-family: 'roboto';
-    text-transform: uppercase;
+    text-transform:capitalize;
     letter-spacing: 2px;
 }
 .bnr-para
@@ -140,7 +140,7 @@ features
 {
     font-family: 'roboto';
     font-size: 40px;
-    text-transform: uppercase;
+    text-transform:capitalize;
     font-weight: bold;
 }
 .sub-title
@@ -223,7 +223,7 @@ features
 }
 .wrap-item p {
     font-size: 16px;
-    font-family: 'roboto.light';
+    font-family: 'roboto';
     margin-top: 10px;
 }
 
@@ -237,10 +237,14 @@ features
 .wrap-item p{
    color: #fff;
 }
-.wrap-item1 p{
-   color: #838387;
-   font-size: 14px;
-   margin-bottom: 35px;
+.wrap-item1 p {
+    font-size: 14px;
+    margin-bottom: 35px;
+    font-weight: 100;
+    color: #333;
+    font-family: roboto;
+    line-height: 25px;
+    text-align: left;
 }
 .wrap-item1 h3 {
     font-size: 24px;
@@ -251,10 +255,11 @@ features
     border: 3px solid #ececec;
     border-radius: 50px;
     line-height: 35px;
-    color: #9e9e9e;
+    color: #333;
     background: transparent;
     padding: 0 20px;
     margin-bottom: 30px;
+    font-size: 15px;
 }
 .pad-bt15 {
     padding-bottom: 15px;
@@ -268,7 +273,7 @@ features
     padding-bottom: 60px;
     color: #605f5f;
     font-size: 18px;
-    font-family: 'roboto.light';
+    font-family: 'roboto';
 }
 .pad-bt18 {
     padding-bottom: 15px;
@@ -290,7 +295,7 @@ features
     font-size: 16px;
     font-weight: bold;
     color: #002F2F;
-    text-transform: uppercase;
+    text-transform:capitalize;
     margin: 25px 0px;
     line-height: 1.7;
 }
@@ -322,7 +327,7 @@ ul.service-list li i
     opacity: 0.7;
     font-size: 75px;
     line-height: 1;
-    text-transform: uppercase;
+    text-transform:capitalize;
     letter-spacing: -5px;
     font-weight: 900;
     padding-right: 6px;
@@ -387,34 +392,58 @@ Blog
 ************************************
 ***********************************/
 
-.blog-img
-{
-    border: 1px solid #eee;
+.blog-img {
+    box-shadow: 0 0 10px 0 #eee;
     position: relative;
     margin-bottom: 20px;
     overflow: hidden;
-    padding: 0 5px;
+    padding: 5px 5px;
+    border: none;
 }
-
+.blog-img:hover{
+    box-shadow: 0 0 10px 0 #ccc;
+}
 .blog-img h2 {
     font-size: 16px;
-    color: #454040;
-   font-family: 'roboto';
-   text-transform: uppercase; 
+    color: #333;
+    font-family: 'roboto';
+    text-transform:capitalize;
+    text-align: left;
+    padding: 10px 0 10px 0;
 }
-.blog-img p{
-    font-size: 14px;
-    color: #454040;
-   font-family: 'roboto.light';
-   padding: 0px 2px;
-} 
+.blog-img h3{
+    padding: 10px 0;
+    color: #333;
+    margin: 0;
+    padding: 5px 0 13px 0;
+}
+/*.blog-img h2 a{
+    color: #333;
+}*/
+.blog-img h2 a{
+    color: #3cb54c;
+}
+
+.blog-img p {
+    font-size: 13px;
+    color: #666;
+    font-family: arial;
+    padding: 0px 2px;
+    text-align: left;
+    line-height: 22px;
+    text-align: left;
+    font-weight: 100;
+}
 .blog-img button {
     border: 2px solid #ececec;
-    border-radius: 30px;
+    border-radius: 10px;
     line-height: 35px;
     margin: 20px 50px;
     background: transparent;
-    padding: 3px 30px 0 30px;
+    padding: 3px 10px 0 10px;
+    color: #333;
+    font-family: roboto;
+    font-size: 17px;
 }
 
 
@@ -433,7 +462,7 @@ blog second
     font-size: 13px;
     color: #454040;
    font-family: 'roboto';
-   text-transform: uppercase; 
+   text-transform:capitalize;
    margin-left: 2px;
    padding: 10px;
    text-align: justify;
@@ -447,7 +476,7 @@ blog second
 .blog-img1 p{
     font-size: 14px;
     color: #454040;
-   font-family: 'roboto.light';
+   font-family: 'roboto';
    padding: 0px 2px;
    padding: 10px;
    text-align: justify;
@@ -544,6 +573,9 @@ input.footer_button {
     float: left;
     color:#fff;
     width: 150px;
+}
+ul.footer-links li a {
+    color: #fff;
 }
 
 /*Dropdown*/
@@ -649,6 +681,9 @@ SERVICE-PAGE-HEADER
     border-radius: 5px;
     font-weight: normal;
 }
+.banners-service-page input::placeholder { 
+    color: #fff; 
+}
 .banners-service-page .right-service-contact-form a {
     float: left;
     background: #36af3e;
@@ -668,13 +703,13 @@ section#pvt-ltd-company {
     float: left;
     width: 100%;
 }
-.pvt-ltd-company-main  h2{
+.pvt-ltd-company-main h2 {
     float: left;
     width: 100%;
-    font-size:30px;
-    text-transform:uppercase;
-    color:#333;
-    margin-bottom:0;
+    font-size: 30px;
+    text-transform: capitalize;
+    color: #333;
+    margin-bottom: 0;
 }
 .pvt-ltd-company-main  h3{
     float: left;
@@ -740,7 +775,7 @@ section#choose-pvt-ltd-company h2{
     float: left;
     width: 100%;
     font-size:35px;
-    text-transform:uppercase;
+    text-transform: capitalize;
     color:#fff;
 }
 section#choose-pvt-ltd-company p{
@@ -777,7 +812,7 @@ section#start-your-company h2{
     float: left;
     width: 100%;
     font-size:23px;
-    text-transform:uppercase;
+    text-transform: capitalize;
     color:#fff;
 }
 section#start-your-company h3{
@@ -855,7 +890,7 @@ section#service-page-doc-table h2 {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: #333;
     margin-bottom: 2em;
 }
@@ -868,7 +903,7 @@ section#service-page-doc-table table.table.table-condensed thead tr th {
     background: #3cb54c;
     padding: 15px !important;
     color:#fff;
-    text-transform:uppercase;
+    text-transform:capitalize;
     border: none;
 }
 section#service-page-doc-table table.table.table-condensed tbody tr td span {
@@ -904,7 +939,7 @@ section#service-pricing-section h2 {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: #333;
 }
 #service-pricing-section .col-md-3 {
@@ -1001,7 +1036,7 @@ section#service-page-radial-progress-bar h2{
     text-align: center;
     font-size: 30px;
     font-weight: bold;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: #333;
     margin-bottom: 2em;
 }
@@ -1209,7 +1244,7 @@ Contact us
 }
 .contact-page-banner h2{
     font-size: 17px;
-    text-transform:uppercase;
+    text-transform:capitalize;
 }
 .contact-page-banner h2 span{
     color:#3cb54c;
@@ -1223,7 +1258,7 @@ Contact us
     float: left;
     width: 100%;
     font-size: 30px;
-    text-transform: uppercase;
+    text-transform:capitalize;
     color: #333;
     margin-bottom: 0;
     font-weight:bold;
@@ -1303,7 +1338,7 @@ section#about-page-serve-you {
 }
 .about-page-banner h2{
     font-size: 17px;
-    text-transform:uppercase;
+    text-transform:capitalize;
 }
 .about-page-banner h2 span{
     color:#3cb54c;
@@ -1317,7 +1352,7 @@ section#about-page-serve-you {
     float: left;
     width: 100%;
     font-size: 30px;
-    text-transform: uppercase;
+    text-transform:capitalize;
     color: #333;
     margin-bottom: 0;
     font-weight:bold;
@@ -1660,17 +1695,16 @@ background-color: #97d14c;
     margin: 10px 0;
     padding: 5px;
 }
-.blog-post .right-service-contact-form a, 
-.blog-post .right-service-contact-form input,
-.blog-post .right-service-contact-form select, 
-.blog-post .right-service-contact-form h3,
-.blog-post .right-service-contact-form h2{
-    color: #fff;
+
+
+.blog-post .right-service-contact-form a, .blog-post .right-service-contact-form input, .blog-post .right-service-contact-form select, .blog-post .right-service-contact-form h3, .blog-post .right-service-contact-form h2 {
+    color: #666 !important;
     border-color: #fff;
-    background: #70ad47 !important;    
+    background: #fff;
     font-size: 17px;
     margin: 10px 0;
     padding: 5px;
+    box-shadow: 0 0 5px 0 #ccc;
 }
 .service .right-service-contact-form select{
     color: #fff;
@@ -1680,13 +1714,16 @@ background-color: #97d14c;
     margin: 10px 0;
     padding: 5px;
 }
+.blog-post input::placeholder {
+    color: #666;
+}
 .service .right-service-contact-form select option {
     color: #000;
 }
 .blog-post .right-service-contact-form {
     padding: 20px !important;
-    box-shadow: 0px 0px 7px 0px #70ad47 !important;
-    background: #70ad47 !important;
+    box-shadow: 0px 0px 7px 0px #333 !important;
+    background: #fff;
 }
 .service button {
     font-size: 14px !important;

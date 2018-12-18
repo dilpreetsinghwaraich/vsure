@@ -137,6 +137,7 @@ if (empty(session('token'))) {
 <script src="<?php echo asset('/public'); ?>/js/custom.js"></script> 
 <script src="<?php echo asset('/public'); ?>/js/vsurescriptversion001.js"></script> 
 <script src="<?php echo asset('/public'); ?>/js/post.js"></script>
+<script src="<?php echo asset('/public'); ?>/js/share.js"></script>
 <script>
 $(document).ready(function() {
   $(".scrollTopClick").click(function() {

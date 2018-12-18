@@ -30,10 +30,31 @@
     <div class="bg-color">
       <header id="main-header">
         <nav class="navbar navbar-default navbar-fixed-top">
-          <div class="container">
+
+         <div class="vsure-header-top">
+          <div class="row">
+            <div class="col-md-3 col-xs-4 col-sm-4">
+              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            </div>
+
+            <div class="col-md-9 col-xs-8 col-sm-8">
+              <ul> 
+                <li><a href="">Sign in</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="">Demo</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-              <a href="<?php echo url('/') ?>"> <img src="<?php echo asset('/public'); ?>/images/logo.png" style="width: 240px; "></a> </div>
+              <a href="<?php echo url('/') ?>"> <img class="vsure-logo-image" src="<?php echo asset('/public'); ?>/images/logo.png" style="width: 240px; "></a> 
+              <a class="navbar-sign-in-button" href="#">sign in</a>
+              </div>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav navbar-right">
                 <?php echo Helper::getServiceSubMenu(); ?>

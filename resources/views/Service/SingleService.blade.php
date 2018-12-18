@@ -179,7 +179,7 @@ if (isset($service_short_info['image']) && !empty($service_short_info['image']))
   <section id="service-page-doc-table" class="section-padding wow fadeInUp delay-05s" style="visibility: hidden; animation-name: none;">
     <div class="container">
       <h2><?php echo (isset($service_document['title'])?$service_document['title']:'') ?></h2>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-btm-10">
+      <div class="single-service-table col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-btm-10">
         <table class="table table-condensed">
           <thead>
             <tr>

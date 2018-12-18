@@ -10,16 +10,27 @@ if (!empty($sliderImages)) {
           <?php
           foreach ($sliderImages as $sliderImage) {
             ?>
-              <div class="item active">
-                <img src="<?php echo asset('/'.$sliderImage->image); ?>" alt="<?php echo $sliderImage->post_title ?>" style="width:100%;">
+              <div class="item <?php echo $active; ?>">
+                <img src="<?php echo asset('/'.$sliderImage['image']); ?>" alt="<?php echo $sliderImage['post_title'] ?>" style="width:100%;">
                 <div class="carousel-caption">
-                  <h2><?php echo $sliderImage->post_title ?></h2>              
-                  <?php echo $sliderImage->post_content ?>
+                  <h2><?php echo $sliderImage['post_title'] ?></h2>              
+                  <?php echo $sliderImage['post_content'] ?>                  
                 </div>
               </div>
             <?php
+            $active = '';
           }
           ?>          
+        
+         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="fa fa-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="fa fa-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a>
+
         </div>
       </div>
     </div> 
@@ -27,16 +38,33 @@ if (!empty($sliderImages)) {
 }
 ?>
             
-
+<div class="vsure-homepage-clients-icons">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-sm-3 col-xs-6">
+				<img src="<?php echo asset('public/images/logo.png') ?>">
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-6">
+				<img src="<?php echo asset('public/images/logo.png') ?>">
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-6">
+				<img src="<?php echo asset('public/images/logo.png') ?>">
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-6">
+				<img src="<?php echo asset('public/images/logo.png') ?>">
+			</div>
+		</div>
+	</div>
+</div>
   <div class="header">
     <div class="bg-color" style="background-image: url('<?php echo asset('/public'); ?>/images/home-back.jpg')">
       <div class="wrapper">
-        <div class="banner-info banners-home wow fadeIn delay-05s animated" style="visibility: visible; animation-name: fadeIn;">
+        <div class="banner-info home-page-banner-info banners-home wow fadeIn delay-05s animated" style="visibility: visible; animation-name: fadeIn;">
           <h1 class="bnr-title  text-center gallery">STARTUP SOLUTION</h1>
           <div class="col-lg-3 col-md-2 col-sm-2 col-xs-12"> </div>
           <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12 margin-btm-10">
             <div class="row">
-              <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
                 <a href="<?php echo url('service/private-limited-company-incorporation') ?>">
                   <div class="wrap-item">
                     <div class="item-img"> <img src="<?php echo asset('/public'); ?>/images/icon1.png"> </div>
@@ -45,7 +73,7 @@ if (!empty($sliderImages)) {
                   </div>
                 </a>
               </div>
-              <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
                 <a href="<?php echo url('service/public-limited-company-registration') ?>">
                   <div class="wrap-item">
                     <div class="item-img"> <img src="<?php echo asset('/public'); ?>/images/icon2.png"> </div>
@@ -54,7 +82,7 @@ if (!empty($sliderImages)) {
                   </div>
                 </a>
               </div>
-              <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
                 <a href="<?php echo url('service/one-person-company-registration') ?>">
                   <div class="wrap-item">
                     <div class="item-img"> <img src="<?php echo asset('/public'); ?>/images/icon3.png"> </div>
@@ -71,7 +99,7 @@ if (!empty($sliderImages)) {
           <div class="col-lg-3 col-md-2 col-sm-2 col-xs-12"> </div>
           <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12 gallery">
             <div class="row">
-              <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
                 <a href="<?php echo url('service/llp-incorporation') ?>">
                   <div class="wrap-item ">
                     <div class="item-img"> <img src="<?php echo asset('/public'); ?>/images/icon4.png"> </div>
@@ -80,7 +108,7 @@ if (!empty($sliderImages)) {
                   </div>
                 </a>
               </div>
-              <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
                 <a href="<?php echo url('service/partnership-firm-registration') ?>">
                   <div class="wrap-item">
                     <div class="item-img"> <img src="<?php echo asset('/public'); ?>/images/icon5.png"> </div>
@@ -89,7 +117,7 @@ if (!empty($sliderImages)) {
                   </div>
                 </a>
               </div>
-              <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
                 <a href="<?php echo url('service/proprietorship-firm') ?>">
                   <div class="wrap-item">
                     <div class="item-img"> <img src="<?php echo asset('/public'); ?>/images/icon6.png"> </div>
@@ -130,7 +158,7 @@ if (!empty($sliderImages)) {
       </div>
       <div class="row">
         <div class="col-lg-12  service1">
-          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 line text-center">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 line text-center">
             <a href="<?php echo url('service/food-license-registration') ?>">
               <div class="wrap-item pad30">
                 <div class="item-img"> <img src="<?php echo asset('/public'); ?>/images/food.png"> </div>
@@ -139,7 +167,7 @@ if (!empty($sliderImages)) {
               </div>
             </a>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 line text-center">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 line text-center">
             <a href="<?php echo url('service/msme-udyog-aadhar-registration') ?>">
               <div class="wrap-item pad30">
                 <div class="item-img"> <img src="<?php echo asset('/public'); ?>/images/aadhar.png"> </div>
@@ -148,7 +176,7 @@ if (!empty($sliderImages)) {
               </div>
             </a>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wrap1 text-center">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 wrap1 text-center">
             <a href="<?php echo url('service/shop-and-establishment-registration') ?>">
               <div class="wrap-item pad30">
                 <div class="item-img"> <img src="<?php echo asset('/public'); ?>/images/cart.png"> </div>
@@ -157,7 +185,7 @@ if (!empty($sliderImages)) {
               </div>
             </a>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 line line1 text-center">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 line line1 text-center">
             <a href="<?php echo url('service/gst-registration') ?>">
               <div class="wrap-item pad30">
                 <div class="item-img"> <img src="<?php echo asset('/public'); ?>/images/GST1.png"> </div>
@@ -166,7 +194,7 @@ if (!empty($sliderImages)) {
               </div>
             </a>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 line line1 text-center">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 line line1 text-center">
             <a href="<?php echo url('service/trademark-registration') ?>">
               <div class="wrap-item pad30">
                 <div class="item-img"> <img src="<?php echo asset('/public'); ?>/images/service-tax.png"> </div>
@@ -175,7 +203,7 @@ if (!empty($sliderImages)) {
               </div>
             </a>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 text-center">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
             <a href="<?php echo url('service/import-export-code-registration') ?>">
               <div class="wrap-item pad30">
                 <div class="item-img"> <img src="<?php echo asset('/public'); ?>/images/code.png"> </div>
@@ -259,9 +287,9 @@ if (!empty($sliderImages)) {
         <div class="col-lg-1"> </div>
         <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
           <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
               <a href="<?php echo url('service/income-tax-return-filing') ?>">
-                <div class="blog-sec">
+                <div class="blog-sec homepage-blog-sec">
                   <div class="blog-img img-responsive text-center"> <img src="<?php echo asset('/public'); ?>/images/tax.jpg">
                     <h2>Income tax compliance</h2>
                     <p>Get Register your private limited company having lot of benefits of issuing shares and attracting investors with your idea for Startup Funding</p>
@@ -270,9 +298,9 @@ if (!empty($sliderImages)) {
                 </div>
               </a>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
               <a href="<?php echo url('service/gst-return-filing') ?>">
-                <div class="blog-sec">
+                <div class="blog-sec homepage-blog-sec">
                   <div class="blog-img img-responsive text-center"> <img src="<?php echo asset('/public'); ?>/images/gst.jpg">
                     <h2>GST Compliance </h2>
                     <p>Get Register your private limited company having lot of benefits of issuing shares and attracting investors with your idea for Startup Funding</p>
@@ -281,9 +309,9 @@ if (!empty($sliderImages)) {
                 </div>
               </a>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
               <a href="<?php echo url('service/roc-return-filing') ?>">
-                <div class="blog-sec">
+                <div class="blog-sec homepage-blog-sec">
                   <div class="blog-img img-responsive text-center"> <img src="<?php echo asset('/public'); ?>/images/law.jpg">
                     <h2>Company Law Compliance </h2>
                     <p>Get Register your private limited company having lot of benefits of issuing shares and attracting investors with your idea for Startup Funding</p>

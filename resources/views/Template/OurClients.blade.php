@@ -15,11 +15,13 @@
         <div class="col-md-6 animated fadeInRight visible" data-animation="fadeInRight">
           <img alt="Our Investors" class="img-responsive" src="<?php echo asset('public/images') ?>/Our-Investors.jpg">
         </div>
-        <div class="col-lg-1"> </div>
-        <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+      </div>
+    </div>
+  
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="row">
 
-            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+            <!----<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
               <div class="blog-sec">
                 <div class="blog-img img-responsive text-center"> 
                   <img src="<?php echo asset('/public'); ?>/images/aims.png">
@@ -60,11 +62,38 @@
                   <img src="<?php echo asset('/public'); ?>/images/wedyut.png">
                 </div>
               </div>
-            </div>
+            </div>---->
 
+            <div class="vsure-homepage-clients-icons">
+                <div class="row">
+                  <div class="col-md-2 col-sm-2 col-xs-6">
+                    <img src="<?php echo asset('/public'); ?>/images/wedyut.png">
+                  </div>
+                  <div class="col-md-2 col-sm-2 col-xs-6">
+                    <img src="<?php echo asset('/public'); ?>/images/thread origin.png">
+                  </div>
+                  <div class="col-md-2 col-sm-2 col-xs-6">
+                     <img src="<?php echo asset('/public'); ?>/images/rsqr.png">
+                  </div>
+                  <div class="col-md-2 col-sm-2 col-xs-6">
+                    <img src="<?php echo asset('/public'); ?>/images/human.png">
+                  </div>
+                  <div class="col-md-2 col-sm-2 col-xs-6">
+                    <img src="<?php echo asset('/public'); ?>/images/deiv.png">
+                  </div>
+                  <div class="col-md-2 col-sm-2 col-xs-6">
+                   <img src="<?php echo asset('/public'); ?>/images/aims.png">
+                  </div>
+                </div>
+            </div>
           </div>
         </div>
-        <div class="col-lg-1"></div>
-      </div>
-    </div>
+
+
+
+
+
+
+
+
   </section>

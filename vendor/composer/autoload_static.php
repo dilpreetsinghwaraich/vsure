@@ -24,8 +24,8 @@ class ComposerStaticInitcbf6f469619a0da8336ec84096dbb370
         '0b0974a5566a1077e4f2e111341112c1' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/functions/normalize_server.php',
         '1ca3bc274755662169f9629d5412a1da' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/functions/normalize_uploaded_files.php',
         '40360c0b9b437e69bcbb7f1349ce029e' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/functions/parse_cookie_header.php',
-        '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
+        '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
@@ -121,6 +121,7 @@ class ComposerStaticInitcbf6f469619a0da8336ec84096dbb370
         ),
         'J' => 
         array (
+            'Jorenvh\\Share\\' => 14,
             'JakubOnderka\\PhpConsoleHighlighter\\' => 35,
             'JakubOnderka\\PhpConsoleColor\\' => 29,
         ),
@@ -356,6 +357,10 @@ class ComposerStaticInitcbf6f469619a0da8336ec84096dbb370
         array (
             0 => __DIR__ . '/..' . '/laravel/tinker/src',
         ),
+        'Jorenvh\\Share\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jorenvanhocht/laravel-share/src',
+        ),
         'JakubOnderka\\PhpConsoleHighlighter\\' => 
         array (
             0 => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src',
@@ -538,6 +543,7 @@ class ComposerStaticInitcbf6f469619a0da8336ec84096dbb370
         'App\\Http\\Controllers\\Admin\\ServiceForm\\AdminServiceFormController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ServiceForm/AdminServiceFormController.php',
         'App\\Http\\Controllers\\Admin\\ServiceRequest\\AdminServiceRequestController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ServiceRequest/AdminServiceRequestController.php',
         'App\\Http\\Controllers\\Admin\\Services\\AdminServicesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Services/AdminServicesController.php',
+        'App\\Http\\Controllers\\Admin\\Slider\\AdminSliderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Slider/AdminSliderController.php',
         'App\\Http\\Controllers\\Admin\\Terms\\AdminTermsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Terms/AdminTermsController.php',
         'App\\Http\\Controllers\\Admin\\Users\\AdminUsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Users/AdminUsersController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -2259,6 +2265,9 @@ class ComposerStaticInitcbf6f469619a0da8336ec84096dbb370
         'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/ConsoleColor.php',
         'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/InvalidStyleException.php',
         'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/Highlighter.php',
+        'Jorenvh\\Share\\Providers\\ShareServiceProvider' => __DIR__ . '/..' . '/jorenvanhocht/laravel-share/src/Providers/ShareServiceProvider.php',
+        'Jorenvh\\Share\\Share' => __DIR__ . '/..' . '/jorenvanhocht/laravel-share/src/Share.php',
+        'Jorenvh\\Share\\ShareFacade' => __DIR__ . '/..' . '/jorenvanhocht/laravel-share/src/ShareFacade.php',
         'JsonSerializable' => __DIR__ . '/..' . '/nesbot/carbon/src/JsonSerializable.php',
         'Laravel\\Tinker\\ClassAliasAutoloader' => __DIR__ . '/..' . '/laravel/tinker/src/ClassAliasAutoloader.php',
         'Laravel\\Tinker\\Console\\TinkerCommand' => __DIR__ . '/..' . '/laravel/tinker/src/Console/TinkerCommand.php',

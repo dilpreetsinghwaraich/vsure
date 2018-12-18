@@ -165,6 +165,7 @@ return [
         Unisharp\Ckeditor\ServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
 
     ],
 
@@ -221,6 +222,7 @@ return [
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
         'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Share' => Jorenvh\Share\ShareFacade::class,
 
     ],
 

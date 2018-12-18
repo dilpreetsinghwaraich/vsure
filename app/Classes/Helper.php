@@ -298,7 +298,7 @@ class Helper
     }
     public static function getSlider()
     {
-    	return Post::where('post_type','slider')->get();
+    	return Post::where('post_type','slider')->get()->toArray();
     }
     public static function latestBlogSection()
     {

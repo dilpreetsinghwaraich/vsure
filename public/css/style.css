@@ -20,6 +20,11 @@
     font-family: 'utsaah';
     src: url(../fonts/utsaah.ttf);
 }
+@font-face{
+    font-family: 'roboto';
+    src: url(../fonts/Lato-Regular.ttf);
+}
+
 body {
     line-height: 1.4;
     font-family: 'roboto';
@@ -31,7 +36,11 @@ body {
 ol, ul {
     list-style: none;
 }
-
+p{
+    font-family: arial;
+    font-size: 15px !important;
+    font-weight: normal;
+}
 .section-padding
 {
     padding: 60px 0px;
@@ -92,7 +101,7 @@ h1.bnr-title
 {
     font-size: 68px;
     font-family: 'roboto';
-    text-transform: uppercase;
+    text-transform:capitalize;
     letter-spacing: 2px;
     margin-top:0;
 }
@@ -255,7 +264,7 @@ features
 {
     font-family: 'roboto';
     font-size: 40px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-weight: bold;
 }
 .sub-title
@@ -361,7 +370,7 @@ features
     font-size: 22px;
     line-height: 25px;
     margin-top: 40px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: #333;
     font-weight: bold;
 }
@@ -408,7 +417,7 @@ features
     font-size: 16px;
     font-weight: bold;
     color: #002F2F;
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin: 25px 0px;
     line-height: 1.7;
 }
@@ -440,7 +449,7 @@ ul.service-list li i
     opacity: 0.7;
     font-size: 75px;
     line-height: 1;
-    text-transform: uppercase;
+    text-transform: capitalize;
     letter-spacing: -5px;
     font-weight: 900;
     padding-right: 6px;
@@ -518,7 +527,7 @@ Blog
     font-size: 1px;
     color: #454040;
    font-family: 'roboto';
-   text-transform: uppercase; 
+  text-transform: capitalize;
 }
 .blog-img h3{
 
@@ -586,7 +595,7 @@ blog second
     font-size: 13px;
     color: #454040;
    font-family: 'roboto';
-   text-transform: uppercase; 
+   text-transform: capitalize;
    margin-left: 2px;
    padding: 10px;
    text-align: justify;
@@ -625,7 +634,7 @@ service
     font-size: 40px;
     font-family: 'roboto';
     color: #454040;
-    text-transform: uppercase;
+   text-transform: capitalize;
 }
 .heading p{
     font-size: 20px;
@@ -771,7 +780,7 @@ blog
     font-size: 16px;
     color: #454040;
    font-family: 'roboto';
-   text-transform: uppercase; 
+  text-transform: capitalize;
    margin-left: 2px;
    padding: 15px;
    margin:0;
@@ -807,7 +816,7 @@ blog
 .bnr-title h1{
     font-size: 67px;
     font-family: 'roboto';
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin: 0px;
 }
 .banner-info p{
@@ -817,7 +826,7 @@ blog
 }
 .banner-info p span{
     color: #67f968;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 .banner-info
 {
@@ -835,7 +844,7 @@ blog
 .bnr-title h1{
     font-size: 50px;
     font-family: 'roboto';
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin-bottom:0px;
 }
 .banner-info p{
@@ -850,7 +859,7 @@ blog
     background-color: #36af3e;
     padding: 16px 20px;
     border: none;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-family: arial;
     font-size: 30px;
     font-weight: bold;
@@ -910,7 +919,7 @@ About
 .heading-section h2{
     color: #454040;
     font-size: 40px;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 .heading-section p{
     color: #454040;
@@ -1331,8 +1340,8 @@ Contact
 }
 .carousel-inner a{border:none}
 .border-box{border:2px solid #d0d0d0; padding:15px; padding-top:35px;}
-.border-box h2{font-size:24px; text-transform:uppercase; width:100%; float:left; margin-top:10px; color:#454040}
-.border-box h2 small{font-size:14px; clear:both; text-transform:uppercase; width:100%; float:left; margin-top:10px; color:#454040}
+.border-box h2{font-size:24px; text-transform: capitalize; width:100%; float:left; margin-top:10px; color:#454040}
+.border-box h2 small{font-size:14px; clear:both; text-transform: capitalize; width:100%; float:left; margin-top:10px; color:#454040}
 .border-box p{text-align:justify; font-size:14px; font-weight:400; color:#777777}
 .border-box ul{padding:0; margin:0;}
 .border-box ul li{padding:0; margin:0; display:inline-block;}
@@ -1346,7 +1355,7 @@ Contact
     padding: 15px;
     text-align: center;
     font-weight:400;
-    text-transform: uppercase;
+    text-transform: capitalize;
     height:65px;
 }
 .service-blogs .blog-img{padding-top:40px;}
@@ -1393,9 +1402,9 @@ Contact
 
 
 
-.carousel-control.left,.carousel-control.right  {background:none;width:25px;}
+/*.carousel-control.left,.carousel-control.right  {background:none;width:25px;}
 .carousel-control.left {left:-25px;}
-.carousel-control.right {right:-25px;}
+.carousel-control.right {right:-25px;}*/
 .broun-block {
     background: url("http://myinstantcms.ru/images/bg-broun1.jpg") repeat scroll center top rgba(0, 0, 0, 0);
 }
@@ -1471,7 +1480,7 @@ input.footer_button {
     position: relative;
 }
 #carousel-reviews{padding: 0 100px;}
-.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
+/*.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
     font-size: 0px;
     height: 54px;
     width: 31px;
@@ -1483,7 +1492,7 @@ input.footer_button {
     background-image: none !important;
     border:none !important;
 }
-
+*/
 
 /***********************************
 ************************************

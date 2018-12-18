@@ -1,3 +1,95 @@
+.vsure-header-top {
+    background: #eee;
+    display: inline-block;
+    width: 100%;
+    padding: 0 20px;
+}
+.fa-facebook:hover{
+    color:#29487d !important;
+}
+.fa-google-plus:hover{
+    color:#ff5733 !important;
+}
+.fa-linkedin:hover{
+   color:#0077b5 !important;
+}
+.carousel-caption a {
+    background: #3bb54c;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 7px;
+}
+.carousel-control span {
+    top: 50% !important;
+    position: absolute;
+    color: #fff;
+    font-size: 30px;
+}
+.carousel-control.right {
+    right: 10px;
+}
+.navbar-sign-in-button {
+    background: #3bb54c;
+    display: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    float: right;
+    margin: 7px 15px;
+}
+.vsure-header-top .col-md-3.col-xs-4.col-sm-4 a {
+    display: inline;
+    margin: 5px;
+    padding: 2px 2px;
+    float: left;
+}
+.vsure-header-top .col-md-3.col-xs-4.col-sm-4 a i{
+    color: #999;
+    font-size: 20px;
+}
+.vsure-header-top .col-md-3.col-xs-4.col-sm-4 a i:hover{
+    color: #333;
+}
+.vsure-header-top .col-md-9.col-xs-8.col-sm-8 ul{
+    float: right;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+.vsure-header-top .col-md-9.col-xs-8.col-sm-8 ul li {
+    display: inline-block;
+    margin: 5px 0 0px 10px;
+    border-right: 1px solid#ccc;
+}
+.vsure-header-top .col-md-9.col-xs-8.col-sm-8 ul li:last-child{
+    border-right: none;
+}
+.vsure-header-top .col-md-9.col-xs-8.col-sm-8 ul li a{
+    color: #666;
+    padding: 2px 10px;
+    font-size: 16px;
+    float: left;
+}
+.vsure-header-top .col-md-9.col-xs-8.col-sm-8 ul li a:hover{
+    color: #333;
+    text-decoration: underline;
+}
+header#main-header .navbar>.container {
+    width: 100%;
+    padding: 0 50px 0 10px;
+}
+.service_box a {
+    color: #333;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 8px 5px;
+    width: 100%;
+    float: left;
+}
+.service_box a:hover{
+    background: #eee;
+}
+
 #prompt-background{
 	display:none;
 }
@@ -5,11 +97,266 @@
     right: 0%;
     left: 10%;
     padding-bottom: 30px;
-    top: 30%;
+    top: 25%;
     text-align: left;
     background: rgba(0, 0, 0, 0.3);
-    width: 35%;
+    width: 45%;
     min-width: 340px;
     padding: 15px;
+    max-height: 380px;
     text-shadow: 0 0 2px #000;
+}
+.blog-post button.btn {
+    background: #3cb54c;
+    font-size: 17px;
+    margin: 10px 0;
+}
+.vsure-home-page-slider {
+    height: 770px;
+}
+.carousel {
+    height: 100%;
+}
+.carousel-inner{
+    height: 100%;
+}
+.item{
+    height: 100%;
+}
+.carousel .carousel-inner .item img{
+    height: 100%;
+}
+.vsure-homepage-clients-icons {
+    background: #eee;
+    float: left;
+    width: 100%;
+    padding: 30px 0;
+}
+.vsure-homepage-clients-icons img {
+    width: 100%;
+    filter: grayscale(1);
+    max-height: 100px;
+    max-width: 180px;
+}
+.vsure-homepage-clients-icons img:hover{
+    filter:grayscale(0);
+    transform:scale(1.03);
+}
+
+section#service-page-doc-table {
+    max-width: 100%;
+}
+section#service-page-doc-table .single-service-table {
+    overflow-x: scroll;
+}
+.pvt-ltd-company-image img {
+    float: left;
+    width: 100%;
+}
+
+
+
+
+
+@media only screen and (max-width: 4000px) {
+
+.vsure-home-page-slider {
+    height: 2000px;
+}
+
+}
+@media only screen and (max-width: 2880px) {
+
+.vsure-home-page-slider {
+    height: 1500px;
+}
+
+}
+@media only screen and (max-width: 2600px) {
+
+.vsure-home-page-slider {
+    height: 1323px;
+}
+
+}
+@media only screen and (max-width: 2200px) {
+
+.vsure-home-page-slider {
+    height: 1100px;
+}
+
+}
+@media only screen and (max-width: 1920px) {
+
+.vsure-home-page-slider {
+    height: 928px;
+}
+
+}
+@media only screen and (max-width: 1800px) {
+
+.vsure-home-page-slider {
+    height: 800px;
+}
+
+}
+@media only screen and (max-width: 1600px) {
+
+.vsure-home-page-slider {
+    height: 701px;
+}
+
+}
+@media only screen and (max-width: 1440px) {
+
+.vsure-home-page-slider {
+    height: 680px;
+}
+
+}
+@media only screen and (max-width: 1366px) {
+
+.vsure-home-page-slider {
+    height: 575px;
+}
+
+}
+@media only screen and (max-width: 1360px) {
+
+.vsure-home-page-slider {
+    height: 650px;
+}
+
+}
+
+@media only screen and (max-width: 1200px) {
+
+.vsure-home-page-slider {
+    height: 562px;
+}
+.navbar-collapse ul {
+    margin: 0;
+}
+
+}
+
+@media only screen and (max-width: 768px) {
+
+.navbar-sign-in-button {
+    display: block;
+}
+.td-subcat-filter {
+    float: left;
+    width: 100%;
+    position: inherit;
+    background: #eee;
+    padding: 5px;
+}
+.td-subcat-filter ul{
+	padding:0;
+}
+.td-subcat-filter ul li.td-subcat-item{
+	margin-left: 15px !important;
+}
+.about-blog .blog-thumb {
+    float: left;
+    width: 100%;
+    position: inherit;
+}
+.about-blog .item-details {
+    float: left;
+    width: 100%;
+    margin: 0;
+}
+.about-blog .item-details h3{
+    text-align: left;
+}
+
+}
+
+@media only screen and (max-width: 800px) {
+
+section#service-page-radial-progress-bar .col-md-2 {
+    width: 100%;
+}
+button.navbar-toggle {
+    float: left;
+    margin-left: 10px;
+    margin-right: 0px;
+    margin-top:5px;
+}
+.vsure-logo-image{
+    max-width: 180px;
+}
+
+}
+
+@media only screen and (max-width: 500px) {
+
+header#main-header .navbar>.container {
+    width: 100%;
+    padding: 0 10px;
+}
+.vsure-header-top{
+    padding:0;
+    display: none;
+}
+.carousel-caption {
+    right: 0%;
+    left: 0%;
+    width: 99%;
+}
+.vsure-homepage-clients-icons{
+    display: none;
+}
+section#feature {
+    display: none;
+}
+#portfolio{
+    display: none;
+}
+section#blog .row .col-lg-1 {
+    display: none;
+}
+section#testimonial{
+    display: none;
+}
+.home-page-banner-info{
+    padding-top: 20px;
+}
+.section-padding {
+    padding: 10px 0px;
+}
+.wrapper h1 {
+    font-size: 18px;
+}
+.item-img img {
+    text-align: center;
+    width: 70px;
+}
+.wrap-item p {
+    color: #fff;
+    font-size: 11px !important;
+    float: left;
+    width: 100%;
+}
+.homepage-blog-sec{
+    margin-bottom: 0;
+}
+.homepage-blog-sec .blog-img{
+    margin-top:0;
+}
+.homepage-blog-sec .blog-img{
+    box-shadow: none;
+}
+.homepage-blog-sec .blog-img h2 {
+    font-size: 12px;
+}
+.homepage-blog-sec .blog-img p {
+    display: none;
+}
+.homepage-blog-sec .blog-img button {
+    display: none;
+}
+
 }
