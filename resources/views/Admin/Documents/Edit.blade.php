@@ -12,11 +12,11 @@
                   </div>
                   <div class="form-group col-md-12">
                     <label for="document_promoter">Document of promoter</label>
-                    <textarea class="form-control textarea" id="document_promoter" name="document_promoter" required placeholder="Document of promoter"><?php echo $document->document_promoter ?></textarea>
+                    <textarea class="form-control textarea" id="document_promoter" name="document_promoter" placeholder="Document of promoter"><?php echo $document->document_promoter ?></textarea>
                   </div>
                   <div class="form-group col-md-12">
                     <label for="document_company">Document of company</label>
-                    <textarea class="form-control textarea" id="document_company" name="document_company" required placeholder="Document of company"><?php echo $document->document_company ?></textarea>
+                    <textarea class="form-control textarea" id="document_company" name="document_company" placeholder="Document of company"><?php echo $document->document_company ?></textarea>
                   </div>
                   <div class="form-group col-md-12">
                     <label for="document_terms">Terms</label>

@@ -13,7 +13,7 @@ class DocumentController extends Controller
 {
     public function document()
     {
-    	$documents = UserDocuments::paginate(50);
+    	$documents = UserDocuments::where('user_id', Helper::getCurrentUserByKey('user_id'))->paginate(50);
         $html = view('Document.Document',compact('documents'));
         $view = 'Dashboard.Dashboard';
         return view('Includes.commonTemplate',compact('view','html'));

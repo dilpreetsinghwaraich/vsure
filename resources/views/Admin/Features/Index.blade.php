@@ -14,7 +14,7 @@
                       </div>
                       <div class="form-group col-md-12">
                         <label for="feature_content">Content</label>
-                        <textarea class="form-control textarea" id="feature_content" name="feature_content" required placeholder="Content"><?php echo old('feature_content'); ?></textarea>
+                        <textarea class="form-control textarea" id="feature_content" name="feature_content" placeholder="Content"><?php echo old('feature_content'); ?></textarea>
                       </div>
                       <div class="form-group col-md-12">
                         <label for="question_terms">Image</label>
@@ -25,7 +25,9 @@
                         <select name="feature_terms" id="feature_terms" class="form-control select2-multiple multiSelect">
                           <option value="">Select Term</option>
                           <?php
+                          $selectedTerms = [];
                             foreach ($terms as $term) {
+                              $selectedTerms[$term->term_id] = $term->term_title;
                               echo "<option value='".$term->term_id."' ".($term->term_id = old('feature_terms')?"selected":"").">".$term->term_title."</option>";
                             }
                           ?>
@@ -48,6 +50,8 @@
                   <th scope="col">#</th>
                   <th scope="col">Title</th>
                   <th scope="col">Image</th>
+                  <th scope="col">Term</th>
+                  <th scope="col">Last Update</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -66,6 +70,8 @@
                         <img src="<?php echo asset('/').$feature->feature_image ?>" style="width:50px;height:50px;" alt="<?php echo $feature->feature_title; ?>">
                         <?php
                       } ?></td>
+                    <td><?php echo (isset($selectedTerms[$feature->feature_terms])?$selectedTerms[$feature->feature_terms]:'') ?></td>
+                    <td><?php echo date('Y-m-d h:i A', strtotime($feature->updated_at)); ?></td>
                     <td>
                       <a href="<?php echo url('admin/edit/feature/'.$feature->feature_id) ?>">Edit</a>
                       | <a href="<?php echo url('admin/delete/feature/'.$feature->feature_id) ?>">Delete</a></td>

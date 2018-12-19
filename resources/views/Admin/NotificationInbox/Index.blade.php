@@ -67,7 +67,7 @@
           </div>
           <div class="form-group col-md-12">
             <label for="message">Select User</label>
-            <textarea name="message" class="form-control" id="message"></textarea>
+            <textarea name="message" class="form-control textarea" id="message"></textarea>
           </div>
           <div class="form-group col-md-12">
             <button type="submit" class="btn btn-success">Send</button>

@@ -24,15 +24,18 @@
       <select name="byear" id="byear" value="1950">
       </select>
       <div style="clear:both; margin-bottom:15px"></div>
+    </div>    
+    <div class="thumbnail center well well-sm text-center">
+      <h2>Newsletter</h2>
+      <p>Subscribe to our weekly Newsletter and stay tuned.</p>
+      <?php echo Form::open(array('url' => 'email/subscribe', 'id'=>'emailSubscriber', 'method' => 'post')) ?>
+        <div class="messageResponsedSubs"></div>
+        <div class="input-group"> <span class="input-group-addon"> <i class="fa fa-envelope"></i> </span>
+          <input class="form-control" type="email" required="" id="subscribeEmail" name="email" placeholder="your@email.com">
+        </div>
+        <input type="submit" value="Subscribe" class="btn btn-large btn-primary" />
+      </form>
     </div>
-    <?php echo Form::open(array('url' => 'email/subscribe', 'id'=>'emailSubscriber', 'method' => 'post')) ?>
-    <div class="messageResponsedSubs"></div>
-      <div class="form-group">
-        <label class="label" style="color: #555;">Enter your email to subscribe</label>
-        <input type="email" class="form-control name" id="subscribeEmail" placeholder="Email ID" name="email" required="">
-      </div>
-      <button type="submit" class="btn btn-info">Submit</button> 
-    </form>
   </div>
 </div>
 <style>
@@ -43,13 +46,15 @@
   width: 330px;
   height: auto;
   margin: 0 auto;
-  padding: 20px 35px 30px 35px;
+  padding: 0;
   position: relative;
   top: 25%;
   z-index: 1000000;
 }
 .modal-prompt p, .modal-prompt h1 {
   color: #555555;
+}input.btn-primary {
+    margin-top: 15px;
 }
 #prompt-background {
   background: #00000069;

@@ -14,18 +14,20 @@
                       </div>
                       <div class="form-group col-md-12">
                         <label for="document_promoter">Document of promoter</label>
-                        <textarea class="form-control textarea" id="document_promoter" name="document_promoter" required placeholder="Document of promoter"><?php echo old('document_promoter'); ?></textarea>
+                        <textarea class="form-control textarea" id="document_promoter" name="document_promoter" placeholder="Document of promoter"><?php echo old('document_promoter'); ?></textarea>
                       </div>
                       <div class="form-group col-md-12">
                         <label for="document_company">Document of company</label>
-                        <textarea class="form-control textarea" id="document_company" name="document_company" required placeholder="Document of company"><?php echo old('document_company'); ?></textarea>
+                        <textarea class="form-control textarea" id="document_company" name="document_company" placeholder="Document of company"><?php echo old('document_company'); ?></textarea>
                       </div>
                       <div class="form-group col-md-12">
                         <label for="document_terms">Terms</label>
                         <select name="document_terms" id="document_terms" class="form-control select2-multiple multiSelect">
                           <option value="">Select Term</option>
                           <?php
+                          $selectedTerms = [];
                             foreach ($terms as $term) {
+                              $selectedTerms[$term->term_id] = $term->term_title;
                               echo "<option value='".$term->term_id."' ".($term->term_id = old('document_terms')?"selected":"").">".$term->term_title."</option>";
                             }
                           ?>
@@ -47,6 +49,8 @@
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Title</th>
+                  <th scope="col">Term</th>
+                  <th scope="col">Last Update</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -59,6 +63,8 @@
                   <tr>
                     <th scope="row"><?php echo $sno; ?></th>
                     <td><?php echo $document->document_title; ?></td>
+                    <td><?php echo (isset($selectedTerms[$document->document_terms])?$selectedTerms[$document->document_terms]:'') ?></td>
+                    <td><?php echo date('Y-m-d h:i A', strtotime($document->updated_at)); ?></td>
                     <td>
                       <a href="<?php echo url('admin/edit/document/'.$document->document_id) ?>">Edit</a>
                       | <a href="<?php echo url('admin/clone/document/'.$document->document_id) ?>">Clone</a>

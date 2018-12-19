@@ -14,6 +14,7 @@ Route::get('/cache', function() {
     $exitCode = Artisan::call('cache:clear');
     $exitCode = Artisan::call('view:clear');
     $exitCode = Artisan::call('config:cache');
+    return Redirect('/');
 });
 
 Route::get('/', 'Home\HomeController@home');
@@ -71,7 +72,9 @@ Route::group(['middleware' => 'userToken'], function () {
 	Route::post('payment/{invoice_id?}', 'Razorpay\RazorpayController@payment')->name('payment');
 
 	Route::get('paypal/{invoice_id?}', 'Paypal\PaypalController@postPaymentWithPaypal');
-	Route::post('paypal/complete', 'Paypal\PaypalController@getPaymentStatus');
+	Route::get('paypal/checkout/completed/{invoice_id?}', 'Paypal\PaypalController@completed');
+	Route::get('paypal/checkout/cancel/{invoice_id?}', 'Paypal\PaypalController@cancelled');
+	Route::get('webhook/paypal/ipn/{invoice_id?}', 'Paypal\PaypalController@webhook');
 });
 
 Route::get('/admin/login', 'Admin\Auth\LoginController@login');
@@ -184,6 +187,9 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::get('/admin/service/requests', 'Admin\ServiceRequest\AdminServiceRequestController@index');
 	Route::get('/admin/view/service/request/{ticket?}', 'Admin\ServiceRequest\AdminServiceRequestController@view');
 	Route::get('/admin/delete/service/request/{ticket?}', 'Admin\ServiceRequest\AdminServiceRequestController@delete');
+	Route::get('/admin/submit/service/request/deliverable/{ticket?}', 'Admin\ServiceRequest\AdminServiceRequestController@submitDeliverable');
+	Route::post('/admin/submit/service/request/deliverable/{ticket?}', 'Admin\ServiceRequest\AdminServiceRequestController@insertDeliverable');
+	Route::get('/admin/delete/service/request/deliverable/{deliverable_id?}', 'Admin\ServiceRequest\AdminServiceRequestController@deleteDeliverable');
 
 	/******Contact Form Request Menu Route******/
 	Route::get('/admin/service/forms', 'Admin\ServiceForm\AdminServiceFormController@index');
@@ -205,6 +211,7 @@ Route::group(['middleware' => 'adminToken'], function () {
 	Route::get('/admin/user/edit/{user_id?}', 'Admin\Users\AdminUsersController@editUser');
 	Route::post('/admin/user/update/{user_id?}', 'Admin\Users\AdminUsersController@updateUser');
 	Route::get('/admin/user/delete/{user_id?}', 'Admin\Users\AdminUsersController@deleteUser');
+	Route::get('/admin/get/user/document/details/{user_id?}', 'Admin\Users\AdminUsersController@document');
 
 	/******update delete edit view packages******/
 	Route::get('/admin/orders', 'Admin\Orders\AdminOrdersController@index');

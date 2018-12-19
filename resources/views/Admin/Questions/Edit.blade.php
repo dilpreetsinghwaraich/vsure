@@ -12,7 +12,7 @@
                   </div>
                   <div class="form-group col-md-12">
                     <label for="question_content">Question Content</label>
-                    <textarea class="form-control textarea" id="question_content" name="question_content" required placeholder="Question Content"><?php echo $question->question_content ?></textarea>
+                    <textarea class="form-control textarea" id="question_content" name="question_content"  placeholder="Question Content"><?php echo $question->question_content ?></textarea>
                   </div>
                   <div class="form-group col-md-12">
                     <label for="question_terms">Question Terms</label>

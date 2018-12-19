@@ -7,6 +7,7 @@
 	<div class="col-lg-12">
 		@if (Session::has('success'))
           <div class="alert alert-info">{{ Session::get('success') }}</div>
+    	<?php Session::forget('success') ?>
         @endif
         @if (Session::has('warning'))
           <div class="alert alert-warning">{{ Session::get('warning') }}</div>
@@ -15,6 +16,7 @@
           		display: block !important;
           	}
           </style>
+    	<?php Session::forget('warning') ?>
         @endif
         @if (Session::has('error'))
           <div class="alert alert-danger">{{ Session::get('error') }}</div>
@@ -23,6 +25,7 @@
           		display: block !important;
           	}
           </style>
+    		<?php Session::forget('error') ?>
         @endif
 	</div>
 	<div class="col-lg-12 col-xs-12" id="uploadDocumentModal" style="display: none;">

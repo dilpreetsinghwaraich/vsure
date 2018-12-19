@@ -306,11 +306,8 @@ header#main-header .navbar>.container {
     left: 0%;
     width: 99%;
 }
-.vsure-homepage-clients-icons{
-    display: none;
-}
-section#feature {
-    display: none;
+.vsure-homepage-clients-icons img{
+    margin: 5px 0;
 }
 #portfolio{
     display: none;

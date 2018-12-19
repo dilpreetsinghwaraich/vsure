@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Users;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\UserDocuments;
 use Illuminate\Http\Request;
 use Session, Redirect, DB, Helper;
 use Illuminate\Support\Facades\Input;
@@ -63,5 +64,16 @@ class AdminUsersController extends Controller
     	$user->delete();
     	Session::flash('success','Profile Deleted Successfully');
 	    return Redirect::back()->withInput(Input::all());
+    }
+    public function document($user_id = null)
+    {
+        $user = User::find($user_id);
+        if (empty($user->user_id)) {
+            Session::flash('error','Something went wrong, You are not authorized to update user.');
+            return Redirect::back()->withInput(Input::all());           
+        }
+        $documents = UserDocuments::where('user_id', $user_id)->get();
+        echo view('Admin.Users.Document',compact('documents'));
+        die;
     }
 }

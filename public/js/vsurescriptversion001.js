@@ -416,11 +416,11 @@ function ageCheck() {
     if ((today.getTime() - theirDate.getTime()) < 0) {
         window.location = 'http://google.com/'; //enter domain url where you would like the underaged visitor to be sent to.
     } else {
-        var days = 14; //number of days until they must go through the age checker again.
+        var days = 1; //number of days until they must go through the age checker again.
         var date = new Date();
         date.setTime(date.getTime()+(days*24*60*60*1000));
         var expires = "; expires="+date.toGMTString();
         document.cookie = 'isAnAdult=true;'+expires+"; path=/";
-        location.reload();
+        window.location.reload();
     };
 };

@@ -14,14 +14,16 @@
                       </div>
                       <div class="form-group col-md-12">
                         <label for="question_content">Question Content</label>
-                        <textarea class="form-control textarea" id="question_content" name="question_content" required placeholder="Question Content"><?php echo old('question_content'); ?></textarea>
+                        <textarea class="form-control textarea" id="question_content" name="question_content" placeholder="Question Content"><?php echo old('question_content'); ?></textarea>
                       </div>
                       <div class="form-group col-md-12">
                         <label for="question_terms">Question Terms</label>
                         <select name="question_terms" id="question_terms" class="form-control select2-multiple multiSelect">
                           <option value="">Select Term</option>
                           <?php
+                          $selectedTerms = [];
                             foreach ($terms as $term) {
+                              $selectedTerms[$term->term_id] = $term->term_title;
                               echo "<option value='".$term->term_id."' ".($term->term_id = old('question_terms')?"selected":"").">".$term->term_title."</option>";
                             }
                           ?>
@@ -43,6 +45,8 @@
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Question Title</th>
+                  <th scope="col">Term</th>
+                  <th scope="col">Last Update</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -55,6 +59,8 @@
                   <tr>
                     <th scope="row"><?php echo $sno; ?></th>
                     <td><?php echo $question->question_title; ?></td>
+                    <td><?php echo (isset($selectedTerms[$question->question_terms])?$selectedTerms[$question->question_terms]:'') ?></td>
+                    <td><?php echo date('Y-m-d h:i A', strtotime($question->updated_at)); ?></td>
                     <td>
                       <a href="<?php echo url('admin/edit/question/'.$question->question_id) ?>">Edit</a>
                       | <a href="<?php echo url('admin/delete/question/'.$question->question_id) ?>">Delete</a></td>

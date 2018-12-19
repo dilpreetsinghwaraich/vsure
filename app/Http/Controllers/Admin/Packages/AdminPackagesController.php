@@ -16,8 +16,9 @@ class AdminPackagesController extends Controller
     public function index()
     {
         $view = 'Admin.Packages.Index';
-        $packages = Packages::paginate(50);    
-        return view('Includes.adminCommonTemplate',compact('view','packages'));
+        $packages = Packages::paginate(50);  
+        $terms = Terms::where('term_type','package')->select('*')->get();  
+        return view('Includes.adminCommonTemplate',compact('view','packages','terms'));
     }
     public function rules()
     {

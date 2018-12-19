@@ -170,6 +170,20 @@ jQuery(document).ready(function($) {
     $('.hide_media_popup').click(function(event) {
         $('.media_popup').hide();
     });
+    $(document).on('click', '.getUserDocumentDetails', function(event) {
+        event.preventDefault();
+        var user_id = $(this).data('user_id');
+        $.ajax({
+            url: AJAXURL('admin/get/user/document/details/'+user_id),
+            type: 'GET',
+        })
+        .done(function(data) {
+            $('#publishDocumentDetals').html(data);
+        })
+        .fail(function() {
+            window.alert('Something Went Wrong, Please try after some time.');
+        });
+    });
 });
 function AJAXURL(string) {
     var url = jQuery('base').attr('href');

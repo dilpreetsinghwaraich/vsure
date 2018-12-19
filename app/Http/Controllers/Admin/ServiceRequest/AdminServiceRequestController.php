@@ -9,6 +9,7 @@ use App\ContactUs;
 use App\NotificationInbox;
 use App\ServiceRequest;
 use App\Services;
+use App\Deliverable;
 use App\ServiceForm;
 use Illuminate\Http\Request;
 use Validator, DateTime, DB, Hash, File, Config, Helpers, Helper;
@@ -61,5 +62,58 @@ class AdminServiceRequestController extends Controller
         ServiceRequest::where('ticket', $ticket)->delete();
         Session::flash('Success','Request deleted successfully.');
    	    return Redirect::back();
+    }
+    public function submitDeliverable($ticket = null)
+    {
+        if(empty($ticket))
+        {
+            Session::flash('error','Something went wrong, You are not authorized to Delete this request.');
+            return Redirect::back()->withInput(Input::all());
+        }
+        if (!$serviceRequest = ServiceRequest::where('ticket', $ticket)->get()->first()) {
+            Session::flash('error','Something went wrong, You are not authorized to Delete this request.');
+            return Redirect::back()->withInput(Input::all());
+        }
+        $serviceForm = ServiceForm::where('service_id', $serviceRequest->service_id)->get()->first();
+        $deliverables = Deliverable::where('ticket', $ticket)->get();
+        $view = 'Admin.ServiceRequest.SubmitDeliverable';        
+        return view('Includes.adminCommonTemplate', compact('view','serviceRequest','serviceForm','deliverables'));
+    }
+    public function rules()
+    {
+        return array(
+            'title' => 'required',
+            'document' => 'required',
+        );
+    }
+    public function insertDeliverable(Request $request, $ticket = null)
+    {
+        $validator = Validator::make(Input::all(), self::rules());
+        if($validator->passes()){
+            $deliverable = new Deliverable();
+            $deliverable->ticket = $ticket;
+            $deliverable->title = $request->input('title');
+            $deliverable->document = Helper::fileuploadExtra($request, 'document');
+            $deliverable->created_at = new DateTime;
+            $deliverable->updated_at = new DateTime;
+            $deliverable->save();
+            Session::flash('success','Document Uploaded Successfully');
+            return Redirect::back()->withInput(Input::all());
+        }else{
+            Session::flash('error',$validator->getMessageBag()->first());
+            return Redirect::back()->withInput(Input::all());
+        } 
+    }
+    public function deleteDeliverable($deliverable_id = null)
+    {
+        $deliverable = Deliverable::find($deliverable_id);
+        if(empty($deliverable->deliverable_id))
+        {
+            Session::flash('error','Something went wrong, You are not authorized to Delete this Document.');
+            return Redirect::back()->withInput(Input::all());
+        }
+        $deliverable->delete();
+        Session::flash('success','Document deleted successfully.');
+        return Redirect::back();
     }
 }

@@ -29,8 +29,9 @@ class HomeController extends Controller
             return view('Includes.commonTemplate',compact('view'));       
         }
         $author = Helper::getUser($post->user_id);
+        $title = $post->post_title;
         $view = $post->template;        
-        return view('Includes.commonTemplate',compact('view','post','author'));
+        return view('Includes.commonTemplate',compact('view','post','author','title'));
     }
     public function aboutUs()
     {
