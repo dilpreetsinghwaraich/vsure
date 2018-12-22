@@ -50,25 +50,52 @@ if ($type == 'blog' || $type == 'modal') {
       <?php } ?>
       <div class="serviceRequestResponse">
       </div>
+      <?php $user = \Helper::getCurrentUser(); ?>
       <?php echo Form::open(array('url' => 'submit/service/enquery', 'method' => 'post')) ?>
-      <div class="form-group">
-        <label class="label">Name</label>
-        <input type="text" class="form-control name" placeholder="Name" value="<?php echo old('name') ?>" name="name" required="">
-      </div>
-      <div class="form-group">
-        <label class="label">Email</label>
-        <input type="email" class="form-control email" placeholder="Email" value="<?php echo old('email') ?>" name="email" required="">
-      </div>
-      <div class="form-group">
-        <label class="label">Phone</label>
-        <input type="text" class="form-controlc InputNumber phone_otp_send contact" placeholder="Phone" value="<?php echo old('phone') ?>" name="phone" required=""> 
-        <a href="javascript:void(0);" class="resend_code" <?php if(!empty(old('otp_code'))){?> style="display: block;" <?php }else{ ?>  style="display: none;" <?php } ?> onclick="$('.phone_otp_send').trigger('change');">Resend</a>
-      </div>
-      <div class="form-group otp_code_label" <?php if(!empty(old('otp_code'))){?> style="display: inline;" <?php }else{ ?>  style="display: none;" <?php } ?>>
-        <label class="label " >Otp Code</label>
-        <input type="text" class="form-controlc otp_code InputNumber" <?php if(!empty(old('otp_code'))){?> required <?php }?>placeholder="OTP CODE" value="<?php echo old('otp_code') ?>" name="otp_code">
-      </div>
-        <?php
+      <?php 
+        if (!empty($user->name)) {
+          ?>
+          <input type="hidden" value="<?php echo $user->name ?>" name="name">
+          <?php
+        }else{
+          ?>
+          <div class="form-group">
+            <label class="label">Name</label>
+            <input type="text" class="form-control name" placeholder="Name" value="<?php echo old('name') ?>" name="name" required="">
+          </div>
+          <?php
+        }
+
+        if (!empty($user->email)) {
+          ?>
+          <input type="hidden" value="<?php echo $user->email ?>" name="email">
+          <?php
+        }else{
+          ?>
+          <div class="form-group">
+            <label class="label">Email</label>
+            <input type="email" class="form-control email" placeholder="Email" value="<?php echo old('email') ?>" name="email" required="">
+          </div>
+          <?php
+        }
+
+        if (!empty($user->phone)) {
+          ?>
+          <input type="hidden" value="<?php echo $user->phone ?>" name="phone">
+          <?php
+        }else{
+          ?>
+          <div class="form-group">
+            <label class="label">Phone</label>
+            <input type="text" class="form-controlc InputNumber phone_otp_send contact" placeholder="Phone" value="<?php echo old('phone') ?>" name="phone" required=""> 
+            <a href="javascript:void(0);" class="resend_code" <?php if(!empty(old('otp_code'))){?> style="display: block;" <?php }else{ ?>  style="display: none;" <?php } ?> onclick="$('.phone_otp_send').trigger('change');">Resend</a>
+          </div>
+          <div class="form-group otp_code_label" <?php if(!empty(old('otp_code'))){?> style="display: inline;" <?php }else{ ?>  style="display: none;" <?php } ?>>
+            <label class="label " >Otp Code</label>
+            <input type="text" class="form-controlc otp_code InputNumber" <?php if(!empty(old('otp_code'))){?> required <?php }?>placeholder="OTP CODE" value="<?php echo old('otp_code') ?>" name="otp_code">
+          </div>
+          <?php
+        }
         if ($type == 'blog') { 
           ?>
         <div class="form-group">

@@ -84,7 +84,14 @@
             <input class="form-control" type="text" placeholder="Search...">
           </li>
         </ul>
-        <ul class="nav-right">          
+        <ul class="nav-right">   
+        <?php 
+          if ($user->role == 'admin') {
+            ?>
+            <li><a href="<?php echo url('cache'); ?>">Purge Cache</a></li>
+            <?php
+          }
+        ?>       
           <li class="dropdown"><a href="#" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
             <div class="peer mR-10"><img class="w-2r bdrs-50p" src="<?php echo asset('public/admin') ?>/images/10.jpg" alt=""></div>
             <div class="peer"><span class="fsz-sm c-grey-900"><?php echo $user->name; ?></span></div>
@@ -92,6 +99,7 @@
             <ul class="dropdown-menu fsz-sm">
               <li role="separator" class="divider"></li>
               <li><a href="<?php echo url('admin/logout') ?>" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-power-off mR-10"></i> <span>Logout</span></a></li>
+
             </ul>
           </li>
         </ul>

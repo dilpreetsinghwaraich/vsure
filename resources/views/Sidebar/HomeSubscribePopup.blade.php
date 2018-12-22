@@ -16,6 +16,8 @@
 </script>
 <div id="prompt-background">
   <div id="age-check-prompt" class="modal-prompt">
+  <button class="close_prompt_popup btn btn-primary"><i class="fa fa-times" aria-hidden="true"></i>
+</button>
     <div style="display:none;">
       <select name="bmonth" id="bmonth" value="1">
       </select>

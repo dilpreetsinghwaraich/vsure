@@ -24,6 +24,7 @@
 </script>
 </head>
 <body>
+  <?php $user = \Helper::getCurrentUser(); ?>
 <div id="myDiv"> 
   <!--HEADER-->
   <div class="header">
@@ -41,9 +42,26 @@
 
             <div class="col-md-9 col-xs-8 col-sm-8">
               <ul> 
-                <li><a href="">Sign in</a></li>
-                <li><a href="">Blog</a></li>
-                <li><a href="">Demo</a></li>
+                <li class=""><a href="<?php echo url('/blog'); ?>">Learning Center</a></li>
+                <?php 
+                  if ($user->role == 'admin') {
+                    ?>
+                    <li><a href="<?php echo url('cache'); ?>">Purge Cache</a></li>
+                    <?php
+                  }
+                ?>
+                <?php
+                  if (empty(session('token'))) {
+                    ?>
+                    <li><a href="#" class="dropdown-toggle btn btn-info btn-lg" data-toggle="modal" data-target="#loginModal">Sign In</a></li>                      
+                    <?php
+                  }else{
+                    ?>
+                    <li class=""><a href="<?php echo url('/auth/logout'); ?>">Logout</a></li>
+                    <li><a href="<?php echo url('/my-account'); ?>" class="dropdown-toggle btn btn-info btn-lg">My Account</a></li>
+                    <?php
+                  }
+                ?>
               </ul>
             </div>
           </div>
@@ -53,30 +71,22 @@
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
               <a href="<?php echo url('/') ?>"> <img class="vsure-logo-image" src="<?php echo asset('/public'); ?>/images/logo.png" style="width: 240px; "></a> 
-              <a class="navbar-sign-in-button" href="#">sign in</a>
+              <?php
+                  if (empty(session('token'))) {
+                    ?>
+                    <a class="navbar-sign-in-button" href="#" data-toggle="modal" data-target="#loginModal">sign in</a>                     
+                    <?php
+                  }else{
+                    ?>
+                    <a class="navbar-sign-in-button" href="<?php echo url('/my-account'); ?>" >My Account</a>
+                    <a class="navbar-sign-in-button" href="<?php echo url('/auth/logout'); ?>">Logout</a>
+                    <?php
+                  }
+                ?>
               </div>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav navbar-right">
                 <?php echo Helper::getServiceSubMenu(); ?>
-                <?php
-                  if (empty(session('token'))) {
-                    ?>
-                      <li>
-                        <ul class="nav navbar-nav navbar-right">
-                          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#loginModal">
-                            <button type="button" class="btn btn-info btn-lg" ><span class="fa fa-user-o"></span> Sign In </button>
-                            </a> </li>
-                        </ul>
-                      </li>
-                    <?php
-                  }else{
-                    ?>
-                    <li class=""><a href="<?php echo url('/auth/logout'); ?>">Logout</a></li>
-                    <li><a href="<?php echo url('/my-account'); ?>"><button type="button" class="btn btn-info btn-lg" >My Account</button></a></li>
-                    <?php
-                  }
-                ?>
-                
               </ul>
             </div>
           </div>

@@ -170,7 +170,7 @@ if (!empty($serviceForm->form_fields) && is_array($serviceForm->form_fields)) {
           ?>
           <div class="company-page-form-btn">
             <div class="col-sm-12">
-              <button type="button" class="btn btn-default submit_form_button" data-tabKey="tab_<?php echo $form_key+1 ?>">Save & Continue</button>
+              <button type="button" class="btn btn-default submit_form_button" data-tabKey="tab_<?php echo $form_key ?>">Save & Continue</button>
             </div>
           </div>
           <?php

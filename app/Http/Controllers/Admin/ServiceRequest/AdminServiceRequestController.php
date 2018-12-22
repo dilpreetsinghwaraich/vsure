@@ -41,6 +41,7 @@ class AdminServiceRequestController extends Controller
         }
         
         $serviceForm = ServiceForm::where('service_id', $serviceRequest->service_id)->get()->first();
+
         $serviceForm->form_fields = Helper::maybe_unserialize($serviceForm->form_fields);
 
         $serviceRequest->company_details = Helper::maybe_unserialize($serviceRequest->company_details);

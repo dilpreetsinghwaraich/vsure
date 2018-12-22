@@ -89,43 +89,52 @@ class ContactController extends Controller
     {
         $validation = Validator::make($request->all(), self::$enqueryRules);
         if($validation->passes()){
-            
-            if (empty($request->input('otp_code'))) {
-                Session::flash('warning', 'Your Phone is not verify, please verify.');
-                return Redirect::back()->withInput(Input::all());
-            }
-            $otpCode = PhoneOtpVerification::where('phone', $request->input('phone'))->where('otp_status', 'sent')->where('otp_code', $request->input('otp_code'))->where('otp_for', 'ServiceRequest')->get()->first();
-            if (empty($otpCode)) {
-                Session::flash('warning', 'Your OTP is invalid.');
-                return Redirect::back()->withInput(Input::all());   
-            }
-            
-            $otpTime = date('H:i:s',strtotime("+3 minutes", strtotime($otpCode->time)));
 
-            if ($otpTime < date('H:i:s')) {
-                Session::flash('warning', 'Your OTP is expired. Time is more then 3 minut .');
-                PhoneOtpVerification::where('otp_id', $otpCode->otp_id)->update(['otp_status'=>'expired']);
-                return Redirect::back()->withInput(Input::all());  
-            }
+            $currentUser = \Helper::getCurrentUser();
+            if (empty($currentUser->user_id)) {
+                if (empty($request->input('otp_code'))) {
+                    Session::flash('warning', 'Your Phone is not verify, please verify.');
+                    return Redirect::back()->withInput(Input::all());
+                }
+                $otpCode = PhoneOtpVerification::where('phone', $request->input('phone'))->where('otp_status', 'sent')->where('otp_code', $request->input('otp_code'))->where('otp_for', 'ServiceRequest')->get()->first();
+                if (empty($otpCode)) {
+                    Session::flash('warning', 'Your OTP is invalid.');
+                    return Redirect::back()->withInput(Input::all());   
+                }
+                
+                $otpTime = date('H:i:s',strtotime("+3 minutes", strtotime($otpCode->time)));
 
+                if ($otpTime < date('H:i:s')) {
+                    Session::flash('warning', 'Your OTP is expired. Time is more then 3 minut .');
+                    PhoneOtpVerification::where('otp_id', $otpCode->otp_id)->update(['otp_status'=>'expired']);
+                    return Redirect::back()->withInput(Input::all());  
+                }
+            }
             $password = str_random(8);
             $userType = '';
-            if ($user = User::where('phone', $request->input('phone'))->get()->first()) {
-                $user_id = $user->user_id;
-                User::authenticateWithEmail($user);
-                $userType = 'already';
+            if (empty($currentUser->user_id)) {
+                if ($user = User::where('phone', $request->input('phone'))->get()->first()) {
+                    $user_id = $user->user_id;
+                    User::authenticateWithEmail($user);
+                    $userType = 'already';
+                }else{
+                    $user_id = self::createUser($request, $password);
+                    $userType = 'new';
+                    $user = User::where('user_id', $user_id)->get()->first();
+                    User::authenticateWithEmail($user);
+                }
             }else{
-                $user_id = self::createUser($request, $password);
-                $userType = 'new';
-                $user = User::where('user_id', $user_id)->get()->first();
-                User::authenticateWithEmail($user);
+                $userType = 'already';
+                $user_id = $currentUser->user_id;
             }
             $email = $request->input('phone');
             $ticket = self::createServiceRequest($user_id, $request);
             $service = Services::find($request->input('service_id'));
             $mailHtml = view('EmailTemplate.ServiceRequestMail', compact('ticket','userType','email','password'));
             $subject = '[#'.$ticket.'] Need Help with : '.$service->service_title;
-            PhoneOtpVerification::where('otp_id', $otpCode->otp_id)->update(['otp_status'=>'verify']);
+            if (empty($currentUser->user_id)) {
+                PhoneOtpVerification::where('otp_id', $otpCode->otp_id)->update(['otp_status'=>'verify']);
+            }
             Helper::SendEmail($request->input('email'), $subject, $mailHtml, '');
 
             Helper::SendEmail('vsurecfo@gmail.com', $subject, $mailHtml, '');

@@ -18,7 +18,7 @@ class ServiceRequestController extends Controller
 {
     public function serviceRequest()
     {
-        $serviceRequests = ServiceRequest::where('user_id', Helper::getCurrentUserByKey('user_id'))->get();
+        $serviceRequests = ServiceRequest::where('user_id', Helper::getCurrentUserByKey('user_id'))->orderBy('created_at','DESC')->get();
         $html = view('ServiceRequest.serviceRequest',compact('serviceRequests'));
         $view = 'Dashboard.Dashboard';
         return view('Includes.commonTemplate',compact('view','html'));

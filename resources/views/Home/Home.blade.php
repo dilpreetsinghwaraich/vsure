@@ -42,16 +42,16 @@ if (!empty($sliderImages)) {
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3 col-sm-3 col-xs-6">
-				<img src="<?php echo asset('public/images/logo.png') ?>">
+				<img src="<?php echo asset('https://vsurecfo.com/public/images/thread origin.png') ?>">
 			</div>
 			<div class="col-md-3 col-sm-3 col-xs-6">
-				<img src="<?php echo asset('public/images/logo.png') ?>">
+				<img src="<?php echo asset('https://vsurecfo.com/public/images/wedyut.png') ?>">
 			</div>
 			<div class="col-md-3 col-sm-3 col-xs-6">
-				<img src="<?php echo asset('public/images/logo.png') ?>">
+				<img src="<?php echo asset('https://vsurecfo.com/public/images/rsqr.png') ?>">
 			</div>
 			<div class="col-md-3 col-sm-3 col-xs-6">
-				<img src="<?php echo asset('public/images/logo.png') ?>">
+				<img src="<?php echo asset('https://vsurecfo.com/public/images/human.png') ?>">
 			</div>
 		</div>
 	</div>

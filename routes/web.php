@@ -14,7 +14,7 @@ Route::get('/cache', function() {
     $exitCode = Artisan::call('cache:clear');
     $exitCode = Artisan::call('view:clear');
     $exitCode = Artisan::call('config:cache');
-    return Redirect('/');
+    return Redirect::back();
 });
 
 Route::get('/', 'Home\HomeController@home');
@@ -62,7 +62,8 @@ Route::group(['middleware' => 'userToken'], function () {
 	Route::get('/my-notifications', 'Notifications\NotificationsController@notifications');
 	Route::post('/send/notification', 'Notifications\NotificationsController@save');
 
-	Route::get('/my-deliverable1', 'Deliverable\DeliverableController@deliverable');
+	Route::get('/my-deliverable', 'Deliverable\DeliverableController@deliverable');
+	Route::get('/user/view/deliverable/{ticket?}', 'Deliverable\DeliverableController@viewDeliverable');
 
 	Route::get('select/service/packages/{ticket?}', 'Checkout\CheckoutController@servicePackages');
 	Route::get('checkout/{package_id?}', 'Checkout\CheckoutController@checkout');

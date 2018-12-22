@@ -95,10 +95,21 @@
     </div>
     <div class="row">
       <div class="order-details-page-main-inner col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h2 class="view-order-page-amount-due">AMOUNT DUE : <?php echo $order->order_date; ?></h2>
+        <h2 class="view-order-page-amount-due">AMOUNT DUE DATE: <?php echo $order->order_date; ?></h2>
         <div class="order-view-payment-section">
           <p>Payment Method</p>
-          <a href="#"><img src="<?php echo asset('public/images/razorpay.png') ?>" style="width:90px"></a> </div>
+          <?php 
+          if ($order->payment_method == 'razorpay') {
+            ?>
+            <a href="#"><img src="<?php echo asset('public/images/razorpay.png') ?>" style="width:90px"></a>
+            <?php
+          }elseif ($order->payment_method == 'paypal') {
+            ?>
+            <a href="#"><img src="<?php echo asset('public/images/paypal.png') ?>" style="width:90px"></a>
+            <?php
+          }
+          ?>
+        </div>
       </div>
       <div class="order-details-page-main-inner col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <table class="table table-condensed">
@@ -123,8 +134,9 @@
           <div class="order-details-page-main-inner-bottom-btn col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <?php
               if ($order->amount_status == 'pending') {
-                ?>
-                  <form action="{!!route('payment')!!}/<?php echo $order->invoice_id; ?>" method="POST" >
+                if ($order->payment_method == 'razorpay') {
+                  ?>
+                  <form action="{!!route('payment')!!}/<?php echo $order->invoice_id; ?>" method="POST" style="float: right;" >
                       <script src="https://checkout.razorpay.com/v1/checkout.js"
                               data-key="{{ Config::get('razorpay.razor_key') }}"
                               data-amount="<?php echo $order->grand_total*100 ?>"
@@ -138,8 +150,12 @@
                       </script>
                       <input type="hidden" name="_token" value="{!!csrf_token()!!}">
                   </form>
-                  <button onclick="window.location.href='<?php echo url('paypal/'.$order->invoice_id) ?>'">Paypal</button>
-                <?php
+                  <?php
+                }elseif($order->payment_method == 'paypal'){
+                  ?>
+                    <button onclick="window.location.href='<?php echo url('paypal/'.$order->invoice_id) ?>'">Pay Amount</button>
+                  <?php
+                }                  
               }
               ?> 
               <button onclick="Javascript:window.open('<?php echo url('generate/print/'.$order->invoice_id) ?>','','')">Print</button>

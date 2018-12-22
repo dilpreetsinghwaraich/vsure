@@ -18,7 +18,7 @@ class OrdersController extends Controller
 {
     public function orders()
     {
-        $orders = Orders::where('user_id',Helper::getCurrentUserByKey('user_id'))->paginate(50);
+        $orders = Orders::where('user_id',Helper::getCurrentUserByKey('user_id'))->orderBy('created_at','DESC')->paginate(50);
         $profile =  Helper::getCurrentUser(); 
         $html = view('Orders.Orders', compact('orders','profile'));
         $view = 'Dashboard.Dashboard';

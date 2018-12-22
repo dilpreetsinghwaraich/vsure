@@ -311,7 +311,7 @@ jQuery(document).ready(function($) {
         if ($next == false) {
             return false;
         }
-        $('.'+tabID).click();
+        $('.'+tabID).next().click();
     });
     $(document).on('click', '#forgotPasswordClick', function(event) {
         event.preventDefault();
@@ -396,6 +396,10 @@ jQuery(document).ready(function($) {
             current.find('.messageResponsed').html('<div class="alert alert-warning">Something Went Wrong, Please try after sometime.</div>');
             return false;
         });
+    });
+    $(document).on('click', '.close_prompt_popup', function(event) {
+        event.preventDefault();
+        ageCheck();        
     });
 });
 function isValidEmailAddress(emailAddress) {

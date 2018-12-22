@@ -1954,7 +1954,7 @@ Order-Page
     margin: 0;
     padding: 0;
 }
-.order-details-page-main-inner-bottom-btn button {
+.order-details-page-main-inner-bottom-btn button, .razorpay-payment-button {
     background: #3bb14b;
     color: #fff;
     border: none;

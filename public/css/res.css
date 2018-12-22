@@ -66,9 +66,14 @@
 }
 .vsure-header-top .col-md-9.col-xs-8.col-sm-8 ul li a{
     color: #666;
-    padding: 2px 10px;
+    padding: 10px 15px;
     font-size: 16px;
     float: left;
+}
+.vsure-header-top .col-md-9.col-xs-8.col-sm-8 ul li a.dropdown-toggle, .vsure-header-top .col-md-9.col-xs-8.col-sm-8 ul li a.dropdown-toggle:hover {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
 }
 .vsure-header-top .col-md-9.col-xs-8.col-sm-8 ul li a:hover{
     color: #333;
@@ -205,6 +210,11 @@ section#service-page-doc-table .single-service-table {
 .vsure-home-page-slider {
     height: 701px;
 }
+.logedin-order-page a {
+    padding: 6px;
+    font-size: 12px;
+    font-weight: 100;
+}
 
 }
 @media only screen and (max-width: 1440px) {
@@ -213,20 +223,30 @@ section#service-page-doc-table .single-service-table {
     height: 680px;
 }
 
+
 }
 @media only screen and (max-width: 1366px) {
 
 .vsure-home-page-slider {
     height: 575px;
 }
-
+.logedin-profile-page .content .content-main{
+    width: 100%;
+    overflow-y: scroll;
+}
+.logedin-profile-page .content .content-main .table {
+    width: 850px;
+}
 }
 @media only screen and (max-width: 1360px) {
 
 .vsure-home-page-slider {
     height: 650px;
 }
-
+.logedin-order-page {
+    float: left;
+    width: 100%;
+}
 }
 
 @media only screen and (max-width: 1200px) {
@@ -237,39 +257,21 @@ section#service-page-doc-table .single-service-table {
 .navbar-collapse ul {
     margin: 0;
 }
-
+.sidebar{
+    width:100%;
+    height: inherit;
+    margin-left: 10px;
 }
-
-@media only screen and (max-width: 768px) {
-
-.navbar-sign-in-button {
-    display: block;
-}
-.td-subcat-filter {
+.logedin-profile-page .sidebar a {
     float: left;
-    width: 100%;
-    position: inherit;
-    background: #eee;
-    padding: 5px;
+    display: inline-block;
+    width: initial;
+    padding: 10px;
 }
-.td-subcat-filter ul{
-	padding:0;
-}
-.td-subcat-filter ul li.td-subcat-item{
-	margin-left: 15px !important;
-}
-.about-blog .blog-thumb {
-    float: left;
-    width: 100%;
-    position: inherit;
-}
-.about-blog .item-details {
-    float: left;
-    width: 100%;
-    margin: 0;
-}
-.about-blog .item-details h3{
-    text-align: left;
+.logedin-profile-page .sidebar a.active {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 10px 10px 25px;
 }
 
 }
@@ -288,7 +290,48 @@ button.navbar-toggle {
 .vsure-logo-image{
     max-width: 180px;
 }
+.logedin-profile-page .sidebar a {
+    padding: 5px;
+}
 
+}
+
+@media only screen and (max-width: 768px) {
+
+.navbar-sign-in-button {
+    display: block;
+}
+.td-subcat-filter {
+    float: left;
+    width: 100%;
+    position: inherit;
+    background: #eee;
+    padding: 5px;
+}
+.td-subcat-filter ul{
+    padding:0;
+}
+.td-subcat-filter ul li.td-subcat-item{
+    margin-left: 15px !important;
+}
+.about-blog .blog-thumb {
+    float: left;
+    width: 100%;
+    position: inherit;
+}
+.about-blog .item-details {
+    float: left;
+    width: 100%;
+    margin: 0;
+}
+.about-blog .item-details h3{
+    text-align: left;
+}
+.upload-btn {
+    float: right;
+    margin: 2em 30px 20px 0px;
+    text-align: center;
+}
 }
 
 @media only screen and (max-width: 500px) {
@@ -355,5 +398,29 @@ section#testimonial{
 .homepage-blog-sec .blog-img button {
     display: none;
 }
+.logedin-profile-page .sidebar a {
+    float: left;
+    display: inline-block;
+    width: initial;
+    padding: 10px;
+    width: 50%
+}
+.logedin-profile-page-image {
+    text-align: center;
+}
+p.profile-email {
+    float: left;
+    width: 100%;
+}
+p.profile-email span {
+    margin: 5px 0 0 0;
+    width: 100%;
+    float: left;
+}
 
+}
+.close_prompt_popup {
+    position: absolute;
+    right: 0;
+    border-radius: 0;
 }

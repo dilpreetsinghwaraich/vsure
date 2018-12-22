@@ -144,7 +144,7 @@ class CheckoutController extends Controller
         $orderInsert['discount'] = 0;
         $orderInsert['grand_total'] = Helper::displayPriceOnly($package);
         $orderInsert['payment_id'] = '';
-        $orderInsert['payment_method'] = 'razorpay';
+        $orderInsert['payment_method'] = $request->input('payment_method');
         $orderInsert['created_at'] = new DateTime;
         $orderInsert['updated_at'] = new DateTime;
 
