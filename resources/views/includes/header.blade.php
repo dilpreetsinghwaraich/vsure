@@ -79,7 +79,6 @@
                   }else{
                     ?>
                     <a class="navbar-sign-in-button" href="<?php echo url('/my-account'); ?>" >My Account</a>
-                    <a class="navbar-sign-in-button" href="<?php echo url('/auth/logout'); ?>">Logout</a>
                     <?php
                   }
                 ?>
@@ -87,6 +86,13 @@
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav navbar-right">
                 <?php echo Helper::getServiceSubMenu(); ?>
+                <?php
+                  if (!empty(session('token'))) {
+                    ?>
+                    <li><a class="" href="<?php echo url('/auth/logout'); ?>">Logout</a></li>
+                  <?php
+                  }
+                ?>
               </ul>
             </div>
           </div>
