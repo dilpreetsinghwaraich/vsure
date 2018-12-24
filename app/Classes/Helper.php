@@ -324,9 +324,9 @@ class Helper
     	  <div class="card card_small_with_image grid-item"> 
     	  	<img class="card-img-top" style="width: 100%;" src="<?php echo asset('/').'/'.$post->image; ?>" alt="<?php echo $post->post_title ?>">
     	    <div class="card-body">
-    	      <div class="card-title card-title-small">
+    	      <!-- <div class="card-title card-title-small">
     	      	<a href="<?php echo url('/'.$post->post_slug); ?>"><?php echo $post->post_excerpt; ?></a>
-    	      </div>
+    	      </div> -->
     	      <small class="post_meta">
     	      	<a href="<?php echo url('/'.$post->post_slug); ?>"><?php echo $post->post_title ?></a>
     	      	<span><?php echo date('M, d Y',strtotime($post->created_at)); ?></span>

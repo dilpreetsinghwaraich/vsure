@@ -65,18 +65,18 @@
                     echo Share::page(
                                   Request::url(), 
                                   null, 
-                                  ['class' => 'post_share_item', 'id' => 'facebook_share']
+                                  ['class' => 'post_share_item facebook_share',]
                                 )
                                 ->facebook(); 
                     echo Share::page(
                                     Request::url(), 
                                     null, 
-                                    ['class' => 'post_share_item', 'id' => 'twitter_share']
+                                    ['class' => 'post_share_item twitter_share', 'id' => '']
                                   )->twitter(); 
                     echo Share::page(
                                     Request::url(), 
                                     null, 
-                                    ['class' => 'post_share_item', 'id' => 'googlePlus_share']
+                                    ['class' => 'post_share_item googlePlus_share', 'id' => '']
                                   )->googlePlus(); 
                   ?>
                 </ul>
@@ -89,8 +89,10 @@
         <div class="col-lg-8">
           <div class="post_content"> 
             
-            <div class="post_body">
-              <div><img src="<?php echo asset('/').'/'.$post->image; ?>" style="width: 100%;" alt="<?php echo $post->post_title; ?>"></div>
+            <div class="vsure-post-page-image-body post_body">
+              <div class="vsure-post-page-image">
+                <img src="<?php echo asset('/').'/'.$post->image; ?>" style="width: 100%;" alt="<?php echo $post->post_title; ?>">
+              </div>
               <p class="post_p"><?php echo $post->post_content; ?></p>
             </div>
             
@@ -105,36 +107,37 @@
                     echo Share::page(
                                   Request::url(), 
                                   null, 
-                                  ['class' => 'post_share_item', 'id' => 'facebook_share']
+                                  ['class' => 'post_share_item facebook_share', 'id' => '']
                                 )
                                 ->facebook(); 
                     echo Share::page(
                                     Request::url(), 
                                     null, 
-                                    ['class' => 'post_share_item', 'id' => 'twitter_share']
+                                    ['class' => 'post_share_item twitter_share', 'id' => '']
                                   )->twitter(); 
                     echo Share::page(
                                     Request::url(), 
                                     null, 
-                                    ['class' => 'post_share_item', 'id' => 'googlePlus_share']
+                                    ['class' => 'post_share_item googlePlus_share', 'id' => '']
                                   )->googlePlus(); 
                   ?>
                 </ul>
               </div>
             </div>
-            <div class="similar_posts">
-              <div class="grid clearfix"> 
-                <?php 
-                  Helper::similarPosts($post);
-                ?>
-              </div>
-              <?php 
-                  echo Helper::comments($post);
-                ?>
-            </div>
+            
           </div>
         </div>
         <?php echo Helper::SidebarPost('blog', []); ?>
+      </div>
+      <div class="similar_posts vsure-post-page-similar-post">
+          <div class="grid clearfix"> 
+            <?php 
+              Helper::similarPosts($post);
+            ?>
+          </div>
+          <?php 
+              echo Helper::comments($post);
+            ?>
       </div>
     </div>
   </div>

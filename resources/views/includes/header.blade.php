@@ -34,13 +34,13 @@
 
          <div class="vsure-header-top">
           <div class="row">
-            <div class="col-md-3 col-xs-4 col-sm-4">
+            <div class="col-md-2 col-xs-2 col-sm-2">
               <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
               <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
               <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
             </div>
 
-            <div class="col-md-9 col-xs-8 col-sm-8">
+            <div class="col-md-10 col-xs-10 col-sm-10">
               <ul> 
                 <li class=""><a href="<?php echo url('/blog'); ?>">Learning Center</a></li>
                 <?php 

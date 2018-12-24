@@ -300,6 +300,7 @@ jQuery(document).ready(function($) {
     });
     $('.submit_form_button').click(function(event) {
         var tabID = $(this).attr('data-tabKey');
+        var tabComp = $(this).attr('data-tabcomp');
         var $next = true;
         $.each($('.company_profile.in .emptyFieldCheck'), function(index, val) {
             if ($(this).val() == '') {
@@ -311,6 +312,7 @@ jQuery(document).ready(function($) {
         if ($next == false) {
             return false;
         }
+        $('#'+tabComp).removeClass('progtrckr-todo').addClass('progtrckr-done');
         $('.'+tabID).next().click();
     });
     $(document).on('click', '#forgotPasswordClick', function(event) {
@@ -359,9 +361,9 @@ jQuery(document).ready(function($) {
             $(this).addClass('active');
          }
     });
-    $('#facebook_share').html('<i class="fa fa-facebook" aria-hidden="true"></i>');
-    $('#twitter_share').html('<i class="fa fa-twitter" aria-hidden="true"></i>');
-    $('#googlePlus_share').html('<i class="fa fa-google" aria-hidden="true"></i>');
+    $('.facebook_share').html('<i class="fa fa-facebook" aria-hidden="true"></i>');
+    $('.twitter_share').html('<i class="fa fa-twitter" aria-hidden="true"></i>');
+    $('.googlePlus_share').html('<i class="fa fa-google" aria-hidden="true"></i>');
 
     $(document).on('submit', '#emailSubscriber', function(event) {
         event.preventDefault();
@@ -401,7 +403,15 @@ jQuery(document).ready(function($) {
         event.preventDefault();
         ageCheck();        
     });
-});
+    if ($('.company_profile').length > 0) {
+        $.each($('.company_profile'), function(index, val) {
+            if ($(this).find('.emptyFieldCheck1').val() != '' && $(this).find('.emptyFieldCheck1').length > 0) {
+                var tabCamp = $(this).data('tabcomp');
+                $('#'+tabCamp).removeClass('progtrckr-todo').addClass('progtrckr-done');
+            }
+        });
+    }
+}); 
 function isValidEmailAddress(emailAddress) {
     var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
     return pattern.test(emailAddress);
