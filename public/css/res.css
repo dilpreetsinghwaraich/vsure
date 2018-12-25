@@ -634,3 +634,7 @@ ol.progtrckr {
 }
 
 
+
+.navbar-header{
+    z-index: 9999;
+}

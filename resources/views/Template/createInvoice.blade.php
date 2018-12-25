@@ -42,9 +42,9 @@
       <?php 
       $billing_address = json_decode($order->billing_address); 
       $mainAddress = [];
-      $mainAddress[] = $billing_address->city;
-      $mainAddress[] = $billing_address->state;
-      $mainAddress[] = $billing_address->country;
+      $mainAddress[] = Helper::getCity($billing_address->city);
+      $mainAddress[] = Helper::getState($billing_address->state);
+      $mainAddress[] = Helper::getCountry($billing_address->country);
       ?>
       <div class="order-details-page-main-inner col-lg-4 col-md-4 col-sm-6 col-xs-12">
         <p>To : <span><b><?php echo $billing_address->name; ?>,</b></span> 

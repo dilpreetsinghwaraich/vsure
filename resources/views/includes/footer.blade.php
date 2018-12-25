@@ -96,7 +96,7 @@
       </div>
       <div class="row">
         <div class="col-lg-8 col-xs-12">
-          <p>Copyright 2012 - 2018 VSure Consulting  |  All Rights Reserved </p>
+          <p style="color: #fff">Copyright 2012 - 2018 VSure Consulting  |  All Rights Reserved </p>
         </div>
       </div>
     </div>
@@ -124,7 +124,6 @@ if (empty(session('token'))) {
 } 
 ?>
 
-<script src="<?php echo asset('/public'); ?>/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo asset('public/admin/js') ?>/jquery-ui.js"></script>
 <script src="<?php echo asset('/public'); ?>/js/jquery.easing.min.js"></script> 
 <script src="<?php echo asset('/public'); ?>/js/bootstrap.min.js"></script> 

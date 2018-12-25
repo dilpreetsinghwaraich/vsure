@@ -32,7 +32,15 @@ Route::post('/auth/login', 'Auth\LoginController@loginAccess');
 Route::post('/auth/forgot/password', 'Auth\ForgotPasswordController@forgotPassword');
 Route::get('/auth/reset/forgot/password/{activation_key?}', 'Auth\ForgotPasswordController@resetForgotPassword');
 Route::post('/auth/reset/forgot/password/{activation_key?}', 'Auth\ForgotPasswordController@updateForgotPassword');
-Route::get('/auth/logout', 'Auth\LoginController@logout');
+Route::get('/getStatesByCountryID/{country_id?}', function ($country_id = 0){
+	echo Helper::getStatesByCountryID($country_id);
+	die;
+});
+Route::get('/getCitiesByStateID/{state_id?}', function ($state_id = 0){
+	echo Helper::getCitiesByStateID($state_id);
+	die;
+});
+
 Route::group(['middleware' => 'userToken'], function () {
 	Route::get('/my-account', 'Dashboard\DashboardController@dashboard');
 

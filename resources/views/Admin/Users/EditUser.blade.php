@@ -26,21 +26,10 @@
                   </div>
                 </div> 
                 <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="country">Country</label>
-                    <input type="text" class="form-control" id="country" name="country" value="<?php echo $user->country ?>" placeholder="Country">                  
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="company">State</label>
-                    <input type="text" class="form-control" id="state" name="state" value="<?php echo $user->state ?>" placeholder="State">
-                  </div>
+                  <?php echo Helper::getCityStateCountriesView($user->country, $user->state, $user->city) ?>
                 </div> 
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="phone">City</label>
-                    <input type="text" class="form-control" id="city" name="city" value="<?php echo $user->city ?>" placeholder="City">                  
-                  </div>
-                  <div class="form-group col-md-6">
+                <div class="form-row">                  
+                  <div class="form-group col-md-12">
                     <label for="company">Role</label>
                     <select name="role" class="form-control">
                       <option value="">Select</option>

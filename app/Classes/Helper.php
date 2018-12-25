@@ -454,5 +454,47 @@ class Helper
                 	<textarea class="form-control selectFieldTitle" required id="select_title_'.$fieldCount.'" name="form_fields['.$tabCount.'][field]['.$fieldCount.'][select][value]" placeholder="Select Value">'.$value.'</textarea>
               	</div>';
     }
-
+    public static function getCountry($country_id)
+    {
+    	return DB::table('countries')->where('id', $country_id)->pluck('name')->first();
+    }
+    public static function getState($state_id)
+    {
+    	return DB::table('states')->where('id', $state_id)->pluck('name')->first();
+    }
+    public static function getCity($city_id)
+    {
+    	return DB::table('cities')->where('id', $city_id)->pluck('name')->first();
+    }
+    public static function getCountries()
+    {
+    	return DB::table('countries')->get()->toArray();
+    }
+    public static function getStatesByCountryID($country_id)
+    {
+    	$states = DB::table('states')->where('country_id', $country_id)->get()->toArray();
+    	$stateHtml = '<option value="">Select</option>';
+    	if (!empty($states)) {
+    		foreach ($states as $state) {
+    			$stateHtml .= '<option value="'.$state->id.'">'.$state->name.'</option>';
+    		}
+    	}
+    	return $stateHtml;
+    }
+    public static function getCitiesByStateID($state_id)
+    {
+    	$cities = DB::table('cities')->where('state_id', $state_id)->get()->toArray();
+    	$cityHtml = '<option value="">Select</option>';
+    	if (!empty($cities)) {
+    		foreach ($cities as $city) {
+    			$cityHtml .= '<option value="'.$city->id.'">'.$city->name.'</option>';
+    		}
+    	}
+    	return $cityHtml;
+    }
+    public static function getCityStateCountriesView($country_id = 0, $state_id = 0, $city_id = 0)
+    {
+    	$countries = self::getCountries();
+    	return view('Template.GetCityStateCountriesView', compact('countries','country_id','state_id','city_id'));
+    }
 }

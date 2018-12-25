@@ -119,17 +119,7 @@ if ($type == 'blog' || $type == 'modal') {
         }
         ?>
       <div class="form-group">
-        <label class="label">City</label>
-        <select name="city" required="" class="form-control">
-          <option value="">Please Select City</option>
-          <?php 
-          if (!empty($states)) {
-            foreach ($states as $state) {
-              echo '<option value="'.$state->city_id.'" '.(old('city') == $state->city_id? 'selected':'').'>'.$state->city.'</option>';
-            }
-          }
-          ?>
-        </select>
+        <?php echo Helper::getCityStateCountriesView(old('country'), old('state'), old('city')) ?>        
       </div>
         <button type="submit" class="btn btn-info">Submit</button> 
       </form>

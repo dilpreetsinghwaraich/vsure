@@ -7,7 +7,6 @@
   </div>
 </div>
 
-<script src="<?php echo asset('/public'); ?>/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo asset('public/admin/js') ?>/jquery-ui.js"></script>
 <script type="text/javascript" src="<?php echo asset('public/admin/js') ?>/vendor.js"></script>
 <script type="text/javascript" src="<?php echo asset('public/admin/js') ?>/bundle.js"></script>

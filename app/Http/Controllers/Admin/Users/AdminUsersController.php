@@ -40,7 +40,7 @@ class AdminUsersController extends Controller
 	    $user->email = $request->input('email');
 	    $user->phone = $request->input('phone');
 	    $user->company = $request->input('company');
-	    $user->country = $request->input('countrycountry');
+	    $user->country = $request->input('country');
 	    $user->state = $request->input('state');
 	    $user->city = $request->input('city');
 	    $user->role = $request->input('role');

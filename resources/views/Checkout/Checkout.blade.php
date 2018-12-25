@@ -42,37 +42,7 @@
                 <input class="company form-control" type="text" placeholder="Company" value="<?php echo $profile->company ?>" name="company">
               </div>
               <div class="form-group">
-                <label for="country">Country</label>
-                <select class="form-control" name="country" id="country">
-                  <option value="India" selected="">India</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="state">State</label>
-                <select name="state" id="state" required="" class="form-control">
-                  <option value="">---Select State---</option>
-                  <?php 
-                  if (!empty($states)) {
-                    foreach ($states as $state)
-                    {
-                      echo '<option value="'.$state->state.'" '.($profile->state == $state->state?'selected':'').'>'.$state->state.'</option>';
-                    }
-                  }
-                  ?>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="city">City</label>
-                <select name="city" id="city" required="" class="form-control">
-                  <option value="">---Select City---</option>
-                  <?php 
-                  if (!empty($profile->city)) {
-                    ?>
-                    <option value="<?php echo $profile->city ?>" selected><?php echo $profile->city ?></option>
-                    <?php
-                  }
-                  ?>  
-                </select>
+                <?php echo Helper::getCityStateCountriesView($profile->country, $profile->state, $profile->city) ?>
               </div>
               <div class="form-group">
                 <label for="address">Address</label>

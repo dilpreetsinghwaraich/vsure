@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/default-style.css">
 <link rel="stylesheet" type="text/css" href="<?php echo asset('/public'); ?>/css/res.css">
 <link rel="icon" href="<?php echo asset('/public'); ?>/images/favicon.png" type="image/gif" sizes="64x64">
+<script src="<?php echo asset('/public'); ?>/js/jquery.min.js"></script>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <base href="<?php echo url('/'); ?>">
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127207130-1"></script>

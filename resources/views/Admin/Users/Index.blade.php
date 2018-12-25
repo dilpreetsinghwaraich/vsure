@@ -28,7 +28,7 @@
               <td><?php echo $user->email; ?></td>
               <td><?php echo $user->user_login; ?></td>
               <td><?php echo $user->phone ?></td>
-              <td><?php echo $user->city ?></td>
+              <td><?php echo Helper::getCity($user->city) ?></td>
               <td><?php echo $user->role ?></td>
               <td><a href="javascript:void(0);" class="getUserDocumentDetails" data-user_id="<?php echo $user->user_id; ?>" data-toggle="modal" data-target="#getUserDocumentDetailsModal">View</a></td>
               <td>

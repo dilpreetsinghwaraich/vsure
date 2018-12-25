@@ -11,6 +11,7 @@
 <link href="<?php echo asset('public/admin/css') ?>/jquery-ui.css" rel="stylesheet">
 <link href="<?php echo asset('public/admin/css') ?>/style.css" rel="stylesheet">
 <link href="<?php echo asset('/public/vendor');?>/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+<script src="<?php echo asset('/public'); ?>/js/jquery.min.js"></script>
 </head>
 <body class="app">
   <?php $user = \Helper::getCurrentUser(); ?>
