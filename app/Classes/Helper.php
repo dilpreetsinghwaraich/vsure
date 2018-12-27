@@ -13,6 +13,7 @@ use App\ServiceRequest;
 use App\Services;
 use App\ServiceForm;
 use App\Terms;
+use App\Classes\CurrencyCONV;
 class Helper
 {
 	public static function SendEmail($to='',$subject='',$htmlmessage='',$Attachment='')
@@ -263,20 +264,24 @@ class Helper
 	}
 	public static function displayPrice($package)
     {
+
         if (!empty($package->discount_start) && !empty($package->discount_end) && date('Y-m-d') >= date('Y-m-d', strtotime($package->discount_start)) && date('Y-m-d') <= date('Y-m-d', strtotime($package->discount_end))) {
-            return '<span class="special-price">&#8377; '.$package->sale_price.'</span> <del>&#8377; '.$package->regular_price.'</del>';
+        	$sale_price = CurrencyCONV::getPrice($package->sale_price, 'with');
+        	$regular_price = CurrencyCONV::getPrice($package->regular_price, 'with');
+            return '<span class="special-price">'.$sale_price.'</span> <del>'.$regular_price.'</del>';
         }else
         {
-            return '<span class="special-price">&#8377; '.$package->regular_price.' </span>';
+        	$regular_price = CurrencyCONV::getPrice($package->regular_price, 'with');
+            return '<span class="special-price">'.$regular_price.' </span>';
         }
     }
     public static function displayPriceOnly($package)
     {
         if (!empty($package->discount_start) && !empty($package->discount_end) && date('Y-m-d') >= date('Y-m-d', strtotime($package->discount_start)) && date('Y-m-d') <= date('Y-m-d', strtotime($package->discount_end))) {
-            return $package->sale_price;
+        	return CurrencyCONV::getPrice($package->sale_price, 'without');
         }else
         {
-            return $package->regular_price;
+        	return CurrencyCONV::getPrice($package->regular_price, 'without');
         }
     }
     public static function ourClientsSection()
@@ -496,5 +501,5 @@ class Helper
     {
     	$countries = self::getCountries();
     	return view('Template.GetCityStateCountriesView', compact('countries','country_id','state_id','city_id'));
-    }
+    }    
 }

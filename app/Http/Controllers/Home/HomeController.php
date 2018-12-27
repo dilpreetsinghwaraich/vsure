@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Validator, DateTime, DB, Hash, File, Config, Helpers, Helper;
 use Session, Redirect;
 use Illuminate\Support\Facades\Input;
-
+use App\Classes\CurrencyCONV;
 class HomeController extends Controller
 {
     public function home()

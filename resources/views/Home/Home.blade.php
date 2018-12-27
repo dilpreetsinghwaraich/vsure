@@ -292,7 +292,7 @@ if (!empty($sliderImages)) {
                 <div class="blog-sec homepage-blog-sec">
                   <div class="blog-img img-responsive text-center"> <img src="<?php echo asset('/public'); ?>/images/tax.jpg">
                     <h2>Income tax compliance</h2>
-                    <p>Get Register your private limited company having lot of benefits of issuing shares and attracting investors with your idea for Startup Funding</p>
+                    <p>Get file your income tax return within time with assistance of CA with proper tax planning and consulting.</p>
                     <button>Start Now</button>
                   </div>
                 </div>
@@ -303,7 +303,7 @@ if (!empty($sliderImages)) {
                 <div class="blog-sec homepage-blog-sec">
                   <div class="blog-img img-responsive text-center"> <img src="<?php echo asset('/public'); ?>/images/gst.jpg">
                     <h2>GST Compliance </h2>
-                    <p>Get Register your private limited company having lot of benefits of issuing shares and attracting investors with your idea for Startup Funding</p>
+                    <p>Get File your GST Return within time to avoid late filing fees and get gst refund in time.</p>
                     <button>Start Now</button>
                   </div>
                 </div>
@@ -314,7 +314,7 @@ if (!empty($sliderImages)) {
                 <div class="blog-sec homepage-blog-sec">
                   <div class="blog-img img-responsive text-center"> <img src="<?php echo asset('/public'); ?>/images/law.jpg">
                     <h2>Company Law Compliance </h2>
-                    <p>Get Register your private limited company having lot of benefits of issuing shares and attracting investors with your idea for Startup Funding</p>
+                    <p>Get File your company annual returns within time to avoid late filing fees and get comply with ROC</p>
                     <button>Start Now</button>
                   </div>
                 </div>
