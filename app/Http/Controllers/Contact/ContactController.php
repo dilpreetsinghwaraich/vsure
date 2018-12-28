@@ -83,7 +83,7 @@ class ContactController extends Controller
         'email' => 'required|email',
         'phone' => 'required',
         'service_id' => 'required',
-        'city' => 'required',
+        //'city' => 'required',
     );
     public function enquerySubmit(Request $request)
     {
@@ -167,9 +167,9 @@ class ContactController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'phone' => $request->input('phone'),
-            'country' => $request->input('country'),
-            'state' => $request->input('state'),
-            'city' => $request->input('city'),
+            'country' => (empty($request->input('country'))?0:$request->input('country')),
+            'state' => (empty($request->input('state'))?0:$request->input('state')),
+            'city' => (empty($request->input('city'))?0:$request->input('city')),
             'created_at' => new DateTime,
             'updated_at' => new DateTime,
         ]);

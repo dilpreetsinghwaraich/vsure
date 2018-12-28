@@ -23,7 +23,8 @@ class CurrencyCONV
 	    	$rates = self::getRates($currency, 'INR');
 	    	$value = (double)$price / (double)$rates;
 	        $price = number_format((double)$value, 2, '.', '');
-	    }	    
+	    }	
+	    return $price;    
     	if ($symbole == 'without') {
 			return $price;
 		}
@@ -43,7 +44,7 @@ class CurrencyCONV
                 return $conversion[$fromCurrency . '_' . $toCurrency];
             }
         }
-        return $this->rate = 0;
+        return 0;
     }
 	public static function getCountryFromIP()
 	{

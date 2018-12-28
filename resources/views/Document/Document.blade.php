@@ -30,7 +30,7 @@
 	</div>
 	<div class="col-lg-12 col-xs-12" id="uploadDocumentModal" style="display: none;">
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<?php echo Form::open(array('url' => 'user/upload/document', 'method' => 'post','files'=>true)) ?>
 					<div class="form-group">
 						<label>Select Document Type</label>
@@ -47,6 +47,7 @@
 					<div class="form-group">
 						<input type="submit" name="submit" class="btn btn-success" value="Upload">
 					</div>
+					<p>All documents should be self attested</p>
 				</form>
 			</div>
 		</div>

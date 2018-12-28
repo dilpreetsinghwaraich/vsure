@@ -91,6 +91,10 @@ class ServiceRequestController extends Controller
                             'company_details' => Helper::maybe_serialize($company_details),
                             'updated_at' => new DateTime,
                         ]);
-        return Redirect('select/service/packages/'.$ticket);
+        $order = Orders::where('ticket', $ticket)->get()->first();
+        if (empty($order)) {
+            return Redirect('select/service/packages/'.$ticket);
+        }
+        return Redirect('my-service-request');
     }
 }

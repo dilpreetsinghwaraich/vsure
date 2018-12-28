@@ -198,7 +198,7 @@ if (!empty($sliderImages)) {
             <a href="<?php echo url('service/trademark-registration') ?>">
               <div class="wrap-item pad30">
                 <div class="item-img"> <img src="<?php echo asset('/public'); ?>/images/service-tax.png"> </div>
-                <p>Service Tax<br>
+                <p>Trademark <br>
                   Registration</p>
               </div>
             </a>

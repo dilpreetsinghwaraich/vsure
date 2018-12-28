@@ -119,7 +119,7 @@ if ($type == 'blog' || $type == 'modal') {
         }
         ?>
       <div class="form-group">
-        <?php echo Helper::getCityStateCountriesView(old('country'), old('state'), old('city')) ?>        
+        <?php //echo Helper::getCityStateCountriesView(old('country'), old('state'), old('city')) ?>        
       </div>
         <button type="submit" class="btn btn-info">Submit</button> 
       </form>

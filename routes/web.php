@@ -30,6 +30,7 @@ Route::get('auth/register','Auth\RegisterController@registerForm');
 Route::post('auth/register','Auth\RegisterController@create');
 Route::post('/auth/login', 'Auth\LoginController@loginAccess');
 Route::post('/auth/forgot/password', 'Auth\ForgotPasswordController@forgotPassword');
+Route::get('/auth/logout', 'Auth\LoginController@logout');
 Route::get('/auth/reset/forgot/password/{activation_key?}', 'Auth\ForgotPasswordController@resetForgotPassword');
 Route::post('/auth/reset/forgot/password/{activation_key?}', 'Auth\ForgotPasswordController@updateForgotPassword');
 Route::get('/getStatesByCountryID/{country_id?}', function ($country_id = 0){
