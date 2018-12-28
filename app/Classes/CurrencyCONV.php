@@ -13,7 +13,6 @@ use App\ServiceRequest;
 use App\Services;
 use App\ServiceForm;
 use App\Terms;
-use danielme85\CConverter\Currency;
 class CurrencyCONV
 {
     public static function getPrice($price, $symbole = 'with')

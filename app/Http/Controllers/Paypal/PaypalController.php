@@ -9,7 +9,7 @@ use Validator, DateTime, DB, Hash, File, Config, Helpers, Helper;
 use Session, Redirect;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-
+use App\Classes\CurrencyCONV;
 use App\PayPal;
 
 class PayPalController extends Controller
@@ -23,11 +23,12 @@ class PayPalController extends Controller
         }
 
         $paypal = new PayPal;
-
+        $price = CurrencyCONV::getPrice($order->grand_total, 'without');
+        $currency = CurrencyCONV::getCurrency();
         $response = $paypal->purchase([
-            'amount' => $paypal->formatAmount(2),
+            'amount' => $paypal->formatAmount($price),
             'transactionId' => $invoice_id,
-            'currency' => 'USD',
+            'currency' => $currency,
             'cancelUrl' => $paypal->getCancelUrl($invoice_id),
             'returnUrl' => $paypal->getReturnUrl($invoice_id),
         ]);
@@ -51,11 +52,12 @@ class PayPalController extends Controller
         }
 
         $paypal = new PayPal;
-
+        $price = CurrencyCONV::getPrice($order->grand_total, 'without');
+        $currency = CurrencyCONV::getCurrency();
         $response = $paypal->complete([
-            'amount' => $paypal->formatAmount(2),
+            'amount' => $paypal->formatAmount($price),
             'transactionId' => $invoice_id,
-            'currency' => 'USD',
+            'currency' => $currency,
             'cancelUrl' => $paypal->getCancelUrl($invoice_id),
             'returnUrl' => $paypal->getReturnUrl($invoice_id),
             'notifyUrl' => $paypal->getNotifyUrl($invoice_id),

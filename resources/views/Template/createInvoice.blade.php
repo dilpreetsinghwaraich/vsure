@@ -58,10 +58,10 @@
           <?php
             if ($order->amount_status == 'pending') {
           ?>
-            <span>Payment Due : <?php echo $order->order_sub_total; ?></span> 
+            <span>Payment Due : <?php echo \App\Classes\CurrencyCONV::getPrice($order->order_sub_total, 'without'); ?></span> 
           <?php }else{
             ?>
-             <span>Payment : <?php echo $order->order_sub_total; ?></span> 
+             <span>Payment : <?php echo \App\Classes\CurrencyCONV::getPrice($order->order_sub_total, 'without'); ?></span> 
             <?php
           } ?>
             Payment Status  : <?php echo $order->amount_status; ?></p>
@@ -116,11 +116,11 @@
           <tbody>
             <tr>
               <td><b>Sub Total</b></td>
-              <td><?php echo $order->order_sub_total; ?></td>
+              <td><?php echo \App\Classes\CurrencyCONV::getPrice($order->order_sub_total, 'without'); ?></td>
             </tr>
             <tr>
               <td><b>Grand Total</b></td>
-              <td><?php echo $order->grand_total; ?></td>
+              <td><?php echo \App\Classes\CurrencyCONV::getPrice($order->grand_total, 'without'); ?></td>
             </tr>
           </tbody>
         </table>
