@@ -74,8 +74,8 @@ class ContactController extends Controller
             'updated_at' => new DateTime
         ]);
         $message = 'Your Otp for phone verification code is '.$otp_code;
-        Helper::SendSMS($phone, $message);
-        echo 'Otp code has been sent you. '.$otp_code;
+        $res = Helper::SendSMS($phone, $message);
+        echo 'Otp code has been sent you. ';
         die;
     }
     public static $enqueryRules = array(

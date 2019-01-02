@@ -308,6 +308,11 @@ jQuery(document).ready(function($) {
                 window.alert($(this).attr('data-placeholder')+' Is Required');
                 return false;
             }
+            if ($(this).attr('type') == 'email' && !isValidEmailAddress($(this).val())) {
+                $next = false;
+                window.alert($(this).attr('data-placeholder')+' in enter valid email ID');
+                return false;
+            }
         });
         if ($next == false) {
             return false;

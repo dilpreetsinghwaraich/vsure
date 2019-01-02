@@ -116,11 +116,11 @@
           <tbody>
             <tr>
               <td><b>Sub Total</b></td>
-              <td><?php echo \App\Classes\CurrencyCONV::getPrice($order->order_sub_total, 'without'); ?></td>
+              <td><?php echo \App\Classes\CurrencyCONV::getPrice($order->order_sub_total, 'with'); ?></td>
             </tr>
             <tr>
               <td><b>Grand Total</b></td>
-              <td><?php echo \App\Classes\CurrencyCONV::getPrice($order->grand_total, 'without'); ?></td>
+              <td><?php echo \App\Classes\CurrencyCONV::getPrice($order->grand_total, 'with'); ?></td>
             </tr>
           </tbody>
         </table>
