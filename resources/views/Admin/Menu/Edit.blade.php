@@ -18,7 +18,6 @@
                     <label for="post_parent">Parent</label>
                     <select name="post_parent" id="post_parent" class="form-control select2-multiple">
                       <option value="">Select Parent</option>
-                      <optgroup label="Blogs" id="blog" class="post_parent_group">
                         <?php
                           foreach ($parentMenus as $parentMenu) {
                             echo "<option value='".$parentMenu->post_id."' ".(!empty($parentMenu->post_slug) && $parentMenu->post_id == $menu->post_parent?"selected":"").">".$parentMenu->post_title."</option>";

@@ -74,7 +74,7 @@ class ContactController extends Controller
             'updated_at' => new DateTime
         ]);
         $message = 'Your Otp for phone verification code is '.$otp_code;
-        $res = Helper::SendSMS($phone, $message);
+        Helper::SendSMS($phone, $message);
         echo 'Otp code has been sent you. ';
         die;
     }
@@ -102,13 +102,13 @@ class ContactController extends Controller
                     return Redirect::back()->withInput(Input::all());   
                 }
                 
-                $otpTime = date('H:i:s',strtotime("+3 minutes", strtotime($otpCode->time)));
+                /*$otpTime = date('H:i:s',strtotime("+3 minutes", strtotime($otpCode->time)));
 
                 if ($otpTime < date('H:i:s')) {
                     Session::flash('warning', 'Your OTP is expired. Time is more then 3 minut .');
                     PhoneOtpVerification::where('otp_id', $otpCode->otp_id)->update(['otp_status'=>'expired']);
                     return Redirect::back()->withInput(Input::all());  
-                }
+                }*/
             }
             $password = str_random(8);
             $userType = '';

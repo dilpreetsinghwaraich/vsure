@@ -116,11 +116,11 @@
           <tbody>
             <tr>
               <td><b>Sub Total</b></td>
-              <td><?php echo \App\Classes\CurrencyCONV::getPrice($order->order_sub_total, 'with'); ?></td>
+              <td><?php echo \App\Classes\CurrencyCONV::getPrice($order->order_sub_total, 'without'); ?></td>
             </tr>
             <tr>
               <td><b>Grand Total</b></td>
-              <td><?php echo \App\Classes\CurrencyCONV::getPrice($order->grand_total, 'with'); ?></td>
+              <td><?php echo \App\Classes\CurrencyCONV::getPrice($order->grand_total, 'without'); ?></td>
             </tr>
           </tbody>
         </table>
@@ -154,6 +154,24 @@
                 }elseif($order->payment_method == 'paypal'){
                   ?>
                     <button onclick="window.location.href='<?php echo url('paypal/'.$order->invoice_id) ?>'">Pay Amount</button>
+                  <?php
+                }else{
+                  ?>
+                  <form action="{!!route('payment')!!}/<?php echo $order->invoice_id; ?>" method="POST" style="float: right;" >
+                      <script src="https://checkout.razorpay.com/v1/checkout.js"
+                              data-key="{{ Config::get('razorpay.razor_key') }}"
+                              data-amount="<?php echo $order->grand_total*100 ?>"
+                              data-buttontext="Razorpay"
+                              data-name="<?php echo $order->package_title; ?>"
+                              data-description="<?php echo strip_tags($package->package_content); ?>"
+                              data-image="<?php echo asset('/public'); ?>/images/logo.png"
+                              data-prefill.name="<?php echo $billing_address->name; ?>"
+                              data-prefill.email="<?php echo $billing_address->email; ?>"
+                              data-theme.color="#ff7529">
+                      </script>
+                      <input type="hidden" name="_token" value="{!!csrf_token()!!}">
+                  </form>
+                    <button onclick="window.location.href='<?php echo url('paypal/'.$order->invoice_id) ?>'">Paypal</button>
                   <?php
                 }                  
               }

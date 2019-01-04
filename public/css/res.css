@@ -309,13 +309,48 @@ div#social-links {
 .post_comment_form_container {
     margin: 0;
 }
-
+div#age-check-prompt {
+    border-radius: 10px;
+}
 .close_prompt_popup {
     position: absolute;
     right: 0;
     border-radius: 0;
+    background: none;
+    border: none;
 }
-
+.close_prompt_popup:hover{
+    background: none;
+    border: none;
+}
+.close_prompt_popup:active:focus{
+	background: none;
+    border: none;
+    outline:none;
+}
+.close_prompt_popup:active{
+    background: none;
+    border: none;
+    outline:none;
+}
+.close_prompt_popup:focus{
+    background: none;
+    border: none;
+    outline: none;
+}
+.close_prompt_popup i{
+	color: #666;
+}
+.close_prompt_popup i:hover{
+	color: #666;
+	font-size: 20px;
+}
+#age-check-prompt form input.btn {
+    background-color: #3bb54c;
+    border: #3bb54c;
+    width: 100%;
+    padding: 10px;
+}
 
 /********** Responsive **********/
 
