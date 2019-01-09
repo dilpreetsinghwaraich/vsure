@@ -13,7 +13,7 @@ if ($type == 'modal') {
   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 margin-btm-10">
   <?php
 }
-$cls = 'service';
+$cls = 'blog-post';
 if ($type == 'blog' || $type == 'modal') {
   $cls = 'blog-post';
 }
@@ -39,7 +39,7 @@ if ($type == 'blog' || $type == 'modal') {
   </style>
 
   <div class="banners-service-page <?php echo $cls; ?>">
-      <h4>Please fill up this enquiry form to continue your order</h4>
+      <h4>Create Your Service Request</h4>
     <?php 
       if ($type == 'modal') {
         ?>
@@ -53,6 +53,7 @@ if ($type == 'blog' || $type == 'modal') {
       <?php $user = \Helper::getCurrentUser(); ?>
       <?php echo Form::open(array('url' => 'submit/service/enquery', 'method' => 'post')) ?>
       <?php 
+        $show_otp_button = true;
         if (!empty($user->name)) {
           ?>
           <input type="hidden" value="<?php echo $user->name ?>" name="name">
@@ -80,6 +81,7 @@ if ($type == 'blog' || $type == 'modal') {
         }
 
         if (!empty($user->phone)) {
+          $show_otp_button = false;
           ?>
           <input type="hidden" value="<?php echo $user->phone ?>" name="phone">
           <?php
@@ -87,13 +89,17 @@ if ($type == 'blog' || $type == 'modal') {
           ?>
           <div class="form-group">
             <label class="label">Phone</label>
+            <input type="text" class="form-control InputNumber contact" placeholder="Phone" value="<?php echo old('phone') ?>" name="phone" required=""> 
+          </div>
+          <!-- <div class="form-group">
+            <label class="label">Phone</label>
             <input type="text" class="form-controlc InputNumber phone_otp_send contact" placeholder="Phone" value="<?php echo old('phone') ?>" name="phone" required=""> 
             <a href="javascript:void(0);" class="resend_code" <?php if(!empty(old('otp_code'))){?> style="display: block;" <?php }else{ ?>  style="display: none;" <?php } ?> onclick="$('.phone_otp_send').trigger('change');">Resend</a>
           </div>
           <div class="form-group otp_code_label" <?php if(!empty(old('otp_code'))){?> style="display: inline;" <?php }else{ ?>  style="display: none;" <?php } ?>>
             <label class="label " >Otp Code</label>
             <input type="text" class="form-controlc otp_code InputNumber" <?php if(!empty(old('otp_code'))){?> required <?php }?>placeholder="OTP CODE" value="<?php echo old('otp_code') ?>" name="otp_code">
-          </div>
+          </div> -->
           <?php
         }
         if ($type == 'blog') { 
@@ -121,7 +127,21 @@ if ($type == 'blog' || $type == 'modal') {
       <div class="form-group">
         <?php //echo Helper::getCityStateCountriesView(old('country'), old('state'), old('city')) ?>        
       </div>
-        <button type="submit" class="btn btn-info">Continue</button> 
+      <?php 
+      /*if($show_otp_button == true)
+      {
+        ?>
+        <button type="button" class="btn btn-info" id="send_otp" style="padding: 6px 12px;">Send OTP</button>
+        <button type="submit" class="btn btn-info" id="continue_request" style="display: none;padding: 6px 12px;">Continue</button> 
+        <?php
+      }else
+      {
+        ?>
+        <button type="submit" class="btn btn-info" style="padding: 6px 12px;">Continue</button> 
+        <?php     
+      }*/
+      ?>
+      <button type="submit" class="btn btn-info" style="padding: 6px 12px;">Continue</button>
       </form>
     </div>
   </div>

@@ -92,7 +92,7 @@ class ContactController extends Controller
 
             $currentUser = \Helper::getCurrentUser();
             if (empty($currentUser->user_id)) {
-                if (empty($request->input('otp_code'))) {
+                /*if (empty($request->input('otp_code'))) {
                     Session::flash('warning', 'Your Phone is not verify, please verify.');
                     return Redirect::back()->withInput(Input::all());
                 }
@@ -100,7 +100,7 @@ class ContactController extends Controller
                 if (empty($otpCode)) {
                     Session::flash('warning', 'Your OTP is invalid.');
                     return Redirect::back()->withInput(Input::all());   
-                }
+                }*/
                 
                 /*$otpTime = date('H:i:s',strtotime("+3 minutes", strtotime($otpCode->time)));
 
@@ -133,7 +133,7 @@ class ContactController extends Controller
             $mailHtml = view('EmailTemplate.ServiceRequestMail', compact('ticket','userType','email','password'));
             $subject = '[#'.$ticket.'] Need Help with : '.$service->service_title;
             if (empty($currentUser->user_id)) {
-                PhoneOtpVerification::where('otp_id', $otpCode->otp_id)->update(['otp_status'=>'verify']);
+                //PhoneOtpVerification::where('otp_id', $otpCode->otp_id)->update(['otp_status'=>'verify']);
             }
             Helper::SendEmail($request->input('email'), $subject, $mailHtml, '');
 

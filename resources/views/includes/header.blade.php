@@ -47,9 +47,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
          <div class="vsure-header-top">
           <div class="row">
             <div class="col-md-2 col-xs-2 col-sm-2">
-              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-              <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-              <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+              <a href="https://www.facebook.com/vsurecfo/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a href="https://twitter.com/vsurecfo"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href="https://www.linkedin.com/in/vsure-cfo-aab9a4120/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
             </div>
 
             <div class="col-md-10 col-xs-10 col-sm-10">

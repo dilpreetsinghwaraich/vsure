@@ -127,8 +127,12 @@ class ProfileController extends Controller
             Session::flash('error','Something Went Wrong, Please try after sometime');
             return redirect('my-account');
         }
+        $profile =  Helper::getCurrentUser();
         if (!$user = User::where('activation_key', $key)->get()->first()) {
             Session::flash('error','Looks like your activation key is expired');
+            if (empty($profile->user_id)) {
+                return redirect('auth/register');
+            }
             return redirect('my-account');
         }
         User::where('activation_key', $key)
@@ -136,6 +140,11 @@ class ProfileController extends Controller
                 'activation_key' => '',
                 'email_verified_at' => date('Y-m-d h:i:s'),
             ]);
+        
+        if (empty($profile->user_id)) {
+            Session::flash('success','Email varified successfully, Login to continue');
+            return redirect('auth/register');
+        }
         Session::flash('success','Email varified successfully');
         return redirect('my-account');
     }

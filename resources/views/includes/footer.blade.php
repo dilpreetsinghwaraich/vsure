@@ -63,13 +63,9 @@
               <hr class="bottom-lines">
               <p> VSURE CFO is an Indian cloud platform to support Indian startups and enterprenures for their business setup to smoothly compliances. We have established ourselves in October 2017 with a team of 2 founder. Now we have expended our services online with a team of 20+ and having 100+ startups. We are catering all startups services to compliance services. In today's era, we are going to establish ourselves as Regtech Company.</p>
               <ul>
-                <li class="fa fa-facebook fa-lg" aria-hidden="true"></li>
-                <li class="fa fa-twitter fa-lg" aria-hidden="true"></li>
-                <li class="fa fa-youtube-play fa-lg" aria-hidden="true"></li>
-                <li class="fa fa-google-plus fa-lg" aria-hidden="true"></li>
-                <li class="fa fa-linkedin fa-lg" aria-hidden="true"></li>
-                <li class="fa fa-skype fa-lg" aria-hidden="true"></li>
-                <li class="fa fa-envelope-o fa-lg" aria-hidden="true"></li>
+                <a href="https://www.facebook.com/vsurecfo/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a href="https://twitter.com/vsurecfo"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href="https://www.linkedin.com/in/vsure-cfo-aab9a4120/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
               </ul>
             </div>
           </div>
@@ -96,7 +92,7 @@
       </div>
       <div class="row">
         <div class="col-lg-8 col-xs-12">
-          <p style="color: #fff">Copyright 2012 - 2018 VSure Consulting  |  All Rights Reserved </p>
+          <p style="color: #fff">Copyright 2012 - 2019 VSure Consulting  |  All Rights Reserved </p>
         </div>
       </div>
     </div>

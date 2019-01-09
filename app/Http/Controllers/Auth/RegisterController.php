@@ -43,9 +43,10 @@ class RegisterController extends Controller
                 'email_verified_at' => '0',
                 'password' => Hash::make($request->input('password')),
             ]);
-
-            $htmlmessage = 'Please Click on this link to varify your email.';
-            $htmlmessage .= '<br>Click <a href="'.url('varify/email/link/'.$activation_key).'">Here</a>';
+            $name = $request->input('name');
+            $link = 'Click <a href="'.url('varify/email/link/'.$activation_key).'">Here</a>';
+            $htmlmessage = view('EmailTemplate.RegisterMail', compact('link','name'));
+            
             Helper::SendEmail($request->input('email'),'Varify Email At vsure',$htmlmessage,'');
 
             Session::flash('success','Account Created Successfully');

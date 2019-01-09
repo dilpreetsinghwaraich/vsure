@@ -269,7 +269,8 @@ jQuery(document).ready(function($) {
                 $this.closest('.service_Request_from').find('.serviceRequestResponse').html('<div class="alert alert-warning">Please enter phone.</div>');
                 return false;
             }
-
+            $('#send_otp').hide();
+            $('#continue_request').show();
             $this.closest('.service_Request_from').find('.serviceRequestResponse').html('<div class="alert alert-success">'+data+'</div>');
             $this.closest('.service_Request_from').find('.otp_code').show().prop('required', true);
             $this.closest('.service_Request_from').find('.otp_code_label, .resend_code').show();

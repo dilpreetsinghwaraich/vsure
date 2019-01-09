@@ -41,7 +41,7 @@ Route::get('/getCitiesByStateID/{state_id?}', function ($state_id = 0){
 	echo Helper::getCitiesByStateID($state_id);
 	die;
 });
-
+Route::get('varify/email/link/{key?}', 'Profile\ProfileController@varifyEmailLinkWithKey'); 
 Route::group(['middleware' => 'userToken'], function () {
 	Route::get('/my-account', 'Dashboard\DashboardController@dashboard');
 
@@ -51,7 +51,6 @@ Route::group(['middleware' => 'userToken'], function () {
 	Route::post('/update/profile', 'Profile\ProfileController@updateProfile');
 	Route::get('getStateCity/{state?}', 'Profile\ProfileController@getStateCity'); 
 	Route::post('varify/email', 'Profile\ProfileController@varifyEmail');
-	Route::get('varify/email/link/{key?}', 'Profile\ProfileController@varifyEmailLinkWithKey'); 
 
 	Route::get('/my-order', 'Orders\OrdersController@orders');
 	Route::get('/order/view/{invoice_id?}', 'Orders\OrdersController@invoice');

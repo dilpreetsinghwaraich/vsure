@@ -65,8 +65,8 @@
             </div>
             <div class="form-group">
               <label for="postal_code">Payment Method:- </label>
-              <label><input type="radio" name="payment_method" required="" value="razorpay" class="form-control"><img src="<?php echo asset('public/images/razorpay.png') ?>" style="width:90px"></label>
-              <label><input type="radio" name="payment_method" required="" value="paypal" class="form-control"><img src="<?php echo asset('public/images/paypal.png') ?>" style="width:90px"></label>
+              <label><input type="radio" name="payment_method" required="" checked="" value="razorpay" class="form-control"><img src="<?php echo asset('public/images/razorpay.png') ?>" style="width:90px"></label>
+              <!-- <label><input type="radio" name="payment_method" required="" value="paypal" class="form-control"><img src="<?php echo asset('public/images/paypal.png') ?>" style="width:90px"></label> -->
             </div>
             <div class="form-group">
                 <input class="btn btn-success" type="submit" value="Process Order">
