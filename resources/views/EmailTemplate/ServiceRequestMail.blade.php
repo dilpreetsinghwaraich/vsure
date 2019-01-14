@@ -4,13 +4,16 @@
   </div>
   <div style="width:710px;margin:0">
     <div class="adM"> </div>    
-    <p dir="ltr">Hi ,<br>
+    <p dir="ltr">Hi <?php echo $currentUser->name ?>,<br>
       <br>
-      Thanks for choosing <a href="<?php echo url('/') ?>" style="color:#0f8aec;border-bottom:1px dashed #0f8aec;text-decoration:none" target="_blank" >VsureCFO</a>, India's largest legal platform and official partner of Start-up India.</p>
-    <p dir="ltr">I'm Priya Prakash G, a business advisor here at&nbsp;<a href="<?php echo url('/') ?>" style="color:#0f8aec;border-bottom:1px dashed #0f8aec;text-decoration:none" target="_blank">vsurecfo.com</a>.&nbsp;</p>
-    <p dir="ltr">We offer the lowest price in India. If you sign up within the next 24 hours, you can incorporate your company at Rs. 4999, including Govt. Fees &amp; Taxes. Reply Now to avail this offer.<br>
+      Thank you for your inquiry for <?php echo $service->service_title ?>.</p>
+    <p dir="ltr">You are now in right hand for your service request. If You have not complete your service request form, You can do complete from below link : </p>
+    <br>
+    <p dir="ltr">Service Request Form : <a href="<?php echo url('/help/desk/ticket/'.$ticket) ?>" style="background:#8fca43;padding:13px 10px;color:#333;font-size:16px;border:0;border-radius:0;width:100%;text-decoration:none;text-transform:uppercase">Get started now</a></p></br>
+    <p dir="ltr">You can call us at +91-8800849054 for any query if you have.<br>
       <br>
-      We have a 15-day incorporation guarantee if you submit all your documents &amp; details&nbsp;within three days. You can also start submitting your documents right away!</p>
+      Also, we are giving away free consultation assistance to you if you contact us within 48 hours of your subscription.  </p>
+      <p dir="ltr">Don't hesitate to contact us if you have any questions or concerns. We consider our customers as apart of our family and we love to hear from them.</p>
     &nbsp;
     <br>
       <?php 
@@ -22,8 +25,15 @@
        <?php  
       } ?>
       <br>
+      Regards<br>
+      Team Vsure CFO<br>
+      Sector 47, <br>
+      Gurgaon<br>
+
     &nbsp;
-    <p style="text-align:center"><a href="<?php echo url('/help/desk/ticket/'.$ticket) ?>" style="background:#8fca43;padding:13px 10px;color:#333;font-size:16px;border:0;border-radius:0;width:100%;text-decoration:none;text-transform:uppercase">Get started now</a></p>
+    <p style="text-align:center">Please see - We are not spamming you in any way. You are receiving this email because you subscribed us on our website - <a href="<?php echo url('/') ?>" style="background:#8fca43;padding:13px 10px;color:#333;font-size:16px;border:0;border-radius:0;width:100%;text-decoration:none;text-transform:uppercase">www.vsurecfo.com</a><br>
+    In case you wish to unsubscribe, please reply to this email saying “Unsubscribe” and we’ll remove you from the list.
+    </p>
     &nbsp;&nbsp;
   </div>
 </div>

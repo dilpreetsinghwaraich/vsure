@@ -6,7 +6,7 @@
           <div class="container">
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 margin-btm-10">
               <div class="left-content">
-                <div class="row">
+                <div class="row">                
                   <?php echo $service->service_content; ?> </div>
               </div>
             </div>
@@ -21,6 +21,13 @@
   <!-- Feature start-->
   <section id="pvt-ltd-company" class="fadeIn delay-05s animated" style="visibility: visible; animation-name: fadeIn;">
     <div class="container">
+      <div class="col-md-12">
+        <?php if (isset($service->service_image) && !empty($service->service_image)) {
+          ?>
+          <img src="<?php echo asset('/').$service->service_image ?>" class="img-responsive">
+          <?php
+        } ?>
+      </div>
       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 margin-btm-10">
         <div class="pvt-ltd-company-main">
           <h2><?php echo (isset($service_question['title'])?$service_question['title']:'') ?></h2>

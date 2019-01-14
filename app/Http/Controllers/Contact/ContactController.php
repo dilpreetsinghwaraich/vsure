@@ -128,9 +128,11 @@ class ContactController extends Controller
                 $user_id = $currentUser->user_id;
             }
             $email = $request->input('phone');
+            $name = $request->input('name');
+            $currentUser = \Helper::getCurrentUser();
             $ticket = self::createServiceRequest($user_id, $request);
             $service = Services::find($request->input('service_id'));
-            $mailHtml = view('EmailTemplate.ServiceRequestMail', compact('ticket','userType','email','password'));
+            $mailHtml = view('EmailTemplate.ServiceRequestMail', compact('ticket','userType','email','password','currentUser','service'));
             $subject = '[#'.$ticket.'] Need Help with : '.$service->service_title;
             if (empty($currentUser->user_id)) {
                 //PhoneOtpVerification::where('otp_id', $otpCode->otp_id)->update(['otp_status'=>'verify']);

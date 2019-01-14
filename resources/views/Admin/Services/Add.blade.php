@@ -8,6 +8,10 @@
             <div class="form-group col-md-12">
               <label for="service_title">Title</label>
               <input type="text" class="form-control" id="service_title" name="service_title" value="<?php echo old('service_title'); ?>" placeholder="Title">
+            </div> 
+            <div class="form-group col-md-12">
+              <label for="service_image">Feature Image</label>
+              <input type="file" class="form-control" id="service_image" name="service_image">
             </div>                  
             <div class="form-group col-md-12">
               <label for="service_content">Content</label>

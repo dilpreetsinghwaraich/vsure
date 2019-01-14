@@ -13,7 +13,16 @@
               <label for="service_slug">Url</label>
               <br>
               service/<input type="text" style=" width: 300px; display: inline-block;" class="form-control" id="service_slug" name="service_slug" value="<?php echo $service->service_slug; ?>" placeholder="Url">
-            </div>                  
+            </div>  
+            <div class="form-group col-md-12">
+              <label for="service_image">Feature Image</label>
+              <input type="file" class="form-control" id="service_image" name="service_image" onchange="jQuery('#service_image_hide').hide();">
+              <?php if (isset($service->service_image) && !empty($service->service_image)) {
+                ?>
+                <img src="<?php echo asset('/').$service->service_image ?>" style="width:150px;height:150px;" id="service_image_hide">
+                <?php
+              } ?>
+            </div>                 
             <div class="form-group col-md-12">
               <label for="service_content">Content</label>
               <textarea class="form-control textarea" id="service_content" name="service_content" required placeholder="Content"><?php echo $service->service_content; ?></textarea>

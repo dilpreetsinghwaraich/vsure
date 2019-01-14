@@ -64,6 +64,9 @@ class AdminServicesController extends Controller
             }
             
             $service->service_title = $request->input('service_title');
+            if (!empty($request->file('service_image'))) {
+                $service->service_image = \Helper::fileuploadArray($request->file('service_image'));
+            }
             $service->service_slug = str_slug($request->input('service_title').' '.$count,'-');
             $service->service_content = $request->input('service_content');
             $service->service_questions = \Helper::maybe_serialize($service_questions);
@@ -221,6 +224,9 @@ class AdminServicesController extends Controller
             }   
 
     	    $service->service_title = $request->input('service_title');
+            if (!empty($request->file('service_image'))) {
+                $service->service_image = \Helper::fileuploadArray($request->file('service_image'));
+            }
             $service->service_slug = (empty($request->input('service_slug'))?str_slug($request->input('service_title').' '.$count,'-'):$request->input('service_slug'));
             $service->service_content = $request->input('service_content');
             $service->service_questions = \Helper::maybe_serialize($service_questions);
